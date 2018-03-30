@@ -145,10 +145,11 @@ function createTraitSelectionFrame(currentTraits, addTraitCallback)
         )
             local addTraitButton = Button.new("addTraitButton" .. trait, parent, "SQUARE", "ui/skins/default/parchment_header_min.png");
             addTraitButton:RegisterForClick(
-                "addTraitButton" .. trait .. "Listener" .. tostring(math.random()),
+                "addTraitButton" .. trait .. "Listener",
                 function(context)
-                    addTraitCallback(trait);
+                    traitSelectionFrameContainer:Clear();
                     traitSelectionFrame:Delete();
+                    addTraitCallback(trait);
                 end
             )
             return addTraitButton;
@@ -158,27 +159,7 @@ function createTraitSelectionFrame(currentTraits, addTraitCallback)
             traitList:AddContainer(traitRow);
         end
     end
-
-    -- local w, h = traitList.listContainer:Bounds();
-    -- output("list container :" .. w .. " " .. h);
-    -- local w, h = traitList.listBox:Bounds();
-    -- output("bounds before:" .. w .. " " .. h);
-    -- traitList.listBox:SetVisible(false);
-    -- traitList.listBox:SetDisabled(true);
-    -- traitList.listBox:SetCanResizeHeight(true);
-    -- traitList.listBox:Resize(traitList.listContainer:Bounds());
-    -- traitList.listBox:SetCanResizeHeight(false);
-    -- traitList.listBox:SetVisible(true);
-    -- traitList.listBox:SetDisabled(false);
-    -- local w, h = traitList.listBox:Bounds();
-    -- output("bounds after:" .. w .. " " .. h);
-
-    -- output_uicomponent(traitList.uic, false);
-    -- output_uicomponent(find_uicomponent(traitList.uic, "listview"), false);
-    -- output_uicomponent(find_uicomponent(traitList.uic, "list_clip"), false);
-    -- output_uicomponent(find_uicomponent(traitList.listBox), false);
-
-
+    
     traitSelectionFrameContainer:AddComponent(traitList);
     Util.centreComponentOnComponent(traitSelectionFrameContainer, traitSelectionFrame);
     return traitSelectionFrame;
@@ -282,26 +263,12 @@ function createCustomLordFrameUi(recruitCallback)
         trait, --: string
         parent --: COMPONENT_TYPE | CA_UIC
     )
-        local removeTraitButton = Button.new("removeTraitButton" .. trait .. tostring(math.random()), parent, "SQUARE", "ui/skins/default/parchment_header_max.png");
+        local removeTraitButton = Button.new("removeTraitButton" .. trait, parent, "SQUARE", "ui/skins/default/parchment_header_max.png");
         removeTraitButton:RegisterForClick(
-            "removeTraitButton" .. trait .. "Listener" .. tostring(math.random()),
+            "removeTraitButton" .. trait .. "Listener",
             function(context)
-                output("Removing trait: " .. trait);
-                output("Current traits: ");
-                output("Cleared current row container");
-                for i, trait in ipairs(selectedTraits) do
-                    output(trait);
-                end
-                output("End current traits");
-                removeFromList(selectedTraits, trait);
-                output("Removed trait: " .. trait);
-                output("Current traits: ");
-                output("Cleared current row container");
-                for i, trait in ipairs(selectedTraits) do
-                    output(trait);
-                end
-                output("End current traits");
 
+                removeFromList(selectedTraits, trait);
                 resetSelectedTraits(selectedTraits, traitRowsContainer, customLordFrame, removeTraitButtonFunction);
                 Util.centreComponentOnComponent(frameContainer, customLordFrame);
             end
@@ -318,23 +285,7 @@ function createCustomLordFrameUi(recruitCallback)
         function(context)
             local traitSelectionFrame = createTraitSelectionFrame(selectedTraits, 
                 function(addedTrait)
-                    output("Adding trait: " .. addedTrait);
-                    output("Current traits: ");
-                    output("Cleared current row container");
-                    for i, trait in ipairs(selectedTraits) do
-                        output(trait);
-                    end
-                    output("End current traits");
-
                     table.insert(selectedTraits, addedTrait);
-
-                    output("Added trait: " .. addedTrait);
-                    output("Current traits: ");
-                    output("Cleared current row container");
-                    for i, trait in ipairs(selectedTraits) do
-                        output(trait);
-                    end
-                    output("End current traits");
                     resetSelectedTraits(selectedTraits, traitRowsContainer, customLordFrame, removeTraitButtonFunction);
                     Util.centreComponentOnComponent(frameContainer, customLordFrame);
                 end
