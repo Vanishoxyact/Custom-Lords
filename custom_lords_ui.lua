@@ -1,4 +1,5 @@
 require("custom_lords_tables");
+require("custom_lords_util");
 
 --v function(buttons: vector<TEXT_BUTTON>)
 function setUpSingleButtonSelectedGroup(buttons)
@@ -71,7 +72,6 @@ function calculateImageAndToolTipForTraitEffectProperties(traitEffectProperties)
     local traitDescription = nil --: string
     local colour = nil --: string
     local traitEffect = traitEffectProperties["effect"];
-    output("effect: " .. traitEffect);
     local effectValue = tonumber(traitEffectProperties["value"]);
     local effects = TABLES["effects_tables"][traitEffect] --: map<string, string>
     if effectValue > 0 then
@@ -85,13 +85,9 @@ function calculateImageAndToolTipForTraitEffectProperties(traitEffectProperties)
     else
         colour = "dark_r";
     end
-    output("colour: " .. colour);        
 
-    output("traitImagePath: " .. traitImagePath);
     local effectDescriptionPath = "effects_description_" .. traitEffect;
-    output("effectDescriptionPath: " .. effectDescriptionPath);
     traitDescription = effect.get_localised_string(effectDescriptionPath);
-    output("traitDescription: " .. traitDescription);
 
     local effectSign = nil --: string
     if effectValue > 0 then
@@ -101,29 +97,21 @@ function calculateImageAndToolTipForTraitEffectProperties(traitEffectProperties)
     end
     traitDescription = string.gsub(traitDescription, "%%%+n", effectSign .. tostring(effectValue));
     traitDescription = string.gsub(traitDescription, "%%%n", tostring(effectValue));    
-    output("traitDescription replaced: " .. traitDescription);
 
     local traitEffectScope = traitEffectProperties["effect_scope"];
-    output("traitEffectScope: " .. traitEffectScope);
     local traitEffectScopePath = "campaign_effect_scopes_localised_text_" .. traitEffectScope;
-    output("traitEffectScopePath: " .. traitEffectScopePath);
     local traitEffectScopeDesc = effect.get_localised_string(traitEffectScopePath);        
-    output("traitEffectScopeDesc: " .. traitEffectScopeDesc);
 
     traitDescription = "[[col:" .. colour .. "]]" .. traitDescription .. traitEffectScopeDesc .. "[[/col]]";
-    output("traitDescription final: " .. traitDescription);
 
     return traitImagePath, traitDescription;
 end
 
 --v function(trait: string, parent: COMPONENT_TYPE | CA_UIC, buttonCreationFunction: function(trait:string, parent: COMPONENT_TYPE | CA_UIC) --> BUTTON) --> CONTAINER
 function createTraitRow(trait, parent, buttonCreationFunction)
-    output("createTraitRow: " .. trait);
     local traitRow = Container.new(FlowLayout.HORIZONTAL);
     local traitNameKey = "character_trait_levels_onscreen_name_" .. trait;
-    output("traitNameKey: " .. traitNameKey);
     local traitName = effect.get_localised_string(traitNameKey);
-    output("traitName: " .. traitName);
     local traitNameText = Text.new(trait .. "NameText", parent, "NORMAL", traitName);
     traitRow:AddComponent(traitNameText);
     local traitEffectsContainer = Container.new(FlowLayout.VERTICAL);
@@ -140,16 +128,6 @@ function createTraitRow(trait, parent, buttonCreationFunction)
     traitRow:AddComponent(traitEffectsContainer);
     traitRow:AddComponent(buttonCreationFunction(trait, parent));
     return traitRow;
-end
-
---v function(list: vector<string>, value: string) --> boolean
-function listContains(list, value)
-    for i, listValue in ipairs(list) do
-        if listValue == value then
-            return true;
-        end
-    end
-    return false;
 end
 
 --v function(currentTraits: vector<string>, addTraitCallback: function(string)) --> FRAME
@@ -170,30 +148,30 @@ function createTraitSelectionFrame(currentTraits, addTraitCallback)
                 "addTraitButton" .. trait .. "Listener" .. tostring(math.random()),
                 function(context)
                     addTraitCallback(trait);
-                    Util.delete(traitSelectionFrame.uic);
+                    traitSelectionFrame:Delete();
                 end
             )
             return addTraitButton;
         end
         if not listContains(currentTraits, trait) then
-            local traitRow = createTraitRow(trait, core:get_ui_root(), addTraitButtonFunction);
+            local traitRow = createTraitRow(trait, traitSelectionFrame, addTraitButtonFunction);
             traitList:AddContainer(traitRow);
         end
     end
 
-    local w, h = traitList.listContainer:Bounds();
-    output("list container :" .. w .. " " .. h);
-    local w, h = traitList.listBox:Bounds();
-    output("bounds before:" .. w .. " " .. h);
-    traitList.listBox:SetVisible(false);
-    traitList.listBox:SetDisabled(true);
-    traitList.listBox:SetCanResizeHeight(true);
-    traitList.listBox:Resize(traitList.listContainer:Bounds());
-    traitList.listBox:SetCanResizeHeight(false);
-    traitList.listBox:SetVisible(true);
-    traitList.listBox:SetDisabled(false);
-    local w, h = traitList.listBox:Bounds();
-    output("bounds after:" .. w .. " " .. h);
+    -- local w, h = traitList.listContainer:Bounds();
+    -- output("list container :" .. w .. " " .. h);
+    -- local w, h = traitList.listBox:Bounds();
+    -- output("bounds before:" .. w .. " " .. h);
+    -- traitList.listBox:SetVisible(false);
+    -- traitList.listBox:SetDisabled(true);
+    -- traitList.listBox:SetCanResizeHeight(true);
+    -- traitList.listBox:Resize(traitList.listContainer:Bounds());
+    -- traitList.listBox:SetCanResizeHeight(false);
+    -- traitList.listBox:SetVisible(true);
+    -- traitList.listBox:SetDisabled(false);
+    -- local w, h = traitList.listBox:Bounds();
+    -- output("bounds after:" .. w .. " " .. h);
 
     -- output_uicomponent(traitList.uic, false);
     -- output_uicomponent(find_uicomponent(traitList.uic, "listview"), false);
@@ -206,49 +184,27 @@ function createTraitSelectionFrame(currentTraits, addTraitCallback)
     return traitSelectionFrame;
 end
 
---v function(list: vector<string>, toRemove: string)
-function removeFromList(list, toRemove)
-    for i, value in ipairs(list) do
-        if value == toRemove then
-            table.remove(list, i);
-            return;
-        end
+--v function(currentTraits: vector<string>, traitRowContainer: CONTAINER, parent: COMPONENT_TYPE | CA_UIC, buttonCreationFunction: function(trait:string, parent: COMPONENT_TYPE | CA_UIC) --> BUTTON)
+function resetSelectedTraits(currentTraits, traitRowContainer, parent, buttonCreationFunction)
+    output("Current traits: ");
+    traitRowContainer:Clear();
+    for i, trait in ipairs(currentTraits) do
+        local traitRow = createTraitRow(trait, parent, buttonCreationFunction);
+        traitRowContainer:AddComponent(traitRow);
+        output(trait);
     end
+    output("End current traits");
 end
 
---v function(lordTypeButtonsMap: map<string, TEXT_BUTTON>) --> string
-function findSelectedLordType(lordTypeButtonsMap)
-    local selectedLordType = nil --: string
-    for lordType, lordTypeButton in pairs(lordTypeButtonsMap) do
-        if lordTypeButton:IsSelected() then
-            selectedLordType = lordType;
+--v function(idToButtonMap: map<string, TEXT_BUTTON>) --> string
+function findSelectedButton(idToButtonMap)
+    local selectedId = nil --: string
+    for id, button in pairs(idToButtonMap) do
+        if button:IsSelected() then
+            selectedId = id;
         end
     end
-    return selectedLordType;
-end
-
---v function(skillSetButtonsMap: map<string, TEXT_BUTTON>) --> string
-function findSelectedSkillSet(skillSetButtonsMap)
-    local selectedSkillSet = nil --: string
-    for skillSet, skillSetButton in pairs(skillSetButtonsMap) do
-        if skillSetButton:IsSelected() then
-            if skillSetButton:Visible() then
-                selectedSkillSet = skillSet;
-            end
-        end
-    end
-    return selectedSkillSet;
-end
-
---v function(traitButtonMap: map<string, TEXT_BUTTON>) --> string
-function findSelectedTrait(traitButtonMap)
-    local selectedTrait = nil --: string
-    for trait, traitButton in pairs(traitButtonMap) do
-        if traitButton:IsSelected() then
-            selectedTrait = trait;
-        end
-    end
-    return selectedTrait;
+    return selectedId;
 end
 
 --v function(recruitCallback: function(name: string, lordType: string, skillSet: string, traits: vector<string>)) --> FRAME
@@ -318,9 +274,11 @@ function createCustomLordFrameUi(recruitCallback)
 
     local selectedTraits = {} --: vector<string>
     table.insert(selectedTraits, "wh2_main_trait_defeated_teclis");
-    local traitToRow = {} --: map<string, CONTAINER>            
+    local traitToRow = {} --: map<string, CONTAINER>    
+    local traitRowsContainer = Container.new(FlowLayout.VERTICAL);  
 
-    local removeTraitButtonFunction = function(
+    local removeTraitButtonFunction = nil --: function(string, COMPONENT_TYPE | CA_UIC) --> BUTTON
+    removeTraitButtonFunction = function(
         trait, --: string
         parent --: COMPONENT_TYPE | CA_UIC
     )
@@ -328,20 +286,30 @@ function createCustomLordFrameUi(recruitCallback)
         removeTraitButton:RegisterForClick(
             "removeTraitButton" .. trait .. "Listener" .. tostring(math.random()),
             function(context)
+                output("Removing trait: " .. trait);
+                output("Current traits: ");
+                output("Cleared current row container");
+                for i, trait in ipairs(selectedTraits) do
+                    output(trait);
+                end
+                output("End current traits");
                 removeFromList(selectedTraits, trait);
-                traitToRow[trait]:SetVisible(false);
+                output("Removed trait: " .. trait);
+                output("Current traits: ");
+                output("Cleared current row container");
+                for i, trait in ipairs(selectedTraits) do
+                    output(trait);
+                end
+                output("End current traits");
+
+                resetSelectedTraits(selectedTraits, traitRowsContainer, customLordFrame, removeTraitButtonFunction);
                 Util.centreComponentOnComponent(frameContainer, customLordFrame);
             end
         )
         return removeTraitButton;
     end
 
-    local traitRowsContainer = Container.new(FlowLayout.VERTICAL);
-    for i, trait in ipairs(selectedTraits) do
-        local traitRow = createTraitRow(trait, customLordFrame, removeTraitButtonFunction);
-        traitRowsContainer:AddComponent(traitRow);
-        traitToRow[trait] = traitRow;
-    end
+    resetSelectedTraits(selectedTraits, traitRowsContainer, customLordFrame, removeTraitButtonFunction);
     frameContainer:AddComponent(traitRowsContainer);
 
     local addTraitButton = TextButton.new("addTraitButton", customLordFrame, "TEXT", "Add Trait");
@@ -350,11 +318,24 @@ function createCustomLordFrameUi(recruitCallback)
         function(context)
             local traitSelectionFrame = createTraitSelectionFrame(selectedTraits, 
                 function(addedTrait)
-                    output("trait added: " .. addedTrait);
-                    local traitRow = createTraitRow(addedTrait, customLordFrame, removeTraitButtonFunction);
-                    traitRowsContainer:AddComponent(traitRow);
-                    traitToRow[addedTrait] = traitRow;
+                    output("Adding trait: " .. addedTrait);
+                    output("Current traits: ");
+                    output("Cleared current row container");
+                    for i, trait in ipairs(selectedTraits) do
+                        output(trait);
+                    end
+                    output("End current traits");
+
                     table.insert(selectedTraits, addedTrait);
+
+                    output("Added trait: " .. addedTrait);
+                    output("Current traits: ");
+                    output("Cleared current row container");
+                    for i, trait in ipairs(selectedTraits) do
+                        output(trait);
+                    end
+                    output("End current traits");
+                    resetSelectedTraits(selectedTraits, traitRowsContainer, customLordFrame, removeTraitButtonFunction);
                     Util.centreComponentOnComponent(frameContainer, customLordFrame);
                 end
             );
@@ -372,8 +353,8 @@ function createCustomLordFrameUi(recruitCallback)
         function()
             recruitCallback(
                 lordNameTextBox.uic:GetStateText(),
-                findSelectedLordType(lordTypeButtons),
-                findSelectedSkillSet(skillSetToButtonMap),
+                findSelectedButton(lordTypeButtons),
+                findSelectedButton(skillSetToButtonMap),
                 selectedTraits
             );
         end
