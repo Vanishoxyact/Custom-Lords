@@ -1,6 +1,8 @@
 require("custom_lords_tables");
 require("custom_lords_util");
 
+local TOTAL_TRAIT_POINTS = 5;
+
 --v function(buttons: vector<TEXT_BUTTON>)
 function setUpSingleButtonSelectedGroup(buttons)
     for i, button in ipairs(buttons) do
@@ -113,7 +115,9 @@ function createTraitRow(trait, parent, buttonCreationFunction)
     local traitNameKey = "character_trait_levels_onscreen_name_" .. trait;
     local traitName = effect.get_localised_string(traitNameKey);
     local traitNameText = Text.new(trait .. "NameText", parent, "NORMAL", traitName);
+    traitNameText:Resize(140, traitNameText:Height());
     traitRow:AddComponent(traitNameText);
+    traitRow:AddGap(20);
     local traitEffectsContainer = Container.new(FlowLayout.VERTICAL);
     local traitEffects = TABLES["trait_level_effects_tables"][trait] --: vector<map<string, string>>
     for i, traitEffectProperties in ipairs(traitEffects) do
@@ -126,6 +130,7 @@ function createTraitRow(trait, parent, buttonCreationFunction)
         traitEffectsContainer:AddComponent(traitEffectContainer);
     end
     traitRow:AddComponent(traitEffectsContainer);
+    traitRow:AddGap(20);
     local traitCost = Text.new(trait .. "CostText", parent, "NORMAL", TRAIT_COSTS[trait] .. " Trait Points");
     traitCost:Resize(100, traitCost:Height());
     traitRow:AddComponent(traitCost);
@@ -140,6 +145,16 @@ function createTraitDivider(name, parent, width)
     return divider;
 end
 
+--v function(selectedTraits: vector<string>) --> number
+function calculateRemainingTraitPoints(selectedTraits)
+    local totalTraitPoints = tonumber(0);
+    for i, trait in ipairs(selectedTraits) do
+        local traitPointsForTrait = TRAIT_COSTS[trait];
+        totalTraitPoints = totalTraitPoints + traitPointsForTrait;
+    end
+    return TOTAL_TRAIT_POINTS - totalTraitPoints;
+end
+
 --v function(currentTraits: vector<string>, addTraitCallback: function(string)) --> FRAME
 function createTraitSelectionFrame(currentTraits, addTraitCallback)
     local traitSelectionFrame = Frame.new("traitSelectionFrame");
@@ -147,9 +162,10 @@ function createTraitSelectionFrame(currentTraits, addTraitCallback)
     --traitSelectionFrame:Scale(0.75);
     local traitSelectionFrameContainer = Container.new(FlowLayout.VERTICAL);
     local traitList = ListView.new("traitList", traitSelectionFrame);
-    traitList:Resize(700, traitSelectionFrame:Height() - 200);
+    traitList:Resize(600, traitSelectionFrame:Height() - 200);
     local divider = createTraitDivider("SelectFrameTopDivider", traitList, traitSelectionFrame:Width());
     traitList:AddComponent(divider);
+    local remainingTraitPoints = calculateRemainingTraitPoints(currentTraits);
     for i, trait in ipairs(TRAITS) do
         local addTraitButtonFunction = function(
             trait, --: string
@@ -164,6 +180,11 @@ function createTraitSelectionFrame(currentTraits, addTraitCallback)
                     addTraitCallback(trait);
                 end
             )
+            if remainingTraitPoints < TRAIT_COSTS[trait] then
+                addTraitButton.uic:SetDisabled(true);
+                addTraitButton.uic:SetOpacity(50);
+            end
+            addTraitButton:Resize(25, 25);
             return addTraitButton;
         end
         if not listContains(currentTraits, trait) then
@@ -184,6 +205,8 @@ function resetSelectedTraits(currentTraits, traitRowContainer, parent, buttonCre
     output("Current traits: ");
     --# assume parent: CA_UIC
     traitRowContainer:Clear();
+    local traitsText = Text.new("TraitPointsText", parent, "NORMAL", "Trait Points Remaining: " .. calculateRemainingTraitPoints(currentTraits));
+    traitRowContainer:AddComponent(traitsText);
     local divider = createTraitDivider("CurrentTraitsTopDivider", parent, parent:Width());
     traitRowContainer:AddComponent(divider);
     for i, trait in ipairs(currentTraits) do
@@ -212,7 +235,6 @@ function createCustomLordFrameUi(recruitCallback)
     local customLordFrame = Frame.new("customLordFrame");
     customLordFrame:SetTitle("Create your custom Lord");
     customLordFrame:Resize(customLordFrame:Width(), customLordFrame:Height() * 1.5);
-    --Util.centreComponentOnScreen(customLordFrame);
     customLordFrame:MoveTo(50, 100);
 
     local frameContainer = Container.new(FlowLayout.VERTICAL);        
@@ -286,12 +308,12 @@ function createCustomLordFrameUi(recruitCallback)
         removeTraitButton:RegisterForClick(
             "removeTraitButton" .. trait .. "Listener",
             function(context)
-
                 removeFromList(selectedTraits, trait);
                 resetSelectedTraits(selectedTraits, traitRowsContainer, customLordFrame, removeTraitButtonFunction);
-                Util.centreComponentOnComponent(frameContainer, customLordFrame);
+                frameContainer:PositionRelativeTo(customLordFrame, 50, 50);
             end
         )
+        removeTraitButton:Resize(25, 25);
         return removeTraitButton;
     end
 
@@ -306,16 +328,16 @@ function createCustomLordFrameUi(recruitCallback)
                 function(addedTrait)
                     table.insert(selectedTraits, addedTrait);
                     resetSelectedTraits(selectedTraits, traitRowsContainer, customLordFrame, removeTraitButtonFunction);
-                    Util.centreComponentOnComponent(frameContainer, customLordFrame);
+                    frameContainer:PositionRelativeTo(customLordFrame, 50, 50);
                 end
             );
             customLordFrame.uic:Adopt(traitSelectionFrame.uic:Address());
             traitSelectionFrame:PositionRelativeTo(customLordFrame, customLordFrame:Width()-300, 0);
         end
     );
-    frameContainer:AddComponent(addTraitButton);
 
-    Util.centreComponentOnComponent(frameContainer, customLordFrame);
+    frameContainer:AddComponent(addTraitButton);
+    frameContainer:PositionRelativeTo(customLordFrame, 50, 50);
 
     local region = string.sub(tostring(cm:get_campaign_ui_manager().settlement_selected), 12);
     local settlement = get_region(region):settlement();
