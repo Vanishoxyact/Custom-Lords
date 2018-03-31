@@ -38,7 +38,6 @@ table.insert(SKILL_SET_SKILLS["wh2_main_trait_hef_prince_magic"], "wh_main_skill
 TRAITS = {} --: vector<string>
 table.insert(TRAITS, "wh2_main_trait_defeated_teclis");
 table.insert(TRAITS, "wh2_main_trait_defeated_tyrion");
-
 table.insert(TRAITS, "wh2_main_skill_innate_all_aggressive");
 table.insert(TRAITS, "wh2_main_skill_innate_all_confident");
 table.insert(TRAITS, "wh2_main_skill_innate_all_cunning");
@@ -47,9 +46,27 @@ table.insert(TRAITS, "wh2_main_skill_innate_all_disciplined");
 table.insert(TRAITS, "wh2_main_skill_innate_all_fleet_footed");
 table.insert(TRAITS, "wh2_main_skill_innate_all_intelligent");
 table.insert(TRAITS, "wh2_main_skill_innate_all_knowledgeable");
--- table.insert(TRAITS, "wh2_main_skill_innate_all_perceptive");
--- table.insert(TRAITS, "wh2_main_skill_innate_all_strategist");
--- table.insert(TRAITS, "wh2_main_skill_innate_all_strong");
--- table.insert(TRAITS, "wh2_main_skill_innate_all_tactician");
--- table.insert(TRAITS, "wh2_main_skill_innate_all_tough");
--- table.insert(TRAITS, "wh2_main_skill_innate_all_weapon_master");
+table.insert(TRAITS, "wh2_main_skill_innate_all_perceptive");
+table.insert(TRAITS, "wh2_main_skill_innate_all_strategist");
+table.insert(TRAITS, "wh2_main_skill_innate_all_strong");
+table.insert(TRAITS, "wh2_main_skill_innate_all_tactician");
+table.insert(TRAITS, "wh2_main_skill_innate_all_tough");
+table.insert(TRAITS, "wh2_main_skill_innate_all_weapon_master");
+
+TRAIT_COSTS = {} --: map<string, number>
+TRAIT_COSTS["wh2_main_trait_defeated_teclis"] = 1;
+TRAIT_COSTS["wh2_main_trait_defeated_tyrion"] = 2;
+TRAIT_COSTS["wh2_main_skill_innate_all_aggressive"] = 1;
+TRAIT_COSTS["wh2_main_skill_innate_all_confident"] = 2;
+TRAIT_COSTS["wh2_main_skill_innate_all_cunning"] = 1;
+TRAIT_COSTS["wh2_main_skill_innate_all_determined"] = 2;
+TRAIT_COSTS["wh2_main_skill_innate_all_disciplined"] = 1;
+TRAIT_COSTS["wh2_main_skill_innate_all_fleet_footed"] = 2;
+TRAIT_COSTS["wh2_main_skill_innate_all_intelligent"] = 1;
+TRAIT_COSTS["wh2_main_skill_innate_all_knowledgeable"] = 2;
+TRAIT_COSTS["wh2_main_skill_innate_all_perceptive"] = 1;
+TRAIT_COSTS["wh2_main_skill_innate_all_strategist"] = 2;
+TRAIT_COSTS["wh2_main_skill_innate_all_strong"] = 1;
+TRAIT_COSTS["wh2_main_skill_innate_all_tactician"] = 2;
+TRAIT_COSTS["wh2_main_skill_innate_all_tough"] = 1;
+TRAIT_COSTS["wh2_main_skill_innate_all_weapon_master"] = 2;

@@ -126,8 +126,18 @@ function createTraitRow(trait, parent, buttonCreationFunction)
         traitEffectsContainer:AddComponent(traitEffectContainer);
     end
     traitRow:AddComponent(traitEffectsContainer);
+    local traitCost = Text.new(trait .. "CostText", parent, "NORMAL", TRAIT_COSTS[trait] .. " Trait Points");
+    traitCost:Resize(100, traitCost:Height());
+    traitRow:AddComponent(traitCost);
     traitRow:AddComponent(buttonCreationFunction(trait, parent));
     return traitRow;
+end
+
+--v function(name: string, parent: COMPONENT_TYPE | CA_UIC, width: number) --> IMAGE
+function createTraitDivider(name, parent, width)
+    local divider = Image.new(name, parent, "ui/skins/default/separator_line.png")
+    divider:Resize(width, 2);
+    return divider;
 end
 
 --v function(currentTraits: vector<string>, addTraitCallback: function(string)) --> FRAME
@@ -137,7 +147,9 @@ function createTraitSelectionFrame(currentTraits, addTraitCallback)
     --traitSelectionFrame:Scale(0.75);
     local traitSelectionFrameContainer = Container.new(FlowLayout.VERTICAL);
     local traitList = ListView.new("traitList", traitSelectionFrame);
-    traitList:Resize(500, traitSelectionFrame:Height() - 100);
+    traitList:Resize(700, traitSelectionFrame:Height() - 200);
+    local divider = createTraitDivider("SelectFrameTopDivider", traitList, traitSelectionFrame:Width());
+    traitList:AddComponent(divider);
     for i, trait in ipairs(TRAITS) do
         local addTraitButtonFunction = function(
             trait, --: string
@@ -157,6 +169,8 @@ function createTraitSelectionFrame(currentTraits, addTraitCallback)
         if not listContains(currentTraits, trait) then
             local traitRow = createTraitRow(trait, traitSelectionFrame, addTraitButtonFunction);
             traitList:AddContainer(traitRow);
+            local divider = createTraitDivider(trait .. "Divider", traitList, traitSelectionFrame:Width());
+            traitList:AddComponent(divider);
         end
     end
     
@@ -168,10 +182,15 @@ end
 --v function(currentTraits: vector<string>, traitRowContainer: CONTAINER, parent: COMPONENT_TYPE | CA_UIC, buttonCreationFunction: function(trait:string, parent: COMPONENT_TYPE | CA_UIC) --> BUTTON)
 function resetSelectedTraits(currentTraits, traitRowContainer, parent, buttonCreationFunction)
     output("Current traits: ");
+    --# assume parent: CA_UIC
     traitRowContainer:Clear();
+    local divider = createTraitDivider("CurrentTraitsTopDivider", parent, parent:Width());
+    traitRowContainer:AddComponent(divider);
     for i, trait in ipairs(currentTraits) do
         local traitRow = createTraitRow(trait, parent, buttonCreationFunction);
         traitRowContainer:AddComponent(traitRow);
+        local divider = createTraitDivider(trait .. "Divider", parent, parent:Width());
+        traitRowContainer:AddComponent(divider);
         output(trait);
     end
     output("End current traits");
@@ -291,7 +310,7 @@ function createCustomLordFrameUi(recruitCallback)
                 end
             );
             customLordFrame.uic:Adopt(traitSelectionFrame.uic:Address());
-            traitSelectionFrame:PositionRelativeTo(customLordFrame, customLordFrame:Width(), 0);
+            traitSelectionFrame:PositionRelativeTo(customLordFrame, customLordFrame:Width()-300, 0);
         end
     );
     frameContainer:AddComponent(addTraitButton);
