@@ -159,8 +159,13 @@ end
 function createTraitSelectionFrame(currentTraits, addTraitCallback)
     local traitSelectionFrame = Frame.new("traitSelectionFrame");
     traitSelectionFrame:SetTitle("Select the Trait to Add");
-    --traitSelectionFrame:Scale(0.75);
     local traitSelectionFrameContainer = Container.new(FlowLayout.VERTICAL);
+    traitSelectionFrame:AddCloseButton(
+        function()
+            traitSelectionFrameContainer:Clear();
+            traitSelectionFrame:Delete();
+        end
+    );
     local traitList = ListView.new("traitList", traitSelectionFrame);
     traitList:Resize(600, traitSelectionFrame:Height() - 200);
     local divider = createTraitDivider("SelectFrameTopDivider", traitList, traitSelectionFrame:Width());
@@ -238,12 +243,12 @@ function createCustomLordFrameUi(recruitCallback)
     customLordFrame:MoveTo(50, 100);
 
     local frameContainer = Container.new(FlowLayout.VERTICAL);        
-    local lordName = Text.new("lordName", customLordFrame, "NORMAL", "Name your Lord");
+    local lordName = Text.new("lordName", customLordFrame, "HEADER", "Name your Lord");
     frameContainer:AddComponent(lordName);
     local lordNameTextBox = TextBox.new("lordNameTextBox", customLordFrame);
     frameContainer:AddComponent(lordNameTextBox);
 
-    local lordTypeText = Text.new("lordTypeText", customLordFrame, "NORMAL", "Select your Lord type");
+    local lordTypeText = Text.new("lordTypeText", customLordFrame, "HEADER", "Select your Lord type");
     frameContainer:AddComponent(lordTypeText);
 
     local lordTypeButtons = createLordTypeButtons(cm:get_local_faction(), customLordFrame);
@@ -253,7 +258,7 @@ function createCustomLordFrameUi(recruitCallback)
     end
     frameContainer:AddComponent(buttonContainer);
 
-    local skillSetText = Text.new("skillSetText", customLordFrame, "NORMAL", "Select your Lord skill-set");
+    local skillSetText = Text.new("skillSetText", customLordFrame, "HEADER", "Select your Lord skill-set");
     frameContainer:AddComponent(skillSetText);
 
     local skillSetButtonsContainer = Container.new(FlowLayout.HORIZONTAL);
@@ -291,7 +296,7 @@ function createCustomLordFrameUi(recruitCallback)
     end
     frameContainer:AddComponent(skillSetButtonsContainer);
 
-    local traitsText = Text.new("traitsText", customLordFrame, "NORMAL", "Select your Lord traits");
+    local traitsText = Text.new("traitsText", customLordFrame, "HEADER", "Select your Lord traits");
     frameContainer:AddComponent(traitsText);
 
     local selectedTraits = {} --: vector<string>
@@ -310,7 +315,7 @@ function createCustomLordFrameUi(recruitCallback)
             function(context)
                 removeFromList(selectedTraits, trait);
                 resetSelectedTraits(selectedTraits, traitRowsContainer, customLordFrame, removeTraitButtonFunction);
-                frameContainer:PositionRelativeTo(customLordFrame, 50, 50);
+                frameContainer:PositionRelativeTo(customLordFrame, 20, 20);
             end
         )
         removeTraitButton:Resize(25, 25);
@@ -324,20 +329,24 @@ function createCustomLordFrameUi(recruitCallback)
     addTraitButton:RegisterForClick(
         "addTraitButtonClickListener", 
         function(context)
-            local traitSelectionFrame = createTraitSelectionFrame(selectedTraits, 
-                function(addedTrait)
-                    table.insert(selectedTraits, addedTrait);
-                    resetSelectedTraits(selectedTraits, traitRowsContainer, customLordFrame, removeTraitButtonFunction);
-                    frameContainer:PositionRelativeTo(customLordFrame, 50, 50);
-                end
-            );
-            customLordFrame.uic:Adopt(traitSelectionFrame.uic:Address());
-            traitSelectionFrame:PositionRelativeTo(customLordFrame, customLordFrame:Width()-300, 0);
+            local existingFrame = Util.getComponentWithName("traitSelectionFrame");
+            --# assume existingFrame: FRAME
+            if not existingFrame then
+                local traitSelectionFrame = createTraitSelectionFrame(selectedTraits, 
+                    function(addedTrait)
+                        table.insert(selectedTraits, addedTrait);
+                        resetSelectedTraits(selectedTraits, traitRowsContainer, customLordFrame, removeTraitButtonFunction);
+                        frameContainer:PositionRelativeTo(customLordFrame, 20, 20);
+                    end
+                );
+                customLordFrame.uic:Adopt(traitSelectionFrame.uic:Address());
+                traitSelectionFrame:PositionRelativeTo(customLordFrame, customLordFrame:Width()-300, 0);
+            end
         end
     );
 
     frameContainer:AddComponent(addTraitButton);
-    frameContainer:PositionRelativeTo(customLordFrame, 50, 50);
+    frameContainer:PositionRelativeTo(customLordFrame, 20, 20);
 
     local region = string.sub(tostring(cm:get_campaign_ui_manager().settlement_selected), 12);
     local settlement = get_region(region):settlement();
