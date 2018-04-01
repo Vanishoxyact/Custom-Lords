@@ -81,21 +81,18 @@ function createCustomLordFrame()
     local blocker = nil --: COMPONENT_TYPE
     cm:callback(
         function()
-            output("BLOCKER CALLBACK");
             blocker = Util.getComponentWithName("Blocker");
-            --# assume blocker : IMAGE
+            --# assume blocker : DUMMY
             if not blocker then
-                output("NEW BLOCKER");
-                blocker = Image.new("Blocker", core:get_ui_root(), "ui/skins/default/icon_end_turn.png");
+                blocker = Dummy.new(core:get_ui_root());
                 blocker:Resize(5000, 5000);
                 blocker:MoveTo(-500, -500);
-                blocker:SetOpacity(0);
-                blocker.uic:PropagatePriority(5);
+                blocker.uic:SetInteractive(true);
+                blocker.uic:PropagatePriority(50);
             else
-                output("BLOCKER FOUND");
                 blocker:SetVisible(true);
             end
-        end, 0.01, "asdasdasd"
+        end, 0.01, "BLOCKER_CALLBACK"
     );
 
     local existingFrame = Util.getComponentWithName("customLordFrame");
