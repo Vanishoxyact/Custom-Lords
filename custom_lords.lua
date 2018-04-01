@@ -173,12 +173,13 @@ end
 --v function() --> map<string, vector<string>>
 function createSkillToSkillSetMap()
     local skillToSkillSetMap = {} --: map<string, vector<string>>
-    for skillSet, skillSetSkills in pairs(SKILL_SET_SKILLS) do
-        for i, currentSkillSetSkill in ipairs(skillSetSkills) do
-            local skillSkillSets = skillToSkillSetMap[currentSkillSetSkill];
+    for skillSet, skillSetSkills in pairs(TABLES["skill_set_skills"]) do
+        for i, currentSkillSetSkillData in ipairs(skillSetSkills) do
+            local skill = currentSkillSetSkillData["skill_set_skill"];
+            local skillSkillSets = skillToSkillSetMap[skill];
             if not skillSkillSets then
                 skillSkillSets = {};
-                skillToSkillSetMap[currentSkillSetSkill] = skillSkillSets;
+                skillToSkillSetMap[skill] = skillSkillSets;
             end
             table.insert(skillSkillSets, skillSet);
         end

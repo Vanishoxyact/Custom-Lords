@@ -1,4 +1,3 @@
-require("custom_lords_tables");
 require("custom_lords_util");
 
 local TOTAL_TRAIT_POINTS = 5;
@@ -20,9 +19,9 @@ function setUpSingleButtonSelectedGroup(buttons)
     end
 end
 
---v function(lordType: string, frame: FRAME) --> TEXT_BUTTON
-function createLordTypeButton(lordType, frame)
-    local lordTypeButton = TextButton.new(lordType .. "Button", frame, "TEXT_TOGGLE", LORD_TYPE_NAMES[lordType]);
+--v function(lordType: string, lordTypeName: string, frame: FRAME) --> TEXT_BUTTON
+function createLordTypeButton(lordType, lordTypeName, frame)
+    local lordTypeButton = TextButton.new(lordType .. "Button", frame, "TEXT_TOGGLE", lordTypeName);
     lordTypeButton:Resize(300, lordTypeButton:Height());
     lordTypeButton:SetState("active");
     return lordTypeButton;
@@ -32,21 +31,24 @@ end
 function createLordTypeButtons(currentFaction, frame)
     local buttons = {} --: vector<TEXT_BUTTON>
     local buttonsMap = {} --: map<string, TEXT_BUTTON>
-    for i, lordType in ipairs(FACTION_LORD_TYPES[currentFaction]) do
-        local button = createLordTypeButton(lordType, frame);
-        if i == 1 then
-            button:SetState("selected");
-        end
-        buttonsMap[lordType] = button;
-        table.insert(buttons, button);
+    local first = true;
+        for i, factionLordType in ipairs(TABLES["faction_lord_types"][currentFaction]) do
+            local lordType = factionLordType["lord_type"];
+            local button = createLordTypeButton(lordType, factionLordType["lord_type_name"], frame);
+            if first then
+                button:SetState("selected");
+            end
+            first = false;
+            buttonsMap[lordType] = button;
+            table.insert(buttons, button);
     end
     setUpSingleButtonSelectedGroup(buttons);
     return buttonsMap;
 end
 
---v function(skillSet: string, frame: FRAME) --> TEXT_BUTTON
-function createSkillSetButton(skillSet, frame)
-    local skillSetButton = TextButton.new(skillSet .. "Button", frame, "TEXT_TOGGLE", SKILL_SETS_NAMES[skillSet]);
+--v function(skillSet: string, skillSetName: string, frame: FRAME) --> TEXT_BUTTON
+function createSkillSetButton(skillSet, skillSetName, frame)
+    local skillSetButton = TextButton.new(skillSet .. "Button", frame, "TEXT_TOGGLE", skillSetName);
     skillSetButton:Resize(300, skillSetButton:Height());
     skillSetButton:SetState("active");
     return skillSetButton;
@@ -56,8 +58,9 @@ end
 function createSkillSetButtons(lordType, frame)
     local buttons = {} --: vector<TEXT_BUTTON>
     local buttonsMap = {} --: map<string, TEXT_BUTTON>
-    for i, skillSet in ipairs(LORD_SKILL_SETS[lordType]) do
-        local button = createSkillSetButton(skillSet, frame);
+    for i, lordType in ipairs(TABLES["lord_types"][lordType]) do
+        local skillSet = lordType["skill_set"];
+        local button = createSkillSetButton(skillSet, lordType["skill_set_name"], frame);
         if i == 1 then
             button:SetState("selected");
         end
@@ -131,7 +134,7 @@ function createTraitRow(trait, parent, buttonCreationFunction)
     end
     traitRow:AddComponent(traitEffectsContainer);
     traitRow:AddGap(20);
-    local traitCost = Text.new(trait .. "CostText", parent, "NORMAL", TRAIT_COSTS[trait] .. " Trait Points");
+    local traitCost = Text.new(trait .. "CostText", parent, "NORMAL", tonumber(TABLES["traits"][trait]["trait_cost"]) .. " Trait Points");
     traitCost:Resize(100, traitCost:Height());
     traitRow:AddComponent(traitCost);
     traitRow:AddComponent(buttonCreationFunction(trait, parent));
@@ -149,7 +152,7 @@ end
 function calculateRemainingTraitPoints(selectedTraits)
     local totalTraitPoints = tonumber(0);
     for i, trait in ipairs(selectedTraits) do
-        local traitPointsForTrait = TRAIT_COSTS[trait];
+        local traitPointsForTrait = tonumber(TABLES["traits"][trait]["trait_cost"]);
         totalTraitPoints = totalTraitPoints + traitPointsForTrait;
     end
     return TOTAL_TRAIT_POINTS - totalTraitPoints;
@@ -171,7 +174,8 @@ function createTraitSelectionFrame(currentTraits, addTraitCallback)
     local divider = createTraitDivider("SelectFrameTopDivider", traitList, traitSelectionFrame:Width());
     traitList:AddComponent(divider);
     local remainingTraitPoints = calculateRemainingTraitPoints(currentTraits);
-    for i, trait in ipairs(TRAITS) do
+    --TABLES[traits]
+    for trait, traitData in pairs(TABLES["traits"]) do
         local addTraitButtonFunction = function(
             trait, --: string
             parent --: COMPONENT_TYPE | CA_UIC
@@ -185,7 +189,7 @@ function createTraitSelectionFrame(currentTraits, addTraitCallback)
                     addTraitCallback(trait);
                 end
             )
-            if remainingTraitPoints < TRAIT_COSTS[trait] then
+            if remainingTraitPoints < tonumber(TABLES["traits"][trait]["trait_cost"]) then
                 addTraitButton.uic:SetDisabled(true);
                 addTraitButton.uic:SetOpacity(50);
             end
