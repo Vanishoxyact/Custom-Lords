@@ -325,7 +325,7 @@ function createCustomLordFrameUi(recruitCallback)
                         end
                     end
                 end
-                Util.centreComponentOnComponent(frameContainer, customLordFrame);
+                frameContainer:Reposition();
             end
         );
     end
