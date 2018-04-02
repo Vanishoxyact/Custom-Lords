@@ -3,7 +3,6 @@ Traits per faction?
 Esc key listener
 Frame resizing
 Name length, multiple boxes?
-Close button image
 Crash when clicking settlement
 Negative traits
 Army upkeep
@@ -11,9 +10,12 @@ Recruting into sea
 Default skill list if normal recuit
 Move container into frame
 List addContainer -> addComponent
-trait to incident table
+Trait to incident table
 Swap between lord type re-centres, container:Rearrange?
+Button click listener, is name needed?
+Treasury icon size
 
 Completed
 Add cost to UI, disable recuit if not enough gold
 Remove add trait button if more than 5
+Close button image

@@ -167,8 +167,8 @@ function createTraitSelectionFrame(currentTraits, addTraitCallback)
     traitSelectionFrame:AddCloseButton(
         function()
             traitSelectionFrameContainer:Clear();
-            traitSelectionFrame:Delete();
-        end
+        end,
+        true
     );
     local traitList = ListView.new("traitList", traitSelectionFrame);
     traitList:Resize(600, traitSelectionFrame:Height() - 200);
