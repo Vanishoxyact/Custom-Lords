@@ -1,7 +1,6 @@
 Required
 Look at table ordering
 Force name
-Add cancel button
 Default skill list if normal recuit
 
 Nice to have
@@ -24,3 +23,4 @@ Button click listener, is name needed?
 Crash when clicking settlement
 Move container into frame
 Esc key listener
+Add cancel button

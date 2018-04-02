@@ -393,9 +393,17 @@ function createCustomLordFrameUi(recruitCallback)
     updateRecruitButton();
     recuitContainer:AddComponent(recuitButton);
 
+    local closeButton = Button.new("CustomLordFrameCloseButton", customLordFrame, "CIRCULAR", "ui/skins/warhammer2/icon_cross.png");
+    closeButton:RegisterForClick(
+        function(context)
+            customLordFrame:Delete();
+        end
+    );
+    recuitContainer:AddComponent(closeButton);
+
     Util.centreComponentOnComponent(recuitContainer, customLordFrame);
     local xPos, yPos = recuitContainer:Position();
-    recuitContainer:MoveTo(xPos, yPos + (customLordFrame:Height() / 2 - 100));
+    recuitContainer:MoveTo(xPos, yPos + (customLordFrame:Height() / 2) - 50);
 
     customLordFrame.uic:PropagatePriority(100);
     return customLordFrame;
