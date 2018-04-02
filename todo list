@@ -1,5 +1,3 @@
-Add cost to UI, disable recuit if not enough gold
-Remove add trait button if more than 5
 Look at table ordering
 Traits per faction?
 Esc key listener
@@ -14,3 +12,8 @@ Default skill list if normal recuit
 Move container into frame
 List addContainer -> addComponent
 trait to incident table
+Swap between lord type re-centres, container:Rearrange?
+
+Completed
+Add cost to UI, disable recuit if not enough gold
+Remove add trait button if more than 5

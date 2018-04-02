@@ -1,6 +1,7 @@
 require("custom_lords_util");
 
 local TOTAL_TRAIT_POINTS = 5;
+local MAX_TRAITS = 4;
 
 --v function(buttons: vector<TEXT_BUTTON>)
 function setUpSingleButtonSelectedGroup(buttons)
@@ -208,6 +209,17 @@ function createTraitSelectionFrame(currentTraits, addTraitCallback)
     return traitSelectionFrame;
 end
 
+--v function(currentTraits: vector<string>)
+function updateAddTraitButton(currentTraits)
+    local addTraitButton = Util.getComponentWithName("addTraitButton");
+    --# assume addTraitButton: TEXT_BUTTON
+    if #currentTraits < MAX_TRAITS then
+        addTraitButton:SetVisible(true);
+    else
+        addTraitButton:SetVisible(false);
+    end
+end
+
 --v function(currentTraits: vector<string>, traitRowContainer: CONTAINER, parent: COMPONENT_TYPE | CA_UIC, buttonCreationFunction: function(trait:string, parent: COMPONENT_TYPE | CA_UIC) --> BUTTON)
 function resetSelectedTraits(currentTraits, traitRowContainer, parent, buttonCreationFunction)
     output("Current traits: ");
@@ -225,6 +237,7 @@ function resetSelectedTraits(currentTraits, traitRowContainer, parent, buttonCre
         output(trait);
     end
     output("End current traits");
+    updateAddTraitButton(currentTraits);
 end
 
 --v function(idToButtonMap: map<string, TEXT_BUTTON>) --> string
@@ -243,6 +256,7 @@ function calculateRecruitmentCost()
     return 1000;
 end
 
+--v function()
 function updateRecruitButton()
     local recuitButton = Util.getComponentWithName("recruitButton");
     --# assume recuitButton: TEXT_BUTTON
@@ -343,7 +357,6 @@ function createCustomLordFrameUi(recruitCallback)
         return removeTraitButton;
     end
 
-    resetSelectedTraits(selectedTraits, traitRowsContainer, customLordFrame, removeTraitButtonFunction);
     frameContainer:AddComponent(traitRowsContainer);
 
     local addTraitButton = TextButton.new("addTraitButton", customLordFrame, "TEXT", "Add Trait");
@@ -365,8 +378,9 @@ function createCustomLordFrameUi(recruitCallback)
             end
         end
     );
-
     frameContainer:AddComponent(addTraitButton);
+
+    resetSelectedTraits(selectedTraits, traitRowsContainer, customLordFrame, removeTraitButtonFunction);
     frameContainer:PositionRelativeTo(customLordFrame, 20, 20);
 
     local recuitContainer = Container.new(FlowLayout.HORIZONTAL);
