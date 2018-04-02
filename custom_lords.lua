@@ -1,12 +1,32 @@
 require("custom_lords_ui");
 
---v function(selectedSkillSet: string, selectedTraits: vector<string>, lordName: string)
-function lordCreated(selectedSkillSet, selectedTraits, lordName)
+--v function() --> string
+function calculateUpkeepEffectBundle()
+    local difficultyLevel = cm:model():difficulty_level();
+    if difficultyLevel == 1 then					-- easy
+        return "wh_main_bundle_force_additional_army_upkeep_easy"
+    elseif difficultyLevel == 0 then				-- normal
+        return "wh_main_bundle_force_additional_army_upkeep_normal"
+    elseif difficultyLevel == -1 then				-- hard
+        return "wh_main_bundle_force_additional_army_upkeep_hard"
+    elseif difficultyLevel == -2 then				-- very hard
+        return "wh_main_bundle_force_additional_army_upkeep_very_hard"
+    elseif difficultyLevel == -3 then				-- legendary
+        return "wh_main_bundle_force_additional_army_upkeep_legendary"
+    end;
+    return "";
+end
+
+--v function(selectedSkillSet: string, selectedTraits: vector<string>, lordName: string, lordCqi: CA_CQI)
+function lordCreated(selectedSkillSet, selectedTraits, lordName, lordCqi)
     -- Add traits
     cm:force_add_trait_on_selected_character(selectedSkillSet);
     for i, trait in ipairs(selectedTraits) do
         cm:force_add_trait_on_selected_character(trait);
     end
+
+    -- Add additional army upkeep effect bundle
+    cm:apply_effect_bundle_to_characters_force(calculateUpkeepEffectBundle(), lordCqi, -1, false);
 
     -- Remove un-needed unit
     find_uicomponent(core:get_ui_root(), "units_panel", "main_units_panel", "units", "LandUnit 1"):SimulateLClick();
@@ -119,7 +139,7 @@ function createCustomLordFrame()
         )
             createLord(lordType, 
                 function(context)
-                    lordCreated(skillSet, traits, name);
+                    lordCreated(skillSet, traits, name, context);
                 end
             );
             --# assume blocker: IMAGE
