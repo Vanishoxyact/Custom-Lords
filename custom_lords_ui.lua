@@ -164,12 +164,8 @@ function createTraitSelectionFrame(currentTraits, addTraitCallback)
     local traitSelectionFrame = Frame.new("traitSelectionFrame");
     traitSelectionFrame:SetTitle("Select the Trait to Add");
     local traitSelectionFrameContainer = Container.new(FlowLayout.VERTICAL);
-    traitSelectionFrame:AddCloseButton(
-        function()
-            traitSelectionFrameContainer:Clear();
-        end,
-        true
-    );
+    traitSelectionFrame:AddComponent(traitSelectionFrameContainer);
+    traitSelectionFrame:AddCloseButton();
     local traitList = ListView.new("traitList", traitSelectionFrame);
     traitList:Resize(600, traitSelectionFrame:Height() - 200);
     local divider = createTraitDivider("SelectFrameTopDivider", traitList, traitSelectionFrame:Width());
@@ -183,7 +179,6 @@ function createTraitSelectionFrame(currentTraits, addTraitCallback)
             local addTraitButton = Button.new("addTraitButton" .. trait, parent, "SQUARE", "ui/skins/default/parchment_header_min.png");
             addTraitButton:RegisterForClick(
                 function(context)
-                    traitSelectionFrameContainer:Clear();
                     traitSelectionFrame:Delete();
                     addTraitCallback(trait);
                 end
@@ -276,7 +271,8 @@ function createCustomLordFrameUi(recruitCallback)
     customLordFrame:Resize(customLordFrame:Width(), customLordFrame:Height() * 1.5);
     customLordFrame:MoveTo(50, 100);
 
-    local frameContainer = Container.new(FlowLayout.VERTICAL);        
+    local frameContainer = Container.new(FlowLayout.VERTICAL);    
+    customLordFrame:AddComponent(frameContainer);
     local lordName = Text.new("lordName", customLordFrame, "HEADER", "Name your Lord");
     frameContainer:AddComponent(lordName);
     local lordNameTextBox = TextBox.new("lordNameTextBox", customLordFrame);
@@ -381,6 +377,7 @@ function createCustomLordFrameUi(recruitCallback)
     frameContainer:PositionRelativeTo(customLordFrame, 20, 20);
 
     local recuitContainer = Container.new(FlowLayout.HORIZONTAL);
+    customLordFrame:AddComponent(recuitContainer);
     local recuitButton = TextButton.new("recruitButton", customLordFrame, "TEXT", "");
     recuitButton:RegisterForClick(
         function(context)
@@ -390,8 +387,6 @@ function createCustomLordFrameUi(recruitCallback)
                 findSelectedButton(skillSetToButtonMap),
                 selectedTraits
             );
-            frameContainer:Clear();
-            recuitContainer:Clear();
             customLordFrame:Delete();
         end
     );

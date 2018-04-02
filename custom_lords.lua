@@ -111,6 +111,7 @@ function createLord(selectedLordType, lordCreatedCallback)
     );
 end
 
+--v function()
 function createCustomLordFrame()
     local blocker = nil --: COMPONENT_TYPE
     cm:callback(
@@ -123,6 +124,11 @@ function createCustomLordFrame()
                 blocker:MoveTo(-500, -500);
                 blocker.uic:SetInteractive(true);
                 blocker.uic:PropagatePriority(50);
+                local customLordFrame = Util.getComponentWithName("customLordFrame");
+                --# assume customLordFrame: FRAME
+                if customLordFrame then
+                    customLordFrame:AddComponent(blocker);
+                end
             else
                 blocker:SetVisible(true);
             end
@@ -130,29 +136,25 @@ function createCustomLordFrame()
     );
 
     local existingFrame = Util.getComponentWithName("customLordFrame");
-    if not existingFrame then
-        local recruitCallback = function(
-            name, --: string
-            lordType, --: string
-            skillSet, --: string
-            traits --: vector<string>
-        )
-            createLord(lordType, 
-                function(context)
-                    lordCreated(skillSet, traits, name, context);
-                end
-            );
-            --# assume blocker: IMAGE
-            blocker.uic:SetVisible(false);
-        end
-
-        createCustomLordFrameUi(recruitCallback);
-    else
-        --# assume existingFrame: FRAME
-        existingFrame:SetVisible(true); 
+    local recruitCallback = function(
+        name, --: string
+        lordType, --: string
+        skillSet, --: string
+        traits --: vector<string>
+    )
+        createLord(lordType, 
+            function(context)
+                lordCreated(skillSet, traits, name, context);
+            end
+        );
+        --# assume blocker: IMAGE
+        blocker.uic:SetVisible(false);
     end
+
+    createCustomLordFrameUi(recruitCallback);
 end
 
+--v function()
 function attachButtonToLordRecuitment()
     core:add_listener(
         "CustomLordButtonAdder",
@@ -242,8 +244,8 @@ function getSelectedChar()
     return get_character_by_cqi(cqi);
 end
 
-function custom_lords()
-    attachButtonToLordRecuitment();
+--v function()
+function attachSkillListener()
     core:add_listener(
         "CustomLordsSkillHider",
         "PanelOpenedCampaign",
@@ -277,11 +279,45 @@ function custom_lords()
     );
 end
 
---tooltip generation
---trait --> character_trait_levels --> trait_level_effects --> effects
---                                 --> campaign_effect_scopes
+--v function()
+function destroyCustomLordFrame()
+    local customLordFrame = Util.getComponentWithName("customLordFrame");
+    --# assume customLordFrame: FRAME
+    if customLordFrame then
+        customLordFrame:Delete();
+    end
+end
 
--- build_frame_cross.png
--- icon_cross_square_red.png
--- parchment_header_min.png
--- parchment_header_max.png
+--v function()
+function addEscapeButtonListener()
+    core:add_listener(
+		"CustomLordsEscapeButtonListener",
+		"ShortcutTriggered",
+        function(context) 
+            return context.string == "escape_menu";
+        end,
+        function()
+            destroyCustomLordFrame();
+		end,
+		true
+    );
+    
+    core:add_listener(
+        "CustomLordsEscapeButtonListenerPanel",
+        "PanelClosedCampaign",
+        function(context) 
+            return context.string == "character_panel"; 
+        end,
+        function(context)
+            destroyCustomLordFrame();
+        end,
+        true
+    );
+end
+
+--v function()
+function custom_lords()
+    attachButtonToLordRecuitment();
+    attachSkillListener();
+    addEscapeButtonListener();
+end

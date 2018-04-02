@@ -1,16 +1,17 @@
+Required
 Look at table ordering
+Force name
+Add cancel button
+Default skill list if normal recuit
+
+Nice to have
 Traits per faction?
-Esc key listener
 Frame resizing
 Name length, multiple boxes?
 Negative traits
 Recruting into sea
-Default skill list if normal recuit
-Move container into frame
 Trait to incident table
 Treasury icon size
-Force name
-Add cancel button
 
 Completed
 Add cost to UI, disable recuit if not enough gold
@@ -21,3 +22,5 @@ Swap between lord type re-centres, container:Rearrange?
 List addContainer -> addComponent
 Button click listener, is name needed?
 Crash when clicking settlement
+Move container into frame
+Esc key listener
