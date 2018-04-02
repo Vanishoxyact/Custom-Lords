@@ -8,13 +8,13 @@ faction_lord_types = {
 }
 
 lord_types = {
-	SCHEMA = {"key", "skill_set", "skill_set_name"},
+	SCHEMA = {"key", "skill_set", "skill_set_name", "default_skill_set"},
 	KEY = {"key", "LIST"},
 	DATA = {
-        {"wh2_main_hef_prince", "wh2_main_trait_hef_prince_melee", "Melee"},
-        {"wh2_main_hef_prince", "wh2_main_trait_hef_prince_magic", "Magic"},
-        {"wh2_main_hef_princess", "wh2_main_trait_hef_princess_ranged", "Ranged"},
-        {"wh2_main_hef_princess", "wh2_main_trait_hef_princess_magic", "Magic"}
+        {"wh2_main_hef_prince", "wh2_main_trait_hef_prince_melee", "Melee", "TRUE"},
+        {"wh2_main_hef_prince", "wh2_main_trait_hef_prince_magic", "Magic", "FALSE"},
+        {"wh2_main_hef_princess", "wh2_main_trait_hef_princess_ranged", "Ranged", "TRUE"},
+        {"wh2_main_hef_princess", "wh2_main_trait_hef_princess_magic", "Magic", "FALSE"}
     }
 }
 

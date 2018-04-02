@@ -14,6 +14,7 @@ function calculateUpkeepEffectBundle()
     elseif difficultyLevel == -3 then				-- legendary
         return "wh_main_bundle_force_additional_army_upkeep_legendary"
     end;
+    output("Failed to calculate upkeep effect bundle for difficulty: " .. difficultyLevel);
     return "";
 end
 
@@ -244,6 +245,39 @@ function getSelectedChar()
     return get_character_by_cqi(cqi);
 end
 
+--v function(char: CA_CHAR) --> boolean
+function charHasSkillSetTrait(char)
+    for skillSetTrait, traitTable in pairs(TABLES["skill_set_skills"]) do
+        if char:has_trait(skillSetTrait) then
+            return true;
+        end
+    end
+    return false;
+end
+
+--v function(char: CA_CHAR) --> boolean
+function charHasCustomSkills(char)
+    local lordType = char:character_subtype_key();
+    for i, factionTable in ipairs(TABLES["faction_lord_types"][cm:get_local_faction()]) do
+        if factionTable["lord_type"]  == lordType then
+            return true;
+        end
+    end 
+    return false;
+end
+
+--v function(lordType: string) --> string
+function findDefaultSkillSet(lordType)
+    local defaultSkillSet = nil --: string
+    for i, lordTypeTable in ipairs(TABLES["lord_types"][lordType]) do
+        if lordTypeTable["default_skill_set"] then
+            return lordTypeTable["skill_set"];
+        end
+    end 
+    output("Failed to find default skillset for lord type: " .. lordType);
+    return "";
+end
+
 --v function()
 function attachSkillListener()
     core:add_listener(
@@ -253,9 +287,17 @@ function attachSkillListener()
             return context.string == "character_details_panel"; 
         end,
         function(context)
-            local skillToSkillSetMap = createSkillToSkillSetMap();
             local selectedChar = getSelectedChar();
+            if not charHasCustomSkills(selectedChar) then
+                output("Char does not have custom skill sets: " .. selectedChar:character_subtype_key());
+                return;
+            end
+            
             local chain = find_uicomponent(core:get_ui_root(), "character_details_panel", "background", "skills_subpanel", "listview", "list_clip", "list_box", "chain2", "chain");
+            local skillToSkillSetMap = createSkillToSkillSetMap();
+            local charHasSkillSetTrait = charHasSkillSetTrait(selectedChar);
+            local defaultSkillSet = findDefaultSkillSet(selectedChar:character_subtype_key());
+
             if chain then
                 local childCount = chain:ChildCount();
                 for i=0, childCount-1  do
@@ -264,7 +306,7 @@ function attachSkillListener()
                     local skillSkillSet = skillToSkillSetMap[child:Id()];
                     if skillSkillSet then
                         for i, skillSet in ipairs(skillToSkillSetMap[child:Id()]) do
-                            if selectedChar:has_trait(skillSet) then
+                            if selectedChar:has_trait(skillSet) or (not charHasSkillSetTrait and defaultSkillSet == skillSet) then
                                 skillSetFound = true;
                             end
                         end
