@@ -247,7 +247,7 @@ function updateRecruitButton()
     local recuitButton = Util.getComponentWithName("recruitButton");
     --# assume recuitButton: TEXT_BUTTON
     local recruitCost = calculateRecruitmentCost();
-    local recruitText = "Recruit " .. "([[img:icon_treasury]][[/img]]" .. recruitCost);
+    local recruitText = "Recruit " .. "([[img:icon_treasury]][[/img]]" .. recruitCost;
     recuitButton:SetButtonText(recruitText);
     local currentFaction = cm:model():world():faction_by_key(cm:get_local_faction());
     if currentFaction:treasury() < recruitCost then
