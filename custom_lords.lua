@@ -164,7 +164,6 @@ function attachButtonToLordRecuitment()
             local characterPanel = find_uicomponent(core:get_ui_root(), "character_panel");
             local raiseForces = find_uicomponent(characterPanel, "raise_forces_options");
             local raiseForcesButton = find_uicomponent(raiseForces, "button_raise");
-
             local createCustomLordButton = TextButton.new("createCustomLordButton", raiseForces, "TEXT", "Custom");
             createCustomLordButton:Resize(raiseForcesButton:Bounds());
 
@@ -173,31 +172,46 @@ function attachButtonToLordRecuitment()
             local gap = 20;
             raiseForcesButton:MoveTo(rfXPos - (rfWidth / 2 + gap / 2), rfYPos);
             createCustomLordButton:PositionRelativeTo(raiseForcesButton, gap + rfWidth, 0);
-            
             createCustomLordButton:RegisterForClick(
                 function(context)
                     createCustomLordFrame();
                 end
             );
-
             createCustomLordButton:SetVisible(raiseForcesButton:Visible());
 
             local createArmyButton = find_uicomponent(core:get_ui_root(), "layout", "hud_center_docker", "hud_center", "small_bar", "button_group_settlement", "button_create_army");
             local agentsButton = find_uicomponent(core:get_ui_root(), "layout", "hud_center_docker", "hud_center", "small_bar", "button_group_settlement", "button_agents");
-            core:remove_listener("createArmyButtonListener");
             Util.registerForClick(
                 createArmyButton, "createArmyButtonListener", 
                 function(context)
                     createCustomLordButton:SetVisible(true);
                 end
             );
-            core:remove_listener("agentsButtonListener");
+
             Util.registerForClick(
                 agentsButton, "agentsButtonListener", 
                 function(context)
                     createCustomLordButton:SetVisible(false);
                 end
             );
+        end,
+        true
+    );
+
+    core:add_listener(
+        "CustomLordButtonRemover",
+        "PanelClosedCampaign",
+        function(context) 
+            return context.string == "character_panel"; 
+        end,
+        function(context)
+            local createCustomLordButton = Util.getComponentWithName("createCustomLordButton");
+            --# assume createCustomLordButton: TEXT_BUTTON
+            if createCustomLordButton then
+                createCustomLordButton:Delete();
+                core:remove_listener("createArmyButtonListener");
+                core:remove_listener("agentsButtonListener");
+            end
         end,
         true
     );

@@ -393,9 +393,6 @@ function createCustomLordFrameUi(recruitCallback)
             frameContainer:Clear();
             recuitContainer:Clear();
             customLordFrame:Delete();
-            local createCustomLordButton = Util.getComponentWithName("createCustomLordButton");
-            --# assume createCustomLordButton: TEXT_BUTTON
-            createCustomLordButton:Delete();
         end
     );
     updateRecruitButton();
