@@ -174,7 +174,6 @@ function createTraitSelectionFrame(currentTraits, addTraitCallback)
     local divider = createTraitDivider("SelectFrameTopDivider", traitList, traitSelectionFrame:Width());
     traitList:AddComponent(divider);
     local remainingTraitPoints = calculateRemainingTraitPoints(currentTraits);
-    --TABLES[traits]
     for trait, traitData in pairs(TABLES["traits"]) do
         local addTraitButtonFunction = function(
             trait, --: string
@@ -237,6 +236,24 @@ function findSelectedButton(idToButtonMap)
         end
     end
     return selectedId;
+end
+
+--v function() --> number
+function calculateRecruitmentCost()
+    return 1000;
+end
+
+function updateRecruitButton()
+    local recuitButton = Util.getComponentWithName("recruitButton");
+    --# assume recuitButton: TEXT_BUTTON
+    local recruitCost = calculateRecruitmentCost();
+    local recruitText = "Recruit " .. "([[img:icon_treasury]][[/img]]" .. recruitCost);
+    recuitButton:SetButtonText(recruitText);
+    local currentFaction = cm:model():world():faction_by_key(cm:get_local_faction());
+    if currentFaction:treasury() < recruitCost then
+        recuitButton.uic:SetDisabled(true);
+        recuitButton.uic:SetOpacity(50);
+    end
 end
 
 --v function(recruitCallback: function(name: string, lordType: string, skillSet: string, traits: vector<string>)) --> FRAME
@@ -352,18 +369,31 @@ function createCustomLordFrameUi(recruitCallback)
     frameContainer:AddComponent(addTraitButton);
     frameContainer:PositionRelativeTo(customLordFrame, 20, 20);
 
-    local region = string.sub(tostring(cm:get_campaign_ui_manager().settlement_selected), 12);
-    local settlement = get_region(region):settlement();
-    customLordFrame:AddCloseButton(
-        function()
+    local recuitContainer = Container.new(FlowLayout.HORIZONTAL);
+    local recuitButton = TextButton.new("recruitButton", customLordFrame, "TEXT", "");
+    recuitButton:RegisterForClick(
+        "recuitButtonClickListener", 
+        function(context)
             recruitCallback(
                 lordNameTextBox.uic:GetStateText(),
                 findSelectedButton(lordTypeButtons),
                 findSelectedButton(skillSetToButtonMap),
                 selectedTraits
             );
+            frameContainer:Clear();
+            recuitContainer:Clear();
+            customLordFrame:Delete();
+            local createCustomLordButton = Util.getComponentWithName("createCustomLordButton");
+            --# assume createCustomLordButton: TEXT_BUTTON
+            createCustomLordButton:Delete();
         end
     );
+    updateRecruitButton();
+    recuitContainer:AddComponent(recuitButton);
+
+    Util.centreComponentOnComponent(recuitContainer, customLordFrame);
+    local xPos, yPos = recuitContainer:Position();
+    recuitContainer:MoveTo(xPos, yPos + (customLordFrame:Height() / 2 - 100));
 
     customLordFrame.uic:PropagatePriority(100);
     return customLordFrame;

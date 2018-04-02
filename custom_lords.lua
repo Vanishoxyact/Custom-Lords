@@ -2,13 +2,18 @@ require("custom_lords_ui");
 
 --v function(selectedSkillSet: string, selectedTraits: vector<string>, lordName: string)
 function lordCreated(selectedSkillSet, selectedTraits, lordName)
+    -- Add traits
     cm:force_add_trait_on_selected_character(selectedSkillSet);
     for i, trait in ipairs(selectedTraits) do
         cm:force_add_trait_on_selected_character(trait);
     end
+
+    -- Remove un-needed unit
     find_uicomponent(core:get_ui_root(), "units_panel", "main_units_panel", "units", "LandUnit 1"):SimulateLClick();
     find_uicomponent(core:get_ui_root(), "units_panel", "main_units_panel", "button_group_unit", "button_disband"):SimulateLClick();
     find_uicomponent(core:get_ui_root(), "dialogue_box", "both_group", "button_tick"):SimulateLClick();
+
+    -- Rename lord
     local generalButton = find_uicomponent(core:get_ui_root(), "layout", "info_panel_holder", "primary_info_panel_holder", "info_button_list", "button_general");
     generalButton:SimulateLClick();
     local renameButton = find_uicomponent(core:get_ui_root(), "character_details_panel", "background", "bottom_buttons", "button_rename");
@@ -22,6 +27,15 @@ function lordCreated(selectedSkillSet, selectedTraits, lordName)
     local popupOkButton = find_uicomponent(core:get_ui_root(), "popup_text_input", "ok_cancel_buttongroup", "button_ok");
     popupOkButton:SimulateLClick();
     find_uicomponent(core:get_ui_root(), "character_details_panel", "button_ok"):SimulateLClick();
+
+    -- Reduce treasury by cost
+    cm:disable_event_feed_events(true, "", "wh_event_subcategory_faction_event_dilemma_incident", "");
+    cm:trigger_incident(cm:get_local_faction(), "wh2_main_incident_treasury_down_one_k", true);
+    cm:callback(
+        function()
+            cm:disable_event_feed_events(false, "", "wh_event_subcategory_faction_event_dilemma_incident", "");
+        end, 0.5, "RE_ENABLE INCIDENTS"
+    );
 end
 
 --v function(xPos: number, yPos: number) --> boolean
