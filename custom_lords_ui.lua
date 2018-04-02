@@ -6,7 +6,7 @@ local MAX_TRAITS = 4;
 --v function(buttons: vector<TEXT_BUTTON>)
 function setUpSingleButtonSelectedGroup(buttons)
     for i, button in ipairs(buttons) do
-        button:RegisterForClick(button.name .. "SelectListener",
+        button:RegisterForClick(
             function(context)
                 for i, otherButton in ipairs(buttons) do
                     if button.name == otherButton.name then
@@ -182,7 +182,6 @@ function createTraitSelectionFrame(currentTraits, addTraitCallback)
         )
             local addTraitButton = Button.new("addTraitButton" .. trait, parent, "SQUARE", "ui/skins/default/parchment_header_min.png");
             addTraitButton:RegisterForClick(
-                "addTraitButton" .. trait .. "Listener",
                 function(context)
                     traitSelectionFrameContainer:Clear();
                     traitSelectionFrame:Delete();
@@ -314,7 +313,7 @@ function createCustomLordFrameUi(recruitCallback)
         end
     end
     for lordType, lordTypeButton in pairs(lordTypeButtons) do
-        lordTypeButton:RegisterForClick(lordTypeButton.name .. "SkillSetListener",
+        lordTypeButton:RegisterForClick(
             function(context)
                 for otherLordType, skillSetButtons in pairs(lordTypeToSkillSetButtons) do
                     for i, skillSetButton in ipairs(skillSetButtons) do
@@ -346,7 +345,6 @@ function createCustomLordFrameUi(recruitCallback)
     )
         local removeTraitButton = Button.new("removeTraitButton" .. trait, parent, "SQUARE", "ui/skins/default/parchment_header_max.png");
         removeTraitButton:RegisterForClick(
-            "removeTraitButton" .. trait .. "Listener",
             function(context)
                 removeFromList(selectedTraits, trait);
                 resetSelectedTraits(selectedTraits, traitRowsContainer, customLordFrame, removeTraitButtonFunction);
@@ -361,7 +359,6 @@ function createCustomLordFrameUi(recruitCallback)
 
     local addTraitButton = TextButton.new("addTraitButton", customLordFrame, "TEXT", "Add Trait");
     addTraitButton:RegisterForClick(
-        "addTraitButtonClickListener", 
         function(context)
             local existingFrame = Util.getComponentWithName("traitSelectionFrame");
             --# assume existingFrame: FRAME
@@ -386,7 +383,6 @@ function createCustomLordFrameUi(recruitCallback)
     local recuitContainer = Container.new(FlowLayout.HORIZONTAL);
     local recuitButton = TextButton.new("recruitButton", customLordFrame, "TEXT", "");
     recuitButton:RegisterForClick(
-        "recuitButtonClickListener", 
         function(context)
             recruitCallback(
                 lordNameTextBox.uic:GetStateText(),

@@ -175,7 +175,6 @@ function attachButtonToLordRecuitment()
             createCustomLordButton:PositionRelativeTo(raiseForcesButton, gap + rfWidth, 0);
             
             createCustomLordButton:RegisterForClick(
-                "createCustomLordButtonListener", 
                 function(context)
                     createCustomLordFrame();
                 end

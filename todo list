@@ -8,10 +8,9 @@ Negative traits
 Recruting into sea
 Default skill list if normal recuit
 Move container into frame
-List addContainer -> addComponent
 Trait to incident table
-Button click listener, is name needed?
 Treasury icon size
+Force name
 
 Completed
 Add cost to UI, disable recuit if not enough gold
@@ -19,3 +18,5 @@ Remove add trait button if more than 5
 Close button image
 Army upkeep
 Swap between lord type re-centres, container:Rearrange?
+List addContainer -> addComponent
+Button click listener, is name needed?
