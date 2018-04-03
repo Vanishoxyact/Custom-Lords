@@ -252,22 +252,31 @@ function findSelectedButton(idToButtonMap)
     return selectedId;
 end
 
---v function() --> number
-function calculateRecruitmentCost()
-    return 1000;
+--v function(selectedTraits: vector<string>) --> number
+function calculateRecruitmentCost(selectedTraits)
+    local cost = 1000;
+    for i, trait in ipairs(selectedTraits) do
+        if trait == "wh2_main_trait_increased_cost" then
+            cost = cost + 1000;
+        end
+    end
+    return cost;
 end
 
---v function()
-function updateRecruitButton()
+--v function(selectedTraits: vector<string>)
+function updateRecruitButton(selectedTraits)
     local recuitButton = Util.getComponentWithName("recruitButton");
     --# assume recuitButton: TEXT_BUTTON
-    local recruitCost = calculateRecruitmentCost();
+    local recruitCost = calculateRecruitmentCost(selectedTraits);
     local recruitText = "Recruit " .. "([[img:icon_treasury]][[/img]]" .. recruitCost;
     recuitButton:SetButtonText(recruitText);
     local currentFaction = cm:model():world():faction_by_key(cm:get_local_faction());
     if currentFaction:treasury() < recruitCost then
         recuitButton.uic:SetDisabled(true);
         recuitButton.uic:SetOpacity(50);
+    else
+        recuitButton.uic:SetDisabled(false);
+        recuitButton.uic:SetOpacity(100);
     end
 end
 
@@ -352,6 +361,7 @@ function createCustomLordFrameUi(recruitCallback)
                 removeFromList(selectedTraits, trait);
                 resetSelectedTraits(selectedTraits, traitRowsContainer, customLordFrame, removeTraitButtonFunction);
                 frameContainer:PositionRelativeTo(customLordFrame, 20, 20);
+                updateRecruitButton(selectedTraits);
             end
         )
         removeTraitButton:Resize(25, 25);
@@ -371,6 +381,7 @@ function createCustomLordFrameUi(recruitCallback)
                         table.insert(selectedTraits, addedTrait);
                         resetSelectedTraits(selectedTraits, traitRowsContainer, customLordFrame, removeTraitButtonFunction);
                         frameContainer:PositionRelativeTo(customLordFrame, 20, 20);
+                        updateRecruitButton(selectedTraits);
                     end
                 );
                 customLordFrame.uic:Adopt(traitSelectionFrame.uic:Address());
@@ -397,7 +408,7 @@ function createCustomLordFrameUi(recruitCallback)
             customLordFrame:Delete();
         end
     );
-    updateRecruitButton();
+    updateRecruitButton(selectedTraits);
     recuitContainer:AddComponent(recuitButton);
 
     local closeButton = Button.new("CustomLordFrameCloseButton", customLordFrame, "CIRCULAR", "ui/skins/warhammer2/icon_cross.png");
