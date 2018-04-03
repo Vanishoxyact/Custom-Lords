@@ -54,6 +54,15 @@ traits = {
         {"wh2_main_skill_innate_all_strong", "1"},
         {"wh2_main_skill_innate_all_tactician", "2"},
         {"wh2_main_skill_innate_all_tough", "1"},
-        {"wh2_main_skill_innate_all_weapon_master", "2"}
+        {"wh2_main_skill_innate_all_weapon_master", "2"},
+        {"wh2_main_trait_increased_cost", "-1"}
+    }
+}
+
+trait_incidents = {
+	SCHEMA = {"key", "incident_key"},
+	KEY = {"key", "LIST"},
+	DATA = {
+        {"wh2_main_trait_increased_cost", "wh2_main_incident_treasury_down_one_k"}
     }
 }

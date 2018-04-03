@@ -1,0 +1,4 @@
+effects_tables					
+3					
+effect	icon	priority	icon_negative	category	is_positive_value_good
+increased_cost	treasury.png	1	treasury.png	campaign	FALSE

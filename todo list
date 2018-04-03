@@ -1,5 +1,7 @@
 Required
 Handle all skills
+Lord movement range
+Reverse trait points
 
 Nice to have
 Look at table ordering
@@ -8,7 +10,6 @@ Frame resizing
 Name length, multiple boxes?
 Negative traits
 Recruting into sea
-Trait to incident table
 Treasury icon size
 Popup dialog?
 Ancillary from trait?
@@ -28,3 +29,4 @@ Add cancel button
 Default skill list if normal recuit
 Force name
 Toboolean default skill set
+Trait to incident table

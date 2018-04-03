@@ -18,6 +18,20 @@ function calculateUpkeepEffectBundle()
     return "";
 end
 
+--v function(traits: vector<string>) --> vector<string>
+function calculateTraitIncidents(traits)
+    local incidents = {} --: vector<string>
+    for i, trait in ipairs(traits) do
+        local traitIncidents = TABLES["trait_incidents"][trait];
+        if traitIncidents then
+            for i, traitIncidentRow in ipairs(traitIncidents) do
+                table.insert(incidents, traitIncidentRow["incident_key"]);
+            end
+        end
+    end
+    return incidents;
+end
+
 --v function(selectedSkillSet: string, selectedTraits: vector<string>, lordName: string, lordCqi: CA_CQI)
 function lordCreated(selectedSkillSet, selectedTraits, lordName, lordCqi)
     -- Add traits
@@ -50,9 +64,13 @@ function lordCreated(selectedSkillSet, selectedTraits, lordName, lordCqi)
     popupOkButton:SimulateLClick();
     find_uicomponent(core:get_ui_root(), "character_details_panel", "button_ok"):SimulateLClick();
 
-    -- Reduce treasury by cost
+    -- Trigger incidents
     cm:disable_event_feed_events(true, "", "wh_event_subcategory_faction_event_dilemma_incident", "");
-    cm:trigger_incident(cm:get_local_faction(), "wh2_main_incident_treasury_down_one_k", true);
+    local traitIncidents = calculateTraitIncidents(selectedTraits);
+    table.insert(traitIncidents, "wh2_main_incident_treasury_down_one_k");
+    for i, incident in ipairs(traitIncidents) do
+        cm:trigger_incident(cm:get_local_faction(), incident, true);
+    end
     cm:callback(
         function()
             cm:disable_event_feed_events(false, "", "wh_event_subcategory_faction_event_dilemma_incident", "");

@@ -738,6 +738,7 @@ trait_level_effects_tables = {
 		{"wh2_main_skill_innate_all_tough", "wh_main_effect_character_stat_mod_armour", "character_to_character_own", "5"},
 		{"wh2_main_skill_innate_all_tough", "wh_main_effect_character_stat_mod_melee_defence", "character_to_character_own", "3"},
 		{"wh2_main_skill_innate_all_weapon_master", "wh_main_effect_character_stat_mod_ap_damage", "character_to_character_own", "5"},
-		{"wh2_main_skill_innate_all_weapon_master", "wh_main_effect_character_stat_mod_melee_attack", "character_to_character_own", "3"}
+		{"wh2_main_skill_innate_all_weapon_master", "wh_main_effect_character_stat_mod_melee_attack", "character_to_character_own", "3"},
+		{"wh2_main_trait_increased_cost", "increased_cost", "character_to_character_own", "1000"}
 	}
 }
