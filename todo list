@@ -1,7 +1,6 @@
 Required
 Handle all skills
 Lord movement range
-Reverse trait points
 
 Nice to have
 Look at table ordering
@@ -30,3 +29,4 @@ Default skill list if normal recuit
 Force name
 Toboolean default skill set
 Trait to incident table
+Reverse trait points

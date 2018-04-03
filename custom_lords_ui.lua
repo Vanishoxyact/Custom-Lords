@@ -135,9 +135,16 @@ function createTraitRow(trait, parent, buttonCreationFunction)
     end
     traitRow:AddComponent(traitEffectsContainer);
     traitRow:AddGap(20);
-    local traitCost = Text.new(trait .. "CostText", parent, "NORMAL", tonumber(TABLES["traits"][trait]["trait_cost"]) .. " Trait Points");
-    traitCost:Resize(100, traitCost:Height());
-    traitRow:AddComponent(traitCost);
+    local traitCost = tonumber(TABLES["traits"][trait]["trait_cost"]);
+    local traitCostNumberText = nil --: string
+    if traitCost > 0 then
+        traitCostNumberText = "+" .. traitCost ..  " Trait Points";
+    else
+        traitCostNumberText = traitCost ..  " Trait Points";
+    end
+    local traitCostText = Text.new(trait .. "CostText", parent, "NORMAL", traitCostNumberText);
+    traitCostText:Resize(100, traitCostText:Height());
+    traitRow:AddComponent(traitCostText);
     traitRow:AddComponent(buttonCreationFunction(trait, parent));
     return traitRow;
 end
@@ -156,7 +163,7 @@ function calculateRemainingTraitPoints(selectedTraits)
         local traitPointsForTrait = tonumber(TABLES["traits"][trait]["trait_cost"]);
         totalTraitPoints = totalTraitPoints + traitPointsForTrait;
     end
-    return TOTAL_TRAIT_POINTS - totalTraitPoints;
+    return TOTAL_TRAIT_POINTS + totalTraitPoints;
 end
 
 --v function(currentTraits: vector<string>, addTraitCallback: function(string)) --> FRAME
