@@ -1,9 +1,9 @@
 faction_lord_types = {
-	SCHEMA = {"key", "lord_type", "lord_type_name"},
+	SCHEMA = {"key", "faction_type", "lord_type", "lord_type_name"},
 	KEY = {"key", "LIST"},
 	DATA = {
-        {"wh2_main_hef_eataine", "wh2_main_hef_prince", "Prince"},
-        {"wh2_main_hef_eataine", "wh2_main_hef_princess", "Princess"}
+        {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_main_hef_prince", "Prince"},
+        {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_main_hef_princess", "Princess"}
     }
 }
 

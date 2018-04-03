@@ -28,12 +28,36 @@ function createLordTypeButton(lordType, lordTypeName, frame)
     return lordTypeButton;
 end
 
+--v function(factionName: string) --> vector<map<string,string>>
+function calculateLordTypeData(factionName)
+    local lordTypeData = {} --: vector<map<string,string>>
+    local faction = get_faction(factionName);
+    local factionSubculture = faction:subculture();
+    local factionLordTypesTable = TABLES["faction_lord_types"] --: map<string, vector<map<string, string>>>
+    for factionKey, factionLordTypeData in pairs(factionLordTypesTable) do
+        for i, factionLordType in ipairs(factionLordTypeData) do
+            if factionLordType["faction_type"] == "FACTION" then
+                if factionKey == factionName then
+                    table.insert(lordTypeData, factionLordType);
+                end
+            elseif factionLordType["faction_type"] == "SUBCULTURE" then
+                if factionKey == factionSubculture then
+                    table.insert(lordTypeData, factionLordType);
+                end
+            else
+                output("Cannot match faction type: " .. factionLordType["faction_type"] .. " for key: " .. factionKey);
+            end
+        end
+    end
+    return lordTypeData;
+end
+
 --v function(currentFaction: string, frame: FRAME) --> map<string, TEXT_BUTTON>
 function createLordTypeButtons(currentFaction, frame)
     local buttons = {} --: vector<TEXT_BUTTON>
     local buttonsMap = {} --: map<string, TEXT_BUTTON>
     local first = true;
-        for i, factionLordType in ipairs(TABLES["faction_lord_types"][currentFaction]) do
+        for i, factionLordType in ipairs(calculateLordTypeData(currentFaction)) do
             local lordType = factionLordType["lord_type"];
             local button = createLordTypeButton(lordType, factionLordType["lord_type_name"], frame);
             if first then
