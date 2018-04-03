@@ -39,9 +39,10 @@ function lordCreated(selectedSkillSet, selectedTraits, lordName, lordCqi)
     generalButton:SimulateLClick();
     local renameButton = find_uicomponent(core:get_ui_root(), "character_details_panel", "background", "bottom_buttons", "button_rename");
     renameButton:SimulateLClick();
-    find_uicomponent(core:get_ui_root(), "popup_text_input", "panel_title", "heading_txt"):SetStateText("Name your Lord");
-    find_uicomponent(core:get_ui_root(), "popup_text_input", "text_input_list_parent", "text_input1"):SetStateText("Name your Lord");
     local textInput =  find_uicomponent(core:get_ui_root(), "popup_text_input", "text_input_list_parent", "text_input");
+    if lordName == "" then
+        lordName = "Custom Lord";
+    end
     for i = 1, string.len(lordName) do
         textInput:SimulateKey(string.sub(lordName, i, i));
     end
