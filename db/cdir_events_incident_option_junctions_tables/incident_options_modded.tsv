@@ -1,0 +1,6 @@
+cdir_events_incident_option_junctions_tables				
+2				
+id	unknown2	incident_key	option_key	value
+2021622988	0	wh2_main_incident_treasury_down_one_k	VAR_CHANCE	100
+1555268220	0	wh2_main_incident_treasury_down_one_k	GEN_TARGET_NONE	
+2014703187	0	wh2_main_incident_treasury_down_one_k	CND_MIN_TREASURY	1000

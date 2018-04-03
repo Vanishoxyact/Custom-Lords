@@ -1,0 +1,19 @@
+character_traits_tables						
+2						
+key	no_going_back_level	hidden	precedence	icon	unknown5	pre_battle_speech_parameter
+wh2_main_trait_hef_prince_melee	1	TRUE	99	personality	0	
+wh2_main_trait_hef_prince_magic	1	TRUE	99	personality	0	
+wh2_main_skill_innate_all_aggressive	1	TRUE	99	personality	0	
+wh2_main_skill_innate_all_confident	1	TRUE	99	personality	0	
+wh2_main_skill_innate_all_cunning	1	TRUE	99	personality	0	
+wh2_main_skill_innate_all_determined	1	TRUE	99	personality	0	
+wh2_main_skill_innate_all_disciplined	1	TRUE	99	personality	0	
+wh2_main_skill_innate_all_fleet_footed	1	TRUE	99	personality	0	
+wh2_main_skill_innate_all_intelligent	1	TRUE	99	personality	0	
+wh2_main_skill_innate_all_knowledgeable	1	TRUE	99	personality	0	
+wh2_main_skill_innate_all_perceptive	1	TRUE	99	personality	0	
+wh2_main_skill_innate_all_strategist	1	TRUE	99	personality	0	
+wh2_main_skill_innate_all_strong	1	TRUE	99	personality	0	
+wh2_main_skill_innate_all_tactician	1	TRUE	99	personality	0	
+wh2_main_skill_innate_all_tough	1	TRUE	99	personality	0	
+wh2_main_skill_innate_all_weapon_master	1	TRUE	99	personality	0	
