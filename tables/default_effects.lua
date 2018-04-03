@@ -4719,7 +4719,6 @@ effects_tables = {
 		{"wh_pro02_effect_varghulfs_leadership", "morale.png", "61", "morale.png", "battle", "True"},
 		{"wh_pro02_effect_varghulfs_melee_attack", "melee.png", "109", "melee.png", "battle", "True"},
 		{"wh_pro02_faction_trait_isabella_vlad_dummy", "melee_character.png", "87", "melee_character.png", "battle", "True"},
-		{"wh_pro02_faction_trait_isabella_vlad_unique_building", "construction.png", "85", "construction.png", "campaign", "True"},
-		{"increased_cost", "treasury.png", "1", "treasury.png", "campaign", "False"}
+		{"wh_pro02_faction_trait_isabella_vlad_unique_building", "construction.png", "85", "construction.png", "campaign", "True"}
 	}
 }
