@@ -1,5 +1,4 @@
 Required
-Handle all skills
 Lord movement range
 
 Nice to have
@@ -30,3 +29,5 @@ Force name
 Toboolean default skill set
 Trait to incident table
 Reverse trait points
+Test table loading order with different mods
+Handle all skills

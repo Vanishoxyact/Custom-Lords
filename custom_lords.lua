@@ -311,26 +311,31 @@ function attachSkillListener()
                 output("Char does not have custom skill sets: " .. selectedChar:character_subtype_key());
                 return;
             end
-            
-            local chain = find_uicomponent(core:get_ui_root(), "character_details_panel", "background", "skills_subpanel", "listview", "list_clip", "list_box", "chain2", "chain");
+
             local skillToSkillSetMap = createSkillToSkillSetMap();
             local charHasSkillSetTrait = charHasSkillSetTrait(selectedChar);
             local defaultSkillSet = findDefaultSkillSet(selectedChar:character_subtype_key());
-
-            if chain then
-                local childCount = chain:ChildCount();
-                for i=0, childCount-1  do
-                    local child = UIComponent(chain:Find(i));
-                    local skillSetFound = false;
-                    local skillSkillSet = skillToSkillSetMap[child:Id()];
-                    if skillSkillSet then
-                        for i, skillSet in ipairs(skillToSkillSetMap[child:Id()]) do
-                            if selectedChar:has_trait(skillSet) or (not charHasSkillSetTrait and defaultSkillSet == skillSet) then
-                                skillSetFound = true;
+            
+            local skillsChainList = find_uicomponent(core:get_ui_root(), "character_details_panel", "background", "skills_subpanel", "listview", "list_clip", "list_box");
+            local skillChainCount = skillsChainList:ChildCount();
+            for i=0, skillChainCount-1  do
+                local skillChain = UIComponent(skillsChainList:Find(i));
+                local skillChainChain = find_uicomponent(skillChain, "chain");
+                if skillChainChain then
+                    local childCount = skillChainChain:ChildCount();
+                    for i=0, childCount-1  do
+                        local child = UIComponent(skillChainChain:Find(i));
+                        local skillSetFound = false;
+                        local skillSkillSet = skillToSkillSetMap[child:Id()];
+                        if skillSkillSet then
+                            for i, skillSet in ipairs(skillToSkillSetMap[child:Id()]) do
+                                if selectedChar:has_trait(skillSet) or (not charHasSkillSetTrait and defaultSkillSet == skillSet) then
+                                    skillSetFound = true;
+                                end
                             end
-                        end
-                        if not skillSetFound then
-                            child:SetVisible(false);
+                            if not skillSetFound then
+                                child:SetVisible(false);
+                            end
                         end
                     end
                 end
@@ -352,15 +357,15 @@ end
 --v function()
 function addEscapeButtonListener()
     core:add_listener(
-		"CustomLordsEscapeButtonListener",
-		"ShortcutTriggered",
+        "CustomLordsEscapeButtonListener",
+        "ShortcutTriggered",
         function(context) 
             return context.string == "escape_menu";
         end,
         function()
             destroyCustomLordFrame();
-		end,
-		true
+        end,
+        true
     );
     
     core:add_listener(
