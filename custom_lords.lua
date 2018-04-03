@@ -76,6 +76,9 @@ function lordCreated(selectedSkillSet, selectedTraits, lordName, lordCqi)
             cm:disable_event_feed_events(false, "", "wh_event_subcategory_faction_event_dilemma_incident", "");
         end, 0.5, "RE_ENABLE INCIDENTS"
     );
+
+    -- Disable movement
+    cm:zero_action_points(char_lookup_str(lordCqi));
 end
 
 --v function(xPos: number, yPos: number) --> boolean
