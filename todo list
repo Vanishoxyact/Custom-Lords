@@ -1,4 +1,5 @@
 Required
+Handle all skills
 
 Nice to have
 Look at table ordering
@@ -9,6 +10,8 @@ Negative traits
 Recruting into sea
 Trait to incident table
 Treasury icon size
+Popup dialog?
+Ancillary from trait?
 
 Completed
 Add cost to UI, disable recuit if not enough gold
@@ -24,3 +27,4 @@ Esc key listener
 Add cancel button
 Default skill list if normal recuit
 Force name
+Toboolean default skill set

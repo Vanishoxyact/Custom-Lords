@@ -271,7 +271,7 @@ end
 function findDefaultSkillSet(lordType)
     local defaultSkillSet = nil --: string
     for i, lordTypeTable in ipairs(TABLES["lord_types"][lordType]) do
-        if lordTypeTable["default_skill_set"] then
+        if lordTypeTable["default_skill_set"] == "TRUE" then
             return lordTypeTable["skill_set"];
         end
     end 
