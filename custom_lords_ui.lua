@@ -83,7 +83,11 @@ end
 function createSkillSetButtons(lordType, frame)
     local buttons = {} --: vector<TEXT_BUTTON>
     local buttonsMap = {} --: map<string, TEXT_BUTTON>
-    for i, lordType in ipairs(TABLES["lord_types"][lordType]) do
+    local lordTypesTable = TABLES["lord_types"][lordType] --: vector<map<string, string>>
+    if not lordTypesTable then
+        lordTypesTable = {{key = lordType, skill_set = lordType .. "_default", skill_set_name = "Default", default_skill_set = "TRUE"}};
+    end
+    for i, lordType in ipairs(lordTypesTable) do
         local skillSet = lordType["skill_set"];
         local button = createSkillSetButton(skillSet, lordType["skill_set_name"], frame);
         if i == 1 then

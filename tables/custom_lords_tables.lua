@@ -2,8 +2,61 @@ faction_lord_types = {
 	SCHEMA = {"key", "faction_type", "lord_type", "lord_type_name"},
 	KEY = {"key", "LIST"},
 	DATA = {
+        {"wh_main_sc_brt_bretonnia", "SUBCULTURE", "dlc07_brt_prophetess_beasts", "Prophetess (Beasts)"},
+        {"wh_main_sc_brt_bretonnia", "SUBCULTURE", "dlc07_brt_prophetess_heavens", "Prophetess (Heavens)"},
+        {"wh_main_sc_brt_bretonnia", "SUBCULTURE", "dlc07_brt_prophetess_life", "Prophetess (Life)"},
+        {"wh_main_sc_brt_bretonnia", "SUBCULTURE", "brt_lord", "Lord"},
+
+        {"wh_main_sc_chs_chaos", "SUBCULTURE", "chs_lord", "Chaos Lord"},
+        {"wh_main_sc_chs_chaos", "SUBCULTURE", "chs_sorcerer_lord_death", "Chaos Sorcerer Lord (Death)"},
+        {"wh_main_sc_chs_chaos", "SUBCULTURE", "chs_sorcerer_lord_fire", "Chaos Sorcerer Lord (Fire)"},
+        {"wh_main_sc_chs_chaos", "SUBCULTURE", "chs_sorcerer_lord_metal", "Chaos Sorcerer Lord (Metal)"},
+        {"wh_main_sc_chs_chaos", "SUBCULTURE", "dlc07_chs_sorcerer_lord_shadow", "Chaos Sorcerer Lord (Shadows)"},
+
+        {"wh_dlc03_sc_bst_beastmen", "SUBCULTURE", "dlc03_bst_beastlord", "Beastlord"},
+
+        {"wh_dlc05_sc_wef_wood_elves", "SUBCULTURE", "dlc05_wef_ancient_treeman", "Ancient Treeman"},
+        {"wh_dlc05_sc_wef_wood_elves", "SUBCULTURE", "dlc05_wef_glade_lord", "Glade Lord"},
+        {"wh_dlc05_sc_wef_wood_elves", "SUBCULTURE", "dlc05_wef_glade_lord_fem", "Glade Lord"},
+
+        {"wh_main_sc_dwf_dwarfs", "SUBCULTURE", "dwf_lord", "Lord"},
+        {"wh_main_sc_dwf_dwarfs", "SUBCULTURE", "dlc06_dwf_runelord", "Runelord"},
+
+        {"wh_main_sc_grn_greenskins", "SUBCULTURE", "dlc06_grn_night_goblin_warboss", "Night Goblin Warboss"},
+        {"wh_main_sc_grn_greenskins", "SUBCULTURE", "grn_goblin_great_shaman", "Goblin Great Shaman"},
+        {"wh_main_sc_grn_greenskins", "SUBCULTURE", "grn_orc_warboss", "Orc Warboss"},
+
+        {"wh_main_sc_grn_savage_orcs", "SUBCULTURE", "dlc06_grn_night_goblin_warboss", "Night Goblin Warboss"},
+        {"wh_main_sc_grn_savage_orcs", "SUBCULTURE", "grn_goblin_great_shaman", "Goblin Great Shaman"},
+        {"wh_main_sc_grn_savage_orcs", "SUBCULTURE", "grn_orc_warboss", "Orc Warboss"},
+
+        {"wh_main_sc_emp_empire", "SUBCULTURE", "emp_lord", "General of the Empire"},
+        {"wh_main_sc_emp_empire", "SUBCULTURE", "dlc04_emp_arch_lector", "Arch Lector"},
+
+        {"wh_main_sc_ksl_kislev", "SUBCULTURE", "ksl_lord", "Lord"},
+
+        {"wh_main_sc_nor_norsca", "SUBCULTURE", "nor_marauder_chieftain", "Marauder Chieftain"},
+        {"wh_main_sc_nor_norsca", "SUBCULTURE", "nor_sorcerer_lord_metal", "Chaos Sorcerer Lord (Metal)"},
+
+        {"wh_main_sc_teb_teb", "SUBCULTURE", "teb_lord", "Lord"},
+
+        {"wh_main_sc_vmp_vampire_counts", "SUBCULTURE", "vmp_lord", "Vampire Lord"},
+        {"wh_main_sc_vmp_vampire_counts", "SUBCULTURE", "vmp_master_necromancer", "Master Necromancer"},
+
+        {"wh2_dlc09_sc_tmb_tomb_kings", "SUBCULTURE", "wh2_dlc09_tmb_tomb_king", "Tomb King"},
+
+        {"wh2_main_sc_def_dark_elves", "SUBCULTURE", "wh2_main_def_dreadlord", "Dreadlord (Sword & Crossbow)"},
+        {"wh2_main_sc_def_dark_elves", "SUBCULTURE", "wh2_main_def_dreadlord_fem", "Dreadlord (Sword & Shield)"},
+
         {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_main_hef_prince", "Prince"},
-        {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_main_hef_princess", "Princess"}
+        {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_main_hef_princess", "Princess"},
+
+        {"wh2_main_sc_lzd_lizardmen", "SUBCULTURE", "wh2_main_lzd_saurus_old_blood", "Saurus Oldblood"},
+        {"wh2_main_sc_lzd_lizardmen", "SUBCULTURE", "wh2_main_lzd_slann_mage_priest", "Slann Mage-Priest"},
+
+        {"wh2_main_sc_skv_skaven", "SUBCULTURE", "wh2_main_skv_grey_seer_plague", "Grey Seer (Plague)"},
+        {"wh2_main_sc_skv_skaven", "SUBCULTURE", "wh2_main_skv_grey_seer_ruin", "Grey Seer (Ruin)"},
+        {"wh2_main_sc_skv_skaven", "SUBCULTURE", "wh2_main_skv_warlord", "Warlord"}
     }
 }
 
