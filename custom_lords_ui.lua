@@ -25,6 +25,9 @@ function createLordTypeButton(lordType, lordTypeName, frame)
     local lordTypeButton = TextButton.new(lordType .. "Button", frame, "TEXT_TOGGLE", lordTypeName);
     lordTypeButton:Resize(300, lordTypeButton:Height());
     lordTypeButton:SetState("active");
+    if lordType == "wh2_main_lzd_slann_mage_priest" and not CUSTOM_LORDS_CAN_RECRUIT_SLANN then
+        lordTypeButton:SetDisabled(true);
+    end
     return lordTypeButton;
 end
 
@@ -219,8 +222,7 @@ function createTraitSelectionFrame(currentTraits, addTraitCallback)
                 end
             )
             if remainingTraitPoints < tonumber(TABLES["traits"][trait]["trait_cost"]) then
-                addTraitButton.uic:SetDisabled(true);
-                addTraitButton.uic:SetOpacity(50);
+                addTraitButton:SetDisabled(true);
             end
             addTraitButton:Resize(25, 25);
             return addTraitButton;
@@ -299,13 +301,7 @@ function updateRecruitButton(selectedTraits)
     local recruitText = "Recruit " .. "([[img:icon_treasury]][[/img]]" .. recruitCost .. ")";
     recuitButton:SetButtonText(recruitText);
     local currentFaction = cm:model():world():faction_by_key(cm:get_local_faction());
-    if currentFaction:treasury() < recruitCost then
-        recuitButton.uic:SetDisabled(true);
-        recuitButton.uic:SetOpacity(50);
-    else
-        recuitButton.uic:SetDisabled(false);
-        recuitButton.uic:SetOpacity(100);
-    end
+    recuitButton:SetDisabled(currentFaction:treasury() < recruitCost);
 end
 
 --v function(recruitCallback: function(name: string, lordType: string, skillSet: string, traits: vector<string>)) --> FRAME

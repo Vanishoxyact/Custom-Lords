@@ -1,6 +1,5 @@
 Required
 Lock skills for AI - duplicate skills and set uless for ai or add skill locks
-Custom recruiting for lizardmen and tomb kings
 
 Nice to have
 Look at table ordering
@@ -13,6 +12,7 @@ Recruting into sea
 Treasury icon size
 Popup dialog?
 Ancillary from trait?
+Remove slann from lizardmen recruit
 
 Completed
 Add cost to UI, disable recuit if not enough gold
@@ -34,3 +34,4 @@ Reverse trait points
 Test table loading order with different mods
 Handle all skills
 Lord movement range
+Custom recruiting for lizardmen and tomb kings

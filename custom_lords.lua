@@ -1,3 +1,5 @@
+CUSTOM_LORDS_CAN_RECRUIT_SLANN = true --: boolean
+
 require("custom_lords_ui");
 
 --v function() --> string
@@ -177,6 +179,18 @@ function createCustomLordFrame()
     createCustomLordFrameUi(recruitCallback);
 end
 
+--v function() --> boolean
+function canRecuitArmy()
+    local currentFaction = get_faction(cm:get_local_faction());
+    if currentFaction:culture() == "wh2_dlc09_tmb_tomb_kings" then
+        local armyCap = find_uicomponent(core:get_ui_root(), "character_panel", "raise_forces_options", "dy_army_cap");
+        local curr, max = string.match(armyCap:GetStateText(), "(%d+) / (%d+)");
+        return curr < max;
+    else
+        return true;
+    end
+end
+
 --v function()
 function attachButtonToLordRecuitment()
     core:add_listener(
@@ -187,10 +201,14 @@ function attachButtonToLordRecuitment()
         end,
         function(context)
             local characterPanel = find_uicomponent(core:get_ui_root(), "character_panel");
+            print_all_uicomponent_children(characterPanel);
             local raiseForces = find_uicomponent(characterPanel, "raise_forces_options");
             local raiseForcesButton = find_uicomponent(raiseForces, "button_raise");
             local createCustomLordButton = TextButton.new("createCustomLordButton", raiseForces, "TEXT", "Custom");
             createCustomLordButton:Resize(raiseForcesButton:Bounds());
+            if not canRecuitArmy() then
+                createCustomLordButton:SetDisabled(true);
+            end
 
             local rfWidth, rfHeight = raiseForcesButton:Bounds();
             local rfXPos, rfYPos = raiseForcesButton:Position();
@@ -380,8 +398,36 @@ function addEscapeButtonListener()
 end
 
 --v function()
+function addSlannCountListener()
+    core:add_listener(
+        "CanRecruitSlannListener",
+        "PanelClosedCampaign",
+        function(context) 
+            return context.string == "settlement_panel"; 
+        end,
+        function(context)
+            local currentFaction = get_faction(cm:get_local_faction());
+            if currentFaction:culture() == "wh2_main_lzd_lizardmen" then
+                local selectedSettlement = cm:get_campaign_ui_manager().settlement_selected;
+                local clanButton = find_uicomponent(core:get_ui_root(), "layout", "bar_small_top", "faction_icons", "button_factions");
+                clanButton:SimulateLClick();
+                local imperiumPanel = find_uicomponent(core:get_ui_root(), "clan", "main", "tab_children_parent", "Summary", "portrait_frame", "parchment_R", "imperium");
+                local slannCount = find_uicomponent(imperiumPanel, "agent_parent", "agent_cap_list", "wh2_main_lzd_slann_mage_priest", "dy_count");
+                local curr, max = string.match(slannCount:GetStateText(), "(%d+)/(%d+)");
+                CUSTOM_LORDS_CAN_RECRUIT_SLANN = curr < max;
+                local okButton = find_uicomponent(core:get_ui_root(), "clan", "main", "button_ok");
+                okButton:SimulateLClick();
+                cm:get_campaign_ui_manager().settlement_selected = selectedSettlement;
+            end
+        end,
+        true
+    );
+end
+
+--v function()
 function custom_lords()
     attachButtonToLordRecuitment();
     attachSkillListener();
     addEscapeButtonListener();
+    addSlannCountListener();
 end
