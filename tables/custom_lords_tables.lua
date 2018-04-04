@@ -84,7 +84,17 @@ skill_set_skills = {
         {"wh2_main_trait_hef_prince_magic", "module_wh2_main_skill_all_magic_high_02_apotheosis"},
         {"wh2_main_trait_hef_prince_magic", "wh_main_skill_all_magic_all_06_evasion"},
         {"wh2_main_trait_hef_prince_magic", "module_wh_main_skill_all_magic_all_06_evasion"},
-        {"wh2_main_trait_hef_prince_magic", "wh_main_skill_all_magic_all_11_arcane_conduit"}
+        {"wh2_main_trait_hef_prince_magic", "wh_main_skill_all_magic_all_11_arcane_conduit"},
+        {"wh2_main_trait_hef_princess_ranged", "wh2_main_skill_hef_seeking_arrows"},
+        {"wh2_main_trait_hef_princess_ranged", "module_wh2_main_skill_hef_seeking_arrows"},
+        {"wh2_main_trait_hef_princess_ranged", "wh_main_skill_all_all_self_foe-seeker"},
+        {"wh2_main_trait_hef_princess_ranged", "module_wh_main_skill_all_all_self_foe-seeker"},
+        {"wh2_main_trait_hef_princess_ranged", "wh2_main_skill_hef_def_volley_of_arrows"},
+        {"wh2_main_trait_hef_princess_magic", "wh2_main_skill_all_magic_high_02_apotheosis"},
+        {"wh2_main_trait_hef_princess_magic", "module_wh2_main_skill_all_magic_high_02_apotheosis"},
+        {"wh2_main_trait_hef_princess_magic", "wh_main_skill_all_magic_all_06_evasion"},
+        {"wh2_main_trait_hef_princess_magic", "module_wh_main_skill_all_magic_all_06_evasion"},
+        {"wh2_main_trait_hef_princess_magic", "wh_main_skill_all_magic_all_11_arcane_conduit"}
     }
 }
 
@@ -92,22 +102,20 @@ traits = {
 	SCHEMA = {"key", "trait_cost"},
 	KEY = {"key", "UNIQUE"},
 	DATA = {
-        {"wh2_main_trait_defeated_teclis", "-2"},
-        {"wh2_main_trait_defeated_tyrion", "-2"},
-        {"wh2_main_skill_innate_all_aggressive", "-1"},
-        {"wh2_main_skill_innate_all_confident", "-1"},
-        {"wh2_main_skill_innate_all_cunning", "-1"},
-        {"wh2_main_skill_innate_all_determined", "-1"},
-        {"wh2_main_skill_innate_all_disciplined", "-1"},
-        {"wh2_main_skill_innate_all_fleet_footed", "-1"},
-        {"wh2_main_skill_innate_all_intelligent", "-1"},
-        {"wh2_main_skill_innate_all_knowledgeable", "-1"},
-        {"wh2_main_skill_innate_all_perceptive", "-1"},
-        {"wh2_main_skill_innate_all_strategist", "-1"},
-        {"wh2_main_skill_innate_all_strong", "-1"},
-        {"wh2_main_skill_innate_all_tactician", "-1"},
-        {"wh2_main_skill_innate_all_tough", "-1"},
-        {"wh2_main_skill_innate_all_weapon_master", "-1"},
+        {"wh2_main_skill_innate_all_aggressive", "-2"},
+        {"wh2_main_skill_innate_all_confident", "-2"},
+        {"wh2_main_skill_innate_all_cunning", "-2"},
+        {"wh2_main_skill_innate_all_determined", "-2"},
+        {"wh2_main_skill_innate_all_disciplined", "-2"},
+        {"wh2_main_skill_innate_all_fleet_footed", "-2"},
+        {"wh2_main_skill_innate_all_intelligent", "-2"},
+        {"wh2_main_skill_innate_all_knowledgeable", "-2"},
+        {"wh2_main_skill_innate_all_perceptive", "-2"},
+        {"wh2_main_skill_innate_all_strategist", "-2"},
+        {"wh2_main_skill_innate_all_strong", "-2"},
+        {"wh2_main_skill_innate_all_tactician", "-2"},
+        {"wh2_main_skill_innate_all_tough", "-2"},
+        {"wh2_main_skill_innate_all_weapon_master", "-2"},
         {"wh2_main_trait_increased_cost", "1"}
     }
 }

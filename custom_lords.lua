@@ -201,7 +201,6 @@ function attachButtonToLordRecuitment()
         end,
         function(context)
             local characterPanel = find_uicomponent(core:get_ui_root(), "character_panel");
-            print_all_uicomponent_children(characterPanel);
             local raiseForces = find_uicomponent(characterPanel, "raise_forces_options");
             local raiseForcesButton = find_uicomponent(raiseForces, "button_raise");
             local createCustomLordButton = TextButton.new("createCustomLordButton", raiseForces, "TEXT", "Custom");
@@ -344,7 +343,7 @@ function attachSkillListener()
                         local skillSetFound = false;
                         local skillSkillSet = skillToSkillSetMap[child:Id()];
                         if skillSkillSet then
-                            for i, skillSet in ipairs(skillToSkillSetMap[child:Id()]) do
+                            for i, skillSet in ipairs(skillSkillSet) do
                                 if selectedChar:has_trait(skillSet) or (not charHasSkillSetTrait and defaultSkillSet == skillSet) then
                                     skillSetFound = true;
                                 end

@@ -3,6 +3,8 @@ character_traits_tables
 key	no_going_back_level	hidden	precedence	icon	unknown5	pre_battle_speech_parameter
 wh2_main_trait_hef_prince_melee	1	TRUE	99	personality	0	
 wh2_main_trait_hef_prince_magic	1	TRUE	99	personality	0	
+wh2_main_trait_hef_princess_ranged	1	TRUE	99	personality	0	
+wh2_main_trait_hef_princess_magic	1	TRUE	99	personality	0	
 wh2_main_skill_innate_all_aggressive	1	TRUE	99	personality	0	
 wh2_main_skill_innate_all_confident	1	TRUE	99	personality	0	
 wh2_main_skill_innate_all_cunning	1	TRUE	99	personality	0	

@@ -253,7 +253,6 @@ end
 
 --v function(currentTraits: vector<string>, traitRowContainer: CONTAINER, parent: COMPONENT_TYPE | CA_UIC, buttonCreationFunction: function(trait:string, parent: COMPONENT_TYPE | CA_UIC) --> BUTTON)
 function resetSelectedTraits(currentTraits, traitRowContainer, parent, buttonCreationFunction)
-    output("Current traits: ");
     --# assume parent: CA_UIC
     traitRowContainer:Clear();
     local traitsText = Text.new("TraitPointsText", parent, "NORMAL", "Trait Points Remaining: " .. calculateRemainingTraitPoints(currentTraits));
@@ -267,7 +266,6 @@ function resetSelectedTraits(currentTraits, traitRowContainer, parent, buttonCre
         traitRowContainer:AddComponent(divider);
         output(trait);
     end
-    output("End current traits");
     updateAddTraitButton(currentTraits);
 end
 
@@ -275,7 +273,7 @@ end
 function findSelectedButton(idToButtonMap)
     local selectedId = nil --: string
     for id, button in pairs(idToButtonMap) do
-        if button:IsSelected() then
+        if button:IsSelected() and button:Visible() then
             selectedId = id;
         end
     end
@@ -302,6 +300,10 @@ function updateRecruitButton(selectedTraits)
     recuitButton:SetButtonText(recruitText);
     local currentFaction = cm:model():world():faction_by_key(cm:get_local_faction());
     recuitButton:SetDisabled(currentFaction:treasury() < recruitCost);
+    local remainingTraitPoints = calculateRemainingTraitPoints(selectedTraits);
+    if remainingTraitPoints < 0 then
+        recuitButton:SetDisabled(true);
+    end
 end
 
 --v function(recruitCallback: function(name: string, lordType: string, skillSet: string, traits: vector<string>)) --> FRAME

@@ -3,6 +3,8 @@ trait_info_tables
 trait
 wh2_main_trait_hef_prince_melee
 wh2_main_trait_hef_prince_magic
+wh2_main_trait_hef_princess_ranged
+wh2_main_trait_hef_princess_magic
 wh2_main_skill_innate_all_aggressive
 wh2_main_skill_innate_all_confident
 wh2_main_skill_innate_all_cunning
