@@ -280,12 +280,7 @@ end
 --v function(char: CA_CHAR) --> boolean
 function charHasCustomSkills(char)
     local lordType = char:character_subtype_key();
-    for i, factionTable in ipairs(TABLES["faction_lord_types"][cm:get_local_faction()]) do
-        if factionTable["lord_type"]  == lordType then
-            return true;
-        end
-    end 
-    return false;
+    return TABLES["lord_types"][lordType];
 end
 
 --v function(lordType: string) --> string
