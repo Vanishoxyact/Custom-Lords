@@ -1,6 +1,6 @@
 require("custom_lords_util");
 
-local TOTAL_TRAIT_POINTS = 5;
+local TOTAL_TRAIT_POINTS = 3;
 local MAX_TRAITS = 4;
 
 --v function(buttons: vector<TEXT_BUTTON>)
@@ -197,7 +197,7 @@ end
 --v function(currentTraits: vector<string>, addTraitCallback: function(string)) --> FRAME
 function createTraitSelectionFrame(currentTraits, addTraitCallback)
     local traitSelectionFrame = Frame.new("traitSelectionFrame");
-    traitSelectionFrame:SetTitle("Select the Trait to Add");
+    traitSelectionFrame:SetTitle("Select the trait to add");
     local traitSelectionFrameContainer = Container.new(FlowLayout.VERTICAL);
     traitSelectionFrame:AddComponent(traitSelectionFrameContainer);
     traitSelectionFrame:AddCloseButton();
@@ -296,7 +296,7 @@ function updateRecruitButton(selectedTraits)
     local recuitButton = Util.getComponentWithName("recruitButton");
     --# assume recuitButton: TEXT_BUTTON
     local recruitCost = calculateRecruitmentCost(selectedTraits);
-    local recruitText = "Recruit " .. "([[img:icon_treasury]][[/img]]" .. recruitCost;
+    local recruitText = "Recruit " .. "([[img:icon_treasury]][[/img]]" .. recruitCost .. ")";
     recuitButton:SetButtonText(recruitText);
     local currentFaction = cm:model():world():faction_by_key(cm:get_local_faction());
     if currentFaction:treasury() < recruitCost then
@@ -322,7 +322,7 @@ function createCustomLordFrameUi(recruitCallback)
     local lordNameTextBox = TextBox.new("lordNameTextBox", customLordFrame);
     frameContainer:AddComponent(lordNameTextBox);
 
-    local lordTypeText = Text.new("lordTypeText", customLordFrame, "HEADER", "Select your Lord type");
+    local lordTypeText = Text.new("lordTypeText", customLordFrame, "HEADER", "Select your Lord's type");
     frameContainer:AddComponent(lordTypeText);
 
     local lordTypeButtons = createLordTypeButtons(cm:get_local_faction(), customLordFrame);
@@ -332,7 +332,7 @@ function createCustomLordFrameUi(recruitCallback)
     end
     frameContainer:AddComponent(buttonContainer);
 
-    local skillSetText = Text.new("skillSetText", customLordFrame, "HEADER", "Select your Lord skill-set");
+    local skillSetText = Text.new("skillSetText", customLordFrame, "HEADER", "Select your Lord's skill-set");
     frameContainer:AddComponent(skillSetText);
 
     local skillSetButtonsContainer = Container.new(FlowLayout.HORIZONTAL);
@@ -370,11 +370,10 @@ function createCustomLordFrameUi(recruitCallback)
     end
     frameContainer:AddComponent(skillSetButtonsContainer);
 
-    local traitsText = Text.new("traitsText", customLordFrame, "HEADER", "Select your Lord traits");
+    local traitsText = Text.new("traitsText", customLordFrame, "HEADER", "Select your Lord's traits");
     frameContainer:AddComponent(traitsText);
 
     local selectedTraits = {} --: vector<string>
-    table.insert(selectedTraits, "wh2_main_trait_defeated_teclis");
     local traitToRow = {} --: map<string, CONTAINER>    
     local traitRowsContainer = Container.new(FlowLayout.VERTICAL);  
 
