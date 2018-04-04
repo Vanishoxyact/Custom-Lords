@@ -205,7 +205,7 @@ function createTraitSelectionFrame(currentTraits, addTraitCallback)
     traitSelectionFrame:AddComponent(traitSelectionFrameContainer);
     traitSelectionFrame:AddCloseButton();
     local traitList = ListView.new("traitList", traitSelectionFrame);
-    traitList:Resize(600, traitSelectionFrame:Height() - 200);
+    traitList:Resize(600, traitSelectionFrame:Height() - 150);
     local divider = createTraitDivider("SelectFrameTopDivider", traitList, traitSelectionFrame:Width());
     traitList:AddComponent(divider);
     local remainingTraitPoints = calculateRemainingTraitPoints(currentTraits);
@@ -221,7 +221,7 @@ function createTraitSelectionFrame(currentTraits, addTraitCallback)
                     addTraitCallback(trait);
                 end
             )
-            if remainingTraitPoints < tonumber(TABLES["traits"][trait]["trait_cost"]) then
+            if remainingTraitPoints + tonumber(TABLES["traits"][trait]["trait_cost"]) < 0 then
                 addTraitButton:SetDisabled(true);
             end
             addTraitButton:Resize(25, 25);
@@ -237,6 +237,8 @@ function createTraitSelectionFrame(currentTraits, addTraitCallback)
     
     traitSelectionFrameContainer:AddComponent(traitList);
     Util.centreComponentOnComponent(traitSelectionFrameContainer, traitSelectionFrame);
+    local x, y = traitSelectionFrameContainer:Position();
+    traitSelectionFrameContainer:MoveTo(x, y - 30);
     return traitSelectionFrame;
 end
 
@@ -264,7 +266,6 @@ function resetSelectedTraits(currentTraits, traitRowContainer, parent, buttonCre
         traitRowContainer:AddComponent(traitRow);
         local divider = createTraitDivider(trait .. "Divider", parent, parent:Width());
         traitRowContainer:AddComponent(divider);
-        output(trait);
     end
     updateAddTraitButton(currentTraits);
 end
@@ -311,14 +312,15 @@ function createCustomLordFrameUi(recruitCallback)
     local customLordFrame = Frame.new("customLordFrame");
     customLordFrame:SetTitle("Create your custom Lord");
     customLordFrame:Resize(customLordFrame:Width(), customLordFrame:Height() * 1.5);
-    customLordFrame:MoveTo(50, 100);
+    Util.centreComponentOnScreen(customLordFrame);
 
-    local frameContainer = Container.new(FlowLayout.VERTICAL);    
+    local frameContainer = Container.new(FlowLayout.VERTICAL);
     customLordFrame:AddComponent(frameContainer);
     local lordName = Text.new("lordName", customLordFrame, "HEADER", "Name your Lord");
     frameContainer:AddComponent(lordName);
     local lordNameTextBox = TextBox.new("lordNameTextBox", customLordFrame);
     frameContainer:AddComponent(lordNameTextBox);
+    frameContainer:AddGap(10);
 
     local lordTypeText = Text.new("lordTypeText", customLordFrame, "HEADER", "Select your Lord's type");
     frameContainer:AddComponent(lordTypeText);
@@ -410,7 +412,7 @@ function createCustomLordFrameUi(recruitCallback)
                     end
                 );
                 customLordFrame.uic:Adopt(traitSelectionFrame.uic:Address());
-                traitSelectionFrame:PositionRelativeTo(customLordFrame, customLordFrame:Width()-300, 0);
+                Util.centreComponentOnScreen(traitSelectionFrame);
             end
         end
     );
