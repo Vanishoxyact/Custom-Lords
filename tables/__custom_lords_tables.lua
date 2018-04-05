@@ -1,7 +1,7 @@
 faction_lord_types = {
-	SCHEMA = {"key", "faction_type", "lord_type", "lord_type_name"},
-	KEY = {"key", "LIST"},
-	DATA = {
+    SCHEMA = {"key", "faction_type", "lord_type", "lord_type_name"},
+    KEY = {"key", "LIST"},
+    DATA = {
         {"wh_main_sc_brt_bretonnia", "SUBCULTURE", "dlc07_brt_prophetess_beasts", "Prophetess (Beasts)"},
         {"wh_main_sc_brt_bretonnia", "SUBCULTURE", "dlc07_brt_prophetess_heavens", "Prophetess (Heavens)"},
         {"wh_main_sc_brt_bretonnia", "SUBCULTURE", "dlc07_brt_prophetess_life", "Prophetess (Life)"},
@@ -61,9 +61,9 @@ faction_lord_types = {
 }
 
 lord_types = {
-	SCHEMA = {"key", "skill_set", "skill_set_name", "default_skill_set"},
-	KEY = {"key", "LIST"},
-	DATA = {
+    SCHEMA = {"key", "skill_set", "skill_set_name", "default_skill_set"},
+    KEY = {"key", "LIST"},
+    DATA = {
         {"wh2_main_hef_prince", "wh2_main_trait_hef_prince_melee", "Melee", "TRUE"},
         {"wh2_main_hef_prince", "wh2_main_trait_hef_prince_magic", "Magic", "FALSE"},
         {"wh2_main_hef_princess", "wh2_main_trait_hef_princess_ranged", "Ranged", "TRUE"},
@@ -72,9 +72,9 @@ lord_types = {
 }
 
 skill_set_skills = {
-	SCHEMA = {"key", "skill_set_skill"},
-	KEY = {"key", "LIST"},
-	DATA = {
+    SCHEMA = {"key", "skill_set_skill"},
+    KEY = {"key", "LIST"},
+    DATA = {
         {"wh2_main_trait_hef_prince_melee", "wh2_main_skill_hef_combat_graceful_strikes"},
         {"wh2_main_trait_hef_prince_melee", "module_wh2_main_skill_hef_combat_graceful_strikes"},
         {"wh2_main_trait_hef_prince_melee", "wh_main_skill_all_all_self_foe-seeker"},
@@ -99,9 +99,9 @@ skill_set_skills = {
 }
 
 traits = {
-	SCHEMA = {"key", "trait_cost"},
-	KEY = {"key", "UNIQUE"},
-	DATA = {
+    SCHEMA = {"key", "trait_cost"},
+    KEY = {"key", "UNIQUE"},
+    DATA = {
         {"wh2_main_skill_innate_all_aggressive", "-2"},
         {"wh2_main_skill_innate_all_confident", "-2"},
         {"wh2_main_skill_innate_all_cunning", "-2"},
@@ -121,9 +121,9 @@ traits = {
 }
 
 trait_incidents = {
-	SCHEMA = {"key", "incident_key"},
-	KEY = {"key", "LIST"},
-	DATA = {
+    SCHEMA = {"key", "incident_key"},
+    KEY = {"key", "LIST"},
+    DATA = {
         {"wh2_main_trait_increased_cost", "wh2_main_incident_treasury_down_one_k"}
     }
 }
