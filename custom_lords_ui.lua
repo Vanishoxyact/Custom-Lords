@@ -1,7 +1,10 @@
 require("custom_lords_util");
+local CustomLordsModel = require("custom_lords_ui_model");
 
 local TOTAL_TRAIT_POINTS = 3;
 local MAX_TRAITS = 4;
+local model = nil --: CUSTOM_LORDS_MODEL
+local customLordFrame = nil --: FRAME
 
 --v function(buttons: vector<TEXT_BUTTON>)
 function setUpSingleButtonSelectedGroup(buttons)
@@ -55,23 +58,25 @@ function calculateLordTypeData(factionName)
     return lordTypeData;
 end
 
---v function(currentFaction: string, frame: FRAME) --> map<string, TEXT_BUTTON>
+--v function(currentFaction: string, frame: FRAME) --> vector<TEXT_BUTTON>
 function createLordTypeButtons(currentFaction, frame)
     local buttons = {} --: vector<TEXT_BUTTON>
-    local buttonsMap = {} --: map<string, TEXT_BUTTON>
-    local first = true;
-        for i, factionLordType in ipairs(calculateLordTypeData(currentFaction)) do
-            local lordType = factionLordType["lord_type"];
-            local button = createLordTypeButton(lordType, factionLordType["lord_type_name"], frame);
-            if first then
-                button:SetState("selected");
+    for i, factionLordType in ipairs(calculateLordTypeData(currentFaction)) do
+        local lordType = factionLordType["lord_type"];
+        local button = createLordTypeButton(lordType, factionLordType["lord_type_name"], frame);
+        if i == 1 then
+            button:SetState("selected");
+            model:SetSelectedLordType(lordType);
+        end
+        table.insert(buttons, button);
+        button:RegisterForClick(
+            function(context)
+                model:SetSelectedLordType(lordType);
             end
-            first = false;
-            buttonsMap[lordType] = button;
-            table.insert(buttons, button);
+        );
     end
     setUpSingleButtonSelectedGroup(buttons);
-    return buttonsMap;
+    return buttons;
 end
 
 --v function(skillSet: string, skillSetName: string, frame: FRAME) --> TEXT_BUTTON
@@ -82,25 +87,41 @@ function createSkillSetButton(skillSet, skillSetName, frame)
     return skillSetButton;
 end
 
---v function(lordType: string, frame: FRAME) --> map<string, TEXT_BUTTON>
+--v function(lordType: string, frame: FRAME) --> vector<TEXT_BUTTON>
 function createSkillSetButtons(lordType, frame)
     local buttons = {} --: vector<TEXT_BUTTON>
-    local buttonsMap = {} --: map<string, TEXT_BUTTON>
     local lordTypesTable = TABLES["lord_types"][lordType] --: vector<map<string, string>>
     if not lordTypesTable then
         lordTypesTable = {{key = lordType, skill_set = lordType .. "_default", skill_set_name = "Default", default_skill_set = "TRUE"}};
     end
-    for i, lordType in ipairs(lordTypesTable) do
-        local skillSet = lordType["skill_set"];
-        local button = createSkillSetButton(skillSet, lordType["skill_set_name"], frame);
+    for i, lordTypeTable in ipairs(lordTypesTable) do
+        local skillSet = lordTypeTable["skill_set"];
+        local button = createSkillSetButton(skillSet, lordTypeTable["skill_set_name"], frame);
         if i == 1 then
             button:SetState("selected");
+            model:SetSelectedSkillSet(skillSet);
         end
-        buttonsMap[skillSet] = button;
         table.insert(buttons, button);
+        button:RegisterForClick(
+            function(context)
+                model:SetSelectedSkillSet(skillSet);
+            end
+        );
     end
     setUpSingleButtonSelectedGroup(buttons);
-    return buttonsMap;
+    return buttons;
+end
+
+--v function(skillSetButtonContainer: CONTAINER)
+function resetSkillSets(skillSetButtonContainer)
+    skillSetButtonContainer:Clear();
+    local buttonList = ListView.new("SkillSetList", customLordFrame, "HORIZONTAL");
+    buttonList:Resize(customLordFrame:Width() - 55, 52);
+    for i, button in ipairs(createSkillSetButtons(model.selectedLordType, customLordFrame)) do
+        buttonList:AddComponent(button);
+    end
+    skillSetButtonContainer:AddComponent(buttonList);
+    skillSetButtonContainer:Reposition();
 end
 
 --v function(traitEffectProperties: map<string, string>) --> (string, string)
@@ -187,18 +208,18 @@ function createTraitDivider(name, parent, width)
     return divider;
 end
 
---v function(selectedTraits: vector<string>) --> number
-function calculateRemainingTraitPoints(selectedTraits)
+--v function() --> number
+function calculateRemainingTraitPoints()
     local totalTraitPoints = tonumber(0);
-    for i, trait in ipairs(selectedTraits) do
+    for i, trait in ipairs(model.selectedTraits) do
         local traitPointsForTrait = tonumber(TABLES["traits"][trait]["trait_cost"]);
         totalTraitPoints = totalTraitPoints + traitPointsForTrait;
     end
     return TOTAL_TRAIT_POINTS + totalTraitPoints;
 end
 
---v function(currentTraits: vector<string>, addTraitCallback: function(string)) --> FRAME
-function createTraitSelectionFrame(currentTraits, addTraitCallback)
+--v function(addTraitCallback: function(string)) --> FRAME
+function createTraitSelectionFrame(addTraitCallback)
     local traitSelectionFrame = Frame.new("traitSelectionFrame");
     traitSelectionFrame:SetTitle("Select the trait to add");
     local traitSelectionFrameContainer = Container.new(FlowLayout.VERTICAL);
@@ -208,7 +229,7 @@ function createTraitSelectionFrame(currentTraits, addTraitCallback)
     traitList:Resize(600, traitSelectionFrame:Height() - 200);
     local divider = createTraitDivider("SelectFrameTopDivider", traitList, traitSelectionFrame:Width());
     traitList:AddComponent(divider);
-    local remainingTraitPoints = calculateRemainingTraitPoints(currentTraits);
+    local remainingTraitPoints = calculateRemainingTraitPoints();
     for trait, traitData in pairs(TABLES["traits"]) do
         local addTraitButtonFunction = function(
             trait, --: string
@@ -227,7 +248,7 @@ function createTraitSelectionFrame(currentTraits, addTraitCallback)
             addTraitButton:Resize(25, 25);
             return addTraitButton;
         end
-        if not listContains(currentTraits, trait) then
+        if not listContains(model.selectedTraits, trait) then
             local traitRow = createTraitRow(trait, traitSelectionFrame, addTraitButtonFunction);
             traitList:AddContainer(traitRow);
             local divider = createTraitDivider(trait .. "Divider", traitList, traitSelectionFrame:Width());
@@ -241,49 +262,21 @@ function createTraitSelectionFrame(currentTraits, addTraitCallback)
     return traitSelectionFrame;
 end
 
---v function(currentTraits: vector<string>)
-function updateAddTraitButton(currentTraits)
+--v function()
+function updateAddTraitButton()
     local addTraitButton = Util.getComponentWithName("addTraitButton");
     --# assume addTraitButton: TEXT_BUTTON
-    if #currentTraits < MAX_TRAITS then
+    if #model.selectedTraits < MAX_TRAITS then
         addTraitButton:SetVisible(true);
     else
         addTraitButton:SetVisible(false);
     end
 end
 
---v function(currentTraits: vector<string>, traitRowContainer: CONTAINER, parent: COMPONENT_TYPE | CA_UIC, buttonCreationFunction: function(trait:string, parent: COMPONENT_TYPE | CA_UIC) --> BUTTON)
-function resetSelectedTraits(currentTraits, traitRowContainer, parent, buttonCreationFunction)
-    --# assume parent: CA_UIC
-    traitRowContainer:Clear();
-    local traitsText = Text.new("TraitPointsText", parent, "NORMAL", "Trait Points Remaining: " .. calculateRemainingTraitPoints(currentTraits));
-    traitRowContainer:AddComponent(traitsText);
-    local divider = createTraitDivider("CurrentTraitsTopDivider", parent, parent:Width());
-    traitRowContainer:AddComponent(divider);
-    for i, trait in ipairs(currentTraits) do
-        local traitRow = createTraitRow(trait, parent, buttonCreationFunction);
-        traitRowContainer:AddComponent(traitRow);
-        local divider = createTraitDivider(trait .. "Divider", parent, parent:Width());
-        traitRowContainer:AddComponent(divider);
-    end
-    updateAddTraitButton(currentTraits);
-end
-
---v function(idToButtonMap: map<string, TEXT_BUTTON>) --> string
-function findSelectedButton(idToButtonMap)
-    local selectedId = nil --: string
-    for id, button in pairs(idToButtonMap) do
-        if button:IsSelected() and button:Visible() then
-            selectedId = id;
-        end
-    end
-    return selectedId;
-end
-
---v function(selectedTraits: vector<string>) --> number
-function calculateRecruitmentCost(selectedTraits)
+--v function() --> number
+function calculateRecruitmentCost()
     local cost = 1000;
-    for i, trait in ipairs(selectedTraits) do
+    for i, trait in ipairs(model.selectedTraits) do
         if trait == "wh2_main_trait_increased_cost" then
             cost = cost + 1000;
         end
@@ -291,24 +284,47 @@ function calculateRecruitmentCost(selectedTraits)
     return cost;
 end
 
---v function(selectedTraits: vector<string>)
-function updateRecruitButton(selectedTraits)
+--v function()
+function updateRecruitButton()
     local recuitButton = Util.getComponentWithName("recruitButton");
-    --# assume recuitButton: TEXT_BUTTON
-    local recruitCost = calculateRecruitmentCost(selectedTraits);
-    local recruitText = "Recruit " .. "([[img:icon_treasury]][[/img]]" .. recruitCost .. ")";
-    recuitButton:SetButtonText(recruitText);
-    local currentFaction = cm:model():world():faction_by_key(cm:get_local_faction());
-    recuitButton:SetDisabled(currentFaction:treasury() < recruitCost);
-    local remainingTraitPoints = calculateRemainingTraitPoints(selectedTraits);
-    if remainingTraitPoints < 0 then
-        recuitButton:SetDisabled(true);
+    if recuitButton then
+        --# assume recuitButton: TEXT_BUTTON
+        local recruitCost = calculateRecruitmentCost();
+        local recruitText = "Recruit " .. "([[img:icon_treasury]][[/img]]" .. recruitCost .. ")";
+        recuitButton:SetButtonText(recruitText);
+        local currentFaction = cm:model():world():faction_by_key(cm:get_local_faction());
+        recuitButton:SetDisabled(currentFaction:treasury() < recruitCost);
+        local remainingTraitPoints = calculateRemainingTraitPoints();
+        if remainingTraitPoints < 0 then
+            recuitButton:SetDisabled(true);
+        end
     end
+end
+
+--v function(traitRowContainer: CONTAINER, frameContainer: CONTAINER, buttonCreationFunction: function(trait:string, parent: COMPONENT_TYPE | CA_UIC) --> BUTTON)
+function resetSelectedTraits(traitRowContainer, frameContainer, buttonCreationFunction)
+    --# assume parent: CA_UIC
+    traitRowContainer:Clear();
+    local traitsText = Text.new("TraitPointsText", customLordFrame, "NORMAL", "Trait Points Remaining: " .. calculateRemainingTraitPoints());
+    traitRowContainer:AddComponent(traitsText);
+    local divider = createTraitDivider("CurrentTraitsTopDivider", customLordFrame, customLordFrame:Width());
+    traitRowContainer:AddComponent(divider);
+    for i, trait in ipairs(model.selectedTraits) do
+        local traitRow = createTraitRow(trait, customLordFrame, buttonCreationFunction);
+        traitRowContainer:AddComponent(traitRow);
+        local divider = createTraitDivider(trait .. "Divider", customLordFrame, customLordFrame:Width());
+        traitRowContainer:AddComponent(divider);
+    end
+    frameContainer:Reposition();
+    updateAddTraitButton();
+    updateRecruitButton();
 end
 
 --v function(recruitCallback: function(name: string, lordType: string, skillSet: string, traits: vector<string>)) --> FRAME
 function createCustomLordFrameUi(recruitCallback)
-    local customLordFrame = Frame.new("customLordFrame");
+    model = CustomLordsModel.new();
+    model:RegisterForEventType("LORD_TYPES_CHANGE");
+    customLordFrame = Frame.new("customLordFrame");
     customLordFrame:SetTitle("Create your custom Lord");
     customLordFrame:Resize(customLordFrame:Width(), customLordFrame:Height() * 1.5);
     Util.centreComponentOnScreen(customLordFrame);
@@ -335,48 +351,20 @@ function createCustomLordFrameUi(recruitCallback)
     local skillSetText = Text.new("skillSetText", customLordFrame, "HEADER", "Select your Lord's skill-set");
     frameContainer:AddComponent(skillSetText);
 
-    local skillSetButtonsList = ListView.new("SkillSetList", customLordFrame, "HORIZONTAL");
-    skillSetButtonsList:Resize(customLordFrame:Width() - 55, 52);
-    local lordTypeToSkillSetButtons = {} --: map<string, vector<TEXT_BUTTON>>
-    local skillSetToButtonMap = {} --: map<string, TEXT_BUTTON>
-    for lordType, lordTypeButton in pairs(lordTypeButtons) do
-        lordTypeToSkillSetButtons[lordType] = {};
-        local skillSetButtons = createSkillSetButtons(lordType, customLordFrame);
-        for skillSet, skillSetButton in pairs(skillSetButtons) do
-            skillSetButtonsList:AddComponent(skillSetButton);
-            table.insert(lordTypeToSkillSetButtons[lordType], skillSetButton);
-            skillSetToButtonMap[skillSet] = skillSetButton;
-            if lordTypeButton:CurrentState() == "selected" then
-                skillSetButton:SetVisible(true);
-            else
-                skillSetButton:SetVisible(false);
-            end
+    local skillSetButtonContainer = Container.new(FlowLayout.VERTICAL);
+    resetSkillSets(skillSetButtonContainer);
+    model:RegisterForEvent(
+        "SELECTED_LORD_TYPE_CHANGE", 
+        function()
+            resetSkillSets(skillSetButtonContainer);
         end
-    end
-    for lordType, lordTypeButton in pairs(lordTypeButtons) do
-        lordTypeButton:RegisterForClick(
-            function(context)
-                for otherLordType, skillSetButtons in pairs(lordTypeToSkillSetButtons) do
-                    for i, skillSetButton in ipairs(skillSetButtons) do
-                        if otherLordType == lordType then
-                            skillSetButton:SetVisible(true);
-                        else
-                            skillSetButton:SetVisible(false);
-                        end
-                    end
-                end
-                frameContainer:Reposition();
-            end
-        );
-    end
-    frameContainer:AddComponent(skillSetButtonsList);
+    );
+    frameContainer:AddComponent(skillSetButtonContainer);
 
     local traitsText = Text.new("traitsText", customLordFrame, "HEADER", "Select your Lord's traits");
     frameContainer:AddComponent(traitsText);
 
-    local selectedTraits = {} --: vector<string>
-    local traitToRow = {} --: map<string, CONTAINER>    
-    local traitRowsContainer = Container.new(FlowLayout.VERTICAL);  
+    local traitRowsContainer = Container.new(FlowLayout.VERTICAL);
 
     local removeTraitButtonFunction = nil --: function(string, COMPONENT_TYPE | CA_UIC) --> BUTTON
     removeTraitButtonFunction = function(
@@ -386,15 +374,19 @@ function createCustomLordFrameUi(recruitCallback)
         local removeTraitButton = Button.new("removeTraitButton" .. trait, parent, "SQUARE", "ui/skins/default/parchment_header_max.png");
         removeTraitButton:RegisterForClick(
             function(context)
-                removeFromList(selectedTraits, trait);
-                resetSelectedTraits(selectedTraits, traitRowsContainer, customLordFrame, removeTraitButtonFunction);
-                frameContainer:PositionRelativeTo(customLordFrame, 20, 20);
-                updateRecruitButton(selectedTraits);
+                model:RemoveSelectedTrait(trait);
             end
         )
         removeTraitButton:Resize(25, 25);
         return removeTraitButton;
     end
+
+    model:RegisterForEvent(
+        "SELECTED_TRAITS_CHANGE", 
+        function()
+            resetSelectedTraits(traitRowsContainer, frameContainer, removeTraitButtonFunction);
+        end
+    );
 
     frameContainer:AddComponent(traitRowsContainer);
 
@@ -404,12 +396,9 @@ function createCustomLordFrameUi(recruitCallback)
             local existingFrame = Util.getComponentWithName("traitSelectionFrame");
             --# assume existingFrame: FRAME
             if not existingFrame then
-                local traitSelectionFrame = createTraitSelectionFrame(selectedTraits, 
+                local traitSelectionFrame = createTraitSelectionFrame( 
                     function(addedTrait)
-                        table.insert(selectedTraits, addedTrait);
-                        resetSelectedTraits(selectedTraits, traitRowsContainer, customLordFrame, removeTraitButtonFunction);
-                        frameContainer:PositionRelativeTo(customLordFrame, 20, 20);
-                        updateRecruitButton(selectedTraits);
+                        model:AddSelectedTrait(addedTrait);
                     end
                 );
                 customLordFrame.uic:Adopt(traitSelectionFrame.uic:Address());
@@ -419,7 +408,7 @@ function createCustomLordFrameUi(recruitCallback)
     );
     frameContainer:AddComponent(addTraitButton);
 
-    resetSelectedTraits(selectedTraits, traitRowsContainer, customLordFrame, removeTraitButtonFunction);
+    resetSelectedTraits(traitRowsContainer, frameContainer, removeTraitButtonFunction);
     frameContainer:PositionRelativeTo(customLordFrame, 20, 20);
 
     local recuitContainer = Container.new(FlowLayout.HORIZONTAL);
@@ -429,14 +418,14 @@ function createCustomLordFrameUi(recruitCallback)
         function(context)
             recruitCallback(
                 lordNameTextBox.uic:GetStateText(),
-                findSelectedButton(lordTypeButtons),
-                findSelectedButton(skillSetToButtonMap),
-                selectedTraits
+                model.selectedLordType,
+                model.selectedSkillSet,
+                model.selectedTraits
             );
             customLordFrame:Delete();
         end
     );
-    updateRecruitButton(selectedTraits);
+    updateRecruitButton();
     recuitContainer:AddComponent(recuitButton);
 
     local closeButton = Button.new("CustomLordFrameCloseButton", customLordFrame, "CIRCULAR", "ui/skins/warhammer2/icon_cross.png");
