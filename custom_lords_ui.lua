@@ -326,7 +326,8 @@ function createCustomLordFrameUi(recruitCallback)
     model:RegisterForEventType("LORD_TYPES_CHANGE");
     customLordFrame = Frame.new("customLordFrame");
     customLordFrame:SetTitle("Create your custom Lord");
-    customLordFrame:Resize(customLordFrame:Width(), customLordFrame:Height() * 1.5);
+    local xRes, yRes = core:get_screen_resolution();
+    customLordFrame:Resize(customLordFrame:Width(), yRes - 100);
     Util.centreComponentOnScreen(customLordFrame);
 
     local frameContainer = Container.new(FlowLayout.VERTICAL);
