@@ -325,23 +325,25 @@ function createCustomLordFrameUi(recruitCallback)
     frameContainer:AddComponent(lordTypeText);
 
     local lordTypeButtons = createLordTypeButtons(cm:get_local_faction(), customLordFrame);
-    local buttonContainer = Container.new(FlowLayout.HORIZONTAL);
+    local buttonList = ListView.new("LordTypeList", customLordFrame, "HORIZONTAL");
+    buttonList:Resize(customLordFrame:Width() - 55, 52);
     for i, button in pairs(lordTypeButtons) do
-        buttonContainer:AddComponent(button);
+        buttonList:AddComponent(button);
     end
-    frameContainer:AddComponent(buttonContainer);
+    frameContainer:AddComponent(buttonList);
 
     local skillSetText = Text.new("skillSetText", customLordFrame, "HEADER", "Select your Lord's skill-set");
     frameContainer:AddComponent(skillSetText);
 
-    local skillSetButtonsContainer = Container.new(FlowLayout.HORIZONTAL);
+    local skillSetButtonsList = ListView.new("SkillSetList", customLordFrame, "HORIZONTAL");
+    skillSetButtonsList:Resize(customLordFrame:Width() - 55, 52);
     local lordTypeToSkillSetButtons = {} --: map<string, vector<TEXT_BUTTON>>
     local skillSetToButtonMap = {} --: map<string, TEXT_BUTTON>
     for lordType, lordTypeButton in pairs(lordTypeButtons) do
         lordTypeToSkillSetButtons[lordType] = {};
         local skillSetButtons = createSkillSetButtons(lordType, customLordFrame);
         for skillSet, skillSetButton in pairs(skillSetButtons) do
-            skillSetButtonsContainer:AddComponent(skillSetButton);
+            skillSetButtonsList:AddComponent(skillSetButton);
             table.insert(lordTypeToSkillSetButtons[lordType], skillSetButton);
             skillSetToButtonMap[skillSet] = skillSetButton;
             if lordTypeButton:CurrentState() == "selected" then
@@ -367,7 +369,7 @@ function createCustomLordFrameUi(recruitCallback)
             end
         );
     end
-    frameContainer:AddComponent(skillSetButtonsContainer);
+    frameContainer:AddComponent(skillSetButtonsList);
 
     local traitsText = Text.new("traitsText", customLordFrame, "HEADER", "Select your Lord's traits");
     frameContainer:AddComponent(traitsText);

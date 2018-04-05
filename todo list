@@ -1,4 +1,6 @@
 Required
+Trait columns
+MVC
 
 Nice to have
 Look at table ordering
@@ -13,6 +15,7 @@ Popup dialog?
 Ancillary from trait?
 Remove slann from lizardmen recruit
 Lord recruit rank
+Attribute points
 
 Completed
 Add cost to UI, disable recuit if not enough gold
@@ -37,3 +40,4 @@ Lord movement range
 Custom recruiting for lizardmen and tomb kings
 Lock skills for AI - duplicate skills and set uless for ai or add skill locks
 Trait list size + location
+Hlist for buttons
