@@ -1,4 +1,5 @@
 CUSTOM_LORDS_CAN_RECRUIT_SLANN = true --: boolean
+SELECTED_SETTLEMENT = nil --: string
 
 require("custom_lords_ui");
 
@@ -115,7 +116,7 @@ end
 
 --v function(selectedLordType: string, lordCreatedCallback: function(CA_CQI))
 function createLord(selectedLordType, lordCreatedCallback)
-    local region = string.sub(tostring(cm:get_campaign_ui_manager().settlement_selected), 12);
+    local region = string.sub(tostring(SELECTED_SETTLEMENT), 12);
     local settlement = get_region(region):settlement();
     local xPos, yPos = calculateSpawnPoint(settlement:logical_position_x(), settlement:logical_position_y());
     cm:create_force_with_general(
@@ -407,7 +408,6 @@ function addSlannCountListener()
         function(context)
             local currentFaction = get_faction(cm:get_local_faction());
             if currentFaction:culture() == "wh2_main_lzd_lizardmen" then
-                local selectedSettlement = cm:get_campaign_ui_manager().settlement_selected;
                 local clanButton = find_uicomponent(core:get_ui_root(), "layout", "bar_small_top", "faction_icons", "button_factions");
                 clanButton:SimulateLClick();
                 local imperiumPanel = find_uicomponent(core:get_ui_root(), "clan", "main", "tab_children_parent", "Summary", "portrait_frame", "parchment_R", "imperium");
@@ -416,7 +416,24 @@ function addSlannCountListener()
                 CUSTOM_LORDS_CAN_RECRUIT_SLANN = curr < max;
                 local okButton = find_uicomponent(core:get_ui_root(), "clan", "main", "button_ok");
                 okButton:SimulateLClick();
-                cm:get_campaign_ui_manager().settlement_selected = selectedSettlement;
+            end
+        end,
+        true
+    );
+end
+
+--v function()
+function addSettlementSelectedListener()
+    core:add_listener(
+        "CanRecruitSlannListener",
+        "PanelOpenedCampaign",
+        function(context) 
+            return context.string == "settlement_panel"; 
+        end,
+        function(context)
+            cuimSettlement = cm:get_campaign_ui_manager().settlement_selected;
+            if cuimSettlement and not (cuimSettlement == "") then
+                SELECTED_SETTLEMENT = cuimSettlement;
             end
         end,
         true
@@ -429,4 +446,5 @@ function custom_lords()
     attachSkillListener();
     addEscapeButtonListener();
     addSlannCountListener();
+    addSettlementSelectedListener();
 end
