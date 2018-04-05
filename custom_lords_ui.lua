@@ -204,8 +204,8 @@ function createTraitSelectionFrame(currentTraits, addTraitCallback)
     local traitSelectionFrameContainer = Container.new(FlowLayout.VERTICAL);
     traitSelectionFrame:AddComponent(traitSelectionFrameContainer);
     traitSelectionFrame:AddCloseButton();
-    local traitList = ListView.new("traitList", traitSelectionFrame);
-    traitList:Resize(600, traitSelectionFrame:Height() - 150);
+    local traitList = ListView.new("traitList", traitSelectionFrame, "VERTICAL");
+    traitList:Resize(600, traitSelectionFrame:Height() - 200);
     local divider = createTraitDivider("SelectFrameTopDivider", traitList, traitSelectionFrame:Width());
     traitList:AddComponent(divider);
     local remainingTraitPoints = calculateRemainingTraitPoints(currentTraits);
@@ -238,7 +238,6 @@ function createTraitSelectionFrame(currentTraits, addTraitCallback)
     traitSelectionFrameContainer:AddComponent(traitList);
     Util.centreComponentOnComponent(traitSelectionFrameContainer, traitSelectionFrame);
     local x, y = traitSelectionFrameContainer:Position();
-    traitSelectionFrameContainer:MoveTo(x, y - 30);
     return traitSelectionFrame;
 end
 
