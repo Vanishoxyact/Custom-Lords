@@ -186,6 +186,14 @@ attributes = {
     SCHEMA = {"key", "attribute_value", "effect_bundle"},
     KEY = {"key", "LIST"},
     DATA = {
-        {"char_melee_attack", "1", "wh2_vanish_clc_attribute_melee_attack_1"}
+        {"char_melee_attack", "4", "wh2_vanish_clc_attribute_melee_attack_4"},
+        {"char_melee_attack", "3", "wh2_vanish_clc_attribute_melee_attack_3"},
+        {"char_melee_attack", "2", "wh2_vanish_clc_attribute_melee_attack_2"},
+        {"char_melee_attack", "1", "wh2_vanish_clc_attribute_melee_attack_1"},
+        {"char_melee_attack", "0", "wh2_vanish_clc_attribute_melee_attack_0"},
+        {"char_melee_attack", "-1", "wh2_vanish_clc_attribute_melee_attack_minus_1"},
+        {"char_melee_attack", "-2", "wh2_vanish_clc_attribute_melee_attack_minus_2"},
+        {"char_melee_attack", "-3", "wh2_vanish_clc_attribute_melee_attack_minus_3"},
+        {"char_melee_attack", "-4", "wh2_vanish_clc_attribute_melee_attack_minus_4"}
     }
 }

@@ -460,8 +460,7 @@ function createCustomLordFrameUi(recruitCallback)
     frameContainer:AddComponent(attributesText);
     local attributesTable = TABLES["attributes"] --: map<string, vector<map<string, string>>>
     for attribute, table in pairs(attributesTable) do
-        -- Should be 0
-        model:SetAttributeValue(attribute, 1);
+        model:SetAttributeValue(attribute, 0);
     end
     local attributeContainer = Container.new(FlowLayout.VERTICAL);
     resetAttributeContainer(attributeContainer, customLordFrame);
