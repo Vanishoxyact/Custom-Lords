@@ -1,66 +1,66 @@
 effect_bundles_tables
 1
 key	localised_description	localised_title	ui_icon	bundle_target
-wh2_vanish_clc_attribute_melee_attack_4	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_melee_attack_3	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_melee_attack_2	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_melee_attack_1	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_melee_attack_0	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_melee_attack_minus_1	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_melee_attack_minus_2	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_melee_attack_minus_3	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_melee_attack_minus_4	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_melee_defence_4	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_melee_defence_3	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_melee_defence_2	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_melee_defence_1	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_melee_defence_0	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_melee_defence_minus_1	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_melee_defence_minus_2	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_melee_defence_minus_3	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_melee_defence_minus_4	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_armour_4	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_armour_3	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_armour_2	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_armour_1	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_armour_0	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_armour_minus_1	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_armour_minus_2	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_armour_minus_3	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_armour_minus_4	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_weapon_strength_4	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_weapon_strength_3	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_weapon_strength_2	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_weapon_strength_1	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_weapon_strength_0	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_weapon_strength_minus_1	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_weapon_strength_minus_2	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_weapon_strength_minus_3	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_weapon_strength_minus_4	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_speed_4	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_speed_3	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_speed_2	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_speed_1	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_speed_0	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_speed_minus_1	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_speed_minus_2	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_speed_minus_3	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_speed_minus_4	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_charge_bonus_4	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_charge_bonus_3	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_charge_bonus_2	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_charge_bonus_1	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_charge_bonus_0	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_charge_bonus_minus_1	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_charge_bonus_minus_2	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_charge_bonus_minus_3	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_charge_bonus_minus_4	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_winds_of_magic_4	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_winds_of_magic_3	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_winds_of_magic_2	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_winds_of_magic_1	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_winds_of_magic_0	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_winds_of_magic_minus_1	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_winds_of_magic_minus_2	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_winds_of_magic_minus_3	 	 	melee_character.png	character
-wh2_vanish_clc_attribute_winds_of_magic_minus_4	 	 	melee_character.png	character
+wh2_vanish_clc_attribute_melee_attack_4	 	 	 	character
+wh2_vanish_clc_attribute_melee_attack_3	 	 	 	character
+wh2_vanish_clc_attribute_melee_attack_2	 	 	 	character
+wh2_vanish_clc_attribute_melee_attack_1	 	 	 	character
+wh2_vanish_clc_attribute_melee_attack_0	 	 	 	character
+wh2_vanish_clc_attribute_melee_attack_minus_1	 	 	 	character
+wh2_vanish_clc_attribute_melee_attack_minus_2	 	 	 	character
+wh2_vanish_clc_attribute_melee_attack_minus_3	 	 	 	character
+wh2_vanish_clc_attribute_melee_attack_minus_4	 	 	 	character
+wh2_vanish_clc_attribute_melee_defence_4	 	 	 	character
+wh2_vanish_clc_attribute_melee_defence_3	 	 	 	character
+wh2_vanish_clc_attribute_melee_defence_2	 	 	 	character
+wh2_vanish_clc_attribute_melee_defence_1	 	 	 	character
+wh2_vanish_clc_attribute_melee_defence_0	 	 	 	character
+wh2_vanish_clc_attribute_melee_defence_minus_1	 	 	 	character
+wh2_vanish_clc_attribute_melee_defence_minus_2	 	 	 	character
+wh2_vanish_clc_attribute_melee_defence_minus_3	 	 	 	character
+wh2_vanish_clc_attribute_melee_defence_minus_4	 	 	 	character
+wh2_vanish_clc_attribute_armour_4	 	 	 	character
+wh2_vanish_clc_attribute_armour_3	 	 	 	character
+wh2_vanish_clc_attribute_armour_2	 	 	 	character
+wh2_vanish_clc_attribute_armour_1	 	 	 	character
+wh2_vanish_clc_attribute_armour_0	 	 	 	character
+wh2_vanish_clc_attribute_armour_minus_1	 	 	 	character
+wh2_vanish_clc_attribute_armour_minus_2	 	 	 	character
+wh2_vanish_clc_attribute_armour_minus_3	 	 	 	character
+wh2_vanish_clc_attribute_armour_minus_4	 	 	 	character
+wh2_vanish_clc_attribute_weapon_strength_4	 	 	 	character
+wh2_vanish_clc_attribute_weapon_strength_3	 	 	 	character
+wh2_vanish_clc_attribute_weapon_strength_2	 	 	 	character
+wh2_vanish_clc_attribute_weapon_strength_1	 	 	 	character
+wh2_vanish_clc_attribute_weapon_strength_0	 	 	 	character
+wh2_vanish_clc_attribute_weapon_strength_minus_1	 	 	 	character
+wh2_vanish_clc_attribute_weapon_strength_minus_2	 	 	 	character
+wh2_vanish_clc_attribute_weapon_strength_minus_3	 	 	 	character
+wh2_vanish_clc_attribute_weapon_strength_minus_4	 	 	 	character
+wh2_vanish_clc_attribute_speed_4	 	 	 	character
+wh2_vanish_clc_attribute_speed_3	 	 	 	character
+wh2_vanish_clc_attribute_speed_2	 	 	 	character
+wh2_vanish_clc_attribute_speed_1	 	 	 	character
+wh2_vanish_clc_attribute_speed_0	 	 	 	character
+wh2_vanish_clc_attribute_speed_minus_1	 	 	 	character
+wh2_vanish_clc_attribute_speed_minus_2	 	 	 	character
+wh2_vanish_clc_attribute_speed_minus_3	 	 	 	character
+wh2_vanish_clc_attribute_speed_minus_4	 	 	 	character
+wh2_vanish_clc_attribute_charge_bonus_4	 	 	 	character
+wh2_vanish_clc_attribute_charge_bonus_3	 	 	 	character
+wh2_vanish_clc_attribute_charge_bonus_2	 	 	 	character
+wh2_vanish_clc_attribute_charge_bonus_1	 	 	 	character
+wh2_vanish_clc_attribute_charge_bonus_0	 	 	 	character
+wh2_vanish_clc_attribute_charge_bonus_minus_1	 	 	 	character
+wh2_vanish_clc_attribute_charge_bonus_minus_2	 	 	 	character
+wh2_vanish_clc_attribute_charge_bonus_minus_3	 	 	 	character
+wh2_vanish_clc_attribute_charge_bonus_minus_4	 	 	 	character
+wh2_vanish_clc_attribute_winds_of_magic_4	 	 	 	character
+wh2_vanish_clc_attribute_winds_of_magic_3	 	 	 	character
+wh2_vanish_clc_attribute_winds_of_magic_2	 	 	 	character
+wh2_vanish_clc_attribute_winds_of_magic_1	 	 	 	character
+wh2_vanish_clc_attribute_winds_of_magic_0	 	 	 	character
+wh2_vanish_clc_attribute_winds_of_magic_minus_1	 	 	 	character
+wh2_vanish_clc_attribute_winds_of_magic_minus_2	 	 	 	character
+wh2_vanish_clc_attribute_winds_of_magic_minus_3	 	 	 	character
+wh2_vanish_clc_attribute_winds_of_magic_minus_4	 	 	 	character

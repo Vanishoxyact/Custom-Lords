@@ -1,7 +1,7 @@
 require("custom_lords_util");
 local CustomLordsModel = require("custom_lords_ui_model");
 
-local TOTAL_TRAIT_POINTS = 3;
+local TOTAL_TRAIT_POINTS = 2;
 local MAX_TRAITS = 4;
 local model = nil --: CUSTOM_LORDS_MODEL
 local customLordFrame = nil --: FRAME
@@ -307,12 +307,12 @@ function resetSelectedTraits(traitRowContainer, frameContainer, buttonCreationFu
     traitRowContainer:Clear();
     local traitsText = Text.new("TraitPointsText", customLordFrame, "NORMAL", "Trait Points Remaining: " .. calculateRemainingTraitPoints());
     traitRowContainer:AddComponent(traitsText);
-    local divider = createTraitDivider("CurrentTraitsTopDivider", customLordFrame, customLordFrame:Width());
+    local divider = createTraitDivider("CurrentTraitsTopDivider", customLordFrame, 600);
     traitRowContainer:AddComponent(divider);
     for i, trait in ipairs(model.selectedTraits) do
         local traitRow = createTraitRow(trait, customLordFrame, buttonCreationFunction);
         traitRowContainer:AddComponent(traitRow);
-        local divider = createTraitDivider(trait .. "Divider", customLordFrame, customLordFrame:Width());
+        local divider = createTraitDivider(trait .. "Divider", customLordFrame, 600);
         traitRowContainer:AddComponent(divider);
     end
     frameContainer:Reposition();
@@ -360,10 +360,20 @@ function createAttributeRow(attribute, value, frame)
     local rowContainer = Container.new(FlowLayout.HORIZONTAL);
     local attributeEffectBundle = calculateEffectBundleForAttributeAndValue(attribute, value);
     local attributeEffect = calculateEffectForEffectBundle(attributeEffectBundle);
+
+    local changeValue = calculateEffectValueForEffectBundle(attributeEffectBundle);
+    local changeText = tostring(changeValue);
+    if changeValue >= 0 then
+        changeText = "+" .. changeText;
+    end
+    local attributeChangeText = Text.new("AttributeChangeText" .. attribute, frame, "NORMAL", changeText);
+    attributeChangeText:Resize(35, 20);
+    rowContainer:AddComponent(attributeChangeText);
+
     local effectImage = TABLES["effects_tables"][attributeEffect]["icon"];
     local attributeImage = Image.new("AttributeRowImage" .. attribute, frame, "ui/campaign ui/effect_bundles/" .. effectImage);
-    rowContainer:AddGap(10);
     rowContainer:AddComponent(attributeImage);
+    rowContainer:AddGap(15);
     local decreaseButton = Button.new("AttributeDecreaseButton" .. attribute, frame, "SQUARE", "ui/skins/default/parchment_header_max.png");
     decreaseButton:Resize(25, 25);
     if value == maxDiff * -1 then
@@ -394,27 +404,21 @@ function createAttributeRow(attribute, value, frame)
             model:SetAttributeValue(attribute, value + 1);
         end
     );
+
     rowContainer:AddComponent(increaseButton);
-    local changeValue = calculateEffectValueForEffectBundle(attributeEffectBundle);
-    local changeText = tostring(changeValue);
-    if changeValue >= 0 then
-        changeText = "+" .. changeText;
-    end
     rowContainer:AddGap(10);
-    local attributeChangeText = Text.new("AttributeChangeText" .. attribute, frame, "NORMAL", changeText);
-    rowContainer:AddComponent(attributeChangeText);
     return rowContainer;
 end
 
 --v function(attributeContainer: CONTAINER, frame: FRAME)
 function resetAttributeContainer(attributeContainer, frame)
     attributeContainer:Clear();
+    local remainingAttributePointsText = Text.new("remainingAttributePointsText", frame, "NORMAL", "Attribute Points: " .. calculateRemainingAttributePoints());
+    attributeContainer:AddComponent(remainingAttributePointsText);
     for attribute, value in pairs(model.attributeValues) do
         local attributeRow = createAttributeRow(attribute, value, frame);
         attributeContainer:AddComponent(attributeRow);
     end
-    local remainingAttributePointsText = Text.new("remainingAttributePointsText", frame, "NORMAL", "Attribute Points: " .. calculateRemainingAttributePoints());
-    attributeContainer:AddComponent(remainingAttributePointsText);
     attributeContainer:Reposition();
 end
 
@@ -425,7 +429,7 @@ function createCustomLordFrameUi(recruitCallback)
     customLordFrame = Frame.new("customLordFrame");
     customLordFrame:SetTitle("Create your custom Lord");
     local xRes, yRes = core:get_screen_resolution();
-    customLordFrame:Resize(customLordFrame:Width(), yRes - 100);
+    customLordFrame:Resize(customLordFrame:Width() * 1.3, yRes - 100);
     Util.centreComponentOnScreen(customLordFrame);
 
     local frameContainer = Container.new(FlowLayout.VERTICAL);
@@ -460,27 +464,29 @@ function createCustomLordFrameUi(recruitCallback)
     );
     frameContainer:AddComponent(skillSetButtonContainer);
 
+    local traitsAttributesContainer = Container.new(FlowLayout.HORIZONTAL);
+    local attributesContainer = Container.new(FlowLayout.VERTICAL);
     local attributesText = Text.new("attributesText", customLordFrame, "HEADER", "Define your Lord's attributes");
-    frameContainer:AddComponent(attributesText);
+    attributesContainer:AddComponent(attributesText);
     local attributesTable = TABLES["attributes"] --: map<string, vector<map<string, string>>>
     for attribute, table in pairs(attributesTable) do
         model:SetAttributeValue(attribute, 0);
     end
-    local attributeContainer = Container.new(FlowLayout.VERTICAL);
-    resetAttributeContainer(attributeContainer, customLordFrame);
+    local attributeRowContainer = Container.new(FlowLayout.VERTICAL);
+    resetAttributeContainer(attributeRowContainer, customLordFrame);
     model:RegisterForEvent(
         "ATTRIBUTE_VALUE_CHANGE", 
         function()
-            resetAttributeContainer(attributeContainer, customLordFrame);
+            resetAttributeContainer(attributeRowContainer, customLordFrame);
         end
     );
-    frameContainer:AddComponent(attributeContainer);
+    attributesContainer:AddComponent(attributeRowContainer);
+    traitsAttributesContainer:AddComponent(attributesContainer);
 
+    local traitsContainer = Container.new(FlowLayout.VERTICAL);
     local traitsText = Text.new("traitsText", customLordFrame, "HEADER", "Select your Lord's traits");
-    frameContainer:AddComponent(traitsText);
-
+    traitsContainer:AddComponent(traitsText);
     local traitRowsContainer = Container.new(FlowLayout.VERTICAL);
-
     local removeTraitButtonFunction = nil --: function(string, COMPONENT_TYPE | CA_UIC) --> BUTTON
     removeTraitButtonFunction = function(
         trait, --: string
@@ -503,7 +509,7 @@ function createCustomLordFrameUi(recruitCallback)
         end
     );
 
-    frameContainer:AddComponent(traitRowsContainer);
+    traitsContainer:AddComponent(traitRowsContainer);
 
     local addTraitButton = TextButton.new("addTraitButton", customLordFrame, "TEXT", "Add Trait");
     addTraitButton:RegisterForClick(
@@ -521,7 +527,11 @@ function createCustomLordFrameUi(recruitCallback)
             end
         end
     );
-    frameContainer:AddComponent(addTraitButton);
+
+    traitsContainer:AddComponent(addTraitButton);
+    traitsAttributesContainer:AddGap(100);
+    traitsAttributesContainer:AddComponent(traitsContainer);
+    frameContainer:AddComponent(traitsAttributesContainer);
 
     resetSelectedTraits(traitRowsContainer, frameContainer, removeTraitButtonFunction);
     frameContainer:PositionRelativeTo(customLordFrame, 20, 20);
