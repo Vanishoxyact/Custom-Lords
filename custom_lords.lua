@@ -35,12 +35,18 @@ function calculateTraitIncidents(traits)
     return incidents;
 end
 
---v function(selectedSkillSet: string, selectedTraits: vector<string>, lordName: string, lordCqi: CA_CQI)
-function lordCreated(selectedSkillSet, selectedTraits, lordName, lordCqi)
+--v function(selectedSkillSet: string, selectedTraits: vector<string>, attributes: map<string, int>, lordName: string, lordCqi: CA_CQI)
+function lordCreated(selectedSkillSet, selectedTraits, attributes, lordName, lordCqi)
     -- Add traits
     cm:force_add_trait_on_selected_character(selectedSkillSet);
     for i, trait in ipairs(selectedTraits) do
         cm:force_add_trait_on_selected_character(trait);
+    end
+
+    -- Add attribute effect bundles
+    for attribute, value in pairs(attributes) do
+        local effectBundle = calculateEffectBundleForAttributeAndValue(attribute, value);
+        cm:apply_effect_bundle_to_characters_force(effectBundle, lordCqi, -1, false);
     end
 
     -- Add additional army upkeep effect bundle
@@ -166,11 +172,12 @@ function createCustomLordFrame()
         name, --: string
         lordType, --: string
         skillSet, --: string
+        attributes, --: map<string, int>
         traits --: vector<string>
     )
         createLord(lordType, 
             function(context)
-                lordCreated(skillSet, traits, name, context);
+                lordCreated(skillSet, traits, attributes, name, context);
             end
         );
         --# assume blocker: IMAGE

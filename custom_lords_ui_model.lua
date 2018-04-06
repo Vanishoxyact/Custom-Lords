@@ -13,6 +13,7 @@ function CustomLordsModel.new()
     clm.selectedSkillSet = nil --: string
     clm.availableTraits = {} --: vector<string>
     clm.selectedTraits = {} --: vector<string>
+    clm.attributeValues = {} --: map<string, int>
     clm.callbacks = {} --: map<CUSTOM_LORDS_EVENT, vector<function()>>
     return clm
 end
@@ -25,7 +26,7 @@ function CustomLordsModel.RegisterForEventType(self, eventType)
 end
 
 --v function(self: CUSTOM_LORDS_MODEL, eventType: CUSTOM_LORDS_EVENT) --> vector<function()>
-function CustomLordsModel.GetCallbacksFOrEventType(self, eventType)
+function CustomLordsModel.GetCallbacksForEventType(self, eventType)
     if not self.callbacks[eventType] then
         return {};
     else
@@ -36,13 +37,13 @@ end
 --v function(self: CUSTOM_LORDS_MODEL, eventType: CUSTOM_LORDS_EVENT, callback: function())
 function CustomLordsModel.RegisterForEvent(self, eventType, callback)
     self:RegisterForEventType(eventType);
-    local eventCallbacks = self:GetCallbacksFOrEventType(eventType);
+    local eventCallbacks = self:GetCallbacksForEventType(eventType);
     table.insert(eventCallbacks, callback);
 end
 
 --v function(self: CUSTOM_LORDS_MODEL, eventType: CUSTOM_LORDS_EVENT)
 function CustomLordsModel.NotifyEvent(self, eventType)
-    local eventCallbacks = self:GetCallbacksFOrEventType(eventType);
+    local eventCallbacks = self:GetCallbacksForEventType(eventType);
     for i, callback in ipairs(eventCallbacks) do
         callback();
     end
@@ -88,6 +89,12 @@ end
 function CustomLordsModel.RemoveSelectedTrait(self, removedTrait)
     removeFromList(self.selectedTraits, removedTrait);
     self:NotifyEvent("SELECTED_TRAITS_CHANGE");
+end
+
+--v function(self: CUSTOM_LORDS_MODEL, attribute: string, value: int)
+function CustomLordsModel.SetAttributeValue(self, attribute, value)
+    self.attributeValues[attribute] = value;
+    self:NotifyEvent("ATTRIBUTE_VALUE_CHANGE");
 end
 
 return {

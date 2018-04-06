@@ -181,3 +181,11 @@ trait_incidents = {
         {"wh2_main_trait_increased_cost", "wh2_main_incident_treasury_down_one_k"}
     }
 }
+
+attributes = {
+    SCHEMA = {"key", "attribute_value", "effect_bundle"},
+    KEY = {"key", "LIST"},
+    DATA = {
+        {"char_melee_attack", "1", "wh2_vanish_clc_attribute_melee_attack_1"}
+    }
+}

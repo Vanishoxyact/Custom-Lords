@@ -320,7 +320,101 @@ function resetSelectedTraits(traitRowContainer, frameContainer, buttonCreationFu
     updateRecruitButton();
 end
 
---v function(recruitCallback: function(name: string, lordType: string, skillSet: string, traits: vector<string>)) --> FRAME
+--v function() --> int
+function calculateRemainingAttributePoints()
+    local remainingPoints = 0 --: int
+    for attribute, value in pairs(model.attributeValues) do
+        remainingPoints = remainingPoints - value;
+    end
+    return remainingPoints;
+end
+
+--v function(attribute: string, value: int) --> string
+function calculateEffectBundleForAttributeAndValue(attribute, value)
+    local attributesTable = TABLES["attributes"] --: map<string, vector<map<string, string>>>
+    for i, attributeTable in ipairs(attributesTable[attribute]) do
+        if tonumber(attributeTable["attribute_value"]) == value then
+            return attributeTable["effect_bundle"];
+        end
+    end
+    output("Failed to find effect bundle for attribute: " .. attribute .. " with value: " .. value);
+    return nil;
+end
+
+--v function(effectBundle: string) --> string
+function calculateEffectForEffectBundle(effectBundle)
+    local effectBundleToEffectTable = TABLES["effect_bundles_to_effects_junctions_tables"] --: map<string, vector<map<string, string>>>
+    return effectBundleToEffectTable[effectBundle][1]["effect_key"];
+end
+
+--v function(effectBundle: string) --> number
+function calculateEffectValueForEffectBundle(effectBundle)
+    local effectBundleToEffectTable = TABLES["effect_bundles_to_effects_junctions_tables"] --: map<string, vector<map<string, string>>>
+    return tonumber(effectBundleToEffectTable[effectBundle][1]["value"]);
+end
+
+--v function(attribute: string, value: int, frame: FRAME) --> CONTAINER
+function createAttributeRow(attribute, value, frame)
+    local maxDiff = 4;
+    local remainingPoints = calculateRemainingAttributePoints();
+    local rowContainer = Container.new(FlowLayout.HORIZONTAL);
+    local attributeEffectBundle = calculateEffectBundleForAttributeAndValue(attribute, value);
+    local attributeEffect = calculateEffectForEffectBundle(attributeEffectBundle);
+    local effectImage = TABLES["effects_tables"][attributeEffect]["icon"];
+    local attributeImage = Image.new("AttributeRowImage" .. attribute, frame, "ui/campaign ui/effect_bundles/" .. effectImage);
+    rowContainer:AddComponent(attributeImage);
+    local decreaseButton = Button.new("AttributeDecreaseButton" .. attribute, frame, "SQUARE", "ui/skins/default/parchment_header_max.png");
+    decreaseButton:Resize(25, 25);
+    if value == maxDiff * -1 then
+        decreaseButton:SetDisabled(true);
+    end
+    decreaseButton:RegisterForClick(
+        function(context)
+            model:SetAttributeValue(attribute, value - 1);
+        end
+    );
+    rowContainer:AddComponent(decreaseButton);
+    local maxDiff = 4;
+    for i=-maxDiff,maxDiff do
+        local attributePointIndicator = Image.new("AttributePointIndicator" .. attribute .. i, frame, "ui/campaign ui/edicts/lzd_alignment_of_building.png");
+        attributePointIndicator:Resize(25, 25);
+        if i > value then
+            attributePointIndicator:SetOpacity(50);
+        end
+        rowContainer:AddComponent(attributePointIndicator);
+    end
+    local increaseButton = Button.new("AttributeIncreaseButton" .. attribute, frame, "SQUARE", "ui/skins/default/parchment_header_min.png");
+    increaseButton:Resize(25, 25);
+    if value == maxDiff or remainingPoints <= 0 then
+        increaseButton:SetDisabled(true);
+    end
+    increaseButton:RegisterForClick(
+        function(context)
+            model:SetAttributeValue(attribute, value + 1);
+        end
+    );
+    rowContainer:AddComponent(increaseButton);
+    local changeValue = calculateEffectValueForEffectBundle(attributeEffectBundle);
+    local changeText = tostring(changeValue);
+    if changeValue >= 0 then
+        changeText = "+" .. changeText;
+    end
+    local attributeChangeText = Text.new("AttributeChangeText" .. attribute, frame, "NORMAL", changeText);
+    rowContainer:AddComponent(attributeChangeText);
+    return rowContainer;
+end
+
+--v function(attributeContainer: CONTAINER, frame: FRAME)
+function resetAttributeContainer(attributeContainer, frame)
+    attributeContainer:Clear();
+    for attribute, value in pairs(model.attributeValues) do
+        local attributeRow = createAttributeRow(attribute, value, frame);
+        attributeContainer:AddComponent(attributeRow);
+    end
+    attributeContainer:Reposition();
+end
+
+--v function(recruitCallback: function(name: string, lordType: string, skillSet: string, attributes: map<string, int>, traits: vector<string>)) --> FRAME
 function createCustomLordFrameUi(recruitCallback)
     model = CustomLordsModel.new();
     model:RegisterForEventType("LORD_TYPES_CHANGE");
@@ -361,6 +455,23 @@ function createCustomLordFrameUi(recruitCallback)
         end
     );
     frameContainer:AddComponent(skillSetButtonContainer);
+
+    local attributesText = Text.new("attributesText", customLordFrame, "HEADER", "Define your Lord's attributes");
+    frameContainer:AddComponent(attributesText);
+    local attributesTable = TABLES["attributes"] --: map<string, vector<map<string, string>>>
+    for attribute, table in pairs(attributesTable) do
+        -- Should be 0
+        model:SetAttributeValue(attribute, 1);
+    end
+    local attributeContainer = Container.new(FlowLayout.VERTICAL);
+    resetAttributeContainer(attributeContainer, customLordFrame);
+    model:RegisterForEvent(
+        "ATTRIBUTE_VALUE_CHANGE", 
+        function()
+            resetAttributeContainer(attributeContainer, customLordFrame);
+        end
+    );
+    frameContainer:AddComponent(attributeContainer);
 
     local traitsText = Text.new("traitsText", customLordFrame, "HEADER", "Select your Lord's traits");
     frameContainer:AddComponent(traitsText);
@@ -421,6 +532,7 @@ function createCustomLordFrameUi(recruitCallback)
                 lordNameTextBox.uic:GetStateText(),
                 model.selectedLordType,
                 model.selectedSkillSet,
+                model.attributeValues,
                 model.selectedTraits
             );
             customLordFrame:Delete();
