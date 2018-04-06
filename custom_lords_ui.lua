@@ -362,6 +362,7 @@ function createAttributeRow(attribute, value, frame)
     local attributeEffect = calculateEffectForEffectBundle(attributeEffectBundle);
     local effectImage = TABLES["effects_tables"][attributeEffect]["icon"];
     local attributeImage = Image.new("AttributeRowImage" .. attribute, frame, "ui/campaign ui/effect_bundles/" .. effectImage);
+    rowContainer:AddGap(10);
     rowContainer:AddComponent(attributeImage);
     local decreaseButton = Button.new("AttributeDecreaseButton" .. attribute, frame, "SQUARE", "ui/skins/default/parchment_header_max.png");
     decreaseButton:Resize(25, 25);
@@ -376,7 +377,7 @@ function createAttributeRow(attribute, value, frame)
     rowContainer:AddComponent(decreaseButton);
     local maxDiff = 4;
     for i=-maxDiff,maxDiff do
-        local attributePointIndicator = Image.new("AttributePointIndicator" .. attribute .. i, frame, "ui/campaign ui/edicts/lzd_alignment_of_building.png");
+        local attributePointIndicator = Image.new("AttributePointIndicator" .. attribute .. i, frame, "ui/skins/warhammer2/button_basic_hover.png");
         attributePointIndicator:Resize(25, 25);
         if i > value then
             attributePointIndicator:SetOpacity(50);
@@ -399,6 +400,7 @@ function createAttributeRow(attribute, value, frame)
     if changeValue >= 0 then
         changeText = "+" .. changeText;
     end
+    rowContainer:AddGap(10);
     local attributeChangeText = Text.new("AttributeChangeText" .. attribute, frame, "NORMAL", changeText);
     rowContainer:AddComponent(attributeChangeText);
     return rowContainer;
@@ -411,6 +413,8 @@ function resetAttributeContainer(attributeContainer, frame)
         local attributeRow = createAttributeRow(attribute, value, frame);
         attributeContainer:AddComponent(attributeRow);
     end
+    local remainingAttributePointsText = Text.new("remainingAttributePointsText", frame, "NORMAL", "Attribute Points: " .. calculateRemainingAttributePoints());
+    attributeContainer:AddComponent(remainingAttributePointsText);
     attributeContainer:Reposition();
 end
 
