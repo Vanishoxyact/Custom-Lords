@@ -42,6 +42,7 @@ faction_lord_types = {
 
         {"wh_main_sc_vmp_vampire_counts", "SUBCULTURE", "vmp_lord", "Vampire Lord"},
         {"wh_main_sc_vmp_vampire_counts", "SUBCULTURE", "vmp_master_necromancer", "Master Necromancer"},
+        {"wh_main_sc_vmp_vampire_counts", "SUBCULTURE", "dlc04_vmp_strigoi_ghoul_king", "Strigoi Ghoul King"},
 
         {"wh2_dlc09_sc_tmb_tomb_kings", "SUBCULTURE", "wh2_dlc09_tmb_tomb_king", "Tomb King"},
 
