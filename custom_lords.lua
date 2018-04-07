@@ -1,5 +1,7 @@
 CUSTOM_LORDS_CAN_RECRUIT_SLANN = true --: boolean
-SELECTED_SETTLEMENT = nil --: string
+LORD_SPAWN_X = 0 --: number
+LORD_SPAWN_Y = 0 --: number
+LORD_SPAWN_REGION = nil --: string
 
 require("custom_lords_ui");
 
@@ -122,15 +124,12 @@ end
 
 --v function(selectedLordType: string, lordCreatedCallback: function(CA_CQI))
 function createLord(selectedLordType, lordCreatedCallback)
-    local region = string.sub(tostring(SELECTED_SETTLEMENT), 12);
-    local settlement = get_region(region):settlement();
-    local xPos, yPos = calculateSpawnPoint(settlement:logical_position_x(), settlement:logical_position_y());
     cm:create_force_with_general(
         cm:get_local_faction(),
         "wh2_main_skv_inf_clanrats_0",
-        region,
-        xPos,
-        yPos,
+        LORD_SPAWN_REGION,
+        LORD_SPAWN_X,
+        LORD_SPAWN_Y,
         "general",
         selectedLordType,
         "",
@@ -432,16 +431,39 @@ end
 --v function()
 function addSettlementSelectedListener()
     core:add_listener(
-        "CanRecruitSlannListener",
-        "PanelOpenedCampaign",
-        function(context) 
-            return context.string == "settlement_panel"; 
+        "LordsPlacementListenerSettlement",
+        "SettlementSelected",
+        function()
+            return true;
         end,
         function(context)
-            cuimSettlement = cm:get_campaign_ui_manager().settlement_selected;
-            if cuimSettlement and not (cuimSettlement == "") then
-                SELECTED_SETTLEMENT = cuimSettlement;
-            end
+            --# assume context: CA_SETTLEMENT_CONTEXT
+            local settlementName = context:garrison_residence():region():name();
+            local settlement = get_region(settlementName):settlement();
+            local xPos, yPos = calculateSpawnPoint(settlement:logical_position_x(), settlement:logical_position_y());
+            LORD_SPAWN_X = xPos;
+            LORD_SPAWN_Y = yPos;
+            LORD_SPAWN_REGION = settlementName;
+        end,
+        true
+    );
+end
+
+--v function()
+function addCharacterSelectedListener()
+    core:add_listener(
+        "LordsPlacementListenerCharacter",
+        "CharacterSelected",
+        function()
+            return true;
+        end,
+        function(context)
+            --# assume context: CA_CHAR_CONTEXT
+            local char = context:character();
+            local xPos, yPos = calculateSpawnPoint(char:logical_position_x(), char:logical_position_y());
+            LORD_SPAWN_X = xPos;
+            LORD_SPAWN_Y = yPos;
+            LORD_SPAWN_REGION = char:region():name();
         end,
         true
     );
@@ -454,4 +476,5 @@ function custom_lords()
     addEscapeButtonListener();
     addSlannCountListener();
     addSettlementSelectedListener();
+    addCharacterSelectedListener();
 end
