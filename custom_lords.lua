@@ -414,14 +414,17 @@ function addSlannCountListener()
         function(context)
             local currentFaction = get_faction(cm:get_local_faction());
             if currentFaction:culture() == "wh2_main_lzd_lizardmen" then
-                local clanButton = find_uicomponent(core:get_ui_root(), "layout", "bar_small_top", "faction_icons", "button_factions");
-                clanButton:SimulateLClick();
-                local imperiumPanel = find_uicomponent(core:get_ui_root(), "clan", "main", "tab_children_parent", "Summary", "portrait_frame", "parchment_R", "imperium");
-                local slannCount = find_uicomponent(imperiumPanel, "agent_parent", "agent_cap_list", "wh2_main_lzd_slann_mage_priest", "dy_count");
-                local curr, max = string.match(slannCount:GetStateText(), "(%d+)/(%d+)");
-                CUSTOM_LORDS_CAN_RECRUIT_SLANN = curr < max;
-                local okButton = find_uicomponent(core:get_ui_root(), "clan", "main", "button_ok");
-                okButton:SimulateLClick();
+                local buildingBrowser = find_uicomponent(core:get_ui_root(), "building_browser");
+                if not buildingBrowser then
+                    local clanButton = find_uicomponent(core:get_ui_root(), "layout", "bar_small_top", "faction_icons", "button_factions");
+                    clanButton:SimulateLClick();
+                    local imperiumPanel = find_uicomponent(core:get_ui_root(), "clan", "main", "tab_children_parent", "Summary", "portrait_frame", "parchment_R", "imperium");
+                    local slannCount = find_uicomponent(imperiumPanel, "agent_parent", "agent_cap_list", "wh2_main_lzd_slann_mage_priest", "dy_count");
+                    local curr, max = string.match(slannCount:GetStateText(), "(%d+)/(%d+)");
+                    CUSTOM_LORDS_CAN_RECRUIT_SLANN = curr < max;
+                    local okButton = find_uicomponent(core:get_ui_root(), "clan", "main", "button_ok");
+                    okButton:SimulateLClick();
+                end
             end
         end,
         true
