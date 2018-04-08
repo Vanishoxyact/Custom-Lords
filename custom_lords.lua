@@ -110,8 +110,8 @@ end
 
 --v function(xPos: number, yPos: number) --> (number, number)
 function calculateSpawnPoint(xPos, yPos)
-    for i = 1, 5 do
-        for j = 1, 5 do
+    for i = 2, 5 do
+        for j = 2, 5 do
             local newX = xPos + i;
             local newY = yPos + j;
             if isValidSpawnPoint(newX, newY) then
