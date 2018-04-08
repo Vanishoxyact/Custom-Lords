@@ -16,8 +16,8 @@ faction_lord_types = {
         {"wh_dlc03_sc_bst_beastmen", "SUBCULTURE", "dlc03_bst_beastlord", "Beastlord"},
 
         {"wh_dlc05_sc_wef_wood_elves", "SUBCULTURE", "dlc05_wef_ancient_treeman", "Ancient Treeman"},
-        {"wh_dlc05_sc_wef_wood_elves", "SUBCULTURE", "dlc05_wef_glade_lord", "Glade Lord"},
-        {"wh_dlc05_sc_wef_wood_elves", "SUBCULTURE", "dlc05_wef_glade_lord_fem", "Glade Lord"},
+        {"wh_dlc05_sc_wef_wood_elves", "SUBCULTURE", "dlc05_wef_glade_lord", "Glade Lord (Male)"},
+        {"wh_dlc05_sc_wef_wood_elves", "SUBCULTURE", "dlc05_wef_glade_lord_fem", "Glade Lord (Female)"},
 
         {"wh_main_sc_dwf_dwarfs", "SUBCULTURE", "dwf_lord", "Lord"},
         {"wh_main_sc_dwf_dwarfs", "SUBCULTURE", "dlc06_dwf_runelord", "Runelord"},
