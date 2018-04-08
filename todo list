@@ -3,7 +3,6 @@ Cant assign to office
 No loyalty
 Trait columns
 Multiplayer
-Bonuses apply to army
 
 Nice to have
 Look at table ordering
@@ -49,3 +48,4 @@ Hlist for buttons
 MVC
 UI blocking not working fully - issue if open another panel
 Building browser crash lizardmen
+Bonuses apply to army
