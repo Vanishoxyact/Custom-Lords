@@ -392,6 +392,43 @@ function findDefaultSkillSet(lordType)
     return "";
 end
 
+function updateSkillSets()
+    local selectedChar = getSelectedChar();
+    local hasCustomSkills = charHasCustomSkills(selectedChar);
+
+    local skillToSkillSetMap = createSkillToSkillSetMap();
+    local charHasSkillSetTrait = charHasSkillSetTrait(selectedChar);
+    local defaultSkillSet = findDefaultSkillSet(selectedChar:character_subtype_key());
+    
+    local skillsChainList = find_uicomponent(core:get_ui_root(), "character_details_panel", "background", "skills_subpanel", "listview", "list_clip", "list_box");
+    if not skillsChainList then
+        return;
+    end
+    local skillChainCount = skillsChainList:ChildCount();
+    for i=0, skillChainCount-1  do
+        local skillChain = UIComponent(skillsChainList:Find(i));
+        local skillChainChain = find_uicomponent(skillChain, "chain");
+        if skillChainChain then
+            local childCount = skillChainChain:ChildCount();
+            for i=0, childCount-1  do
+                local child = UIComponent(skillChainChain:Find(i));
+                local skillSetFound = false;
+                local skillSkillSet = skillToSkillSetMap[child:Id()];
+                if skillSkillSet then
+                    for i, skillSet in ipairs(skillSkillSet) do
+                        if selectedChar:has_trait(skillSet) or ((not charHasSkillSetTrait) and defaultSkillSet == skillSet) or (not hasCustomSkills)  then
+                            skillSetFound = true;
+                        end
+                    end
+                    if not skillSetFound then
+                        child:SetVisible(false);
+                    end
+                end
+            end
+        end
+    end
+end
+
 --v function()
 function attachSkillListener()
     core:add_listener(
@@ -401,43 +438,25 @@ function attachSkillListener()
             return context.string == "character_details_panel"; 
         end,
         function(context)
-            local selectedChar = getSelectedChar();
-            if not charHasCustomSkills(selectedChar) then
-                output("Char does not have custom skill sets: " .. selectedChar:character_subtype_key());
-                return;
-            end
-
-            local skillToSkillSetMap = createSkillToSkillSetMap();
-            local charHasSkillSetTrait = charHasSkillSetTrait(selectedChar);
-            local defaultSkillSet = findDefaultSkillSet(selectedChar:character_subtype_key());
-            
-            local skillsChainList = find_uicomponent(core:get_ui_root(), "character_details_panel", "background", "skills_subpanel", "listview", "list_clip", "list_box");
-            local skillChainCount = skillsChainList:ChildCount();
-            for i=0, skillChainCount-1  do
-                local skillChain = UIComponent(skillsChainList:Find(i));
-                local skillChainChain = find_uicomponent(skillChain, "chain");
-                if skillChainChain then
-                    local childCount = skillChainChain:ChildCount();
-                    for i=0, childCount-1  do
-                        local child = UIComponent(skillChainChain:Find(i));
-                        local skillSetFound = false;
-                        local skillSkillSet = skillToSkillSetMap[child:Id()];
-                        if skillSkillSet then
-                            for i, skillSet in ipairs(skillSkillSet) do
-                                if selectedChar:has_trait(skillSet) or (not charHasSkillSetTrait and defaultSkillSet == skillSet) then
-                                    skillSetFound = true;
-                                end
-                            end
-                            if not skillSetFound then
-                                child:SetVisible(false);
-                            end
-                        end
-                    end
-                end
-            end
+            updateSkillSets();
         end, 
         true
     );
+    core:add_listener(
+        "CustomLordsSkillHiderCharChange",
+        "CharacterSelected",
+        function() 
+            return true;
+        end,
+        function()
+            cm:callback(
+                function()
+                    updateSkillSets();
+                end, 0.01, "CustomLordsSkillHiderCharChange"
+            );
+        end,
+    true
+);
 end
 
 --v function()
