@@ -14,6 +14,7 @@ function CustomLordsModel.new()
     clm.availableTraits = {} --: vector<string>
     clm.selectedTraits = {} --: vector<string>
     clm.attributeValues = {} --: map<string, int>
+    clm.baseCost = 0 --: number
     clm.callbacks = {} --: map<CUSTOM_LORDS_EVENT, vector<function()>>
     return clm
 end
@@ -95,6 +96,11 @@ end
 function CustomLordsModel.SetAttributeValue(self, attribute, value)
     self.attributeValues[attribute] = value;
     self:NotifyEvent("ATTRIBUTE_VALUE_CHANGE");
+end
+
+--v function(self: CUSTOM_LORDS_MODEL, baseCost: number)
+function CustomLordsModel.SetBaseCost(self, baseCost)
+    self.baseCost = baseCost;
 end
 
 return {

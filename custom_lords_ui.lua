@@ -275,7 +275,7 @@ end
 
 --v function() --> number
 function calculateRecruitmentCost()
-    local cost = 1000;
+    local cost = model.baseCost;
     for i, trait in ipairs(model.selectedTraits) do
         if trait == "wh2_main_trait_increased_cost" then
             cost = cost + 1000;
@@ -422,10 +422,19 @@ function resetAttributeContainer(attributeContainer, frame)
     attributeContainer:Reposition();
 end
 
---v function(recruitCallback: function(name: string, lordType: string, skillSet: string, attributes: map<string, int>, traits: vector<string>)) --> FRAME
-function createCustomLordFrameUi(recruitCallback)
+--v function()
+    function destroyCustomLordFrame()
+    local customLordFrame = Util.getComponentWithName("customLordFrame");
+    --# assume customLordFrame: FRAME
+    if customLordFrame then
+        customLordFrame:Delete();
+    end
+end
+
+--v function(recruitCallback: function(name: string, lordType: string, skillSet: string, attributes: map<string, int>, traits: vector<string>), cost: number) --> FRAME
+function createCustomLordFrameUi(recruitCallback, cost)
     model = CustomLordsModel.new();
-    model:RegisterForEventType("LORD_TYPES_CHANGE");
+    model:SetBaseCost(cost);
     customLordFrame = Frame.new("customLordFrame");
     customLordFrame:SetTitle("Create your custom Lord");
     local xRes, yRes = core:get_screen_resolution();
@@ -548,7 +557,7 @@ function createCustomLordFrameUi(recruitCallback)
                 model.attributeValues,
                 model.selectedTraits
             );
-            customLordFrame:Delete();
+            destroyCustomLordFrame();
         end
     );
     updateRecruitButton();
@@ -557,7 +566,7 @@ function createCustomLordFrameUi(recruitCallback)
     local closeButton = Button.new("CustomLordFrameCloseButton", customLordFrame, "CIRCULAR", "ui/skins/warhammer2/icon_cross.png");
     closeButton:RegisterForClick(
         function(context)
-            customLordFrame:Delete();
+            destroyCustomLordFrame();
         end
     );
     recuitContainer:AddComponent(closeButton);
