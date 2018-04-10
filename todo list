@@ -3,23 +3,17 @@ Cant assign to office
 No loyalty
 Trait columns
 Multiplayer
+Options panel
 
 Nice to have
 Look at table ordering
 Traits per faction?
 Traits per lord type?
-Frame resizing
 Name length, multiple boxes?
-Negative traits
-Recruting into sea
 Treasury icon size
 Popup dialog?
 Ancillary from trait?
-Remove slann from lizardmen recruit
-Lord recruit rank
-Attribute points
 UI blocking not working fully
-Trait load time
 
 Completed
 Add cost to UI, disable recuit if not enough gold
@@ -49,3 +43,10 @@ MVC
 UI blocking not working fully - issue if open another panel
 Building browser crash lizardmen
 Bonuses apply to army
+Lord recruit rank
+Attribute points
+Trait load time
+Remove slann from lizardmen recruit
+Negative traits
+Recruting into sea
+Frame resizing

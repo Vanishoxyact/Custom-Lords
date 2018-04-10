@@ -1,5 +1,5 @@
 CUSTOM_LORDS_CAN_RECRUIT_SLANN = true --: boolean
-
+require("table_loading");
 require("custom_lords_ui");
 
 --v function() --> string
@@ -559,6 +559,8 @@ end
 
 --v function()
 function custom_lords()
+    cm:set_saved_value("custom_lords", true);
+    loadTables();
     attachButtonToLordRecuitment();
     attachSkillListener();
     addEscapeButtonListener();
