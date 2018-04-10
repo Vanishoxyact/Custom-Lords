@@ -1,4 +1,5 @@
 --# assume global class CUSTOM_LORDS_MODEL
+--# assume global class CUSTOM_LORDS_ATTRIBUTE_PANEL
 
 --# type global CUSTOM_LORDS_EVENT = 
 --# "LORD_TYPES_CHANGE" | "SELECTED_LORD_TYPE_CHANGE" | "SKILL_SETS_CHANGE" | 
