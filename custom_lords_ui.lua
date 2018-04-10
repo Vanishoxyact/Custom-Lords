@@ -279,6 +279,9 @@ function createCustomLordFrameUi(recruitCallback, cost)
                 ).traitSelectionFrame;
                 customLordFrame.uic:Adopt(traitSelectionFrame.uic:Address());
                 Util.centreComponentOnScreen(traitSelectionFrame);
+                customLordFrame:AddComponent(traitSelectionFrame);
+            else
+                existingFrame:SetVisible(true);
             end
         end
     );

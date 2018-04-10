@@ -4,6 +4,7 @@ local CustomLordsTraitFrame = {} --# assume CustomLordsTraitFrame: CUSTOM_LORDS_
 CustomLordsTraitFrame.__index = CustomLordsTraitFrame;
 CustomLordsTraitFrame.model = nil --: CUSTOM_LORDS_MODEL
 CustomLordsTraitFrame.parentFrame = nil --: FRAME
+CustomLordsTraitFrame.addTraitButtons = {} --: map<string, BUTTON>
 
 --v function(traitEffectProperties: map<string, string>) --> (string, string)
 function calculateImageAndToolTipForTraitEffectProperties(traitEffectProperties)
@@ -99,13 +100,25 @@ function calculateRemainingTraitPoints(model)
     return TOTAL_TRAIT_POINTS + totalTraitPoints;
 end
 
+--v function(self: CUSTOM_LORDS_TRAIT_FRAME, trait: string) --> boolean
+function CustomLordsTraitFrame.shouldDisableAddTraitButton(self, trait)
+    local remainingTraitPoints = calculateRemainingTraitPoints(self.model);
+    if remainingTraitPoints + tonumber(TABLES["traits"][trait]["trait_cost"]) < 0 then
+        return true;
+    elseif listContains(self.model.selectedTraits, trait) then
+        return true;
+    else
+        return false;
+    end
+end
+
 --v function(self: CUSTOM_LORDS_TRAIT_FRAME, addTraitCallback: function(string)) --> FRAME
 function CustomLordsTraitFrame.createTraitSelectionFrame(self, addTraitCallback)
     local traitSelectionFrame = Frame.new("traitSelectionFrame");
     traitSelectionFrame:SetTitle("Select the trait to add");
     local traitSelectionFrameContainer = Container.new(FlowLayout.VERTICAL);
     traitSelectionFrame:AddComponent(traitSelectionFrameContainer);
-    traitSelectionFrame:AddCloseButton();
+    traitSelectionFrame:AddCloseButton(nil, false, true);
     local traitList = ListView.new("traitList", traitSelectionFrame, "VERTICAL");
     traitList:Resize(600, traitSelectionFrame:Height() - 200);
     local divider = createTraitDivider("SelectFrameTopDivider", traitList, traitSelectionFrame:Width());
@@ -119,28 +132,31 @@ function CustomLordsTraitFrame.createTraitSelectionFrame(self, addTraitCallback)
             local addTraitButton = Button.new("addTraitButton" .. trait, parent, "SQUARE", "ui/skins/default/parchment_header_min.png");
             addTraitButton:RegisterForClick(
                 function(context)
-                    traitSelectionFrame:Delete();
+                    traitSelectionFrame:SetVisible(false);
                     addTraitCallback(trait);
                 end
             )
-            if remainingTraitPoints + tonumber(TABLES["traits"][trait]["trait_cost"]) < 0 then
-                addTraitButton:SetDisabled(true);
-            end
             addTraitButton:Resize(25, 25);
+            addTraitButton:SetDisabled(self:shouldDisableAddTraitButton(trait));
+            self.addTraitButtons[trait] = addTraitButton;
             return addTraitButton;
         end
-        if not listContains(self.model.selectedTraits, trait) then
-            local traitRow = createTraitRow(trait, traitSelectionFrame, addTraitButtonFunction);
-            traitList:AddContainer(traitRow);
-            local divider = createTraitDivider(trait .. "Divider", traitList, traitSelectionFrame:Width());
-            traitList:AddComponent(divider);
-        end
+        local traitRow = createTraitRow(trait, traitSelectionFrame, addTraitButtonFunction);
+        traitList:AddContainer(traitRow);
+        local divider = createTraitDivider(trait .. "Divider", traitList, traitSelectionFrame:Width());
+        traitList:AddComponent(divider);
     end
-    
     traitSelectionFrameContainer:AddComponent(traitList);
     Util.centreComponentOnComponent(traitSelectionFrameContainer, traitSelectionFrame);
     local x, y = traitSelectionFrameContainer:Position();
     return traitSelectionFrame;
+end
+
+--v function(self: CUSTOM_LORDS_TRAIT_FRAME)
+function CustomLordsTraitFrame.update(self)
+    for trait, addTraitButton in pairs(self.addTraitButtons) do
+        addTraitButton:SetDisabled(self:shouldDisableAddTraitButton(trait));
+    end
 end
 
 --v function(model: CUSTOM_LORDS_MODEL, parentFrame: FRAME, addTraitCallback: function(string)) --> CUSTOM_LORDS_TRAIT_FRAME
@@ -151,6 +167,12 @@ function CustomLordsTraitFrame.new(model, parentFrame, addTraitCallback)
     cltf.model = model;
     cltf.parentFrame = parentFrame;
     cltf.traitSelectionFrame = cltf:createTraitSelectionFrame(addTraitCallback);
+    model:RegisterForEvent(
+        "SELECTED_TRAITS_CHANGE", 
+        function()
+            cltf:update();
+        end
+    );
     return cltf;
 end
 
