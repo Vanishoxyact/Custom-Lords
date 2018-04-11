@@ -1,3 +1,4 @@
+require("custom_lords_util");
 local TOTAL_TRAIT_POINTS = 2;
 MAX_TRAITS = 4;
 local CustomLordsTraitFrame = {} --# assume CustomLordsTraitFrame: CUSTOM_LORDS_TRAIT_FRAME
@@ -5,6 +6,10 @@ CustomLordsTraitFrame.__index = CustomLordsTraitFrame;
 CustomLordsTraitFrame.model = nil --: CUSTOM_LORDS_MODEL
 CustomLordsTraitFrame.parentFrame = nil --: FRAME
 CustomLordsTraitFrame.addTraitButtons = {} --: map<string, BUTTON>
+CustomLordsTraitFrame.traitList = nil --: LIST_VIEW
+CustomLordsTraitFrame.traitRows = {} --: map<string, CONTAINER>
+CustomLordsTraitFrame.defaultHandleX = 0 --: number
+CustomLordsTraitFrame.defaultHandleY = 0 --: number
 
 --v function(traitEffectProperties: map<string, string>) --> (string, string)
 function calculateImageAndToolTipForTraitEffectProperties(traitEffectProperties)
@@ -47,11 +52,21 @@ function calculateImageAndToolTipForTraitEffectProperties(traitEffectProperties)
     return traitImagePath, traitDescription;
 end
 
+--v function(trait:string) --> string
+function calculateTraitName(trait)
+    local traitNameKey = "character_trait_levels_onscreen_name_" .. trait;
+    return effect.get_localised_string(traitNameKey);
+end
+
+--v function (trait: string) --> number
+function calculateTraitCost(trait)
+    return tonumber(TABLES["traits"][trait]["trait_cost"])
+end
+
 --v function(trait: string, parent: COMPONENT_TYPE | CA_UIC, buttonCreationFunction: function(trait:string, parent: COMPONENT_TYPE | CA_UIC) --> BUTTON) --> CONTAINER
 function createTraitRow(trait, parent, buttonCreationFunction)
     local traitRow = Container.new(FlowLayout.HORIZONTAL);
-    local traitNameKey = "character_trait_levels_onscreen_name_" .. trait;
-    local traitName = effect.get_localised_string(traitNameKey);
+    local traitName = calculateTraitName(trait);
     local traitNameText = Text.new(trait .. "NameText", parent, "NORMAL", traitName);
     traitNameText:Resize(140, traitNameText:Height());
     traitRow:AddComponent(traitNameText);
@@ -69,7 +84,7 @@ function createTraitRow(trait, parent, buttonCreationFunction)
     end
     traitRow:AddComponent(traitEffectsContainer);
     traitRow:AddGap(20);
-    local traitCost = tonumber(TABLES["traits"][trait]["trait_cost"]);
+    local traitCost = calculateTraitCost(trait);
     local traitCostNumberText = nil --: string
     if traitCost > 0 then
         traitCostNumberText = "+" .. traitCost ..  " Trait Points";
@@ -103,13 +118,45 @@ end
 --v function(self: CUSTOM_LORDS_TRAIT_FRAME, trait: string) --> boolean
 function CustomLordsTraitFrame.shouldDisableAddTraitButton(self, trait)
     local remainingTraitPoints = calculateRemainingTraitPoints(self.model);
-    if remainingTraitPoints + tonumber(TABLES["traits"][trait]["trait_cost"]) < 0 then
+    if remainingTraitPoints + calculateTraitCost(trait) < 0 then
         return true;
     elseif listContains(self.model.selectedTraits, trait) then
         return true;
     else
         return false;
     end
+end
+
+--v function(self: CUSTOM_LORDS_TRAIT_FRAME, firstTrait: string, secondTrait: string) --> boolean
+function CustomLordsTraitFrame.compareTraits(self, firstTrait, secondTrait)
+    local firstTraitDisabled = self:shouldDisableAddTraitButton(firstTrait);
+    local secondTraitDisabled = self:shouldDisableAddTraitButton(secondTrait);
+    if firstTraitDisabled == not secondTraitDisabled then
+        if firstTraitDisabled then
+            return false;
+        else
+            return true;
+        end
+    end
+
+    local firstTraitCost = calculateTraitCost(firstTrait);
+    local secondTraitCost = calculateTraitCost(secondTrait);
+    if firstTraitCost ~= secondTraitCost then
+        return firstTraitCost < secondTraitCost;
+    end
+
+    local firstTraitName = calculateTraitName(firstTrait);
+    local secondTraitName = calculateTraitName(secondTrait);
+    return firstTraitName < secondTraitName;
+end
+
+--v function(self: CUSTOM_LORDS_TRAIT_FRAME) --> vector<string>
+function CustomLordsTraitFrame.generateSortedTraitList(self)
+    local orderedTraits = {} --: vector<string>
+    for trait, traitData in spairs(TABLES["traits"], function(t,a,b) return self:compareTraits(a, b) end) do
+        table.insert(orderedTraits, trait);
+    end
+    return orderedTraits;
 end
 
 --v function(self: CUSTOM_LORDS_TRAIT_FRAME, addTraitCallback: function(string)) --> FRAME
@@ -120,6 +167,7 @@ function CustomLordsTraitFrame.createTraitSelectionFrame(self, addTraitCallback)
     traitSelectionFrame:AddComponent(traitSelectionFrameContainer);
     traitSelectionFrame:AddCloseButton(nil, false, true);
     local traitList = ListView.new("traitList", traitSelectionFrame, "VERTICAL");
+    self.traitList = traitList;
     traitList:Resize(600, traitSelectionFrame:Height() - 200);
     local divider = createTraitDivider("SelectFrameTopDivider", traitList, traitSelectionFrame:Width());
     traitList:AddComponent(divider);
@@ -143,13 +191,29 @@ function CustomLordsTraitFrame.createTraitSelectionFrame(self, addTraitCallback)
         end
         local traitRow = createTraitRow(trait, traitSelectionFrame, addTraitButtonFunction);
         traitList:AddContainer(traitRow);
+        self.traitRows[trait] = traitRow;
         local divider = createTraitDivider(trait .. "Divider", traitList, traitSelectionFrame:Width());
         traitList:AddComponent(divider);
     end
     traitSelectionFrameContainer:AddComponent(traitList);
     Util.centreComponentOnComponent(traitSelectionFrameContainer, traitSelectionFrame);
+    self.defaultHandleX, self.defaultHandleY = find_uicomponent(self.traitList.uic, "vslider", "handle"):Position();
     local x, y = traitSelectionFrameContainer:Position();
     return traitSelectionFrame;
+end
+
+--v function(self: CUSTOM_LORDS_TRAIT_FRAME)
+function CustomLordsTraitFrame.sortTraitList(self)
+    local orderedTraits = self:generateSortedTraitList();
+    local index = 2;
+    local dummiesListContainer = self.traitList.dummiesContainer.components;
+    for i, trait in ipairs(orderedTraits) do
+        dummiesListContainer[index] = self.traitList.containerToDummyMap[self.traitRows[trait]];
+        index = index + 2;
+    end
+    self.traitList.listBox:MoveTo(self.traitList:XPos(), self.traitList:YPos());
+    find_uicomponent(self.traitList.uic, "vslider", "handle"):MoveTo(self.defaultHandleX, self.defaultHandleY);
+    self.traitList.dummiesContainer:MoveTo(self.traitList.listBox:Position());
 end
 
 --v function(self: CUSTOM_LORDS_TRAIT_FRAME)
@@ -157,6 +221,7 @@ function CustomLordsTraitFrame.update(self)
     for trait, addTraitButton in pairs(self.addTraitButtons) do
         addTraitButton:SetDisabled(self:shouldDisableAddTraitButton(trait));
     end
+    self:sortTraitList();
 end
 
 --v function(model: CUSTOM_LORDS_MODEL, parentFrame: FRAME, addTraitCallback: function(string)) --> CUSTOM_LORDS_TRAIT_FRAME
@@ -167,6 +232,7 @@ function CustomLordsTraitFrame.new(model, parentFrame, addTraitCallback)
     cltf.model = model;
     cltf.parentFrame = parentFrame;
     cltf.traitSelectionFrame = cltf:createTraitSelectionFrame(addTraitCallback);
+    cltf:sortTraitList();
     model:RegisterForEvent(
         "SELECTED_TRAITS_CHANGE", 
         function()
