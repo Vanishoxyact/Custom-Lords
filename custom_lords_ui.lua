@@ -2,26 +2,10 @@ require("custom_lords_util");
 local CustomLordsModel = require("custom_lords_ui_model");
 local CustomLordsAttributePanel = require("custom_lords_ui_attribute_panel");
 local CustomLordsTraitFrame = require("custom_lords_ui_trait_frame");
+local CustomLordsArtPanel = require("custom_lords_ui_art_panel");
 
 local model = nil --: CUSTOM_LORDS_MODEL
 local customLordFrame = nil --: FRAME
-
---v function(buttons: vector<TEXT_BUTTON>)
-function setUpSingleButtonSelectedGroup(buttons)
-    for i, button in ipairs(buttons) do
-        button:RegisterForClick(
-            function(context)
-                for i, otherButton in ipairs(buttons) do
-                    if button.name == otherButton.name then
-                        otherButton:SetState("selected_hover");
-                    else
-                        otherButton:SetState("active");
-                    end
-                end
-            end
-        );
-    end
-end
 
 --v function(lordType: string, lordTypeName: string, frame: FRAME) --> TEXT_BUTTON
 function createLordTypeButton(lordType, lordTypeName, frame)
@@ -191,7 +175,7 @@ end
     end
 end
 
---v function(recruitCallback: function(name: string, lordType: string, skillSet: string, attributes: map<string, int>, traits: vector<string>), cost: number) --> FRAME
+--v function(recruitCallback: function(name: string, lordType: string, skillSet: string, attributes: map<string, int>, traits: vector<string>, artId: string), cost: number) --> FRAME
 function createCustomLordFrameUi(recruitCallback, cost)
     model = CustomLordsModel.new();
     model:SetBaseCost(cost);
@@ -232,6 +216,9 @@ function createCustomLordFrameUi(recruitCallback, cost)
         end
     );
     frameContainer:AddComponent(skillSetButtonContainer);
+
+    local artPanel = CustomLordsArtPanel.new(model, customLordFrame);
+    frameContainer:AddComponent(artPanel.artContainer);
 
     local traitsAttributesContainer = Container.new(FlowLayout.HORIZONTAL);
     local attributePanel = CustomLordsAttributePanel.new(model, customLordFrame);
@@ -304,7 +291,8 @@ function createCustomLordFrameUi(recruitCallback, cost)
                 model.selectedLordType,
                 model.selectedSkillSet,
                 model.attributeValues,
-                model.selectedTraits
+                model.selectedTraits,
+                model.selectedArtId
             );
             destroyCustomLordFrame();
         end

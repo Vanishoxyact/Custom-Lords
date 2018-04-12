@@ -11,6 +11,7 @@ function CustomLordsModel.new()
     clm.selectedLordType = nil --: string
     clm.skillSets = {} --: vector<string>
     clm.selectedSkillSet = nil --: string
+    clm.selectedArtId = nil --: string
     clm.availableTraits = {} --: vector<string>
     clm.selectedTraits = {} --: vector<string>
     clm.attributeValues = {} --: map<string, int>
@@ -101,6 +102,12 @@ end
 --v function(self: CUSTOM_LORDS_MODEL, baseCost: number)
 function CustomLordsModel.SetBaseCost(self, baseCost)
     self.baseCost = baseCost;
+end
+
+--v function(self: CUSTOM_LORDS_MODEL, artId: string)
+function CustomLordsModel.SetSelectedArtId(self, artId)
+    self.selectedArtId = artId;
+    self:NotifyEvent("SELECTED_ART_ID_VALUE_CHANGE");
 end
 
 return {

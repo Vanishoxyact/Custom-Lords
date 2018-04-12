@@ -83,9 +83,9 @@ function lordCreated(selectedSkillSet, selectedTraits, attributes, lordName, lor
     );
 end
 
---v function(lordType: string)
-function spawnGeneralToPoolAndRecruit(lordType)
-    cm:spawn_character_to_pool(cm:get_local_faction(), "", "", "", "", 18, true, "general", lordType, false, "");
+--v function(lordType: string, selectedArtId: string)
+function spawnGeneralToPoolAndRecruit(lordType, selectedArtId)
+    cm:spawn_character_to_pool(cm:get_local_faction(), "", "", "", "", 18, true, "general", lordType, false, selectedArtId);
     find_uicomponent(core:get_ui_root(), "layout", "hud_center_docker", "hud_center", "small_bar", "button_group_settlement", "button_agents"):SimulateLClick();
     find_uicomponent(core:get_ui_root(), "layout", "hud_center_docker", "hud_center", "small_bar", "button_group_settlement", "button_create_army"):SimulateLClick();
 
@@ -108,8 +108,8 @@ function spawnGeneralToPoolAndRecruit(lordType)
     find_uicomponent(core:get_ui_root(), "character_panel", "raise_forces_options", "button_raise"):SimulateLClick();
 end
 
---v function(selectedLordType: string, lordCreatedCallback: function(CA_CQI))
-function createLord(selectedLordType, lordCreatedCallback)
+--v function(selectedLordType: string, selectedArtId: string, lordCreatedCallback: function(CA_CQI))
+function createLord(selectedLordType, selectedArtId, lordCreatedCallback)
     core:add_listener(
         "LordCreatedListener",
         "PanelOpenedCampaign",
@@ -124,7 +124,7 @@ function createLord(selectedLordType, lordCreatedCallback)
         end, 
         false
     );
-    spawnGeneralToPoolAndRecruit(selectedLordType);
+    spawnGeneralToPoolAndRecruit(selectedLordType, selectedArtId);
 end
 
 --v function() --> number
@@ -172,9 +172,10 @@ function createCustomLordFrame()
         lordType, --: string
         skillSet, --: string
         attributes, --: map<string, int>
-        traits --: vector<string>
+        traits, --: vector<string>
+        selectedArtId --: string
     )
-        createLord(lordType, 
+        createLord(lordType, selectedArtId,
             function(context)
                 lordCreated(skillSet, traits, attributes, name, context);
             end

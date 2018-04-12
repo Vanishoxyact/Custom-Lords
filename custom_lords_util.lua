@@ -41,3 +41,37 @@ function spairs(t, order)
         end
     end
 end
+
+--v function(buttons: vector<TEXT_BUTTON>)
+function setUpSingleButtonSelectedGroup(buttons)
+    for i, button in ipairs(buttons) do
+        button:RegisterForClick(
+            function(context)
+                for i, otherButton in ipairs(buttons) do
+                    if button.name == otherButton.name then
+                        otherButton:SetState("selected_hover");
+                    else
+                        otherButton:SetState("active");
+                    end
+                end
+            end
+        );
+    end
+end
+
+--v function(buttons: vector<BUTTON>)
+function setUpSingleButtonSelectedGroupButton(buttons)
+    for i, button in ipairs(buttons) do
+        button:RegisterForClick(
+            function(context)
+                for i, otherButton in ipairs(buttons) do
+                    if button.name == otherButton.name then
+                        otherButton:SetState("selected_hover");
+                    else
+                        otherButton:SetState("active");
+                    end
+                end
+            end
+        );
+    end
+end
