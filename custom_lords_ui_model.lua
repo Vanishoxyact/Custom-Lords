@@ -11,7 +11,7 @@ function CustomLordsModel.new()
     clm.selectedLordType = nil --: string
     clm.skillSets = {} --: vector<string>
     clm.selectedSkillSet = nil --: string
-    clm.selectedArtId = nil --: string
+    clm.selectedArtId = "" --: string
     clm.availableTraits = {} --: vector<string>
     clm.selectedTraits = {} --: vector<string>
     clm.attributeValues = {} --: map<string, int>

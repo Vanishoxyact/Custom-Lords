@@ -561,6 +561,7 @@ end
 --v function()
 function custom_lords()
     cm:set_saved_value("custom_lords", true);
+    detectBeta();
     loadTables();
     attachButtonToLordRecuitment();
     attachSkillListener();

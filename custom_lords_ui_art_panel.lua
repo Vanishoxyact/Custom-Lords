@@ -41,7 +41,15 @@ end
 function CustomLordsArtPanel.createArtButtons(self)
     local artButtons = {} --: vector<BUTTON>
     local artIds = self:calculateArtIds();
-    -- Add random image
+
+    local randomArtButton = Button.new("RandomArtButton", self.parentFrame, "CIRCULAR_TOGGLE", "ui/portraits/portholes/no_culture/random.png");
+    randomArtButton:RegisterForClick(
+        function(context)
+            self.model:SetSelectedArtId("");
+        end
+    );
+    randomArtButton:SetState("selected");
+    table.insert(artButtons, randomArtButton);
     for i, artId in ipairs(artIds) do
         local artIdImagePath = self:calculateArtPortaitPath(artId);
         local artButton = Button.new(artId .. "ArtButton", self.parentFrame, "CIRCULAR_TOGGLE", artIdImagePath);
@@ -77,7 +85,8 @@ end
 --v function(self: CUSTOM_LORDS_ART_PANEL) --> CONTAINER
 function CustomLordsArtPanel.constructArtContainer(self)
     local artContainer = Container.new(FlowLayout.VERTICAL);
-    local artTypeText = Text.new("artTypeText", self.parentFrame, "NORMAL", "Select your lord's appearance");
+    local artTypeText = Text.new("artTypeText", self.parentFrame, "HEADER", "Select your lord's appearance");
+    artTypeText:Resize(artTypeText:Width(), artTypeText:Height()/2);
     artContainer:AddComponent(artTypeText);
     local artButtonsContainer = Container.new(FlowLayout.VERTICAL);
     self.artButtonsContainer = artButtonsContainer;

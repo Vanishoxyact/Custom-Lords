@@ -9,8 +9,8 @@ local customLordFrame = nil --: FRAME
 
 --v function(lordType: string, lordTypeName: string, frame: FRAME) --> TEXT_BUTTON
 function createLordTypeButton(lordType, lordTypeName, frame)
-    local lordTypeButton = TextButton.new(lordType .. "Button", frame, "TEXT_TOGGLE", lordTypeName);
-    lordTypeButton:Resize(300, lordTypeButton:Height());
+    local lordTypeButton = TextButton.new(lordType .. "Button", frame, "TEXT_TOGGLE_SMALL", lordTypeName);
+    lordTypeButton:Resize(200, lordTypeButton:Height());
     lordTypeButton:SetState("active");
     if lordType == "wh2_main_lzd_slann_mage_priest" and not CUSTOM_LORDS_CAN_RECRUIT_SLANN then
         lordTypeButton:SetDisabled(true);
@@ -65,8 +65,8 @@ end
 
 --v function(skillSet: string, skillSetName: string, frame: FRAME) --> TEXT_BUTTON
 function createSkillSetButton(skillSet, skillSetName, frame)
-    local skillSetButton = TextButton.new(skillSet .. "Button", frame, "TEXT_TOGGLE", skillSetName);
-    skillSetButton:Resize(300, skillSetButton:Height());
+    local skillSetButton = TextButton.new(skillSet .. "Button", frame, "TEXT_TOGGLE_SMALL", skillSetName);
+    skillSetButton:Resize(200, skillSetButton:Height());
     skillSetButton:SetState("active");
     return skillSetButton;
 end
@@ -100,7 +100,7 @@ end
 function resetSkillSets(skillSetButtonContainer)
     skillSetButtonContainer:Clear();
     local buttonList = ListView.new("SkillSetList", customLordFrame, "HORIZONTAL");
-    buttonList:Resize(customLordFrame:Width() - 55, 52);
+    buttonList:Resize(customLordFrame:Width() - 55, 35);
     for i, button in ipairs(createSkillSetButtons(model.selectedLordType, customLordFrame)) do
         buttonList:AddComponent(button);
     end
@@ -152,6 +152,7 @@ function resetSelectedTraits(traitRowContainer, frameContainer, buttonCreationFu
     --# assume parent: CA_UIC
     traitRowContainer:Clear();
     local traitsText = Text.new("TraitPointsText", customLordFrame, "NORMAL", "Trait Points Remaining: " .. calculateRemainingTraitPoints(model));
+    traitsText:Resize(traitsText:Width(), traitsText:Height()/2);
     traitRowContainer:AddComponent(traitsText);
     local divider = createTraitDivider("CurrentTraitsTopDivider", customLordFrame, 600);
     traitRowContainer:AddComponent(divider);
@@ -188,23 +189,26 @@ function createCustomLordFrameUi(recruitCallback, cost)
     local frameContainer = Container.new(FlowLayout.VERTICAL);
     customLordFrame:AddComponent(frameContainer);
     local lordName = Text.new("lordName", customLordFrame, "HEADER", "Name your Lord");
+    lordName:Resize(lordName:Width(), lordName:Height()/2);
     frameContainer:AddComponent(lordName);
     local lordNameTextBox = TextBox.new("lordNameTextBox", customLordFrame);
     frameContainer:AddComponent(lordNameTextBox);
     frameContainer:AddGap(10);
 
     local lordTypeText = Text.new("lordTypeText", customLordFrame, "HEADER", "Select your Lord's type");
+    lordTypeText:Resize(lordTypeText:Width(), lordTypeText:Height()/2);
     frameContainer:AddComponent(lordTypeText);
 
     local lordTypeButtons = createLordTypeButtons(cm:get_local_faction(), customLordFrame);
     local buttonList = ListView.new("LordTypeList", customLordFrame, "HORIZONTAL");
-    buttonList:Resize(customLordFrame:Width() - 55, 52);
+    buttonList:Resize(customLordFrame:Width() - 55, 35);
     for i, button in pairs(lordTypeButtons) do
         buttonList:AddComponent(button);
     end
     frameContainer:AddComponent(buttonList);
 
     local skillSetText = Text.new("skillSetText", customLordFrame, "HEADER", "Select your Lord's skill-set");
+    skillSetText:Resize(skillSetText:Width(), skillSetText:Height()/2);
     frameContainer:AddComponent(skillSetText);
 
     local skillSetButtonContainer = Container.new(FlowLayout.VERTICAL);
@@ -217,8 +221,10 @@ function createCustomLordFrameUi(recruitCallback, cost)
     );
     frameContainer:AddComponent(skillSetButtonContainer);
 
-    local artPanel = CustomLordsArtPanel.new(model, customLordFrame);
-    frameContainer:AddComponent(artPanel.artContainer);
+    if CLC_BETA then
+        local artPanel = CustomLordsArtPanel.new(model, customLordFrame);
+        frameContainer:AddComponent(artPanel.artContainer);
+    end
 
     local traitsAttributesContainer = Container.new(FlowLayout.HORIZONTAL);
     local attributePanel = CustomLordsAttributePanel.new(model, customLordFrame);
@@ -226,6 +232,7 @@ function createCustomLordFrameUi(recruitCallback, cost)
 
     local traitsContainer = Container.new(FlowLayout.VERTICAL);
     local traitsText = Text.new("traitsText", customLordFrame, "HEADER", "Select your Lord's traits");
+    traitsText:Resize(traitsText:Width(), traitsText:Height()/2);
     traitsContainer:AddComponent(traitsText);
     local traitRowsContainer = Container.new(FlowLayout.VERTICAL);
     local removeTraitButtonFunction = nil --: function(string, COMPONENT_TYPE | CA_UIC) --> BUTTON

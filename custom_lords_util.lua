@@ -75,3 +75,18 @@ function setUpSingleButtonSelectedGroupButton(buttons)
         );
     end
 end
+
+function detectBeta()
+    local file = io.open("custom_lords_beta_key.txt", "rb")
+    if not file then 
+        CLC_BETA = false;
+    else
+        local content = file:read "*a"
+        if content == "09bNNrmFsJ78c41iZB6H" then
+            CLC_BETA = true;
+        else
+            CLC_BETA = false;
+        end
+        file:close()
+    end
+end
