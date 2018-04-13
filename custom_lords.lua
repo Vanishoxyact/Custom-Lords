@@ -227,7 +227,7 @@ function canRecuitArmy()
     elseif currentFaction:culture() == "wh2_dlc09_tmb_tomb_kings" then
         local armyCap = find_uicomponent(core:get_ui_root(), "character_panel", "raise_forces_options", "dy_army_cap");
         local curr, max = string.match(armyCap:GetStateText(), "(%d+) / (%d+)");
-        return curr < max;
+        return tonumber(curr, 10) < tonumber(max, 10);
     end
     return true;
 end
@@ -393,7 +393,9 @@ function findDefaultSkillSet(lordType)
     return "";
 end
 
-function updateSkillSets()
+--# assume updateSkillSets : function(depth: int?)
+--v function(depth: int?)
+function updateSkillSets(depth)
     local selectedChar = getSelectedChar();
     local hasCustomSkills = charHasCustomSkills(selectedChar);
 
@@ -401,8 +403,30 @@ function updateSkillSets()
     local charHasSkillSetTrait = charHasSkillSetTrait(selectedChar);
     local defaultSkillSet = findDefaultSkillSet(selectedChar:character_subtype_key());
     
+    local charDetailsPanel = find_uicomponent(core:get_ui_root(), "character_details_panel");
+    if not charDetailsPanel then
+        return;
+    end
     local skillsChainList = find_uicomponent(core:get_ui_root(), "character_details_panel", "background", "skills_subpanel", "listview", "list_clip", "list_box");
     if not skillsChainList then
+        if depth then
+            --# assume depth: int
+            if depth > 10 then
+                return
+            end
+        end
+        local newDepth --: int
+        if not depth then
+            newDepth = 0;
+        else
+            --# assume depth: int
+            newDepth = depth + 1;
+        end
+        cm:callback(
+            function()
+                updateSkillSets(newDepth);
+            end, 0.02, "CustomLordsSkillHiderNoSkillChain"
+        );
         return;
     end
     local skillChainCount = skillsChainList:ChildCount();
@@ -421,9 +445,7 @@ function updateSkillSets()
                             skillSetFound = true;
                         end
                     end
-                    if not skillSetFound then
-                        child:SetVisible(false);
-                    end
+                    child:SetVisible(skillSetFound);
                 end
             end
         end
@@ -522,7 +544,7 @@ function addSlannCountListener()
                     local imperiumPanel = find_uicomponent(core:get_ui_root(), "clan", "main", "tab_children_parent", "Summary", "portrait_frame", "parchment_R", "imperium");
                     local slannCount = find_uicomponent(imperiumPanel, "agent_parent", "agent_cap_list", "wh2_main_lzd_slann_mage_priest", "dy_count");
                     local curr, max = string.match(slannCount:GetStateText(), "(%d+)/(%d+)");
-                    CUSTOM_LORDS_CAN_RECRUIT_SLANN = curr < max;
+                    CUSTOM_LORDS_CAN_RECRUIT_SLANN = tonumber(curr, 10) < tonumber(max, 10);
                     local okButton = find_uicomponent(core:get_ui_root(), "clan", "main", "button_ok");
                     okButton:SimulateLClick();
                 end
