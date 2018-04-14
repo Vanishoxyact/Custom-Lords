@@ -378,7 +378,18 @@ end
 --v function(char: CA_CHAR) --> boolean
 function charHasCustomSkills(char)
     local lordType = char:character_subtype_key();
-    return TABLES["lord_types"][lordType];
+    local table = TABLES["lord_types"][lordType];
+    if not table then
+        return false;
+    else
+        local charType = find_uicomponent(core:get_ui_root(), "character_details_panel", "background", "character_details_subpanel", "frame", "details", "info_list", "dy_type");
+        local charTypeText = charType:GetStateText();
+        if string.match(charTypeText, "Lord") then
+            return true;
+        else
+            return false;
+        end
+    end
 end
 
 --v function(lordType: string) --> string
@@ -396,39 +407,16 @@ end
 --# assume updateSkillSets : function(depth: int?)
 --v function(depth: int?)
 function updateSkillSets(depth)
-    local selectedChar = getSelectedChar();
-    local hasCustomSkills = charHasCustomSkills(selectedChar);
-
-    local skillToSkillSetMap = createSkillToSkillSetMap();
-    local charHasSkillSetTrait = charHasSkillSetTrait(selectedChar);
-    local defaultSkillSet = findDefaultSkillSet(selectedChar:character_subtype_key());
-    
     local charDetailsPanel = find_uicomponent(core:get_ui_root(), "character_details_panel");
     if not charDetailsPanel then
         return;
     end
+    local selectedChar = getSelectedChar();
+    local hasCustomSkills = charHasCustomSkills(selectedChar);
+    local skillToSkillSetMap = createSkillToSkillSetMap();
+    local charHasSkillSetTrait = charHasSkillSetTrait(selectedChar);
+    local defaultSkillSet = findDefaultSkillSet(selectedChar:character_subtype_key());
     local skillsChainList = find_uicomponent(core:get_ui_root(), "character_details_panel", "background", "skills_subpanel", "listview", "list_clip", "list_box");
-    if not skillsChainList then
-        if depth then
-            --# assume depth: int
-            if depth > 10 then
-                return
-            end
-        end
-        local newDepth --: int
-        if not depth then
-            newDepth = 0;
-        else
-            --# assume depth: int
-            newDepth = depth + 1;
-        end
-        cm:callback(
-            function()
-                updateSkillSets(newDepth);
-            end, 0.02, "CustomLordsSkillHiderNoSkillChain"
-        );
-        return;
-    end
     local skillChainCount = skillsChainList:ChildCount();
     for i=0, skillChainCount-1  do
         local skillChain = UIComponent(skillsChainList:Find(i));
@@ -446,6 +434,8 @@ function updateSkillSets(depth)
                         end
                     end
                     child:SetVisible(skillSetFound);
+                else
+                    child:SetVisible(true);
                 end
             end
         end
