@@ -127,14 +127,17 @@ function CustomLordsTraitFrame.shouldDisableAddTraitButton(self, trait)
         if not traitScopeData then
             return false;
         else
+            local invalidLordType = false;
             for i, traitTable in ipairs(traitScopeData) do
                 if traitTable["trait_scope_type"] == "LORD_TYPE" then
                     if traitTable["trait_scope"] == self.model.selectedLordType then
                         return false;
+                    else
+                        invalidLordType = true;
                     end
                 end
             end
-            return true;
+            return invalidLordType;
         end
     end
 end
@@ -176,7 +179,16 @@ function CustomLordsTraitFrame.shouldIncludeTrait(self, trait)
                 return true;
             end
         elseif traitTable["trait_scope_type"] == "LORD_TYPE" then
-            return true;
+            local factionLordTypesData = TABLES["faction_lord_types"][factionSubculture];
+            if not factionLordTypesData then
+                return false;
+            end
+            for i, lordTypeTable in ipairs(factionLordTypesData) do
+                if lordTypeTable["lord_type"] == traitTable["trait_scope"] then
+                    return true;
+                end
+            end
+            return false;
         end
     end
     return false;
