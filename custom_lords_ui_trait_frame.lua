@@ -123,7 +123,19 @@ function CustomLordsTraitFrame.shouldDisableAddTraitButton(self, trait)
     elseif listContains(self.model.selectedTraits, trait) then
         return true;
     else
-        return false;
+        local traitScopeData = TABLES["trait_scope"][trait] --: vector<map<string, string>>
+        if not traitScopeData then
+            return false;
+        else
+            for i, traitTable in ipairs(traitScopeData) do
+                if traitTable["trait_scope_type"] == "LORD_TYPE" then
+                    if traitTable["trait_scope"] == self.model.selectedLordType then
+                        return false;
+                    end
+                end
+            end
+            return true;
+        end
     end
 end
 
@@ -150,10 +162,42 @@ function CustomLordsTraitFrame.compareTraits(self, firstTrait, secondTrait)
     return firstTraitName < secondTraitName;
 end
 
+--v function(self: CUSTOM_LORDS_TRAIT_FRAME, trait: string) --> boolean
+function CustomLordsTraitFrame.shouldIncludeTrait(self, trait)
+    local traitScopeTable = TABLES["trait_scope"] --: map<string, vector<map<string, string>>>
+    local traitScopeData = traitScopeTable[trait];
+    if not traitScopeData then
+        return true;
+    end
+    local factionSubculture = get_faction(cm:get_local_faction()):subculture();
+    for i, traitTable in ipairs(traitScopeData) do
+        if traitTable["trait_scope_type"] == "SUBCULTURE" then
+            if traitTable["trait_scope"] == factionSubculture then
+                return true;
+            end
+        elseif traitTable["trait_scope_type"] == "LORD_TYPE" then
+            return true;
+        end
+    end
+    return false;
+end
+
+--v function(self: CUSTOM_LORDS_TRAIT_FRAME) --> vector<string>
+function CustomLordsTraitFrame.calculateAvailableTraits(self)
+    local availableTraits = {} --: vector<string>
+    local traitsTable = TABLES["traits"] --: map<string, map<string, string>>
+    for trait, traitTable in pairs(traitsTable) do
+        if self:shouldIncludeTrait(trait) then
+            table.insert(availableTraits, trait);
+        end
+    end
+    return availableTraits;
+end
+
 --v function(self: CUSTOM_LORDS_TRAIT_FRAME) --> vector<string>
 function CustomLordsTraitFrame.generateSortedTraitList(self)
     local orderedTraits = {} --: vector<string>
-    for trait, traitData in spairs(TABLES["traits"], function(t,a,b) return self:compareTraits(a, b) end) do
+    for i, trait in spairs(self:calculateAvailableTraits(), function(t,a,b) return self:compareTraits(t[a], t[b]) end) do
         table.insert(orderedTraits, trait);
     end
     return orderedTraits;
@@ -172,7 +216,7 @@ function CustomLordsTraitFrame.createTraitSelectionFrame(self, addTraitCallback)
     local divider = createTraitDivider("SelectFrameTopDivider", traitList, traitSelectionFrame:Width());
     traitList:AddComponent(divider);
     local remainingTraitPoints = calculateRemainingTraitPoints(self.model);
-    for trait, traitData in pairs(TABLES["traits"]) do
+    for i, trait in ipairs(self:calculateAvailableTraits()) do
         local addTraitButtonFunction = function(
             trait, --: string
             parent --: COMPONENT_TYPE | CA_UIC
@@ -235,6 +279,12 @@ function CustomLordsTraitFrame.new(model, parentFrame, addTraitCallback)
     cltf:sortTraitList();
     model:RegisterForEvent(
         "SELECTED_TRAITS_CHANGE", 
+        function()
+            cltf:update();
+        end
+    );
+    model:RegisterForEvent(
+        "SELECTED_LORD_TYPE_CHANGE", 
         function()
             cltf:update();
         end
