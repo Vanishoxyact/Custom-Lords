@@ -221,10 +221,8 @@ function createCustomLordFrameUi(recruitCallback, cost)
     );
     frameContainer:AddComponent(skillSetButtonContainer);
 
-    if CLC_BETA then
-        local artPanel = CustomLordsArtPanel.new(model, customLordFrame);
-        frameContainer:AddComponent(artPanel.artContainer);
-    end
+    local artPanel = CustomLordsArtPanel.new(model, customLordFrame);
+    frameContainer:AddComponent(artPanel.artContainer);
 
     local traitsAttributesContainer = Container.new(FlowLayout.HORIZONTAL);
     local attributePanel = CustomLordsAttributePanel.new(model, customLordFrame);
