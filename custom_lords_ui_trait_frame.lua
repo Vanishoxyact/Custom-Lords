@@ -41,11 +41,14 @@ function calculateImageAndToolTipForTraitEffectProperties(traitEffectProperties)
         effectSign = "";
     end
     traitDescription = string.gsub(traitDescription, "%%%+n", effectSign .. tostring(effectValue));
-    traitDescription = string.gsub(traitDescription, "%%%n", tostring(effectValue));    
+    traitDescription = string.gsub(traitDescription, "%%%n", tostring(effectValue));
 
     local traitEffectScope = traitEffectProperties["effect_scope"];
     local traitEffectScopePath = "campaign_effect_scopes_localised_text_" .. traitEffectScope;
-    local traitEffectScopeDesc = effect.get_localised_string(traitEffectScopePath);        
+    local traitEffectScopeDesc = effect.get_localised_string(traitEffectScopePath);
+    if traitEffectScopeDesc ~= "" then
+        traitEffectScopeDesc = " " .. string.sub(traitEffectScopeDesc, 2, string.len(traitEffectScopeDesc));
+    end
 
     traitDescription = "[[col:" .. colour .. "]]" .. traitDescription .. traitEffectScopeDesc .. "[[/col]]";
 
@@ -79,6 +82,7 @@ function createTraitRow(trait, parent, buttonCreationFunction)
         local traitImage = Image.new(trait .. i .. "Image", parent, traitImagePath);
         traitEffectContainer:AddComponent(traitImage);
         local traitDesc = Text.new(trait .. i .. "NameDesc", parent, "NORMAL", traitDescription);
+        traitDesc:Resize(traitDesc:Width() + 200, traitDesc:Height());
         traitEffectContainer:AddComponent(traitDesc);
         traitEffectsContainer:AddComponent(traitEffectContainer);
     end
@@ -219,12 +223,13 @@ end
 function CustomLordsTraitFrame.createTraitSelectionFrame(self, addTraitCallback)
     local traitSelectionFrame = Frame.new("traitSelectionFrame");
     traitSelectionFrame:SetTitle("Select the trait to add");
+    traitSelectionFrame:Resize(traitSelectionFrame:Width() + 200, traitSelectionFrame:Height());
     local traitSelectionFrameContainer = Container.new(FlowLayout.VERTICAL);
     traitSelectionFrame:AddComponent(traitSelectionFrameContainer);
     traitSelectionFrame:AddCloseButton(nil, false, true);
     local traitList = ListView.new("traitList", traitSelectionFrame, "VERTICAL");
     self.traitList = traitList;
-    traitList:Resize(600, traitSelectionFrame:Height() - 200);
+    traitList:Resize(800, traitSelectionFrame:Height() - 200);
     local divider = createTraitDivider("SelectFrameTopDivider", traitList, traitSelectionFrame:Width());
     traitList:AddComponent(divider);
     local remainingTraitPoints = calculateRemainingTraitPoints(self.model);

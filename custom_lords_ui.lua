@@ -183,7 +183,7 @@ function createCustomLordFrameUi(recruitCallback, cost)
     customLordFrame = Frame.new("customLordFrame");
     customLordFrame:SetTitle("Create your custom Lord");
     local xRes, yRes = core:get_screen_resolution();
-    customLordFrame:Resize(customLordFrame:Width() * 1.3, yRes - 100);
+    customLordFrame:Resize(customLordFrame:Width() * 1.3 + 200, yRes - 100);
     Util.centreComponentOnScreen(customLordFrame);
 
     local frameContainer = Container.new(FlowLayout.VERTICAL);
