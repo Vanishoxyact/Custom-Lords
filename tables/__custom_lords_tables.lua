@@ -117,7 +117,10 @@ traits = {
         {"wh2_main_skill_innate_all_tactician", "-2"},
         {"wh2_main_skill_innate_all_tough", "-2"},
         {"wh2_main_skill_innate_all_weapon_master", "-2"},
-        {"wh2_main_trait_increased_cost", "1"},
+        {"wh2_main_trait_increased_cost_1", "1"},
+        {"wh2_main_trait_increased_cost_2", "3"},
+        {"wh2_main_trait_increased_cost_3", "5"},
+        {"wh2_main_trait_increased_cost_4", "7"},
         {"wh2_main_skill_innate_hef_prince_army_0_fay", "1"},
         {"wh2_main_skill_innate_hef_prince_army_0_ill_prepared", "1"},
         {"wh2_main_skill_innate_hef_prince_battle_0_pale_and_wan", "1"},
@@ -345,7 +348,10 @@ trait_incidents = {
     SCHEMA = {"key", "incident_key"},
     KEY = {"key", "LIST"},
     DATA = {
-        {"wh2_main_trait_increased_cost", "wh2_main_incident_treasury_down_one_k"}
+        {"wh2_main_trait_increased_cost_1", "wh2_main_incident_treasury_down_1"},
+        {"wh2_main_trait_increased_cost_2", "wh2_main_incident_treasury_down_2"},
+        {"wh2_main_trait_increased_cost_3", "wh2_main_incident_treasury_down_3"},
+        {"wh2_main_trait_increased_cost_4", "wh2_main_incident_treasury_down_4"}
     }
 }
 

@@ -1,4 +1,7 @@
 incidents_tables				
 5				
 unknown0	key	unknown2	unknown3	unknown4
-False	wh2_main_incident_treasury_down_one_k	generic	False	Event
+False	wh2_main_incident_treasury_down_1	generic	False	Event
+False	wh2_main_incident_treasury_down_2	generic	False	Event
+False	wh2_main_incident_treasury_down_3	generic	False	Event
+False	wh2_main_incident_treasury_down_4	generic	False	Event

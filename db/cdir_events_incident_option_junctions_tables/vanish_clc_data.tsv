@@ -1,6 +1,15 @@
 cdir_events_incident_option_junctions_tables				
 2				
 id	unknown2	incident_key	option_key	value
-2021622988	0	wh2_main_incident_treasury_down_one_k	VAR_CHANCE	100
-1555268220	0	wh2_main_incident_treasury_down_one_k	GEN_TARGET_NONE	
-2014703187	0	wh2_main_incident_treasury_down_one_k	CND_MIN_TREASURY	1000
+2021622988	0	wh2_main_incident_treasury_down_1	VAR_CHANCE	100
+2021622989	0	wh2_main_incident_treasury_down_1	GEN_TARGET_NONE	
+2021622990	0	wh2_main_incident_treasury_down_1	CND_MIN_TREASURY	1000
+2021622991	0	wh2_main_incident_treasury_down_2	VAR_CHANCE	100
+2021622992	0	wh2_main_incident_treasury_down_2	GEN_TARGET_NONE	
+2021622993	0	wh2_main_incident_treasury_down_2	CND_MIN_TREASURY	3000
+2021622994	0	wh2_main_incident_treasury_down_3	VAR_CHANCE	100
+2021622995	0	wh2_main_incident_treasury_down_3	GEN_TARGET_NONE	
+2021622996	0	wh2_main_incident_treasury_down_3	CND_MIN_TREASURY	6000
+2021622997	0	wh2_main_incident_treasury_down_4	VAR_CHANCE	100
+2021622998	0	wh2_main_incident_treasury_down_4	GEN_TARGET_NONE	
+2021622999	0	wh2_main_incident_treasury_down_4	CND_MIN_TREASURY	10000

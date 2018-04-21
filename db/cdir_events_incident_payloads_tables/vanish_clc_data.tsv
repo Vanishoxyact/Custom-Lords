@@ -1,4 +1,7 @@
 cdir_events_incident_payloads_tables				
 1				
 id	unknown1	incident_key	payload_key	value
-430208196	0	wh2_main_incident_treasury_down_one_k	TREASURY	AMOUNT[-1000]
+430208196	0	wh2_main_incident_treasury_down_1	TREASURY	AMOUNT[-1000]
+430208197	0	wh2_main_incident_treasury_down_2	TREASURY	AMOUNT[-3000]
+430208198	0	wh2_main_incident_treasury_down_3	TREASURY	AMOUNT[-6000]
+430208199	0	wh2_main_incident_treasury_down_4	TREASURY	AMOUNT[-10000]

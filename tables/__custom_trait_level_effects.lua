@@ -246,6 +246,9 @@ trait_level_effects_tables = {
 		{"wh2_main_skill_innate_wef_ariels_chosen", "wh_dlc05_effect_force_army_battle_melee_attack_during_forest", "general_to_force_own", "4"},
 		{"wh2_main_skill_innate_wef_ariels_chosen", "wh_main_effect_military_force_winds_of_magic_depletion_mod_character", "character_to_force_own_unseen", "10"},
 		{"wh2_main_skill_innate_wef_talon_of_kurnous", "wh_main_effect_force_unit_stat_missile_range", "character_to_force_own", "10"},
-		{"wh2_main_trait_increased_cost", "increased_cost", "character_to_character_own", "1000"}
+		{"wh2_main_trait_increased_cost_1", "increased_cost", "character_to_character_own", "1000"},
+		{"wh2_main_trait_increased_cost_2", "increased_cost", "character_to_character_own", "3000"},
+		{"wh2_main_trait_increased_cost_3", "increased_cost", "character_to_character_own", "6000"},
+		{"wh2_main_trait_increased_cost_4", "increased_cost", "character_to_character_own", "10000"}
 	}
 }

@@ -123,8 +123,14 @@ end
 function calculateRecruitmentCost()
     local cost = model.baseCost;
     for i, trait in ipairs(model.selectedTraits) do
-        if trait == "wh2_main_trait_increased_cost" then
+        if trait == "wh2_main_trait_increased_cost_1" then
             cost = cost + 1000;
+        elseif trait == "wh2_main_trait_increased_cost_2" then
+            cost = cost + 3000;
+        elseif trait == "wh2_main_trait_increased_cost_3" then
+            cost = cost + 6000;
+        elseif trait == "wh2_main_trait_increased_cost_4" then
+            cost = cost + 10000;
         end
     end
     return cost;

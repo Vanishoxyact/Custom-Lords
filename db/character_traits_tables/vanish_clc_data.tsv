@@ -139,4 +139,7 @@ wh2_main_skill_innate_vmp_lore_keeper	1	FALSE	99	vampire_counts	0
 wh2_main_skill_innate_vmp_master_of_the_black_arts	1	FALSE	99	vampire_counts	0	
 wh2_main_skill_innate_wef_ariels_chosen	1	FALSE	99	wood_elves	0	
 wh2_main_skill_innate_wef_talon_of_kurnous	1	FALSE	99	wood_elves	0	
-wh2_main_trait_increased_cost	1	TRUE	99	personality	0	
+wh2_main_trait_increased_cost_1	1	TRUE	99	personality	0	
+wh2_main_trait_increased_cost_2	1	TRUE	99	personality	0	
+wh2_main_trait_increased_cost_3	1	TRUE	99	personality	0	
+wh2_main_trait_increased_cost_4	1	TRUE	99	personality	0	
