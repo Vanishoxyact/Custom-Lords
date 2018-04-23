@@ -143,3 +143,6 @@ wh2_main_trait_increased_cost_1	1	TRUE	99	personality	0
 wh2_main_trait_increased_cost_2	1	TRUE	99	personality	0	
 wh2_main_trait_increased_cost_3	1	TRUE	99	personality	0	
 wh2_main_trait_increased_cost_4	1	TRUE	99	personality	0	
+wh2_clc_trait_emp_questionable_excuses	1	FALSE	99	human	0	
+wh2_clc_trait_all_perseverant	1	FALSE	99	personality	0	
+wh2_clc_trait_lzd_bloodthirsty	1	FALSE	99	lizardmen	0	

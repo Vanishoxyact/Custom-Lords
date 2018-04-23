@@ -241,7 +241,11 @@ traits = {
         {"wh2_main_skill_innate_vmp_lore_keeper", "-2"},
         {"wh2_main_skill_innate_vmp_master_of_the_black_arts", "-2"},
         {"wh2_main_skill_innate_wef_ariels_chosen", "-2"},
-        {"wh2_main_skill_innate_wef_talon_of_kurnous", "-2"}
+        {"wh2_main_skill_innate_wef_talon_of_kurnous", "-2"},
+        -- NEW TRAITS
+        {"wh2_clc_trait_emp_questionable_excuses", "-2"},
+        {"wh2_clc_trait_all_perseverant", "-2"},
+        {"wh2_clc_trait_lzd_bloodthirsty", "-2"}
     }
 }
 
@@ -337,6 +341,8 @@ trait_scope = {
         {"wh2_main_skill_innate_vmp_master_of_the_black_arts", "SUBCULTURE", "wh_main_sc_vmp_vampire_counts"},
         {"wh2_main_skill_innate_wef_ariels_chosen", "SUBCULTURE", "wh_dlc05_sc_wef_wood_elves"},
         {"wh2_main_skill_innate_wef_talon_of_kurnous", "SUBCULTURE", "wh_dlc05_sc_wef_wood_elves"},
+        {"wh2_clc_trait_emp_questionable_excuses", "SUBCULTURE", "wh_main_sc_emp_empire"},
+        {"wh2_clc_trait_lzd_bloodthirsty", "SUBCULTURE", "wh2_main_sc_lzd_lizardmen"},
 
         {"wh2_main_skill_innate_hef_princess_battle_3_accurate", "LORD_TYPE", "wh2_main_hef_princess"},
         {"wh2_main_skill_innate_hef_princess_battle_0_inaccurate", "LORD_TYPE", "wh2_main_hef_princess"},
