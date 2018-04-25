@@ -430,3 +430,17 @@ attributes = {
         {"char_winds", "-4", "wh2_vanish_clc_attribute_winds_of_magic_minus_4"}
     }
 }
+
+attribute_tooptip = {
+    SCHEMA = {"key", "attribute_tooltip"},
+    KEY = {"key", "UNIQUE"},
+    DATA = {
+        {"char_melee_attack", "Melee Attack"},
+        {"char_melee_defence", "Melee Defence"},
+        {"char_armour", "Armour"},
+        {"char_weapon_strength", "Weapon Strength (%)"},
+        {"char_speed", "Speed (%)"},
+        {"char_charge_bonus", "Charge Bonus"},
+        {"char_winds", "Winds of Magic Power Reserve"}
+    }
+}

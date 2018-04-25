@@ -98,6 +98,8 @@ function CustomLordsAttributePanel.createAttributeRow(self, attribute, value, fr
 
     local effectImage = TABLES["effects_tables"][attributeEffect]["icon"];
     local attributeImage = Image.new("AttributeRowImage" .. attribute, frame, "ui/campaign ui/effect_bundles/" .. effectImage);
+    local attributeTooltip = TABLES["attribute_tooptip"][attribute]["attribute_tooltip"];
+    attributeImage.uic:SetTooltipText(attributeTooltip);
     rowContainer:AddComponent(attributeImage);
     rowContainer:AddGap(15);
     local decreaseButton = Button.new("AttributeDecreaseButton" .. attribute, frame, "SQUARE", "ui/skins/default/parchment_header_max.png");
