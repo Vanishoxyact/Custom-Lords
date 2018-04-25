@@ -69,7 +69,7 @@ function createTraitRow(trait, parent, buttonCreationFunction)
     local traitRow = Container.new(FlowLayout.HORIZONTAL);
     local traitName = calculateTraitName(trait);
     local traitNameText = Text.new(trait .. "NameText", parent, "NORMAL", traitName);
-    traitNameText:Resize(140, traitNameText:Height());
+    traitNameText:Resize(100, traitNameText:Height() * 1.5);
     traitRow:AddComponent(traitNameText);
     traitRow:AddGap(20);
     local traitEffectsContainer = Container.new(FlowLayout.VERTICAL);
@@ -227,7 +227,7 @@ function CustomLordsTraitFrame.createTraitSelectionFrame(self, addTraitCallback)
     traitSelectionFrame:AddCloseButton(nil, false, true);
     local traitList = ListView.new("traitList", traitSelectionFrame, "VERTICAL");
     self.traitList = traitList;
-    traitList:Resize(800, traitSelectionFrame:Height() - 200);
+    traitList:Resize(760, traitSelectionFrame:Height() - 200);
     local divider = createTraitDivider("SelectFrameTopDivider", traitList, traitSelectionFrame:Width());
     traitList:AddComponent(divider);
     local remainingTraitPoints = calculateRemainingTraitPoints(self.model);

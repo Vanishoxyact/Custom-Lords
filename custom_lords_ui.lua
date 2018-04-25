@@ -114,9 +114,9 @@ function updateAddTraitButton()
     local addTraitButton = Util.getComponentWithName("addTraitButton");
     --# assume addTraitButton: TEXT_BUTTON
     if #model.selectedTraits < model.maxTraits then
-        addTraitButton:SetVisible(true);
+        addTraitButton:SetDisabled(false);
     else
-        addTraitButton:SetVisible(false);
+        addTraitButton:SetDisabled(true);
     end
 end
 
@@ -161,13 +161,16 @@ function resetSelectedTraits(traitRowContainer, frameContainer, buttonCreationFu
     local traitsText = Text.new("TraitPointsText", customLordFrame, "NORMAL", "Trait Points Remaining: " .. calculateRemainingTraitPoints(model));
     traitsText:Resize(traitsText:Width(), traitsText:Height()/2);
     traitRowContainer:AddComponent(traitsText);
+    local traitList = ListView.new("MainPanelTraitList", customLordFrame, "VERTICAL");
+    traitList:Resize(730, 220);
+    traitRowContainer:AddComponent(traitList);
     local divider = createTraitDivider("CurrentTraitsTopDivider", customLordFrame, 600);
-    traitRowContainer:AddComponent(divider);
+    traitList:AddComponent(divider);
     for i, trait in ipairs(model.selectedTraits) do
         local traitRow = createTraitRow(trait, customLordFrame, buttonCreationFunction);
-        traitRowContainer:AddComponent(traitRow);
+        traitList:AddComponent(traitRow);
         local divider = createTraitDivider(trait .. "Divider", customLordFrame, 600);
-        traitRowContainer:AddComponent(divider);
+        traitList:AddComponent(divider);
     end
     frameContainer:Reposition();
     updateAddTraitButton();
@@ -286,7 +289,7 @@ function createCustomLordFrameUi(recruitCallback, cost)
     );
 
     traitsContainer:AddComponent(addTraitButton);
-    traitsAttributesContainer:AddGap(100);
+    traitsAttributesContainer:AddGap(70);
     traitsAttributesContainer:AddComponent(traitsContainer);
     frameContainer:AddComponent(traitsAttributesContainer);
 
