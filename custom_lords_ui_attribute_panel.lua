@@ -149,14 +149,22 @@ function calculateAttributePointRemainingText(model)
     return "Attribute Points: " .. calculateRemainingAttributePoints(model);
 end
 
+--v function() --> boolean
+function isCurrentFactionDwarf()
+    local currentFaction = get_faction(cm:get_local_faction());
+    return currentFaction:culture() == "wh_main_dwf_dwarfs";
+end
+
 --v function(self: CUSTOM_LORDS_ATTRIBUTE_PANEL)
 function CustomLordsAttributePanel.constructAttributeContainer(self)
     local remainingAttributePointsText = Text.new("remainingAttributePointsText", self.parentFrame, "NORMAL", "");
     self.remainingAttributePointsText = remainingAttributePointsText;
     self.attributesContainer:AddComponent(remainingAttributePointsText);
     for attribute, value in pairs(self.model.attributeValues) do
-         local attributeRow = self:createAttributeRow(attribute, value, self.parentFrame, self.model);
-         self.attributesContainer:AddComponent(attributeRow);
+        if not (attribute == "char_winds" and isCurrentFactionDwarf()) then
+            local attributeRow = self:createAttributeRow(attribute, value, self.parentFrame, self.model);
+            self.attributesContainer:AddComponent(attributeRow);
+        end
     end
     self.attributesContainer:Reposition();
 end
@@ -175,7 +183,9 @@ end
 function CustomLordsAttributePanel.resetAttributeContainer(self)
     self.remainingAttributePointsText:SetText(calculateAttributePointRemainingText(self.model));
     for attribute, value in pairs(self.model.attributeValues) do
-        self:updateAttributeRow(attribute, value);
+        if not (attribute == "char_winds" and isCurrentFactionDwarf()) then
+            self:updateAttributeRow(attribute, value);
+        end
     end
 end
 
