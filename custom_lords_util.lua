@@ -82,7 +82,7 @@ function detectBeta()
         CLC_BETA = false;
     else
         local content = file:read "*a"
-        if content == "09bNNrmFsJ78c41iZB6H" then
+        if content == "HoGG63tCyw2tBy6EIMaY" then
             CLC_BETA = true;
         else
             CLC_BETA = false;
