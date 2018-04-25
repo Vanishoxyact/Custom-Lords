@@ -11,7 +11,7 @@ local customLordFrame = nil --: FRAME
 --v function(lordType: string, lordTypeName: string, frame: FRAME) --> TEXT_BUTTON
 function createLordTypeButton(lordType, lordTypeName, frame)
     local lordTypeButton = TextButton.new(lordType .. "Button", frame, "TEXT_TOGGLE_SMALL", lordTypeName);
-    lordTypeButton:Resize(200, lordTypeButton:Height());
+    lordTypeButton:Resize(250, lordTypeButton:Height());
     lordTypeButton:SetState("active");
     if lordType == "wh2_main_lzd_slann_mage_priest" and not CUSTOM_LORDS_CAN_RECRUIT_SLANN then
         lordTypeButton:SetDisabled(true);
