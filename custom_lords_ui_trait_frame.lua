@@ -1,6 +1,4 @@
 require("custom_lords_util");
-local TOTAL_TRAIT_POINTS = 2;
-MAX_TRAITS = 4;
 local CustomLordsTraitFrame = {} --# assume CustomLordsTraitFrame: CUSTOM_LORDS_TRAIT_FRAME
 CustomLordsTraitFrame.__index = CustomLordsTraitFrame;
 CustomLordsTraitFrame.model = nil --: CUSTOM_LORDS_MODEL
@@ -116,7 +114,7 @@ function calculateRemainingTraitPoints(model)
         local traitPointsForTrait = tonumber(TABLES["traits"][trait]["trait_cost"]);
         totalTraitPoints = totalTraitPoints + traitPointsForTrait;
     end
-    return TOTAL_TRAIT_POINTS + totalTraitPoints;
+    return model.startingTraitPoints + totalTraitPoints;
 end
 
 --v function(self: CUSTOM_LORDS_TRAIT_FRAME, trait: string) --> boolean
@@ -259,7 +257,6 @@ function CustomLordsTraitFrame.createTraitSelectionFrame(self, addTraitCallback)
     traitSelectionFrameContainer:AddComponent(traitList);
     Util.centreComponentOnComponent(traitSelectionFrameContainer, traitSelectionFrame);
     self.defaultHandleX, self.defaultHandleY = find_uicomponent(self.traitList.uic, "vslider", "handle"):Position();
-    local x, y = traitSelectionFrameContainer:Position();
     return traitSelectionFrame;
 end
 

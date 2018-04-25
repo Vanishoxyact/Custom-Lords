@@ -2,6 +2,7 @@
 --# assume global class CUSTOM_LORDS_ATTRIBUTE_PANEL
 --# assume global class CUSTOM_LORDS_TRAIT_FRAME
 --# assume global class CUSTOM_LORDS_ART_PANEL
+--# assume global class CUSTOM_LORDS_OPTIONS_FRAME
 
 --# type global CUSTOM_LORDS_EVENT = 
 --# "LORD_TYPES_CHANGE" | "SELECTED_LORD_TYPE_CHANGE" | "SKILL_SETS_CHANGE" | 

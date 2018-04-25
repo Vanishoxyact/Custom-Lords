@@ -3,6 +3,7 @@ local CustomLordsModel = require("custom_lords_ui_model");
 local CustomLordsAttributePanel = require("custom_lords_ui_attribute_panel");
 local CustomLordsTraitFrame = require("custom_lords_ui_trait_frame");
 local CustomLordsArtPanel = require("custom_lords_ui_art_panel");
+local CustomLordsOptionsFrame = require("custom_lords_ui_options_frame");
 
 local model = nil --: CUSTOM_LORDS_MODEL
 local customLordFrame = nil --: FRAME
@@ -112,7 +113,7 @@ end
 function updateAddTraitButton()
     local addTraitButton = Util.getComponentWithName("addTraitButton");
     --# assume addTraitButton: TEXT_BUTTON
-    if #model.selectedTraits < MAX_TRAITS then
+    if #model.selectedTraits < model.maxTraits then
         addTraitButton:SetVisible(true);
     else
         addTraitButton:SetVisible(false);
@@ -318,6 +319,29 @@ function createCustomLordFrameUi(recruitCallback, cost)
         end
     );
     recuitContainer:AddComponent(closeButton);
+
+    local optionsButton = Button.new("CustomLordsOptionsButton", customLordFrame, "SQUARE", "ui/skins/default/icon_options_medium.png");
+    customLordFrame:AddComponent(optionsButton);
+    optionsButton:RegisterForClick(
+        function(context)
+            local existingFrame = Util.getComponentWithName("CustomLordOptionsFrame");
+            --# assume existingFrame: FRAME
+            if not existingFrame then
+                local optionsFrame = CustomLordsOptionsFrame.new(
+                    model, customLordFrame,
+                    function()
+                        resetSelectedTraits(traitRowsContainer, frameContainer, removeTraitButtonFunction);
+                    end
+                ).optionsFrame;
+                customLordFrame.uic:Adopt(optionsFrame.uic:Address());
+                Util.centreComponentOnScreen(optionsFrame);
+                customLordFrame:AddComponent(optionsFrame);
+            else
+                existingFrame:SetVisible(true);
+            end
+        end
+    );
+    optionsButton:PositionRelativeTo(customLordFrame, 0, -50);
 
     Util.centreComponentOnComponent(recuitContainer, customLordFrame);
     local xPos, yPos = recuitContainer:Position();

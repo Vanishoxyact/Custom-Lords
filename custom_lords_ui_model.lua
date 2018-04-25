@@ -16,6 +16,8 @@ function CustomLordsModel.new()
     clm.selectedTraits = {} --: vector<string>
     clm.attributeValues = {} --: map<string, int>
     clm.baseCost = 0 --: number
+    clm.maxTraits = 4 --: int
+    clm.startingTraitPoints = 2 --: int
     clm.callbacks = {} --: map<CUSTOM_LORDS_EVENT, vector<function()>>
     return clm
 end
@@ -108,6 +110,16 @@ end
 function CustomLordsModel.SetSelectedArtId(self, artId)
     self.selectedArtId = artId;
     self:NotifyEvent("SELECTED_ART_ID_VALUE_CHANGE");
+end
+
+--v function(self: CUSTOM_LORDS_MODEL, maxTraits: int)
+function CustomLordsModel.SetMaxTraits(self, maxTraits)
+    self.maxTraits = maxTraits;
+end
+
+--v function(self: CUSTOM_LORDS_MODEL, startingTraitPoints: int)
+function CustomLordsModel.SetStartingTraitPoints(self, startingTraitPoints)
+    self.startingTraitPoints = startingTraitPoints;
 end
 
 return {
