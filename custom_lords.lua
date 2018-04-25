@@ -571,7 +571,7 @@ function addSlannCountListener()
 end
 
 --v function()
-function custom_lords()
+function custom_lords_init()
     cm:set_saved_value("custom_lords", true);
     detectBeta();
     loadTables();
@@ -579,4 +579,21 @@ function custom_lords()
     attachSkillListener();
     addEscapeButtonListener();
     addSlannCountListener();
+end
+
+core:add_listener(
+    "CustomLordsInit",
+    "UICreated",
+    function() 
+        return true; 
+    end,
+    function()
+        custom_lords_init();
+    end,
+    false
+);
+
+--v function()
+function custom_lords()
+    -- Do nothing
 end
