@@ -4,11 +4,9 @@ No loyalty
 Trait columns
 Multiplayer
 Options panel
-Trait points can go negative if you remove negative traits
-Model selection - variants/units_custom_battle_permissions/battle_set_piece_armies <- agent_uniforms <- campaign_charater_arts <- campaign_character_art_sets
-Skills missing
 Tomb Kings recruitment
 Add trait button wrong place if all traits and remove one
+Trait icon
 
 Nice to have
 Look at table ordering
@@ -55,3 +53,8 @@ Remove slann from lizardmen recruit
 Negative traits
 Recruting into sea
 Frame resizing
+Model selection - variants/units_custom_battle_permissions/battle_set_piece_armies <- agent_uniforms <- campaign_charater_arts <- campaign_character_art_sets
+Skills missing
+Remove winds for dwarfs
+Attribute tooltips
+Width of lord type button
