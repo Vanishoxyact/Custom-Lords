@@ -16,7 +16,7 @@ function CustomLordsModel.new()
     clm.selectedTraits = {} --: vector<string>
     clm.attributeValues = {} --: map<string, int>
     clm.baseCost = 0 --: number
-    clm.maxTraits = 4 --: int
+    clm.maxTraits = 6 --: int
     clm.startingTraitPoints = 2 --: int
     clm.callbacks = {} --: map<CUSTOM_LORDS_EVENT, vector<function()>>
     return clm
