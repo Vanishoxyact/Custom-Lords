@@ -1,0 +1,6 @@
+character_traits_tables
+2
+key	no_going_back_level	hidden	precedence	icon	unknown5	pre_battle_speech_parameter
+wh2_main_trait_lzd_slann_mage_preist_destruction	1	True	99	personality	0	
+wh2_main_trait_lzd_slann_mage_priest_debuffs	1	True	99	personality	0	
+wh2_main_trait_lzd_slann_mage_priest_magic	1	True	99	personality	0	

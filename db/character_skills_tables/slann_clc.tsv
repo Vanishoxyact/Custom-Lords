@@ -1,0 +1,7 @@
+character_skills_tables
+5
+image_path	key	localised_description	localised_name	unlocked_at_rank	is_background_skill	is_female_only_background_skill	is_male_only_background_skill	background_weighting	influence_cost
+evasion.png	wh_main_skill_all_magic_all_06_evasion_slann_debuff		Evasion	0	False	False	False	0	0
+evasion.png	wh_main_skill_all_magic_all_06_evasion_slann_destruction		Evasion	0	False	False	False	0	0
+wh_main_character_abilities_arcane_conduit.png	wh_main_skill_all_magic_all_11_arcane_conduit_slann_debuff		Arcane Conduit	0	False	False	False	0	0
+wh_main_character_abilities_arcane_conduit.png	wh_main_skill_all_magic_all_11_arcane_conduit_slann_destruction		Arcane Conduit	0	False	False	False	0	0
