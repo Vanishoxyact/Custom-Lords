@@ -125,8 +125,6 @@ wh2_dlc09_the_blessed_blade_of_ptra_reward_1	The new labourers toil under the Ne
 wh2_dlc09_the_blessed_blade_of_ptra_reward_2	Word of this new wonder has spread throughout the kingdom. The denizens of Nehekhara feel pride, something they have not felt in an age. Settra rebuilds! Nehekhara will be made glorious again!	Nehekharan Pride	public_order_happy.png	faction
 wh2_dlc09_tmb_arkhan_tomb_blade_of_arkhan_stage_3a	 	Ancient Artifacts	technology.png	faction
 wh2_dlc09_tmb_arkhan_tomb_blade_of_arkhan_stage_3b	 	Mark of the Necromancer	diplomacy.png	faction
-wh2_dlc09_tmb_khatep_diplomacy_vs_malekeith	[PH]	[PH]	diplomacy.png	faction
-wh2_dlc09_tmb_khatep_diplomacy_vs_morathi	[PH]	[PH]	diplomacy.png	faction
 wh2_dlc09_tomb_king_difficulty_AI_easy	[HIDDEN]	[HIDDEN]	 	faction
 wh2_dlc09_tomb_king_difficulty_AI_hard	[HIDDEN]	[HIDDEN]	 	faction
 wh2_dlc09_tomb_king_difficulty_AI_legendary	[HIDDEN]	[HIDDEN]	 	faction
@@ -138,6 +136,174 @@ wh2_dlc09_tomb_king_difficulty_player_legendary	[HIDDEN]	[HIDDEN]	 	faction
 wh2_dlc09_tomb_king_difficulty_player_normal	[HIDDEN]	[HIDDEN]	 	faction
 wh2_dlc09_tomb_king_difficulty_player_very_hard	[HIDDEN]	[HIDDEN]	 	faction
 wh2_dlc09_tomb_king_victory	Across the lands of Nehekhara the sands lay still and the great cacophony of battle is silent for now. Victory is yours!	Victory!	books_of_nagash.png	faction
+wh2_dlc10_alarielle_start_ap_bonus	All will feel the strength and beauty of Alarielle – the bodies of those who dare defy the Everqueen will be pierced by her sheer radiance!	Mother & Protector	armour_piercing.png	faction
+wh2_dlc10_alith_anar_assassination_hellebron	Nothing shall move the Shadow King, not even the wailing, screeching attacks of the Crone.	Slay the Blood Queen	dlc10_assassination_targets.png	faction
+wh2_dlc10_alith_anar_assassination_malekith	To stand as the Witch King's executioner is to reach into the black heart of every Dark Elf and squeeze!	Kill Malekith	dlc10_assassination_targets.png	faction
+wh2_dlc10_alith_anar_assassination_morathi	With the death of Morathi, an age of enlightenment shall spread across a land once draped in shadow.	Murder Morathi 	dlc10_assassination_targets.png	faction
+wh2_dlc10_alith_anar_assassination_peace_1	Peace is achieved only when there's nothing left to kill!	Call to Kill 	dlc10_assassination_targets.png	faction
+wh2_dlc10_alith_anar_assassination_peace_2	The Shadowlands has a new enemy; the king must act and cull the threat before it festers into war.	The Culling	dlc10_assassination_targets.png	faction
+wh2_dlc10_alith_anar_assassination_peace_3	The Shadow King will do anything to protect his realm. His warriors have learned of a threat that needs silencing.	A Fresh Target	dlc10_assassination_targets.png	faction
+wh2_dlc10_alith_anar_assassination_peace_dark_elf_1	Peace when the Druchii still breathe? Not for the Shadow King!	Slaughter the Sycophant	dlc10_assassination_targets.png	faction
+wh2_dlc10_alith_anar_assassination_peace_dark_elf_2	War or peace - it matters not, a Druchii is always a viable target. The less of their treacherous kind exist, the safer Nargarythe will be.	There is Never Peace	dlc10_assassination_targets.png	faction
+wh2_dlc10_alith_anar_assassination_peace_dark_elf_3	Loec’s ravens squawk the name of another of Malekith’s minions to slay. Their time can be measured in mere moments from now on.	Druchii Slayer	dlc10_assassination_targets.png	faction
+wh2_dlc10_alith_anar_assassination_war_1	War comes and the Shadow King shall be at its forefront.	War Crime	dlc10_assassination_targets.png	faction
+wh2_dlc10_alith_anar_assassination_war_2	Those who provoke the Shadow King to war surely do not value life, for they will be deprived of it soon enough!	War with the Shadow	dlc10_assassination_targets.png	faction
+wh2_dlc10_alith_anar_assassination_war_3	Although a High Elf, Anar does not play by the same rules as his noble kin; war is not just fought on the battlefield.	Shadow War	dlc10_assassination_targets.png	faction
+wh2_dlc10_alith_anar_assassination_war_dark_elf_1	Alith Anar's gruesome reputation spreads amongst the Dark Elves!	Kill the Druchii Scum 	dlc10_assassination_targets.png	faction
+wh2_dlc10_alith_anar_assassination_war_dark_elf_2	Loec, the God of Deadly Dances, has given Anar a name - a Dark Elf whose own dance should end, war or not.	Murderous Dance	dlc10_assassination_targets.png	faction
+wh2_dlc10_alith_anar_assassination_war_dark_elf_3	The only good Druchii is a dead one. To aid the war, Anar must hunt once more; now he knows the identity of his prey.	Stalk & Slay	dlc10_assassination_targets.png	faction
+wh2_dlc10_bundle_alarielle_corruption_0	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_1	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_10	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_100	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_11	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_12	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_13	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_14	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_15	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_16	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_17	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_18	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_19	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_2	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_20	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_21	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_22	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_23	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_24	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_25	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_26	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_27	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_28	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_29	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_3	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_30	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_31	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_32	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_33	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_34	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_35	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_36	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_37	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_38	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_39	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_4	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_40	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_41	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_42	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_43	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_44	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_45	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_46	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_47	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_48	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_49	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_5	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_50	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_51	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_52	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_53	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_54	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_55	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_56	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_57	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_58	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_59	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_6	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_60	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_61	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_62	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_63	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_64	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_65	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_66	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_67	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_68	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_69	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_7	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_70	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_71	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_72	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_73	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_74	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_75	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_76	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_77	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_78	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_79	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_8	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_80	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_81	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_82	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_83	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_84	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_85	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_86	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_87	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_88	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_89	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_9	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_90	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_91	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_92	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_93	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_94	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_95	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_96	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_97	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_98	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_alarielle_corruption_99	{{tr:alarielle_corruption_amount}}	Mortal World's Torment	dlc10_mortal_torment.png	faction
+wh2_dlc10_bundle_anc_magic_standard_banner_of_avelorn	 	Banner of Avelorn	public_order.png	character
+wh2_dlc10_bundle_blood_voyage	[HIDDEN]	[HIDDEN]	 	force
+wh2_dlc10_bundle_blood_voyage_active	[[col:red]]WARNING: The [[img:blood_voyage]][[/img]]Blood Voyage is currently active and is targeting Ulthuan - if possible you should prepare defences![[/col]]	Blood Voyage Active	dlc10_blood_voyage.png	faction
+wh2_dlc10_bundle_blood_voyage_player	The Blood Voyage has been spat forth from Har Ganeth; it is yours to command!	Blood Voyage	dlc10_blood_voyage.png	force
+wh2_dlc10_bundle_death_night_alarielle	Alarielle the Radiant! There's no finer target than one so beautiful; Khaine will surely approve your violence against her!	Khaine's Reward	dlc10_death_night.png	faction
+wh2_dlc10_bundle_death_night_morathi	Long has Morathi held the secrets to eternal youth; they are kept from you no longer!	Morathi's Secrets	dlc10_death_night.png	faction
+wh2_dlc10_bundle_death_night_morathi_untainted	For Khaine to reign supreme – as god of gods – Chaos must be stripped from these lands.	Purge of Chaos	religion.png	faction
+wh2_dlc10_bundle_monster_hunt_army_rampage	 	 	 	force
+wh2_dlc10_bundle_stance_army_tunnelling_alith_anar	Uses Shadow Realm Pathways to traverse the world.	Stance: Use Shadow Realm Pathways	subterranean.png	force
+wh2_dlc10_dark_elf_fortress_gate	[HIDDEN]	[HIDDEN]	public_order_indifferent.png	province
+wh2_dlc10_death_night_effect_1	All but a withered husk, Hellebron must bathe in the blood of the murdered if she and her coven are to be revitalised.	Crone	dlc10_death_night.png	faction
+wh2_dlc10_death_night_effect_2	How unfair! Why does Morathi not suffer this curse? Hellebron's true age is revealed without the lustre of Death Night!	Bitter 	dlc10_death_night.png	faction
+wh2_dlc10_death_night_effect_3	All must bow before the Bride of Khaine, and even then they will be needed to fill the cauldron!	Respected	dlc10_death_night.png	faction
+wh2_dlc10_death_night_effect_4	The Crone stalks the lands and her followers revel in the slaughter - such a wonderous time!	Joyous	dlc10_death_night.png	faction
+wh2_dlc10_death_night_effect_5	The Blood Queen is young - all who witness her beatific aspect are caught in its lethal glamour.	Blood Queen	dlc10_death_night.png	faction
+wh2_dlc10_defender_of_ulthuan_all_1	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 69%)[[/col]]\n\n[[col:green]]All of Ulthuan is under High Elf control[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_defender_of_ulthuan_all_10	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 100%)[[/col]]\n\n[[col:green]]All of Ulthuan is under High Elf control[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_defender_of_ulthuan_all_2	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 72%)[[/col]]\n\n[[col:green]]All of Ulthuan is under High Elf control[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_defender_of_ulthuan_all_3	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 76%)[[/col]]\n\n[[col:green]]All of Ulthuan is under High Elf control[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_defender_of_ulthuan_all_4	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 79%)[[/col]]\n\n[[col:green]]All of Ulthuan is under High Elf control[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_defender_of_ulthuan_all_5	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 82%)[[/col]]\n\n[[col:green]]All of Ulthuan is under High Elf control[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_defender_of_ulthuan_all_6	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 86%)[[/col]]\n\n[[col:green]]All of Ulthuan is under High Elf control[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_defender_of_ulthuan_all_7	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 89%)[[/col]]\n\n[[col:green]]All of Ulthuan is under High Elf control[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_defender_of_ulthuan_all_8	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 93%)[[/col]]\n\n[[col:green]]All of Ulthuan is under High Elf control[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_defender_of_ulthuan_all_9	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 96%)[[/col]]\n\n[[col:green]]All of Ulthuan is under High Elf control[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_defender_of_ulthuan_inner_1	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 31%)[[/col]]\n\n[[col:red]]The inner ring of Ulthuan has been breached[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_defender_of_ulthuan_inner_10	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 1%)[[/col]]\n\n[[col:red]]The inner ring of Ulthuan has been breached[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_defender_of_ulthuan_inner_2	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 28%)[[/col]]\n\n[[col:red]]The inner ring of Ulthuan has been breached[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_defender_of_ulthuan_inner_3	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 24%)[[/col]]\n\n[[col:red]]The inner ring of Ulthuan has been breached[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_defender_of_ulthuan_inner_4	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 21%)[[/col]]\n\n[[col:red]]The inner ring of Ulthuan has been breached[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_defender_of_ulthuan_inner_5	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 18%)[[/col]]\n\n[[col:red]]The inner ring of Ulthuan has been breached[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_defender_of_ulthuan_inner_6	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 14%)[[/col]]\n\n[[col:red]]The inner ring of Ulthuan has been breached[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_defender_of_ulthuan_inner_7	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 11%)[[/col]]\n\n[[col:red]]The inner ring of Ulthuan has been breached[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_defender_of_ulthuan_inner_8	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 7%)[[/col]]\n\n[[col:red]]The inner ring of Ulthuan has been breached[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_defender_of_ulthuan_inner_9	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 4%)[[/col]]\n\n[[col:red]]The inner ring of Ulthuan has been breached[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_defender_of_ulthuan_outer_1	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 65%)[[/col]]\n\n[[col:yellow]]Ulthuan is not fully under High Elf control[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_defender_of_ulthuan_outer_10	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 35%)[[/col]]\n\n[[col:yellow]]Ulthuan is not fully under High Elf control[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_defender_of_ulthuan_outer_2	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 62%)[[/col]]\n\n[[col:yellow]]Ulthuan is not fully under High Elf control[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_defender_of_ulthuan_outer_3	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 59%)[[/col]]\n\n[[col:yellow]]Ulthuan is not fully under High Elf control[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_defender_of_ulthuan_outer_4	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 55%)[[/col]]\n\n[[col:yellow]]Ulthuan is not fully under High Elf control[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_defender_of_ulthuan_outer_5	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 52%)[[/col]]\n\n[[col:yellow]]Ulthuan is not fully under High Elf control[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_defender_of_ulthuan_outer_6	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 48%)[[/col]]\n\n[[col:yellow]]Ulthuan is not fully under High Elf control[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_defender_of_ulthuan_outer_7	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 45%)[[/col]]\n\n[[col:yellow]]Ulthuan is not fully under High Elf control[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_defender_of_ulthuan_outer_8	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 41%)[[/col]]\n\n[[col:yellow]]Ulthuan is not fully under High Elf control[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_defender_of_ulthuan_outer_9	{{tr:defender_of_ulthuan_message}}\n\n[[col:yellow]](People's trust in Alarielle: 38%)[[/col]]\n\n[[col:yellow]]Ulthuan is not fully under High Elf control[[/col]]\n\nCurrent faction effects:	Defender of Ulthuan	dlc10_defender_of_ulthuan.png	faction
+wh2_dlc10_lord_trait_def_hellebron	Hellebron's personal cauldron is scarred and inscribed with the cruellest hexes, the pall of which emanates ever outward.	Cauldron of the Blood Queen	character.png	faction
+wh2_dlc10_lord_trait_hef_alarielle	The silken pavilions of the Radiant's carnival bring revels and joy to the fey folk of Avelorn.	Carnival of the Everqueen	character.png	faction
+wh2_dlc10_lord_trait_hef_alith_anar	Alith Anar's shadow court meets only rarely, but when it does, vengeance upon the Druchii is the only real agenda.	Court of the Shadowlands	character.png	faction
+wh2_dlc10_power_of_nature	Alarielle has recently visited this region. Those lucky enough to have witnessed her presence are left in no doubt that the Everqueen’s power is that of nature itself.	Power of Nature	dlc10_power_of_nature.png	region
+wh2_dlc10_ritual_def_drakira	{{tr:wh2_dlc10_ritual_def_drakira_description}}	Sacrifice to Drakira	effect_rite.png	faction
+wh2_dlc10_ritual_hef_lileath	Lileath is the patron of seers and prophets. She is prayed to for clarity, prophecy, and foresight - especially by one facing a great challenge, a difficult decision, or in need of some good luck.	Invocation of Lileath	effect_rite.png	faction
 wh2_main_bundle_agent_action_assist_army_cannot_fail_increase_mobility_target	This army has an embedded [[img:icon_hero]][[/img]]Hero.	{{tr:agent_action_name_increase_mobility}}	campaign_movement.png	force
 wh2_main_bundle_agent_action_assist_army_cannot_fail_replenish_troops_target	This army has an embedded [[img:icon_hero]][[/img]]Hero.	{{tr:agent_action_name_replenish_troops}}	replenishment.png	force
 wh2_main_bundle_agent_action_assist_army_cannot_fail_scavenge_target	This army has an embedded [[img:icon_hero]][[/img]]Hero.	{{tr:agent_action_name_scavenge}}	income.png	force
@@ -231,7 +397,7 @@ wh2_main_dilemma_loyalty_positive_def_black_council_3	Production must increase, 
 wh2_main_dilemma_loyalty_positive_def_black_council_4	Perhaps offer a carrot instead of using the stick? Offer a rare bit of praise to one of your Lords, so that he may lead by example.	Reward the loyal Lord	public_order.png	faction
 wh2_main_dilemma_loyalty_positive_def_curse_of_kurnous_2	Kurnous is not worshipped here! Have the forest burned along with the estate… and its Lord!	Heretic!	charge.png	faction
 wh2_main_dilemma_loyalty_positive_def_curse_of_kurnous_3	Release some slaves! He who returns the most heads shall have a reward!	Organise a hunt	public_order.png	faction
-wh2_main_dilemma_loyalty_positive_def_insurgents_2	They shall suffer annihilation and you will reap the benefits!	Send their souls to the Dark Prince!	religion_chaos.png	faction
+wh2_main_dilemma_loyalty_positive_def_insurgents_2	They shall suffer annihilation and you will reap the benefits!	Send their souls to the Dark Prince!	magic.png	faction
 wh2_main_dilemma_loyalty_positive_def_insurgents_3	Let the streets run red with their blood. Khaine will be pleased this day!	Sacrifice to Khaine!	religion.png	faction
 wh2_main_dilemma_loyalty_positive_def_relic_2	Send a messenger granting a pardon but ensure he also mentions that the annual tribute will be double from now on.	Let them keep it	growth.png	faction
 wh2_main_dilemma_loyalty_positive_def_statue_1	Melt it down to produce something useful. Hukon is not worshipped here.	Topple the statue!	public_order.png	faction
@@ -416,7 +582,7 @@ wh2_main_incident_skv_warp_unit_recruitment_cost_down	Burrowing and delving deep
 wh2_main_incident_trade_income_up	Your silver-tongued traders are outdoing themselves; they could sell a beard to a Dawi and make it seem a luxury! Now, the holds of your trade-ships are packed to the gunwhales with exotic goods and levies are at an all-time high. As a result of this mercantile excellence, trade income has increased factionwide.	Mercantile Eloquence	edict_stimulate_trade.png	faction
 wh2_main_lord_trait_def_morathi_hag_sorceress_of_ghrond	Morathi's entire existence has been one of scheming and manipulation. Who knows how many of Aenarion's darker deeds sprang from seeds she planted within his mind, or how the history of the Elves might have been different had he not taken her as wife?	Hag Sorceress of Ghrond	character.png	faction
 wh2_main_lord_trait_hef_teclis	Teclis is Tyrion's twin brother, but two more different siblings would be hard to find. Where the curse of Aenarion has yet to leave an obvious mark upon Tyrion, it has made his brother frail and caustic.	High Loremaster	character.png	faction
-wh2_main_lord_trait_hef_tyrion	Prince Tyrion is the High Elves’ greatest living warrior. So valiant and skilled is he that the bards of Ulthuan sing that he is nothing less than Aenarion reborn - a tale that is given credence far beyond Ulthuan's shores.	Defender of Ulthuan	character.png	faction
+wh2_main_lord_trait_hef_tyrion	Prince Tyrion is the High Elves’ greatest living warrior. So valiant and skilled is he that the bards of Ulthuan sing that he is nothing less than Aenarion reborn - a tale that is given credence far beyond Ulthuan's shores.	Majesty of Ulthuan	character.png	faction
 wh2_main_lord_trait_lzd_kroq_gar	Kroq-Gar is an ancient Saurus, the last remaining warrior from the now ruined temple-city of Xhotl. The spawning that brought him into the world also produced a handful of other Saurus, each marked for greatness.	Last Defender of Xhotl	character.png	faction
 wh2_main_lord_trait_lzd_lord_mazdamundi	Lord Mazdamundi is the oldest and most powerful of the living Slann Mage-Priests. At the Dawn of Creation, he was instructed by none other than Lord Kroak himself.	Lord of the Solar-City	character.png	faction
 wh2_main_lord_trait_malekith_black_council	The Witch King is the supreme ruler of Naggaroth, and the eternal enemy of the High Elves. Long ago, he sought to claim Ulthuan's crown, but the Flames of Asuryan left him scarred by fire and twisted with hatred.	Witch King of Naggaroth	character.png	faction
@@ -608,6 +774,12 @@ wh2_populace_happiness_jubilant_hef	The populace is jubilant.\n([[img:icon_publi
 wh2_populace_happiness_outraged_hef	The populace is outraged.\n([[img:icon_public_order]][[/img]]{{tr:hp_campaign_public_order_term}} -75 to -100)	Outraged Populace	public_order_outraged.png	province
 wh2_populace_happiness_troubled_hef	The populace is troubled.\n([[img:icon_public_order]][[/img]]{{tr:hp_campaign_public_order_term}}: -25 to -50)	Troubled Populace	public_order_troubled.png	province
 wh2_populace_happiness_unhappy_hef	The populace is unhappy.\n([[img:icon_public_order]][[/img]]{{tr:hp_campaign_public_order_term}}: -50 to -75)	Unhappy Populace	public_order_unhappy.png	province
+wh2_sword_of_khaine_1	A darkness lurks on the fringes of your soul.	Curse of the Sword of Khaine (Thirsting) 	dlc10_sword_of_khaine.png	faction
+wh2_sword_of_khaine_2	The darkness is consuming your soul.	Curse of the Sword of Khaine (Thriving) 	dlc10_sword_of_khaine.png	faction
+wh2_sword_of_khaine_3	The darkness dominates your soul. Only death can release you from its grasp!	Curse of the Sword of Khaine (Dominating) 	dlc10_sword_of_khaine.png	faction
+wh2_sword_of_khaine_dummy_1	A darkness lurks on the fringes of your soul.	Curse of the Sword of Khaine (Thirsting) 	dlc10_sword_of_khaine.png	faction
+wh2_sword_of_khaine_dummy_2	The darkness is consuming your soul.	Curse of the Sword of Khaine (Thriving) 	dlc10_sword_of_khaine.png	faction
+wh2_sword_of_khaine_dummy_3	The darkness dominates your soul. Only death can release you from its grasp!	Curse of the Sword of Khaine (Dominating) 	dlc10_sword_of_khaine.png	faction
 wh_dlc02_payload_all_charge_carnage	Many conflicts are won or lost on the strength of the first, vicious charge.	The Savage Blow	charge.png	force
 wh_dlc02_payload_all_charge_carnage_dummy	Many conflicts are won or lost on the strength of the first, vicious charge.	The Savage Blow	charge.png	faction
 wh_dlc02_payload_all_magic_carnage	The world yields to those who master the Winds of Magic.	The Winds of Pain	magic.png	force
@@ -728,6 +900,11 @@ wh_dlc05_UI_bundle_oak_of_ages_3_mini	With Spring, Orion emerges from the Oak on
 wh_dlc05_UI_bundle_oak_of_ages_4	New branches stretch to break through the forest's canopy and touch the sky.	Oak of Ages (Thriving)	character.png	faction
 wh_dlc05_UI_bundle_oak_of_ages_4_mini	New branches stretch to break through the forest's canopy and touch the sky.	Oak of Ages (Thriving)	character.png	faction
 wh_dlc05_UI_bundle_oak_of_ages_5	As the Oak flourishes, its boughs and leaves cover Athel Loren and bring protection to the forest's occupants.	Oak of Ages (Flourishing)	character.png	faction
+wh_dlc05_UI_bundle_oak_of_ages_mp_1	In Winter, the Oak lies dormant; Orion reduced to ashes, Ariel safe within its dark embrace.	Oak of Ages (Dormant)	amber_bundle.png	faction
+wh_dlc05_UI_bundle_oak_of_ages_mp_2	The Oak's fate dictates not only the forest's wellbeing, but that of the Elven race also.	Oak of Ages (Withered)	amber_bundle.png	faction
+wh_dlc05_UI_bundle_oak_of_ages_mp_3	With Spring, Orion emerges from the Oak once more, renewed.	Oak of Ages (Budding)	amber_bundle.png	faction
+wh_dlc05_UI_bundle_oak_of_ages_mp_4	New branches stretch to break through the forest's canopy and touch the sky.	Oak of Ages (Thriving)	amber_bundle.png	faction
+wh_dlc05_UI_bundle_oak_of_ages_mp_5	As the Oak flourishes, its boughs and leaves cover Athel Loren and bring protection to the forest's occupants.	Oak of Ages (Flourishing)	amber_bundle.png	faction
 wh_dlc05_UI_bundle_oak_of_ages_not_owned	The Oak has been lost. Reclaim it for the Asrai.	Oak of Ages	character.png	faction
 wh_dlc05_bundle_anc_magic_standard_the_banner_of_the_eternal_queen	Those who go to battle with the Everqueen's personally hand-woven banner do so proudly, and never waver.	The Banner of the Eternal Queen	public_order.png	character
 wh_dlc05_bundle_anc_magic_standard_the_banner_of_the_hunter_king	Though tattered and ancient, this banner causes forces to charge - in the name of the Hunt - before the main Elven host.	The Banner of the Hunter King	public_order.png	character
@@ -975,6 +1152,78 @@ wh_dlc07_payload_the_price_of_chivalry_second	All battles fought by Bretonnians 
 wh_dlc07_payload_whispers_of_witchcraft_first	A lot of food was lost during the witch-hunt. Oh well, it is only the peasants that will starve...	Burned Fields	replenishment.png	faction
 wh_dlc07_payload_whispers_of_witchcraft_second	The army is exhausted, almost as if their energy was drained by magical means...	Tired Army	campaign_movement.png	faction
 wh_dlc07_qb_brt_payload_bundle_chalice_of_potions	The Winds of Magic shift and grow, becoming powerful enough to be observed. Howling just beyond hearing, they cannot be heard, but can be perceived. The Chalice of Potions glows with a brighter aura, and all those who see it know its power. The Fay Enchantress wonders if this will be enough...	Chalice of Potions	magic.png	character
+wh_dlc08_anc_magic_standard_ancient_mammoth_cub	placeholder	Last of the Great Mawherd	public_order.png	character
+wh_dlc08_anc_magic_standard_banner_of_wolfclaw	You'll feel their heat just a moment behind...	Wolfclaw Banner	public_order.png	character
+wh_dlc08_anc_magic_standard_black_iron_reavers	Mortkin's personal warhird were ravagers without peer; the glory of their many savage achievements is soaked into the ancient, tattered canvas.	Banner of the Black-Iron Reavers	public_order.png	character
+wh_dlc08_anc_magic_standard_crimson_reapers	"Hear the choirs; is it the wind that brought back their cries? Once forged in blood by tragedy, sharp were the thorns of crimson death!"	Banner of the Crimson Reapers	public_order.png	character
+wh_dlc08_anc_magic_standard_drake_hunters	The ability to bring down a Frost-Wyrm or Ice Drake marks one out as special among the sagas of the Northmen.	Drake Hunters' Banner	public_order.png	character
+wh_dlc08_banner_anc_magic_standard_dragon_ogre_horn	NOT USED IN GAME	NOT USED IN GAME Dragon orgre horn	public_order.png	character
+wh_dlc08_banner_anc_magic_standard_mammoth_teeth	NOT USED IN GAME	NOT USED IN GAME mammoth teeth	public_order.png	character
+wh_dlc08_bundle_follow_archaon	You will receive the following effects while the Warriors of Chaos faction exists:	Follower of the Everchosen	religion_chaos.png	faction
+wh_dlc08_bundle_force_siege_equipment_nor	[HIDDEN] Adds NORSCAN siege equipment	[HIDDEN]	 	force
+wh_dlc08_bundle_god_bar_crow_allegiance	Your faction will gain the following:	Allegiance to the Crow	norse_god_crow.png	faction
+wh_dlc08_bundle_god_bar_eagle_allegiance	Your faction will gain the following:	Allegiance to the Eagle	norse_god_eagle.png	faction
+wh_dlc08_bundle_god_bar_hound_allegiance	Your faction will gain the following:	Allegiance to the Hound	norse_god_hound.png	faction
+wh_dlc08_bundle_god_bar_khorne_1	Attaining level 1 allegiance to this God will reward you with the following:	The Hound's Gaze - Level 1	norse_god_hound.png	faction
+wh_dlc08_bundle_god_bar_khorne_2	Attaining level 2 allegiance to this God will reward you with the following:	The Hound's Favour - Level 2	norse_god_hound.png	faction
+wh_dlc08_bundle_god_bar_khorne_3	Attaining level 3 allegiance to this God will reward you with the following:	Champion of the Hound - Level 3	norse_god_hound.png	faction
+wh_dlc08_bundle_god_bar_nurgle_1	Attaining level 1 allegiance to this God will reward you with the following:	The Crow's Gaze - Level 1	norse_god_crow.png	faction
+wh_dlc08_bundle_god_bar_nurgle_2	Attaining level 2 allegiance to this God will reward you with the following:	The Crow's Favour - Level 2	norse_god_crow.png	faction
+wh_dlc08_bundle_god_bar_nurgle_3	Attaining level 3 allegiance to this God will reward you with the following:	Champion of the Crow - Level 3	norse_god_crow.png	faction
+wh_dlc08_bundle_god_bar_serpent_allegiance	Your faction will gain the following:	Allegiance to the Serpent	norse_god_snake.png	faction
+wh_dlc08_bundle_god_bar_slaanesh_1	Attaining level 1 allegiance to this God will reward you with the following:	The Serpent's Gaze - Level 1	norse_god_snake.png	faction
+wh_dlc08_bundle_god_bar_slaanesh_2	Attaining level 2 allegiance to this God will reward you with the following:	The Serpent's Favour - Level 2	norse_god_snake.png	faction
+wh_dlc08_bundle_god_bar_slaanesh_3	Attaining level 3 allegiance to this God will reward you with the following:	Champion of the Serpent - Level 3	norse_god_snake.png	faction
+wh_dlc08_bundle_god_bar_tzeentch_1	Attaining level 1 allegiance to this God will reward you with the following:	The Eagle's Gaze - Level 1	norse_god_eagle.png	faction
+wh_dlc08_bundle_god_bar_tzeentch_2	Attaining level 2 allegiance to this God will reward you with the following:	The Eagle's Favour - Level 2	norse_god_eagle.png	faction
+wh_dlc08_bundle_god_bar_tzeentch_3	Attaining level 3 allegiance to this God will reward you with the following:	Champion of the Eagle - Level 3	norse_god_eagle.png	faction
+wh_dlc08_bundle_god_khorne	 	Allegiance to the Hound	norse_god_hound.png	faction
+wh_dlc08_bundle_god_nurgle	 	Allegiance to the Crow	norse_god_crow.png	faction
+wh_dlc08_bundle_god_slaanesh	 	Allegiance to the Serpent	norse_god_snake.png	faction
+wh_dlc08_bundle_god_tzeentch	 	Allegiance to the Eagle	norse_god_eagle.png	faction
+wh_dlc08_bundle_nurgle_plague	A gift from the Crow, or a curse? It is but a matter of perspective.	The Plague of the Crow	disaster.png	region
+wh_dlc08_bundle_true_everchosen	You will receive the following effects after the Warriors of Chaos faction is defeated:\n(Chaos is currently: [[col:red]]DEAD[[/col]])	The True Everchosen	religion_chaos.png	faction
+wh_dlc08_bundle_true_everchosen_dummy	You will receive the following effects after the Warriors of Chaos faction is defeated:\n(Chaos is currently: [[col:green]]ALIVE[[/col]])	The True Everchosen	religion_chaos.png	faction
+wh_dlc08_faction_trait_norsca	placeholder	norsca overtrait	food.png	faction
+wh_dlc08_faction_trait_norsca_faction	placeholder	norsca undertrait	food.png	faction
+wh_dlc08_lord_trait_nor_throgg	The Troll King is possessed of a grim and malevolent cunning, seeking always to grind the realms of man under his monstrous rule.	Lord of the Monstrous Horde	character.png	faction
+wh_dlc08_lord_trait_nor_wulfrik	The ability to irrefusably challenge anyone - or anything - in their native language ensures that Wulfrik's Ruinous quest will never end.	Gift of Tongues	character.png	faction
+wh_dlc08_payload_avalanche_first	Without steel against their skin the men fall too easily.	Lost Armour	armour.png	faction
+wh_dlc08_payload_avalanche_second	It is hard to cut through enemy armour without a weapon to hand.	Lost Weapons	melee.png	faction
+wh_dlc08_payload_bestial_servants_first	The Wolves strike with such force it tears apart your foes!	Might of the Wolves	melee.png	faction
+wh_dlc08_payload_bestial_servants_second	The speed of the horses ensures no enemy escapes with their life.	Horse Riders	charge.png	faction
+wh_dlc08_payload_blood_iron_first	The Gods have blessed your blades, although your smiths did not have metal to spare for armour.	Bloody Blades	melee.png	faction
+wh_dlc08_payload_blood_iron_second	Your armour has the favour of the Gods - a shame there was not sufficient metal for your blades too.	Bloody Armour	defence.png	faction
+wh_dlc08_payload_eager_for_blood_first	You take their farms and steal their food to fuel your warriors.	Demolished Farms	income.png	faction
+wh_dlc08_payload_eager_for_blood_second	You bring down their walls and level their buildings, carrying off everything of value.	Smashed Cities	income.png	faction
+wh_dlc08_payload_event_arctic_might	You rush into battle eager to spill blood for your Gods!	Mighty Warriors	defence.png	faction
+wh_dlc08_payload_event_avenge_the_gods	Take what you want to make yourself stronger!	Punish Their Insolence	income.png	faction
+wh_dlc08_payload_event_blades_of_ice	Only the strong are fit to survive and thrive!	Harden Up or Die	growth.png	faction
+wh_dlc08_payload_event_blood_favours	Bathe in the blood of your enemies!	Eager to Fight	military_spending.png	faction
+wh_dlc08_payload_event_dark_winnowing	True Champions survive all tests.	Fierce Champions	military_spending.png	faction
+wh_dlc08_payload_event_fresh_meat	Strengthened, you press on to ever greater conquests!	Vigorous Travel	campaign_movement.png	faction
+wh_dlc08_payload_event_lean_times	You need meat to keep your warriors strong!	No Meat	military_spending.png	faction
+wh_dlc08_payload_event_midnight_sun	Any man who complains of being tired will be left behind.	Sleep is for the Dead	charge.png	faction
+wh_dlc08_payload_event_phar_away_gold	Even in the lands of the eternal sun your warriors are supreme.	Unique Plunder	public_order.png	faction
+wh_dlc08_payload_event_sign_in_ice	The Gods smile on you as you bring death and destruction!	Raid Far and Wide	icon_effects_raiding.png	faction
+wh_dlc08_payload_event_unworldly_gift	When you endure the savagery of the north, nothing else compares.	Conduit to Chaos	replenishment.png	faction
+wh_dlc08_payload_event_useless_contraptions	A blade is the only tool needed to destroy the enemy.	Distracted by Devices	technology.png	faction
+wh_dlc08_payload_grim_visions_first	Your armies move with care, though much slower than usual.	Cautious Travel	resistance_magic.png	faction
+wh_dlc08_payload_grim_visions_second	Your armies march on regardless, but there are some losses on the road. 	Reckless Travel	agent.png	faction
+wh_dlc08_payload_hidden_fissure_first	The creatures that serve you are made stronger by the Gods!	Stronger Monsters	experience.png	faction
+wh_dlc08_payload_hidden_fissure_second	The Gods honour your warriors with incredible might!	Stronger Warriors	experience.png	faction
+wh_dlc08_payload_prove_their_worth_first	Our armies grow in size and ability!	More Warriors	army.png	faction
+wh_dlc08_payload_prove_their_worth_second	Our tribe expands, taking more land!	More Buildings	construction.png	faction
+wh_dlc08_payload_rare_metal_first	Your men struggle to make headway in the harsh ice.	Frozen Foot	battle_movement.png	faction
+wh_dlc08_payload_rare_metal_second	With no arm guards, your men get maimed more often. 	Slashed Arms	armour.png	faction
+wh_dlc08_payload_sacrificial_altars_first	Your Werekin gain the favour of the Gods.	Beast Sacrifice	treasury.png	faction
+wh_dlc08_payload_sacrificial_altars_second	Your Fimirs gain the favour of the Gods.	Reptilian Sacrifice	treasury.png	faction
+wh_dlc08_payload_shrine_or_shine_first	Such riches lost! But the Gods are content.	Destroyed Plunder	income.png	faction
+wh_dlc08_payload_shrine_or_shine_second	You keep your plunder, but the Gods are not happy at the loss of their shrines.  	Destroyed Shrines	growth.png	faction
+wh_dlc08_payload_surfeit_of_loot_first	More blades and armour lets you press deeper into the southlands!	Abundance of Iron	military_spending.png	faction
+wh_dlc08_payload_surfeit_of_loot_second	 The food and drink sustains your warriors, giving them new strength to conquer enemy lands!	Abundance of Meat	replenishment.png	faction
+wh_dlc08_payload_the_dying_skald_first	Make your buildings stronger with the knowledge of the forefathers!	Ancestral Structures	construction.png	faction
+wh_dlc08_payload_the_dying_skald_second	Give your enemies a taste of the blades of the Ancestors.	Ancestral Weapons	technology.png	faction
 wh_dlc09_lord_trait_skv_tretch_craventail	Over many battles and countless acts of treachery, Chieftain Tretch Craventail of Clan Rictus has proven himself a master of guile.	Grand Chieftain of the Deep Warrens	character.png	faction
 wh_main_bundle_agent_action_all_failure_army_actor	[HIDDEN]	[HIDDEN]	 	character
 wh_main_bundle_agent_action_all_failure_army_actor_compromised	[HIDDEN]	[HIDDEN]	 	character
@@ -1094,6 +1343,7 @@ wh_main_bundle_grudges_medium	The Longbeards are grumpy, they gripe that while s
 wh_main_bundle_horde_raze	Destroying their enemies has strengthened this horde.	Raze	growth.png	force
 wh_main_bundle_military_upkeep_free_force	[HIDDEN] Gives the spawned horde free upkeep	[HIDDEN]	 	force
 wh_main_bundle_military_upkeep_free_force_special_character	[HIDDEN] Gives the spawned horde free upkeep and a protection against agent actions	[HIDDEN]	 	force
+wh_main_bundle_military_upkeep_free_force_special_character_unbreakable	[HIDDEN]	[HIDDEN]	 	force
 wh_main_bundle_military_upkeep_free_force_unbreakable	[HIDDEN] Gives the spawned horde free upkeep and the unbreakable attribute to the general	[HIDDEN]	 	force
 wh_main_bundle_military_upkeep_free_force_unbreakable_all	[HIDDEN]	[HIDDEN]	 	force
 wh_main_bundle_minister_emp_arch_lector	[HIDDEN]	Arch Lector	 	character
@@ -1138,7 +1388,9 @@ wh_main_bundle_stance_army_mustering	Builds up this army's strength.\n\nUnits ar
 wh_main_bundle_stance_army_raiding	Raids wealth from the local region.	Stance: Raiding	icon_effects_raiding.png	force
 wh_main_bundle_stance_army_raiding_bretonnia	Raids wealth from the local region.	Stance: Raiding	icon_effects_raiding.png	force
 wh_main_bundle_stance_army_raiding_camp	Sets up a defensive camp, allowing for recruitment and replenishment, whilst raiding wealth from the local region.	Stance: Raidin' Camp	icon_effects_fortify.png	force
+wh_main_bundle_stance_army_raiding_camp_norsca	Sets up a defensive camp, allowing for replenishment whilst raiding wealth from the local region.	Stance: Raiding Camp	icon_effects_fortify.png	force
 wh_main_bundle_stance_army_raiding_horde	Raids wealth from the local region.	Stance: Raiding	icon_effects_raiding.png	force
+wh_main_bundle_stance_army_raiding_norsca	Raids wealth from the local region.	Stance: Raiding	icon_effects_raiding.png	force
 wh_main_bundle_stance_army_raiding_skaven	Raids wealth and scavenges food from the local region.	Stance: Raiding	icon_effects_raiding.png	force
 wh_main_bundle_stance_army_settlement_horde	Sets up a defensive camp, allowing for building construction, recruitment and replenishment, regardless of territory.	Stance: Encamp	icon_effects_fortify.png	force
 wh_main_bundle_stance_army_settlement_horde_chaos	Sets up a defensive camp, allowing for building construction, recruitment and replenishment, regardless of territory.	Stance: Encamp	icon_effects_fortify.png	force
