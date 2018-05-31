@@ -36,7 +36,6 @@ faction_lord_types = {
         {"wh_main_sc_ksl_kislev", "SUBCULTURE", "ksl_lord", "Lord"},
 
         {"wh_main_sc_nor_norsca", "SUBCULTURE", "nor_marauder_chieftain", "Marauder Chieftain"},
-        {"wh_main_sc_nor_norsca", "SUBCULTURE", "nor_sorcerer_lord_metal", "Chaos Sorcerer Lord (Metal)"},
 
         {"wh_main_sc_teb_teb", "SUBCULTURE", "teb_lord", "Lord"},
 
@@ -48,6 +47,11 @@ faction_lord_types = {
 
         {"wh2_main_sc_def_dark_elves", "SUBCULTURE", "wh2_main_def_dreadlord", "Dreadlord (Sword & Crossbow)"},
         {"wh2_main_sc_def_dark_elves", "SUBCULTURE", "wh2_main_def_dreadlord_fem", "Dreadlord (Sword & Shield)"},
+        {"wh2_main_sc_def_dark_elves", "SUBCULTURE", "wh2_dlc10_def_supreme_sorceress_beasts", "Supreme Sorceress (Beasts)"},
+        {"wh2_main_sc_def_dark_elves", "SUBCULTURE", "wh2_dlc10_def_supreme_sorceress_dark", "Supreme Sorceress (Dark)"},
+        {"wh2_main_sc_def_dark_elves", "SUBCULTURE", "wh2_dlc10_def_supreme_sorceress_death", "Supreme Sorceress (Death)"},
+        {"wh2_main_sc_def_dark_elves", "SUBCULTURE", "wh2_dlc10_def_supreme_sorceress_fire", "Supreme Sorceress (Fire)"},
+        {"wh2_main_sc_def_dark_elves", "SUBCULTURE", "wh2_dlc10_def_supreme_sorceress_shadow", "Supreme Sorceress (Shadows)"},
 
         {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_main_hef_prince", "Prince"},
         {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_main_hef_princess", "Princess"},
