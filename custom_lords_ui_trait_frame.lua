@@ -174,7 +174,7 @@ function CustomLordsTraitFrame.shouldIncludeTrait(self, trait)
     if not traitScopeData then
         return true;
     end
-    local factionSubculture = get_faction(cm:get_local_faction()):subculture();
+    local factionSubculture = cm:get_faction(cm:get_local_faction()):subculture();
     for i, traitTable in ipairs(traitScopeData) do
         if traitTable["trait_scope_type"] == "SUBCULTURE" then
             if traitTable["trait_scope"] == factionSubculture then

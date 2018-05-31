@@ -29,7 +29,7 @@ function calculateEffectBundleForAttributeAndValue(attribute, value)
             return attributeTable["effect_bundle"];
         end
     end
-    output("Failed to find effect bundle for attribute: " .. attribute .. " with value: " .. value);
+    out("Failed to find effect bundle for attribute: " .. attribute .. " with value: " .. value);
     return nil;
 end
 
@@ -153,7 +153,7 @@ end
 
 --v function() --> boolean
 function isCurrentFactionDwarf()
-    local currentFaction = get_faction(cm:get_local_faction());
+    local currentFaction = cm:get_faction(cm:get_local_faction());
     return currentFaction:culture() == "wh_main_dwf_dwarfs";
 end
 

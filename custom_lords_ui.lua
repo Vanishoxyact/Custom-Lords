@@ -22,7 +22,7 @@ end
 --v function(factionName: string) --> vector<map<string,string>>
 function calculateLordTypeData(factionName)
     local lordTypeData = {} --: vector<map<string,string>>
-    local faction = get_faction(factionName);
+    local faction = cm:get_faction(factionName);
     local factionSubculture = faction:subculture();
     local factionLordTypesTable = TABLES["faction_lord_types"] --: map<string, vector<map<string, string>>>
     for factionKey, factionLordTypeData in pairs(factionLordTypesTable) do
@@ -36,7 +36,7 @@ function calculateLordTypeData(factionName)
                     table.insert(lordTypeData, factionLordType);
                 end
             else
-                output("Cannot match faction type: " .. factionLordType["faction_type"] .. " for key: " .. factionKey);
+                out("Cannot match faction type: " .. factionLordType["faction_type"] .. " for key: " .. factionKey);
             end
         end
     end

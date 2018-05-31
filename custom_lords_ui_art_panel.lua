@@ -33,7 +33,7 @@ function CustomLordsArtPanel.calculateArtPortaitPath(self, artId)
             end
         end
     end
-    output("Failed to calculate art portrait path for art id: " .. artId);
+    out("Failed to calculate art portrait path for art id: " .. artId);
     return nil;
 end
 

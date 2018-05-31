@@ -16,7 +16,7 @@ function calculateUpkeepEffectBundle()
     elseif difficultyLevel == -3 then				-- legendary
         return "wh_main_bundle_force_additional_army_upkeep_legendary"
     end;
-    output("Failed to calculate upkeep effect bundle for difficulty: " .. difficultyLevel);
+    out("Failed to calculate upkeep effect bundle for difficulty: " .. difficultyLevel);
     return "";
 end
 
@@ -36,16 +36,18 @@ end
 
 --v function() --> boolean
 function isPlayerFactionHorde()
-    local player_faction = get_faction(cm:get_local_faction());
-    return faction_is_horde(player_faction);
+    local player_faction = cm:get_faction(cm:get_local_faction());
+    return wh_faction_is_horde(player_faction);
 end
 
 --v function(selectedSkillSet: string, selectedTraits: vector<string>, attributes: map<string, int>, lordName: string, lordCqi: CA_CQI)
 function lordCreated(selectedSkillSet, selectedTraits, attributes, lordName, lordCqi)
+    local selectedCharCqi = cm:get_campaign_ui_manager():get_char_selected();
+    --# assume selectedCharCqi: CA_CQI
     -- Add traits
-    cm:force_add_trait_on_selected_character(selectedSkillSet);
+    cm:force_add_trait(selectedCharCqi, selectedSkillSet);
     for i, trait in ipairs(selectedTraits) do
-        cm:force_add_trait_on_selected_character(trait);
+        cm:force_add_trait(selectedCharCqi, trait);
     end
 
     -- Add attribute effect bundles
@@ -101,7 +103,7 @@ function spawnGeneralToPoolAndRecruit(lordType, selectedArtId)
     end
 
     if not generalCandidateButton then
-        output("Failed to find candidate");
+        out("Failed to find candidate");
     end
 
     generalCandidateButton:SimulateLClick();
@@ -138,7 +140,7 @@ function calculateGeneralCost()
             return cost;
         end
     end
-    output("Failed to calculate general cost.");
+    out("Failed to calculate general cost.");
     return 0;
 end
 
@@ -219,7 +221,7 @@ end
 
 --v function() --> boolean
 function canRecuitArmy()
-    local currentFaction = get_faction(cm:get_local_faction());
+    local currentFaction = cm:get_faction(cm:get_local_faction());
     if isPlayerFactionHorde() and notEnoughPopulation() then
         return false;
     elseif hasArmyAlreadyBeenRecruited() then
@@ -362,7 +364,7 @@ function getSelectedChar()
     local char = cm:get_campaign_ui_manager():get_char_selected();
     local cqi = string.sub(char, 15);
     --# assume cqi: CA_CQI
-    return get_character_by_cqi(cqi);
+    return cm:get_character_by_cqi(cqi);
 end
 
 --v function(char: CA_CHAR) --> boolean
@@ -400,7 +402,7 @@ function findDefaultSkillSet(lordType)
             return lordTypeTable["skill_set"];
         end
     end 
-    output("Failed to find default skillset for lord type: " .. lordType);
+    out("Failed to find default skillset for lord type: " .. lordType);
     return "";
 end
 
@@ -501,7 +503,7 @@ end
 
 --v function()
 function hideSlannsIfRequired()
-    local currentFaction = get_faction(cm:get_local_faction());
+    local currentFaction = cm:get_faction(cm:get_local_faction());
     if currentFaction:culture() == "wh2_main_lzd_lizardmen" and (not CUSTOM_LORDS_CAN_RECRUIT_SLANN) then
         local generalsList = find_uicomponent(core:get_ui_root(), "character_panel", "general_selection_panel", "character_list_parent", "character_list", "listview", "list_clip", "list_box");
         if generalsList then
@@ -525,7 +527,7 @@ function addSlannCountListener()
             return context.string == "settlement_panel"; 
         end,
         function(context)
-            local currentFaction = get_faction(cm:get_local_faction());
+            local currentFaction = cm:get_faction(cm:get_local_faction());
             if currentFaction:culture() == "wh2_main_lzd_lizardmen" then
                 local buildingBrowser = find_uicomponent(core:get_ui_root(), "building_browser");
                 if not buildingBrowser then
