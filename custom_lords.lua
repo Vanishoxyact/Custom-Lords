@@ -397,13 +397,17 @@ end
 --v function(lordType: string) --> string
 function findDefaultSkillSet(lordType)
     local defaultSkillSet = nil --: string
-    for i, lordTypeTable in ipairs(TABLES["lord_types"][lordType]) do
+    local table = TABLES["lord_types"][lordType];
+    if not table then
+        return nil;
+    end
+    for i, lordTypeTable in ipairs(table) do
         if lordTypeTable["default_skill_set"] == "TRUE" then
             return lordTypeTable["skill_set"];
         end
     end 
     out("Failed to find default skillset for lord type: " .. lordType);
-    return "";
+    return nil;
 end
 
 --# assume updateSkillSets : function(depth: int?)
@@ -418,6 +422,9 @@ function updateSkillSets(depth)
     local skillToSkillSetMap = createSkillToSkillSetMap();
     local charHasSkillSetTrait = charHasSkillSetTrait(selectedChar);
     local defaultSkillSet = findDefaultSkillSet(selectedChar:character_subtype_key());
+    if not hasCustomSkills and not defaultSkillSet then
+        return;
+    end
     local skillsChainList = find_uicomponent(core:get_ui_root(), "character_details_panel", "background", "skills_subpanel", "listview", "list_clip", "list_box");
     local skillChainCount = skillsChainList:ChildCount();
     for i=0, skillChainCount-1  do
@@ -535,6 +542,10 @@ function addSlannCountListener()
                     clanButton:SimulateLClick();
                     local imperiumPanel = find_uicomponent(core:get_ui_root(), "clan", "main", "tab_children_parent", "Summary", "portrait_frame", "parchment_R", "imperium");
                     local slannCount = find_uicomponent(imperiumPanel, "agent_parent", "agent_cap_list", "wh2_main_lzd_slann_mage_priest", "dy_count");
+                    if not slannCount then
+                        -- Trigged when opening diplomacy panel
+                        return;
+                    end
                     local curr, max = string.match(slannCount:GetStateText(), "(%d+)/(%d+)");
                     CUSTOM_LORDS_CAN_RECRUIT_SLANN = tonumber(curr, 10) < tonumber(max, 10);
                     local okButton = find_uicomponent(core:get_ui_root(), "clan", "main", "button_ok");
