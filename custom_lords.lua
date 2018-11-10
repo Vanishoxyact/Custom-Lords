@@ -42,12 +42,12 @@ end
 
 --v function(selectedSkillSet: string, selectedTraits: vector<string>, attributes: map<string, int>, lordName: string, lordCqi: CA_CQI)
 function lordCreated(selectedSkillSet, selectedTraits, attributes, lordName, lordCqi)
-    local selectedCharCqi = cm:get_campaign_ui_manager():get_char_selected();
+    local selectedCharCqi = cm:get_campaign_ui_manager():get_char_selected_cqi();
     --# assume selectedCharCqi: CA_CQI
     -- Add traits
-    cm:force_add_trait(selectedCharCqi, selectedSkillSet);
+    cm:force_add_trait(cm:char_lookup_str(selectedCharCqi), selectedSkillSet);
     for i, trait in ipairs(selectedTraits) do
-        cm:force_add_trait(selectedCharCqi, trait);
+        cm:force_add_trait(cm:char_lookup_str(selectedCharCqi), trait);
     end
 
     -- Add attribute effect bundles
@@ -119,8 +119,7 @@ function createLord(selectedLordType, selectedArtId, lordCreatedCallback)
             return context.string == "units_panel"; 
         end,
         function(context)
-            local char = cm:get_campaign_ui_manager():get_char_selected();
-            local cqi = tonumber(string.sub(char, 15));
+            local cqi = cm:get_campaign_ui_manager():get_char_selected_cqi();
             --# assume cqi: CA_CQI
             lordCreatedCallback(cqi);
         end, 
@@ -361,8 +360,7 @@ end
 
 --v function() --> CA_CHAR
 function getSelectedChar()
-    local char = cm:get_campaign_ui_manager():get_char_selected();
-    local cqi = string.sub(char, 15);
+    local cqi = cm:get_campaign_ui_manager():get_char_selected_cqi();
     --# assume cqi: CA_CQI
     return cm:get_character_by_cqi(cqi);
 end
