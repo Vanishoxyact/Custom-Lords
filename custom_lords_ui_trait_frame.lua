@@ -270,7 +270,11 @@ function CustomLordsTraitFrame.sortTraitList(self)
         index = index + 2;
     end
     self.traitList.listBox:MoveTo(self.traitList:XPos(), self.traitList:YPos());
-    find_uicomponent(self.traitList.uic, "vslider", "handle"):MoveTo(self.defaultHandleX, self.defaultHandleY);
+    local handle = find_uicomponent(self.traitList.uic, "vslider", "handle");
+    local frameTop = find_uicomponent(self.traitList.uic, "vslider", "frame_top");
+    local frameTopX, frameTopY = frameTop:Position();
+    local frameTopW, frameTopH = frameTop:Bounds();
+    handle:MoveTo(handle:Position(), frameTopY + frameTopH - 2);
     self.traitList.dummiesContainer:MoveTo(self.traitList.listBox:Position());
 end
 
