@@ -61,7 +61,14 @@ faction_lord_types = {
 
         {"wh2_main_sc_skv_skaven", "SUBCULTURE", "wh2_main_skv_grey_seer_plague", "Grey Seer (Plague)"},
         {"wh2_main_sc_skv_skaven", "SUBCULTURE", "wh2_main_skv_grey_seer_ruin", "Grey Seer (Ruin)"},
-        {"wh2_main_sc_skv_skaven", "SUBCULTURE", "wh2_main_skv_warlord", "Warlord"}
+        {"wh2_main_sc_skv_skaven", "SUBCULTURE", "wh2_main_skv_warlord", "Warlord"},
+
+        {"wh2_dlc11_sc_cst_vampire_coast", "SUBCULTURE", "wh2_dlc11_cst_admiral", "Vampire Fleet Admiral (Vampires)"},
+        {"wh2_dlc11_sc_cst_vampire_coast", "SUBCULTURE", "wh2_dlc11_cst_admiral_death", "Vampire Fleet Admiral (Death)"},
+        {"wh2_dlc11_sc_cst_vampire_coast", "SUBCULTURE", "wh2_dlc11_cst_admiral_deep", "Vampire Fleet Admiral (Deeps)"},
+        {"wh2_dlc11_sc_cst_vampire_coast", "SUBCULTURE", "wh2_dlc11_cst_admiral_fem", "Vampire Fleet Admiral (Vampires) (Female)"},
+        {"wh2_dlc11_sc_cst_vampire_coast", "SUBCULTURE", "wh2_dlc11_cst_admiral_fem_death", "Vampire Fleet Admiral (Death) (Female)"},
+        {"wh2_dlc11_sc_cst_vampire_coast", "SUBCULTURE", "wh2_dlc11_cst_admiral_fem_deep", "Vampire Fleet Admiral (Deeps) (Female)"}
     }
 }
 
