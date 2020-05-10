@@ -1,7 +1,6 @@
-incidents_tables				
-5				
-unknown0	key	unknown2	unknown3	unknown4
-False	wh2_main_incident_treasury_down_1	generic	False	Event
-False	wh2_main_incident_treasury_down_2	generic	False	Event
-False	wh2_main_incident_treasury_down_3	generic	False	Event
-False	wh2_main_incident_treasury_down_4	generic	False	Event
+incidents_tables	5
+generate	key	ui_image	prioritised	event_category
+false	wh2_main_incident_treasury_down_1	generic	false	Event
+false	wh2_main_incident_treasury_down_2	generic	false	Event
+false	wh2_main_incident_treasury_down_3	generic	false	Event
+false	wh2_main_incident_treasury_down_4	generic	false	Event
