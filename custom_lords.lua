@@ -87,7 +87,7 @@ end
 
 --v function(lordType: string, selectedArtId: string)
 function spawnGeneralToPoolAndRecruit(lordType, selectedArtId)
-    cm:spawn_character_to_pool(cm:get_local_faction(), "", "", "", "", 18, true, "general", lordType, false, selectedArtId);
+    cm:spawn_character_to_pool(cm:get_local_faction(), "", "", "", "", 50, true, "general", lordType, false, selectedArtId);
     find_uicomponent(core:get_ui_root(), "layout", "hud_center_docker", "hud_center", "small_bar", "button_group_settlement", "button_agents"):SimulateLClick();
     find_uicomponent(core:get_ui_root(), "layout", "hud_center_docker", "hud_center", "small_bar", "button_group_settlement", "button_create_army"):SimulateLClick();
 
