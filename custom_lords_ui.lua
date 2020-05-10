@@ -1,9 +1,9 @@
-require("custom_lords_util");
-local CustomLordsModel = require("custom_lords_ui_model");
-local CustomLordsAttributePanel = require("custom_lords_ui_attribute_panel");
-local CustomLordsTraitFrame = require("custom_lords_ui_trait_frame");
-local CustomLordsArtPanel = require("custom_lords_ui_art_panel");
-local CustomLordsOptionsFrame = require("custom_lords_ui_options_frame");
+my_load_mod_script("custom_lords_util");
+local CustomLordsModel = my_load_mod_script("custom_lords_ui_model");
+local CustomLordsAttributePanel = my_load_mod_script("custom_lords_ui_attribute_panel");
+local CustomLordsTraitFrame = my_load_mod_script("custom_lords_ui_trait_frame");
+local CustomLordsArtPanel = my_load_mod_script("custom_lords_ui_art_panel");
+local CustomLordsOptionsFrame = my_load_mod_script("custom_lords_ui_options_frame");
 
 local model = nil --: CUSTOM_LORDS_MODEL
 local customLordFrame = nil --: FRAME
@@ -55,9 +55,9 @@ function createLordTypeButtons(currentFaction, frame)
         end
         table.insert(buttons, button);
         button:RegisterForClick(
-            function(context)
-                model:SetSelectedLordType(lordType);
-            end
+                function(context)
+                    model:SetSelectedLordType(lordType);
+                end
         );
     end
     setUpSingleButtonSelectedGroup(buttons);
@@ -88,9 +88,9 @@ function createSkillSetButtons(lordType, frame)
         end
         table.insert(buttons, button);
         button:RegisterForClick(
-            function(context)
-                model:SetSelectedSkillSet(skillSet);
-            end
+                function(context)
+                    model:SetSelectedSkillSet(skillSet);
+                end
         );
     end
     setUpSingleButtonSelectedGroup(buttons);
@@ -178,7 +178,7 @@ function resetSelectedTraits(traitRowContainer, frameContainer, buttonCreationFu
 end
 
 --v function()
-    function destroyCustomLordFrame()
+function destroyCustomLordFrame()
     local customLordFrame = Util.getComponentWithName("customLordFrame");
     --# assume customLordFrame: FRAME
     if customLordFrame then
@@ -224,10 +224,10 @@ function createCustomLordFrameUi(recruitCallback, cost)
     local skillSetButtonContainer = Container.new(FlowLayout.VERTICAL);
     resetSkillSets(skillSetButtonContainer);
     model:RegisterForEvent(
-        "SELECTED_LORD_TYPE_CHANGE", 
-        function()
-            resetSkillSets(skillSetButtonContainer);
-        end
+            "SELECTED_LORD_TYPE_CHANGE",
+            function()
+                resetSkillSets(skillSetButtonContainer);
+            end
     );
     frameContainer:AddComponent(skillSetButtonContainer);
 
@@ -245,47 +245,47 @@ function createCustomLordFrameUi(recruitCallback, cost)
     local traitRowsContainer = Container.new(FlowLayout.VERTICAL);
     local removeTraitButtonFunction = nil --: function(string, COMPONENT_TYPE | CA_UIC) --> BUTTON
     removeTraitButtonFunction = function(
-        trait, --: string
-        parent --: COMPONENT_TYPE | CA_UIC
+            trait, --: string
+            parent --: COMPONENT_TYPE | CA_UIC
     )
         local removeTraitButton = Button.new("removeTraitButton" .. trait, parent, "SQUARE", "ui/skins/default/parchment_header_max.png");
         removeTraitButton:RegisterForClick(
-            function(context)
-                model:RemoveSelectedTrait(trait);
-            end
+                function(context)
+                    model:RemoveSelectedTrait(trait);
+                end
         )
         removeTraitButton:Resize(25, 25);
         return removeTraitButton;
     end
 
     model:RegisterForEvent(
-        "SELECTED_TRAITS_CHANGE", 
-        function()
-            resetSelectedTraits(traitRowsContainer, frameContainer, removeTraitButtonFunction);
-        end
+            "SELECTED_TRAITS_CHANGE",
+            function()
+                resetSelectedTraits(traitRowsContainer, frameContainer, removeTraitButtonFunction);
+            end
     );
 
     traitsContainer:AddComponent(traitRowsContainer);
 
     local addTraitButton = TextButton.new("addTraitButton", customLordFrame, "TEXT", "Add Trait");
     addTraitButton:RegisterForClick(
-        function(context)
-            local existingFrame = Util.getComponentWithName("traitSelectionFrame");
-            --# assume existingFrame: FRAME
-            if not existingFrame then
-                local traitSelectionFrame = CustomLordsTraitFrame.new(
-                    model, customLordFrame,
-                    function(addedTrait)
-                        model:AddSelectedTrait(addedTrait);
-                    end
-                ).traitSelectionFrame;
-                customLordFrame.uic:Adopt(traitSelectionFrame.uic:Address());
-                Util.centreComponentOnScreen(traitSelectionFrame);
-                customLordFrame:AddComponent(traitSelectionFrame);
-            else
-                existingFrame:SetVisible(true);
+            function(context)
+                local existingFrame = Util.getComponentWithName("traitSelectionFrame");
+                --# assume existingFrame: FRAME
+                if not existingFrame then
+                    local traitSelectionFrame = CustomLordsTraitFrame.new(
+                            model, customLordFrame,
+                            function(addedTrait)
+                                model:AddSelectedTrait(addedTrait);
+                            end
+                    ).traitSelectionFrame;
+                    customLordFrame.uic:Adopt(traitSelectionFrame.uic:Address());
+                    Util.centreComponentOnScreen(traitSelectionFrame);
+                    customLordFrame:AddComponent(traitSelectionFrame);
+                else
+                    existingFrame:SetVisible(true);
+                end
             end
-        end
     );
 
     traitsContainer:AddComponent(addTraitButton);
@@ -300,49 +300,49 @@ function createCustomLordFrameUi(recruitCallback, cost)
     customLordFrame:AddComponent(recuitContainer);
     local recuitButton = TextButton.new("recruitButton", customLordFrame, "TEXT", "");
     recuitButton:RegisterForClick(
-        function(context)
-            recruitCallback(
-                lordNameTextBox.uic:GetStateText(),
-                model.selectedLordType,
-                model.selectedSkillSet,
-                model.attributeValues,
-                model.selectedTraits,
-                model.selectedArtId
-            );
-            destroyCustomLordFrame();
-        end
+            function(context)
+                recruitCallback(
+                        lordNameTextBox.uic:GetStateText(),
+                        model.selectedLordType,
+                        model.selectedSkillSet,
+                        model.attributeValues,
+                        model.selectedTraits,
+                        model.selectedArtId
+                );
+                destroyCustomLordFrame();
+            end
     );
     updateRecruitButton();
     recuitContainer:AddComponent(recuitButton);
 
     local closeButton = Button.new("CustomLordFrameCloseButton", customLordFrame, "CIRCULAR", "ui/skins/warhammer2/icon_cross.png");
     closeButton:RegisterForClick(
-        function(context)
-            destroyCustomLordFrame();
-        end
+            function(context)
+                destroyCustomLordFrame();
+            end
     );
     recuitContainer:AddComponent(closeButton);
 
     local optionsButton = Button.new("CustomLordsOptionsButton", customLordFrame, "SQUARE", "ui/skins/default/icon_options_medium.png");
     customLordFrame:AddComponent(optionsButton);
     optionsButton:RegisterForClick(
-        function(context)
-            local existingFrame = Util.getComponentWithName("CustomLordOptionsFrame");
-            --# assume existingFrame: FRAME
-            if not existingFrame then
-                local optionsFrame = CustomLordsOptionsFrame.new(
-                    model, customLordFrame,
-                    function()
-                        resetSelectedTraits(traitRowsContainer, frameContainer, removeTraitButtonFunction);
-                    end
-                ).optionsFrame;
-                customLordFrame.uic:Adopt(optionsFrame.uic:Address());
-                Util.centreComponentOnScreen(optionsFrame);
-                customLordFrame:AddComponent(optionsFrame);
-            else
-                existingFrame:SetVisible(true);
+            function(context)
+                local existingFrame = Util.getComponentWithName("CustomLordOptionsFrame");
+                --# assume existingFrame: FRAME
+                if not existingFrame then
+                    local optionsFrame = CustomLordsOptionsFrame.new(
+                            model, customLordFrame,
+                            function()
+                                resetSelectedTraits(traitRowsContainer, frameContainer, removeTraitButtonFunction);
+                            end
+                    ).optionsFrame;
+                    customLordFrame.uic:Adopt(optionsFrame.uic:Address());
+                    Util.centreComponentOnScreen(optionsFrame);
+                    customLordFrame:AddComponent(optionsFrame);
+                else
+                    existingFrame:SetVisible(true);
+                end
             end
-        end
     );
     optionsButton:PositionRelativeTo(customLordFrame, 0, -50);
 

@@ -46,15 +46,15 @@ end
 function setUpSingleButtonSelectedGroup(buttons)
     for i, button in ipairs(buttons) do
         button:RegisterForClick(
-            function(context)
-                for i, otherButton in ipairs(buttons) do
-                    if button.name == otherButton.name then
-                        otherButton:SetState("selected_hover");
-                    else
-                        otherButton:SetState("active");
+                function(context)
+                    for i, otherButton in ipairs(buttons) do
+                        if button.name == otherButton.name then
+                            otherButton:SetState("selected_hover");
+                        else
+                            otherButton:SetState("active");
+                        end
                     end
                 end
-            end
         );
     end
 end
@@ -63,22 +63,22 @@ end
 function setUpSingleButtonSelectedGroupButton(buttons)
     for i, button in ipairs(buttons) do
         button:RegisterForClick(
-            function(context)
-                for i, otherButton in ipairs(buttons) do
-                    if button.name == otherButton.name then
-                        otherButton:SetState("selected_hover");
-                    else
-                        otherButton:SetState("active");
+                function(context)
+                    for i, otherButton in ipairs(buttons) do
+                        if button.name == otherButton.name then
+                            otherButton:SetState("selected_hover");
+                        else
+                            otherButton:SetState("active");
+                        end
                     end
                 end
-            end
         );
     end
 end
 
 function detectBeta()
     local file = io.open("custom_lords_beta_key.txt", "rb")
-    if not file then 
+    if not file then
         CLC_BETA = false;
     else
         local content = file:read "*a"

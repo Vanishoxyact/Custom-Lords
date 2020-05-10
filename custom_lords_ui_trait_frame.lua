@@ -1,4 +1,4 @@
-require("custom_lords_util");
+core:load_mod_script("custom_lords_util");
 local CustomLordsTraitFrame = {} --# assume CustomLordsTraitFrame: CUSTOM_LORDS_TRAIT_FRAME
 CustomLordsTraitFrame.__index = CustomLordsTraitFrame;
 CustomLordsTraitFrame.model = nil --: CUSTOM_LORDS_MODEL
@@ -233,15 +233,15 @@ function CustomLordsTraitFrame.createTraitSelectionFrame(self, addTraitCallback)
     local remainingTraitPoints = calculateRemainingTraitPoints(self.model);
     for i, trait in ipairs(self:calculateAvailableTraits()) do
         local addTraitButtonFunction = function(
-            trait, --: string
-            parent --: COMPONENT_TYPE | CA_UIC
+                trait, --: string
+                parent --: COMPONENT_TYPE | CA_UIC
         )
             local addTraitButton = Button.new("addTraitButton" .. trait, parent, "SQUARE", "ui/skins/default/parchment_header_min.png");
             addTraitButton:RegisterForClick(
-                function(context)
-                    traitSelectionFrame:SetVisible(false);
-                    addTraitCallback(trait);
-                end
+                    function(context)
+                        traitSelectionFrame:SetVisible(false);
+                        addTraitCallback(trait);
+                    end
             )
             addTraitButton:Resize(25, 25);
             addTraitButton:SetDisabled(self:shouldDisableAddTraitButton(trait));
@@ -296,16 +296,16 @@ function CustomLordsTraitFrame.new(model, parentFrame, addTraitCallback)
     cltf.traitSelectionFrame = cltf:createTraitSelectionFrame(addTraitCallback);
     cltf:sortTraitList();
     model:RegisterForEvent(
-        "SELECTED_TRAITS_CHANGE", 
-        function()
-            cltf:update();
-        end
+            "SELECTED_TRAITS_CHANGE",
+            function()
+                cltf:update();
+            end
     );
     model:RegisterForEvent(
-        "SELECTED_LORD_TYPE_CHANGE", 
-        function()
-            cltf:update();
-        end
+            "SELECTED_LORD_TYPE_CHANGE",
+            function()
+                cltf:update();
+            end
     );
     return cltf;
 end

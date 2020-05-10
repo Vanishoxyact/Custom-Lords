@@ -1,4 +1,4 @@
-require("custom_lords_util");
+core:load_mod_script("custom_lords_util");
 local maxDiff = 4;
 local CustomLordsAttributePanel = {} --# assume CustomLordsAttributePanel: CUSTOM_LORDS_ATTRIBUTE_PANEL
 CustomLordsAttributePanel.__index = CustomLordsAttributePanel;
@@ -90,7 +90,7 @@ function CustomLordsAttributePanel.createAttributeRow(self, attribute, value, fr
     local rowContainer = Container.new(FlowLayout.HORIZONTAL);
     local attributeEffectBundle = calculateEffectBundleForAttributeAndValue(attribute, value);
     local attributeEffect = calculateEffectForEffectBundle(attributeEffectBundle);
-    
+
     local attributeChangeText = Text.new("AttributeChangeText" .. attribute, frame, "NORMAL", "");
     attributeChangeText:Resize(35, 20);
     rowContainer:AddComponent(attributeChangeText);
@@ -105,9 +105,9 @@ function CustomLordsAttributePanel.createAttributeRow(self, attribute, value, fr
     local decreaseButton = Button.new("AttributeDecreaseButton" .. attribute, frame, "SQUARE", "ui/skins/default/parchment_header_max.png");
     decreaseButton:Resize(25, 25);
     decreaseButton:RegisterForClick(
-        function(context)
-            model:SetAttributeValue(attribute, model.attributeValues[attribute] - 1);
-        end
+            function(context)
+                model:SetAttributeValue(attribute, model.attributeValues[attribute] - 1);
+            end
     );
     rowContainer:AddComponent(decreaseButton);
     self.attributeDecreaseButton[attribute] = decreaseButton;
@@ -121,9 +121,9 @@ function CustomLordsAttributePanel.createAttributeRow(self, attribute, value, fr
     local increaseButton = Button.new("AttributeIncreaseButton" .. attribute, frame, "SQUARE", "ui/skins/default/parchment_header_min.png");
     increaseButton:Resize(25, 25);
     increaseButton:RegisterForClick(
-        function(context)
-            model:SetAttributeValue(attribute, model.attributeValues[attribute] + 1);
-        end
+            function(context)
+                model:SetAttributeValue(attribute, model.attributeValues[attribute] + 1);
+            end
     );
     rowContainer:AddComponent(increaseButton);
     self.attributeIncreaseButton[attribute] = increaseButton;
@@ -204,10 +204,10 @@ function CustomLordsAttributePanel.new(model, parentFrame)
     clap:constructAttributeContainer();
     clap:resetAttributeContainer();
     model:RegisterForEvent(
-        "ATTRIBUTE_VALUE_CHANGE", 
-        function()
-            clap:resetAttributeContainer();
-        end
+            "ATTRIBUTE_VALUE_CHANGE",
+            function()
+                clap:resetAttributeContainer();
+            end
     );
     return clap;
 end

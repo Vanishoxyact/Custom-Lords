@@ -1,4 +1,4 @@
-require("custom_lords_util");
+core:load_mod_script("custom_lords_util");
 local CustomLordsArtPanel = {} --# assume CustomLordsArtPanel: CUSTOM_LORDS_ART_PANEL
 CustomLordsArtPanel.__index = CustomLordsArtPanel;
 CustomLordsArtPanel.model = nil --: CUSTOM_LORDS_MODEL
@@ -44,9 +44,9 @@ function CustomLordsArtPanel.createArtButtons(self)
 
     local randomArtButton = Button.new("RandomArtButton", self.parentFrame, "CIRCULAR_TOGGLE", "ui/portraits/portholes/no_culture/random.png");
     randomArtButton:RegisterForClick(
-        function(context)
-            self.model:SetSelectedArtId("");
-        end
+            function(context)
+                self.model:SetSelectedArtId("");
+            end
     );
     randomArtButton:SetState("selected");
     table.insert(artButtons, randomArtButton);
@@ -54,9 +54,9 @@ function CustomLordsArtPanel.createArtButtons(self)
         local artIdImagePath = self:calculateArtPortaitPath(artId);
         local artButton = Button.new(artId .. "ArtButton", self.parentFrame, "CIRCULAR_TOGGLE", artIdImagePath);
         artButton:RegisterForClick(
-            function(context)
-                self.model:SetSelectedArtId(artId);
-            end
+                function(context)
+                    self.model:SetSelectedArtId(artId);
+                end
         );
         table.insert(artButtons, artButton);
     end
@@ -104,10 +104,10 @@ function CustomLordsArtPanel.new(model, parentFrame)
     clap.artContainer = clap:constructArtContainer();
     clap:populateArtButtonsContainer();
     model:RegisterForEvent(
-        "SELECTED_LORD_TYPE_CHANGE", 
-        function()
-            clap:populateArtButtonsContainer();
-        end
+            "SELECTED_LORD_TYPE_CHANGE",
+            function()
+                clap:populateArtButtonsContainer();
+            end
     );
     return clap;
 end

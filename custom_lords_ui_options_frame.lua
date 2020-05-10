@@ -1,4 +1,4 @@
-require("custom_lords_util");
+core:load_mod_script("custom_lords_util");
 local CustomLordsOptionsFrame = {} --# assume CustomLordsOptionsFrame: CUSTOM_LORDS_OPTIONS_FRAME
 CustomLordsOptionsFrame.__index = CustomLordsOptionsFrame;
 CustomLordsOptionsFrame.model = nil --: CUSTOM_LORDS_MODEL
@@ -17,21 +17,21 @@ function CustomLordsOptionsFrame.CreateConfigurationRow(self, name, getterFuncti
 
     local increaseButton = Button.new(name .. "ConfigurationIncreaseButton", self.optionsFrame, "SQUARE", "ui/skins/default/parchment_header_min.png");
     increaseButton:RegisterForClick(
-        function(context)
-            setterFunction(getterFunction() + 1);
-            valueLabel:SetText(tostring(getterFunction()));
-        end
+            function(context)
+                setterFunction(getterFunction() + 1);
+                valueLabel:SetText(tostring(getterFunction()));
+            end
     );
     configurationRow:AddComponent(increaseButton);
 
     local decreaseButton = Button.new(name .. "ConfigurationDecreaseButton", self.optionsFrame, "SQUARE", "ui/skins/default/parchment_header_max.png");
     decreaseButton:RegisterForClick(
-        function(context)
-            if getterFunction() > 0 then
-                setterFunction(getterFunction() - 1);
-                valueLabel:SetText(tostring(getterFunction()));
+            function(context)
+                if getterFunction() > 0 then
+                    setterFunction(getterFunction() - 1);
+                    valueLabel:SetText(tostring(getterFunction()));
+                end
             end
-        end
     );
     configurationRow:AddComponent(decreaseButton);
     return configurationRow;
@@ -41,15 +41,15 @@ end
 function CustomLordsOptionsFrame.CreateConfigurationPanel(self)
     local configurationContainer = Container.new(FlowLayout.VERTICAL);
     local maxTraitsConfiguration = self:CreateConfigurationRow(
-        "Max Traits", 
-        function() return self.model.maxTraits end,
-        function(value) self.model:SetMaxTraits(value) end
+            "Max Traits",
+            function() return self.model.maxTraits end,
+            function(value) self.model:SetMaxTraits(value) end
     );
     configurationContainer:AddComponent(maxTraitsConfiguration);
     local startingTraitPointsConfiguration = self:CreateConfigurationRow(
-        "Starting Trait Points", 
-        function() return self.model.startingTraitPoints end,
-        function(value) self.model:SetStartingTraitPoints(value) end
+            "Starting Trait Points",
+            function() return self.model.startingTraitPoints end,
+            function(value) self.model:SetStartingTraitPoints(value) end
     );
     configurationContainer:AddComponent(startingTraitPointsConfiguration);
     return configurationContainer;

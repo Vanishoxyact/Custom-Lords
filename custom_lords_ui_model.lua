@@ -1,4 +1,4 @@
-require("custom_lords_util");
+core:load_mod_script("custom_lords_util");
 local CustomLordsModel = {} --# assume CustomLordsModel: CUSTOM_LORDS_MODEL
 CustomLordsModel.__index = CustomLordsModel;
 
