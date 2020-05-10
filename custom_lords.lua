@@ -1,4 +1,4 @@
-CUSTOM_LORDS_CAN_RECRUIT_SLANN = true --: boolean
+CUSTOM_LORDS_CAN_RECRUIT_SLANN = false --: boolean
 my_load_mod_script("table_loading");
 my_load_mod_script("custom_lords_ui");
 
@@ -595,7 +595,8 @@ function custom_lords_initialise()
    attachButtonToLordRecuitment();
    attachSkillListener();
    addEscapeButtonListener();
-   addSlannCountListener();
+   -- Remove slann count listener as no longer available in clan window
+   --addSlannCountListener();
 end
 
 core:add_listener(
