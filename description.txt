@@ -36,6 +36,9 @@ Mixu's Tabletop Lords
 Cataph's Southern Realms
 Cataph's Kraka Drak
 
+Known issues
+* Lords always spawn with a random trait selected by CA. Unfortunately this is not currently possible to fix
+
 Enjoy!
 
 [img=https://c4.patreon.com/favicons/favicon-96x96.png][/img]
