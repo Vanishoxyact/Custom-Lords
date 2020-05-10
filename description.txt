@@ -1,0 +1,111 @@
+This mod adds a brand new custom UI which allows you to customize lords before recruitment. The custom UI allows you to modify the lords name, type, skills, traits and starting attributes. To create a custom lord, click the “Custom” button in the lord recruitment screen.
+
+The mod should work for any faction, and should be compatible with almost any other mod.
+
+This first version of the mod does not include many custom skill sets, however these will be added shortly and the UI can still be used to customize traits and attributes for almost unlimited possibilities.
+
+The mod also features a custom table loader, which allows other mods to easily integrate with this mod. If you would like more information on this, please contact me.
+
+Many thanks to the guys at C&C Modding Den Discord for helping with this, and to Cataph for creating the workshop image!
+
+As this mod is very complex, please let me know if you find any issues so that I can fix them! I have created a bug reports discussion specifically for this.
+
+FAQ
+Q. Is this mod savegame compatible?
+A. The mod can be enabled for any existing savegame if you are not using the faction unlocker, or any save created after 9th April if you are. This is due to a breaking change to the script which causes other scripts not to run. If your save is older than 9th April and you are using the faction unlocker, you will need to revert the faction unlocker mod to version 1.9.12. This should also fix other mods which are broken due to this change. Any existing lords will be un-affected and any new lords can be customized on creation.
+
+Q. I can't see the button to recruit custom lords.
+A. This is most likely due to missing the dependant mods, UI Modding Framework and the Community Modding Framework. This may also be due to another mod causing the scripts to crash, which in turn affects this one. If you have having this issue with an old savegame, please look at the answer above.
+
+Q. Is this mod compatible with ***?
+A. The mod is designed to be as compatible as possible. The mod is mainly script driven which means very few conflicts should occur. Where compatibility issues do occur, the custom table loader should allow the issues to be resolved fairly easily by the author of the other mod.
+
+Q. Does the AI use custom lords?
+A. The AI will recruit lords with custom skill sets. Integration with custom traits and attributes will be added at a later date.
+
+Q. Can I still recruit standard lord?
+A. Yes! This mods adds a new option when recruiting, but all existing recruitment options still work as usual.
+
+Q. Will this mod work in multiplayer?
+A. Unfortunately not. Most scripted mods don't work in multiplayer due to technical reasons out of our control.
+
+Known Compatible Mods:
+SFO
+Radious
+Mixu's Tabletop Lords
+Cataph's Southern Realms
+Cataph's Kraka Drak
+
+Enjoy!
+
+[img=https://c4.patreon.com/favicons/favicon-96x96.png][/img]
+[url=https://www.patreon.com/vanishoxyact]Vanishoxyact's Patreon[/url]
+Creating and supporting a mod as complex as this takes huge amounts of time. If you would like to support me, please consider becoming a Patreon! From this you will have access to the up-and-coming features and early access betas.
+
+Alternatively, if you would like to donate, it would be highly appreciated!
+https://www.paypal.me/twvanish
+
+Updates:
+-----
+Updated to work with the latest version of the game.
+Updated to no longer require CMF.
+Fixed issues with lords not being able to be placed into office, and having no loyalty.
+-----
+Added some simple configuration options, to add more trait points and change maximum trait count.
+-----
+Custom pirate lords are now recruitable.
+-----
+Selected traits are now applied correctly, although it appears there is always a random trait added by CA now....
+-----
+Updated to work with the Curse of the Vampire Coast dlc.
+-----
+Fixed a graphical glitch with the trait frame scroll bar.
+-----
+Corrected Norsca lord options. Added Dark Elf Supreme Sorceress
+-----
+Updated to work with Norsca script changes.
+-----
+Fixed an issue with destruction and corruption slanns having too many skills.
+-----
+Changed max trait count to 6.
+-----
+Added two more skill-sets for Slann mage priests (thanks DrunkFlamingo for your help!)
+Destruction Magic: this skill sets focuses on causing devastation and havoc amongst your enemies
+Corruption Magic: this skill set focuses on crippling and enemies into submission
+-----
+Removed winds of magic attribute for dwarfs (as it was useless!)
+Increased the length of the lord type button.
+Added tooltips to attributes
+-----
+Added a fix to make this mod robust when other mods cause scripts to break.
+-----
+Added 3 new traits:
+Questionable Excuses (Empire) - add replenishment bonus, but at the cost of vamparic corruption
+Perseverant (All) - increases lords health
+Bloodthirsty (Lizardmen) - enables the "Hunger" skill
+-----
+Changed winds of magic attribute to change the lord's army total winds of magic. This should make it more noticeable.
+Added more traits which increase the lord's cost for extra trait points.
+-----
+Added customization of lords appearance!
+Added faction specific traits (over 90 in total!)
+-----
+Additional fixes to HE skills being hidden.
+-----
+Drastically increased the performance when picking traits and changing attributes.
+Fixed stability issues when opening the traits panel or changing attributes
+Added sorting to the traits panel
+-----
+Fixed an issue with crashing on load when playing certain factions.
+-----
+Updated to work with Chaos and Beastmen (thanks again Morbax and Mogletmox!)
+Lords are now recruited with the same rank as normal lords.
+Lords now cost the same amount as normal lords.
+Fixed an issue with lord recuitment placement (no longer spawn in water)
+Fixed recruitment of Slanns
+Fixed being able to recruit multiple lords from the same province the same turn
+Fixed issues with skills being hidden for HE, and showing additional skills.
+Fixed attribute affecting all lords
+-----
+Integration with Mixu's Table Top Lords has now been complete! You can now customize any of the new lords.
+-----
