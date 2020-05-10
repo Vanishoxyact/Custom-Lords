@@ -20,7 +20,7 @@ function calculateUpkeepEffectBundle()
     elseif difficultyLevel == -3 then				-- legendary
         return "wh_main_bundle_force_additional_army_upkeep_legendary"
     end;
-    output("Failed to calculate upkeep effect bundle for difficulty: " .. difficultyLevel);
+    out("Failed to calculate upkeep effect bundle for difficulty: " .. difficultyLevel);
     return "";
 end
 
@@ -98,7 +98,7 @@ function lordCreated(selectedSkillSet, selectedTraits, attributes, lordName, lor
     );
 
     -- Disable movement
-    cm:zero_action_points(char_lookup_str(lordCqi));
+    cm:zero_action_points(cm:char_lookup_str(lordCqi));
 end
 
 --v function(xPos: number, yPos: number) --> boolean
@@ -147,13 +147,13 @@ function createLord(selectedLordType, lordCreatedCallback)
         end,
         function(context)
 
-    output("B");
+    out("B");
     find_uicomponent(core:get_ui_root(), "units_panel", "main_units_panel", "units", "LandUnit 0"):SimulateLClick();
-    output("C");
+    out("C");
     find_uicomponent(core:get_ui_root(), "units_panel", "main_units_panel", "button_group_unit", "button_disband"):SimulateLClick();
-    output("D");
+    out("D");
     find_uicomponent(core:get_ui_root(), "dialogue_box", "both_group", "button_tick"):SimulateLClick();
-    output("E");
+    out("E");
             cm:create_force_with_general(
                 cm:get_local_faction(),
                 "wh2_main_skv_inf_clanrats_0",
@@ -173,7 +173,7 @@ function createLord(selectedLordType, lordCreatedCallback)
 
 end, false);
 
-output("A");
+out("A");
 cm:disable_event_feed_events(true, "", "wh_event_subcategory_military_army_developments", "");
 
 find_uicomponent(core:get_ui_root(), "character_panel", "raise_forces_options", "button_raise"):SimulateLClick();
@@ -225,7 +225,7 @@ end
 
 --v function() --> boolean
 function canRecuitArmy()
-    local currentFaction = get_faction(cm:get_local_faction());
+    local currentFaction = cm:get_faction(cm:get_local_faction());
     if currentFaction:culture() == "wh2_dlc09_tmb_tomb_kings" then
         local armyCap = find_uicomponent(core:get_ui_root(), "character_panel", "raise_forces_options", "dy_army_cap");
         local curr, max = string.match(armyCap:GetStateText(), "(%d+) / (%d+)");
@@ -236,11 +236,11 @@ function canRecuitArmy()
             -- print_all_uicomponent_children(growthCost);
             -- Util.recurseThroughChildrenApplyingFunction(
             --     growthCost, function(child)
-            --         output("Child: " .. child:Id());
-            --         output(child:GetStateText());
+            --         out("Child: " .. child:Id());
+            --         out(child:GetStateText());
             --     end
             -- );
-            output("Growth cost: " .. growthCost:GetStateText());
+            out("Growth cost: " .. growthCost:GetStateText());
             local growthCostAmount = tonumber(growthCost:GetStateText());
             return SURPLUS_POP >= growthCostAmount;
         end
@@ -344,7 +344,7 @@ function getSelectedChar()
     local char = cm:get_campaign_ui_manager():get_char_selected();
     local cqi = string.sub(char, 15);
     --# assume cqi: CA_CQI
-    return get_character_by_cqi(cqi);
+    return cm:get_character_by_cqi(cqi);
 end
 
 --v function(char: CA_CHAR) --> boolean
@@ -371,7 +371,7 @@ function findDefaultSkillSet(lordType)
             return lordTypeTable["skill_set"];
         end
     end 
-    output("Failed to find default skillset for lord type: " .. lordType);
+    out("Failed to find default skillset for lord type: " .. lordType);
     return "";
 end
 
@@ -386,7 +386,7 @@ function attachSkillListener()
         function(context)
             local selectedChar = getSelectedChar();
             if not charHasCustomSkills(selectedChar) then
-                output("Char does not have custom skill sets: " .. selectedChar:character_subtype_key());
+                out("Char does not have custom skill sets: " .. selectedChar:character_subtype_key());
                 return;
             end
 
@@ -468,7 +468,7 @@ function addSlannCountListener()
             return context.string == "settlement_panel"; 
         end,
         function(context)
-            local currentFaction = get_faction(cm:get_local_faction());
+            local currentFaction = cm:get_faction(cm:get_local_faction());
             if currentFaction:culture() == "wh2_main_lzd_lizardmen" then
                 local clanButton = find_uicomponent(core:get_ui_root(), "layout", "bar_small_top", "faction_icons", "button_factions");
                 clanButton:SimulateLClick();
@@ -495,7 +495,7 @@ function addSettlementSelectedListener()
         function(context)
             --# assume context: CA_SETTLEMENT_CONTEXT
             local settlementName = context:garrison_residence():region():name();
-            local settlement = get_region(settlementName):settlement();
+            local settlement = cm:get_region(settlementName):settlement();
             local xPos, yPos = calculateSpawnPoint(settlement:logical_position_x(), settlement:logical_position_y());
             LORD_SPAWN_X = xPos;
             LORD_SPAWN_Y = yPos;
@@ -528,19 +528,19 @@ function addCharacterSelectedListener()
             end
             local surplusPop = find_uicomponent(core:get_ui_root(), "layout", "info_panel_holder", "primary_info_panel_holder", "info_panel_background", "CharacterInfoPopup", "horde_growth", "frame_growth", "pop_surplus", "growth_pts_holder", "dy_growth_pts");
             if surplusPop then
-                output("Surplus pop: " .. surplusPop:GetStateText());
+                out("Surplus pop: " .. surplusPop:GetStateText());
                 SURPLUS_POP = tonumber(surplusPop:GetStateText());
                 -- print_all_uicomponent_children(find_uicomponent(core:get_ui_root(), "layout", "info_panel_holder", "primary_info_panel_holder", "info_panel_background", "CharacterInfoPopup", "horde_growth", "frame_growth", "pop_surplus"));
                 -- Util.recurseThroughChildrenApplyingFunction(
                 --     find_uicomponent(core:get_ui_root(), "layout", "info_panel_holder", "primary_info_panel_holder", "info_panel_background", "CharacterInfoPopup", "horde_growth", "frame_growth", "pop_surplus"), function(child)
-                --         output("Child: " .. child:Id());
-                --         output(child:GetStateText());
+                --         out("Child: " .. child:Id());
+                --         out(child:GetStateText());
                 --     end
                 -- );
-                output("Surplus pop end: " .. surplusPop:GetStateText());
+                out("Surplus pop end: " .. surplusPop:GetStateText());
             end
             --remove_all_units_from_character(char, true);
-            --output("units removed");
+            --out("units removed");
         end,
         true
     );
