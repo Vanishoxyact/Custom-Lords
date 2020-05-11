@@ -32,6 +32,7 @@ faction_lord_types = {
 
         {"wh_main_sc_emp_empire", "SUBCULTURE", "emp_lord", "General of the Empire"},
         {"wh_main_sc_emp_empire", "SUBCULTURE", "dlc04_emp_arch_lector", "Arch Lector"},
+        {"wh_main_sc_emp_empire", "SUBCULTURE", "wh2_dlc13_emp_cha_huntsmarshal_0", "Huntsman General"},
 
         {"wh_main_sc_ksl_kislev", "SUBCULTURE", "ksl_lord", "Lord"},
 
@@ -52,16 +53,20 @@ faction_lord_types = {
         {"wh2_main_sc_def_dark_elves", "SUBCULTURE", "wh2_dlc10_def_supreme_sorceress_death", "Supreme Sorceress (Death)"},
         {"wh2_main_sc_def_dark_elves", "SUBCULTURE", "wh2_dlc10_def_supreme_sorceress_fire", "Supreme Sorceress (Fire)"},
         {"wh2_main_sc_def_dark_elves", "SUBCULTURE", "wh2_dlc10_def_supreme_sorceress_shadow", "Supreme Sorceress (Shadows)"},
+        {"wh2_main_sc_def_dark_elves", "SUBCULTURE", "wh2_dlc14_def_high_beastmaster", "High Beastmaster"},
 
         {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_main_hef_prince", "Prince"},
         {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_main_hef_princess", "Princess"},
 
         {"wh2_main_sc_lzd_lizardmen", "SUBCULTURE", "wh2_main_lzd_saurus_old_blood", "Saurus Oldblood"},
         {"wh2_main_sc_lzd_lizardmen", "SUBCULTURE", "wh2_main_lzd_slann_mage_priest", "Slann Mage-Priest"},
+        {"wh2_main_sc_lzd_lizardmen", "SUBCULTURE", "wh2_dlc12_lzd_red_crested_skink_chief", "Red Crested Skink Chief"},
 
         {"wh2_main_sc_skv_skaven", "SUBCULTURE", "wh2_main_skv_grey_seer_plague", "Grey Seer (Plague)"},
         {"wh2_main_sc_skv_skaven", "SUBCULTURE", "wh2_main_skv_grey_seer_ruin", "Grey Seer (Ruin)"},
         {"wh2_main_sc_skv_skaven", "SUBCULTURE", "wh2_main_skv_warlord", "Warlord"},
+        {"wh2_main_sc_skv_skaven", "SUBCULTURE", "wh2_dlc12_skv_warlock_master", "Warlock Master"},
+        {"wh2_main_sc_skv_skaven", "SUBCULTURE", "wh2_dlc14_skv_master_assassin", "Master Assassin"},
 
         {"wh2_dlc11_sc_cst_vampire_coast", "SUBCULTURE", "wh2_dlc11_cst_admiral", "Vampire Fleet Admiral (Vampires)"},
         {"wh2_dlc11_sc_cst_vampire_coast", "SUBCULTURE", "wh2_dlc11_cst_admiral_death", "Vampire Fleet Admiral (Death)"},
