@@ -10,12 +10,14 @@ Many thanks to the guys at C&C Modding Den Discord for helping with this, and to
 
 As this mod is very complex, please let me know if you find any issues so that I can fix them! I have created a bug reports discussion specifically for this.
 
+If you have any issues, please raise them on my github [url=https://github.com/Vanishoxyact/custom-lords]here[/url]
+
 FAQ
 Q. Is this mod savegame compatible?
-A. The mod can be enabled for any existing savegame if you are not using the faction unlocker, or any save created after 9th April if you are. This is due to a breaking change to the script which causes other scripts not to run. If your save is older than 9th April and you are using the faction unlocker, you will need to revert the faction unlocker mod to version 1.9.12. This should also fix other mods which are broken due to this change. Any existing lords will be un-affected and any new lords can be customized on creation.
+A. The mod can be enabled for any existing savegame and should not cause any issues.
 
 Q. I can't see the button to recruit custom lords.
-A. This is most likely due to missing the dependant mods, UI Modding Framework and the Community Modding Framework. This may also be due to another mod causing the scripts to crash, which in turn affects this one. If you have having this issue with an old savegame, please look at the answer above.
+A. This is most likely due to missing the dependant mods, UI Modding Framework. This may also be due to another mod causing the scripts to crash, which in turn affects this one.
 
 Q. Is this mod compatible with ***?
 A. The mod is designed to be as compatible as possible. The mod is mainly script driven which means very few conflicts should occur. Where compatibility issues do occur, the custom table loader should allow the issues to be resolved fairly easily by the author of the other mod.
@@ -27,7 +29,7 @@ Q. Can I still recruit standard lord?
 A. Yes! This mods adds a new option when recruiting, but all existing recruitment options still work as usual.
 
 Q. Will this mod work in multiplayer?
-A. Unfortunately not. Most scripted mods don't work in multiplayer due to technical reasons out of our control.
+A. Unfortunately not. I will look at updating this in the future.
 
 Known Compatible Mods:
 SFO
@@ -37,7 +39,8 @@ Cataph's Southern Realms
 Cataph's Kraka Drak
 
 Known issues
-* Lords always spawn with a random trait selected by CA. Unfortunately this is not currently possible to fix
+* Some factions only have partial compatibility currently, meaning that not all lord types can be recruited (DLC lords) or portrait selection may be missing (Norsca)
+* DLC lord types will show up in the list, but can only be recruited if you own the dlc
 
 Enjoy!
 
@@ -49,6 +52,8 @@ Alternatively, if you would like to donate, it would be highly appreciated!
 https://www.paypal.me/twvanish
 
 Updates:
+-----
+Fixed issue with lords spawning with a random trait.
 -----
 Updated to work with the latest version of the game.
 Updated to no longer require CMF.

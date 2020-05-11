@@ -54,7 +54,7 @@ function lordCreated(selectedSkillSet, selectedTraits, attributes, lordName, lor
    for i, trait in ipairs(selectedTraits) do
       cm:force_add_trait(cm:char_lookup_str(selectedCharCqi), trait);
    end
-
+   
    -- Add attribute effect bundles
    for attribute, value in pairs(attributes) do
       local effectBundle = calculateEffectBundleForAttributeAndValue(attribute, value);
@@ -86,6 +86,7 @@ function lordCreated(selectedSkillSet, selectedTraits, attributes, lordName, lor
    cm:callback(
          function()
             cm:disable_event_feed_events(false, "", "wh_event_subcategory_faction_event_dilemma_incident", "");
+            cm:remove_all_background_skills(cm:char_lookup_str(selectedCharCqi));
          end, 0.5, "RE_ENABLE INCIDENTS"
    );
 end
