@@ -55,4 +55,4 @@ function my_load_mod_script(filename)
     end;
 end;
 
-my_load_mod_script("custom_lords")
+my_load_mod_script("custom_lords_non_cmf")
