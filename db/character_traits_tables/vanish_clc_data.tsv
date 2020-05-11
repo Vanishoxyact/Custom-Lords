@@ -99,11 +99,11 @@ wh2_main_skill_innate_def_vicious	1	false	99	dark_elves	0
 wh2_main_skill_innate_dwf_ancestral_blood_grimnir	1	false	99	dwarf	0	
 wh2_main_skill_innate_dwf_ancestral_blood_grungni	1	false	99	dwarf	0	
 wh2_main_skill_innate_dwf_ancestral_blood_valaya	1	false	99	dwarf	0	
-wh2_main_skill_innate_grn_big_bully	1	false	99	greenskins	0	
-wh2_main_skill_innate_grn_bragga	1	false	99	greenskins	0	
-wh2_main_skill_innate_grn_mushroom_addicted	1	false	99	greenskins	0	
-wh2_main_skill_innate_grn_serial_danca	1	false	99	greenskins	0	
-wh2_main_skill_innate_grn_tortura	1	false	99	greenskins	0	
+wh2_main_skill_innate_grn_big_bully	1	false	99	greenskin	0	
+wh2_main_skill_innate_grn_bragga	1	false	99	greenskin	0	
+wh2_main_skill_innate_grn_mushroom_addicted	1	false	99	greenskin	0	
+wh2_main_skill_innate_grn_serial_danca	1	false	99	greenskin	0	
+wh2_main_skill_innate_grn_tortura	1	false	99	greenskin	0	
 wh2_main_skill_innate_emp_imperious	1	false	99	human	0	
 wh2_main_skill_innate_emp_monster_hunter	1	false	99	human	0	
 wh2_main_skill_innate_emp_monster_tracker	1	false	99	human	0	
@@ -136,8 +136,8 @@ wh2_main_skill_innate_vmp_devious	1	false	99	vampire_counts	0
 wh2_main_skill_innate_vmp_dread_incarnate	1	false	99	vampire_counts	0	
 wh2_main_skill_innate_vmp_lore_keeper	1	false	99	vampire_counts	0	
 wh2_main_skill_innate_vmp_master_of_the_black_arts	1	false	99	vampire_counts	0	
-wh2_main_skill_innate_wef_ariels_chosen	1	false	99	wood_elves	0	
-wh2_main_skill_innate_wef_talon_of_kurnous	1	false	99	wood_elves	0	
+wh2_main_skill_innate_wef_ariels_chosen	1	false	99	wood_elf	0	
+wh2_main_skill_innate_wef_talon_of_kurnous	1	false	99	wood_elf	0	
 wh2_main_trait_increased_cost_1	1	true	99	personality	0	
 wh2_main_trait_increased_cost_2	1	true	99	personality	0	
 wh2_main_trait_increased_cost_3	1	true	99	personality	0	
