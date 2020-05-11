@@ -23,7 +23,7 @@ function calculateImageAndToolTipForTraitEffectProperties(traitEffectProperties)
         traitImagePath = "ui/campaign ui/effect_bundles/" .. effects["icon_negative"];
     end
 
-    if (effects["is_positive_value_good"] == "True") == (effectValue > 0) then
+    if (effects["is_positive_value_good"] == "true") == (effectValue > 0) then
         colour = "dark_g";
     else
         colour = "dark_r";
