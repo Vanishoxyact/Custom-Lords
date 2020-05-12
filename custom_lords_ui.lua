@@ -19,6 +19,18 @@ function createLordTypeButton(lordType, lordTypeName, frame)
     return lordTypeButton;
 end
 
+--v function(lordTypeData: map<string,string>) --> boolean
+function hasDlcForLord(lordTypeData)
+   local lordType = lordTypeData["lord_type"];
+   local dlcLords = TABLES["dlc_lords"] --: map<string,string>
+   if dlcLords[lordType] == nil then
+      return true;
+   else
+      local requiredDlc = dlcLords[lordType]["required_dlc"];
+      return cm:is_dlc_flag_enabled(requiredDlc);
+   end
+end
+
 --v function(factionName: string) --> vector<map<string,string>>
 function calculateLordTypeData(factionName)
     local lordTypeData = {} --: vector<map<string,string>>
@@ -28,10 +40,10 @@ function calculateLordTypeData(factionName)
     for factionKey, factionLordTypeData in pairs(factionLordTypesTable) do
         for i, factionLordType in ipairs(factionLordTypeData) do
             if factionLordType["faction_type"] == "FACTION" then
-                if factionKey == factionName then
+                if factionKey == factionName and hasDlcForLord(factionLordType) then
                     table.insert(lordTypeData, factionLordType);
                 end
-            elseif factionLordType["faction_type"] == "SUBCULTURE" then
+            elseif factionLordType["faction_type"] == "SUBCULTURE" and hasDlcForLord(factionLordType) then
                 if factionKey == factionSubculture then
                     table.insert(lordTypeData, factionLordType);
                 end

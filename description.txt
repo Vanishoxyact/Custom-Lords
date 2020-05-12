@@ -40,7 +40,7 @@ Cataph's Kraka Drak
 
 Known issues
 * Some factions only have partial compatibility currently, meaning that not all lord types can be recruited (DLC lords) or portrait selection may be missing (Norsca)
-* DLC lord types will show up in the list, but can only be recruited if you own the dlc
+* Slann's cannot currently be recruited
 
 Enjoy!
 
@@ -54,6 +54,7 @@ https://www.paypal.me/twvanish
 Updates:
 -----
 Fixed issue with lords spawning with a random trait.
+Dlc lords will now only show up if you own the dlc.
 -----
 Updated to work with the latest version of the game.
 Updated to no longer require CMF.

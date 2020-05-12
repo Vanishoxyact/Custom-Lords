@@ -460,3 +460,23 @@ attribute_tooptip = {
         {"char_winds", "Winds of Magic Power Reserve"}
     }
 }
+
+dlc_lords = {
+    SCHEMA = {"key", "required_dlc"},
+    KEY = {"key", "UNIQUE"},
+    DATA = {
+        {"wh2_dlc10_def_supreme_sorceress_beasts", "TW_WH2_DLC10_QUEEN_CRONE"},
+        {"wh2_dlc10_def_supreme_sorceress_dark", "TW_WH2_DLC10_QUEEN_CRONE"},
+        {"wh2_dlc10_def_supreme_sorceress_death", "TW_WH2_DLC10_QUEEN_CRONE"},
+        {"wh2_dlc10_def_supreme_sorceress_fire", "TW_WH2_DLC10_QUEEN_CRONE"},
+        {"wh2_dlc10_def_supreme_sorceress_shadow", "TW_WH2_DLC10_QUEEN_CRONE"},
+        
+        {"wh2_dlc12_skv_warlock_master", "TW_WH2_DLC12_PROPHET"},
+        {"wh2_dlc12_lzd_red_crested_skink_chief", "TW_WH2_DLC12_PROPHET"},
+        
+        {"wh2_dlc13_emp_cha_huntsmarshal_0", "TW_WH2_DLC13_HUNTER"},
+        
+        {"wh2_dlc14_def_high_beastmaster", "TW_WH2_DLC14_SHADOW"},
+        {"wh2_dlc14_skv_master_assassin", "TW_WH2_DLC14_SHADOW"}
+    }
+}
