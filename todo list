@@ -1,24 +1,23 @@
 Required
-Cant assign to office
-No loyalty
-Trait columns
 Multiplayer
-Options panel
-Tomb Kings recruitment
-Add trait button wrong place if all traits and remove one
 Trait icon
+HE loyalty cost
+Slann skill sets
+Saurus skill sets
+Cash for attribute points
 
 Nice to have
 Look at table ordering
-Traits per faction?
-Traits per lord type?
 Name length, multiple boxes?
 Treasury icon size
 Popup dialog?
 Ancillary from trait?
 UI blocking not working fully
+Trait columns
 
 Completed
+Cant assign to office
+No loyalty
 Add cost to UI, disable recuit if not enough gold
 Remove add trait button if more than 5
 Close button image
@@ -58,3 +57,8 @@ Skills missing
 Remove winds for dwarfs
 Attribute tooltips
 Width of lord type button
+Traits per faction?
+Traits per lord type?
+Add trait button wrong place if all traits and remove one
+Tomb Kings recruitment
+Options panel
