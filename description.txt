@@ -1,3 +1,7 @@
+-------------------------------------------
+IMPORTANT: Updated to include an initial version of custom hero creation! The vast majority of heroes can now be created. For the time being some of the UI still refers to lord creation, and it uses the same trait list as lord creation. Please let me know any issues you find.
+-------------------------------------------
+
 This mod adds a brand new custom UI which allows you to customize lords before recruitment. The custom UI allows you to modify the lords name, type, skills, traits and starting attributes. To create a custom lord, click the “Custom” button in the lord recruitment screen.
 
 The mod should work for any faction, and should be compatible with almost any other mod.

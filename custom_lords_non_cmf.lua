@@ -2,29 +2,6 @@ CUSTOM_LORDS_CAN_RECRUIT_SLANN = false --: boolean
 my_load_mod_script("table_loading");
 my_load_mod_script("custom_lords_ui");
 
---v function() --> string
-function calculateUpkeepEffectBundle()
-   local difficultyLevel = cm:model():difficulty_level();
-   if difficultyLevel == 1 then
-      -- easy
-      return "wh_main_bundle_force_additional_army_upkeep_easy"
-   elseif difficultyLevel == 0 then
-      -- normal
-      return "wh_main_bundle_force_additional_army_upkeep_normal"
-   elseif difficultyLevel == -1 then
-      -- hard
-      return "wh_main_bundle_force_additional_army_upkeep_hard"
-   elseif difficultyLevel == -2 then
-      -- very hard
-      return "wh_main_bundle_force_additional_army_upkeep_very_hard"
-   elseif difficultyLevel == -3 then
-      -- legendary
-      return "wh_main_bundle_force_additional_army_upkeep_legendary"
-   end ;
-   out("Failed to calculate upkeep effect bundle for difficulty: " .. difficultyLevel);
-   return "";
-end
-
 --v function(traits: vector<string>) --> vector<string>
 function calculateTraitIncidents(traits)
    local incidents = {} --: vector<string>
@@ -45,6 +22,10 @@ function isPlayerFactionHorde()
    return wh_faction_is_horde(player_faction);
 end
 
+function isLord(agentType)
+   return agentType == "general" or agentType == "colonel";
+end
+
 --v function(selectedSkillSet: string, selectedTraits: vector<string>, attributes: map<string, int>, lordName: string, lordCqi: CA_CQI)
 function lordCreated(selectedSkillSet, selectedTraits, attributes, lordName, lordCqi)
    local selectedCharCqi = cm:get_campaign_ui_manager():get_char_selected_cqi();
@@ -57,8 +38,14 @@ function lordCreated(selectedSkillSet, selectedTraits, attributes, lordName, lor
    
    -- Add attribute effect bundles
    for attribute, value in pairs(attributes) do
-      local effectBundle = calculateEffectBundleForAttributeAndValue(attribute, value);
-      cm:apply_effect_bundle_to_characters_force(effectBundle, lordCqi, -1, false);
+      if value ~= 0 then
+         local effectBundle = calculateEffectBundleForAttributeAndValue(attribute, value);
+         local customEffectBundle = cm:create_new_custom_effect_bundle(effectBundle)
+         local oldEffect = customEffectBundle:effects():item_at(0)
+         customEffectBundle:remove_effect(oldEffect);
+         customEffectBundle:add_effect(oldEffect:key(), "character_to_character_own", oldEffect:value());
+         cm:apply_custom_effect_bundle_to_character(customEffectBundle, cm:get_character_by_cqi(selectedCharCqi))
+      end
    end
 
    -- Rename lord
@@ -92,8 +79,22 @@ function lordCreated(selectedSkillSet, selectedTraits, attributes, lordName, lor
 end
 
 --v function(lordType: string, selectedArtId: string)
-function spawnGeneralToPoolAndRecruit(lordType, selectedArtId)
-   cm:spawn_character_to_pool(cm:get_local_faction(), "", "", "", "", 50, true, "general", lordType, false, selectedArtId);
+function spawnGeneralToPoolAndRecruit(lordType, selectedArtId, agentType)
+   local male = true;
+   local femaleLordTypesTable = TABLES["female_lord_types"];
+   if femaleLordTypesTable[lordType] then
+      male = false;
+   end
+
+   cm:spawn_character_to_pool(cm:get_local_faction(), "", "", "", "", 50, male, agentType, lordType, false, selectedArtId);
+   if isLord(agentType) then
+      spawnLord();
+   else
+      spawnHero(lordType, agentType);
+   end
+end
+
+function spawnLord()
    find_uicomponent(core:get_ui_root(), "layout", "hud_center_docker", "hud_center", "small_bar", "button_group_settlement", "button_agents"):SimulateLClick();
    find_uicomponent(core:get_ui_root(), "layout", "hud_center_docker", "hud_center", "small_bar", "button_group_settlement", "button_create_army"):SimulateLClick();
 
@@ -116,8 +117,62 @@ function spawnGeneralToPoolAndRecruit(lordType, selectedArtId)
    find_uicomponent(core:get_ui_root(), "character_panel", "raise_forces_options", "button_raise"):SimulateLClick();
 end
 
+function spawnHero(lordType, agentType)
+   find_uicomponent(core:get_ui_root(), "layout", "hud_center_docker", "hud_center", "small_bar", "button_group_settlement", "button_create_army"):SimulateLClick();
+   find_uicomponent(core:get_ui_root(), "layout", "hud_center_docker", "hud_center", "small_bar", "button_group_settlement", "button_agents"):SimulateLClick();
+   
+   local agentsButtonGroup = find_uicomponent(core:get_ui_root(), "character_panel", "agent_parent", "button_group_agents");
+   local agentButton;
+   for i=0, agentsButtonGroup:ChildCount()-1  do
+      local child = UIComponent(agentsButtonGroup:Find(i));
+      if child:Id() == agentType then
+         agentButton = child;
+      end
+   end
+   if not agentButton then
+      out("Failed to find agent button for type " .. agentType);
+      return;
+   end
+   agentButton:SimulateLClick();
+
+   local typeList = find_uicomponent(core:get_ui_root(), "character_panel", "agent_parent", "type_list");
+   if typeList and typeList:ChildCount() > 0 then
+      local typeButton;
+      for i = 0, typeList:ChildCount() - 1 do
+         local typeListItem = UIComponent(typeList:Find(i));
+         if typeListItem:Id() == lordType then
+            typeButton = typeListItem;
+         end
+      end
+      if not typeButton then
+         out("Failed to find type button for type " .. lordType);
+         return;
+      end
+      typeButton:SimulateLClick();
+   end
+
+   local generalCandidateButton = nil --: CA_UIC
+
+   local generalsList = find_uicomponent(core:get_ui_root(), "character_panel", "general_selection_panel", "character_list_parent", "character_list", "listview", "list_clip", "list_box");
+   for i = 0, generalsList:ChildCount() - 1 do
+      local generalPanel = UIComponent(generalsList:Find(i));
+      local name = find_uicomponent(generalPanel, "dy_name"):GetStateText();
+      if name == "" then
+         generalCandidateButton = generalPanel;
+      end
+   end
+
+   if not generalCandidateButton then
+      out("Failed to find candidate");
+      return;
+   end
+
+   generalCandidateButton:SimulateLClick();
+   find_uicomponent(core:get_ui_root(), "character_panel", "general_selection_panel", "button_confirm"):SimulateLClick();
+end
+
 --v function(selectedLordType: string, selectedArtId: string, lordCreatedCallback: function(CA_CQI))
-function createLord(selectedLordType, selectedArtId, lordCreatedCallback)
+function createLord(selectedLordType, selectedArtId, agentType, lordCreatedCallback)
    core:add_listener(
          "LordCreatedListener",
          "PanelOpenedCampaign",
@@ -131,7 +186,7 @@ function createLord(selectedLordType, selectedArtId, lordCreatedCallback)
          end,
          false
    );
-   spawnGeneralToPoolAndRecruit(selectedLordType, selectedArtId);
+   spawnGeneralToPoolAndRecruit(selectedLordType, selectedArtId, agentType);
 end
 
 --v function() --> number
@@ -147,6 +202,21 @@ function calculateGeneralCost()
    end
    out("Failed to calculate general cost.");
    return 0;
+end
+
+function calculateSelectedAgentType()
+   local agentParent = find_uicomponent(core:get_ui_root(), "character_panel", "agent_parent");
+   if agentParent == nil or not agentParent:Visible() then
+      return "general";
+   end
+   local agentsButtonGroup = find_uicomponent(agentParent, "button_group_agents");
+   for i=0, agentsButtonGroup:ChildCount()-1  do
+      local child = UIComponent(agentsButtonGroup:Find(i));
+      if child:CurrentState() == "selected" then
+         return child:Id();
+      end
+   end
+   return "general";
 end
 
 --v function()
@@ -173,7 +243,7 @@ function createCustomLordFrame()
          end, 0.01, "BLOCKER_CALLBACK"
    );
 
-   local existingFrame = Util.getComponentWithName("customLordFrame");
+   local agentType = calculateSelectedAgentType();
    local recruitCallback = function(
          name, --: string
          lordType, --: string
@@ -182,7 +252,7 @@ function createCustomLordFrame()
          traits, --: vector<string>
          selectedArtId --: string
    )
-      createLord(lordType, selectedArtId,
+      createLord(lordType, selectedArtId, agentType,
             function(context)
                lordCreated(skillSet, traits, attributes, name, context);
             end
@@ -191,7 +261,7 @@ function createCustomLordFrame()
       blocker.uic:SetVisible(false);
    end
 
-   createCustomLordFrameUi(recruitCallback, calculateGeneralCost());
+   createCustomLordFrameUi(recruitCallback, calculateGeneralCost(), agentType);
 end
 
 --v function() --> boolean
@@ -233,10 +303,41 @@ function canRecuitArmy()
       return false;
    elseif currentFaction:culture() == "wh2_dlc09_tmb_tomb_kings" then
       local armyCap = find_uicomponent(core:get_ui_root(), "character_panel", "raise_forces_options", "dy_army_cap");
-      local curr, max = string.match(armyCap:GetStateText(), "(%d+) / (%d+)");
-      return tonumber(curr, 10) < tonumber(max, 10);
+      if armyCap == nil then
+         return false;
+      end
+      local curr, max = string.match(armyCap:GetStateText(), "(%d+)%s*/%s*(%d+)");
+      if curr == nil or max == nil then
+         return false;
+      end
+      return max > curr;
    end
    return true;
+end
+
+
+function createCustomLordsButton(parentComponent, raiseForcesButton, gap)
+   local rfWidth, rfHeight = raiseForcesButton:Bounds();
+   local createCustomLordButton = TextButton.new("createCustomLordButton", parentComponent, "TEXT", "Custom");
+   createCustomLordButton:Resize(raiseForcesButton:Bounds());
+   createCustomLordButton:RegisterForClick(
+         function(context)
+            createCustomLordFrame();
+         end
+   );
+   return createCustomLordButton;
+end
+
+function createCustomHeroesButton(parentComponent, raiseForcesButton, gap)
+   local rfWidth, rfHeight = raiseForcesButton:Bounds();
+   local createCustomHeroButton = TextButton.new("createCustomHeroButton", parentComponent, "TEXT", "Custom");
+   createCustomHeroButton:Resize(raiseForcesButton:Bounds());
+   createCustomHeroButton:RegisterForClick(
+         function(context)
+            createCustomLordFrame();
+         end
+   );
+   return createCustomHeroButton;
 end
 
 --v function()
@@ -251,39 +352,54 @@ function attachButtonToLordRecuitment()
             local characterPanel = find_uicomponent(core:get_ui_root(), "character_panel");
             local raiseForces = find_uicomponent(characterPanel, "raise_forces_options");
             local raiseForcesButton = find_uicomponent(raiseForces, "button_raise");
-            local createCustomLordButton = TextButton.new("createCustomLordButton", raiseForces, "TEXT", "Custom");
-            createCustomLordButton:Resize(raiseForcesButton:Bounds());
-            if not canRecuitArmy() then
-               createCustomLordButton:SetDisabled(true);
-            end
+            local gap = 20;
+            local createCustomLordButton = createCustomLordsButton(raiseForces, raiseForcesButton, gap);
+            local generalSelectionPanel = find_uicomponent(characterPanel, "general_selection_panel");
+            local createCustomHeroButton = createCustomHeroesButton(generalSelectionPanel, raiseForcesButton, gap);
 
             local rfWidth, rfHeight = raiseForcesButton:Bounds();
             local rfXPos, rfYPos = raiseForcesButton:Position();
-            local gap = 20;
             raiseForcesButton:MoveTo(rfXPos - (rfWidth / 2 + gap / 2), rfYPos);
             createCustomLordButton:PositionRelativeTo(raiseForcesButton, gap + rfWidth, 0);
-            createCustomLordButton:RegisterForClick(
-                  function(context)
-                     createCustomLordFrame();
-                  end
-            );
-            createCustomLordButton:SetVisible(raiseForcesButton:Visible());
+
+            local agentHireButton = find_uicomponent(characterPanel, "button_confirm");
+            local rfWidth, rfHeight = agentHireButton:Bounds();
+            local rfXPos, rfYPos = agentHireButton:Position();
+            agentHireButton:MoveTo(rfXPos - (rfWidth / 2 + gap / 2), rfYPos);
+            createCustomHeroButton:PositionRelativeTo(raiseForcesButton, gap + rfWidth, 0);
+
+            createCustomHeroButton:Resize(createCustomLordButton:Bounds());
+            createCustomHeroButton:MoveTo(createCustomLordButton:Position());
+            agentHireButton:Resize(createCustomLordButton:Bounds());
+            agentHireButton:MoveTo(raiseForcesButton:Position());
 
             local createArmyButton = find_uicomponent(core:get_ui_root(), "layout", "hud_center_docker", "hud_center", "small_bar", "button_group_settlement", "button_create_army");
             local agentsButton = find_uicomponent(core:get_ui_root(), "layout", "hud_center_docker", "hud_center", "small_bar", "button_group_settlement", "button_agents");
             Util.registerForClick(
                   createArmyButton, "createArmyButtonListener",
                   function(context)
-                     createCustomLordButton:SetVisible(true);
+                     updateButtonsStateWithCallback();
                   end
             );
 
             Util.registerForClick(
                   agentsButton, "agentsButtonListener",
                   function(context)
-                     createCustomLordButton:SetVisible(false);
+                     updateButtonsStateWithCallback();
                   end
             );
+            
+            local agentsButtonGroup = find_uicomponent(core:get_ui_root(), "character_panel", "agent_parent", "button_group_agents");
+            for i=0, agentsButtonGroup:ChildCount()-1  do
+               local child = UIComponent(agentsButtonGroup:Find(i));
+               Util.registerForClick(
+                     child, "agentsButtonListener",
+                     function(context)
+                        updateButtonsStateWithCallback();
+                     end
+               );
+            end
+            updateButtonsStateWithCallback();
          end,
          true
    );
@@ -296,9 +412,12 @@ function attachButtonToLordRecuitment()
          end,
          function(context)
             local createCustomLordButton = Util.getComponentWithName("createCustomLordButton");
+            local createCustomHeroButton = Util.getComponentWithName("createCustomHeroButton");
+
             --# assume createCustomLordButton: TEXT_BUTTON
             if createCustomLordButton then
                createCustomLordButton:Delete();
+               createCustomHeroButton:Delete();
                core:remove_listener("createArmyButtonListener");
                core:remove_listener("agentsButtonListener");
             end
@@ -312,17 +431,7 @@ function attachButtonToLordRecuitment()
          function()
             return not isPlayerFactionHorde();
          end,
-         function()
-            cm:callback(
-                  function()
-                     local createCustomLordButton = Util.getComponentWithName("createCustomLordButton");
-                     if createCustomLordButton then
-                        --# assume createCustomLordButton: TEXT_BUTTON
-                        createCustomLordButton:SetDisabled(not canRecuitArmy());
-                     end
-                  end, 0.01, "CustomLordButtonEnableSettlmentChangeListener"
-            );
-         end,
+         updateButtonsStateWithCallback,
          true
    );
 
@@ -332,19 +441,55 @@ function attachButtonToLordRecuitment()
          function()
             return isPlayerFactionHorde();
          end,
-         function()
-            cm:callback(
-                  function()
-                     local createCustomLordButton = Util.getComponentWithName("createCustomLordButton");
-                     if createCustomLordButton then
-                        --# assume createCustomLordButton: TEXT_BUTTON
-                        createCustomLordButton:SetDisabled(not canRecuitArmy());
-                     end
-                  end, 0.01, "CustomLordButtonEnableCharacterChangeListener"
-            );
-         end,
+         updateButtonsStateWithCallback,
          true
    );
+end
+
+function canRecruitHero()
+   local heroCount = find_uicomponent(core:get_ui_root(), "character_panel", "agent_parent", "dy_agent_cap");
+   if not heroCount then
+      return false;
+   end
+   local curr, max = string.match(heroCount:GetStateText(), "(%d+)%s*/%s*(%d+)");
+   if curr == nil or max == nil then
+      return false;
+   end
+   return max > curr;
+end
+
+function updateButtonsStateWithCallback()
+   cm:callback(
+         function()
+            updateButtonsState();
+         end, 0.01, "UpdateButtonStateCallback"
+   );
+end
+
+function updateButtonsState()
+   local createCustomLordButton = Util.getComponentWithName("createCustomLordButton");
+   if createCustomLordButton then
+      --# assume createCustomLordButton: TEXT_BUTTON
+      createCustomLordButton:SetDisabled(not canRecuitArmy());
+      local raiseForcesButton = find_uicomponent(core:get_ui_root(), "character_panel", "raise_forces_options", "button_raise");
+      if raiseForcesButton == nil then
+         createCustomLordButton:SetVisible(false);
+      else
+         createCustomLordButton:SetVisible(raiseForcesButton:Visible());
+      end
+   end
+
+   local createCustomHeroButton = Util.getComponentWithName("createCustomHeroButton");
+   if createCustomHeroButton then
+      --# assume createCustomHeroButton: TEXT_BUTTON
+      createCustomHeroButton:SetDisabled(not canRecruitHero());
+      local agentParent = find_uicomponent(core:get_ui_root(), "character_panel", "agent_parent");
+      if agentParent == nil then
+         createCustomHeroButton:SetVisible(false);
+      else
+         createCustomHeroButton:SetVisible(agentParent:Visible());
+      end
+   end
 end
 
 --v function() --> map<string, vector<string>>

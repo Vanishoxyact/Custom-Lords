@@ -480,3 +480,32 @@ dlc_lords = {
         {"wh2_dlc14_skv_master_assassin", "TW_WH2_DLC14_SHADOW"}
     }
 }
+
+female_lord_types = {
+    SCHEMA = {"key"},
+    KEY = {"key", "UNIQUE"},
+    DATA = {
+        {"dlc05_wef_spellsinger_beasts"},
+        {"dlc05_wef_spellsinger_life"},
+        {"dlc05_wef_spellsinger_shadow"},
+        {"brt_damsel"},
+        {"brt_damsel_beasts"},
+        {"brt_damsel_life"},
+        {"vmp_banshee"},
+        {"wh2_dlc10_hef_handmaiden"},
+        {"wh2_dlc11_cst_fleet_captain"},
+        {"wh2_dlc11_cst_fleet_captain_death"},
+        {"wh2_dlc11_cst_fleet_captain_deep"},
+        {"wh2_main_def_death_hag"},
+        {"wh2_dlc10_def_sorceress_beasts"},
+        {"wh2_dlc10_def_sorceress_death"},
+        {"wh2_main_def_sorceress_dark"},
+        {"wh2_main_def_sorceress_fire"},
+        {"wh2_main_def_sorceress_shadow"},
+        {"wh2_dlc10_hef_mage_heavens"},
+        {"wh2_dlc10_hef_mage_shadows"},
+        {"wh2_main_hef_mage_high"},
+        {"wh2_main_hef_mage_life"},
+        {"wh2_main_hef_mage_light"}
+    }
+}

@@ -19,6 +19,54 @@ function createLordTypeButton(lordType, lordTypeName, frame)
     return lordTypeButton;
 end
 
+function canRecruitLordType(factionName, factionKey, factionLordType, agentType)
+    local faction = cm:get_faction(factionName);
+    local factionSubculture = faction:subculture();
+    if factionLordType["faction_type"] == "FACTION" then
+        if factionKey ~= factionName then
+            return false;
+        end
+    elseif factionLordType["faction_type"] == "SUBCULTURE" then
+        if factionKey ~= factionSubculture then
+            return false;
+        end
+    else
+        out("Cannot match faction type: " .. factionLordType["faction_type"] .. " for key: " .. factionKey);
+        return false;
+    end
+    
+    if not hasDlcForLord(factionLordType) then
+        return false;
+    end
+
+    if agentType then
+        local factionAgentPermittedSubtypesTables = TABLES["faction_agent_permitted_subtypes_tables"] --: map<string, vector<map<string, string>>>
+        local factionAgentDataList = factionAgentPermittedSubtypesTables[factionName];
+        local lordType = factionLordType["lord_type"];
+        local lordTypeFound = false;
+        for i, factionAgentData in ipairs(factionAgentDataList) do
+            if factionAgentData["subtype"] == lordType then
+                lordTypeFound = true;
+                local foundAgentType = factionAgentData["agent"]
+                if agentType == "general" then
+                    if foundAgentType ~= "general" and foundAgentType ~= "colonel" then
+                        return false;
+                    end
+                elseif foundAgentType ~= agentType then
+                    return false;
+                else
+                    break;
+                end
+            end
+        end
+        if not lordTypeFound then
+            out("Failed to find agent type for lord type: " .. lordType);
+            return false;
+        end
+    end
+    return true;
+end
+
 --v function(lordTypeData: map<string,string>) --> boolean
 function hasDlcForLord(lordTypeData)
    local lordType = lordTypeData["lord_type"];
@@ -32,23 +80,13 @@ function hasDlcForLord(lordTypeData)
 end
 
 --v function(factionName: string) --> vector<map<string,string>>
-function calculateLordTypeData(factionName)
+function calculateLordTypeData(factionName, agentType)
     local lordTypeData = {} --: vector<map<string,string>>
-    local faction = cm:get_faction(factionName);
-    local factionSubculture = faction:subculture();
     local factionLordTypesTable = TABLES["faction_lord_types"] --: map<string, vector<map<string, string>>>
     for factionKey, factionLordTypeData in pairs(factionLordTypesTable) do
         for i, factionLordType in ipairs(factionLordTypeData) do
-            if factionLordType["faction_type"] == "FACTION" then
-                if factionKey == factionName and hasDlcForLord(factionLordType) then
-                    table.insert(lordTypeData, factionLordType);
-                end
-            elseif factionLordType["faction_type"] == "SUBCULTURE" and hasDlcForLord(factionLordType) then
-                if factionKey == factionSubculture then
-                    table.insert(lordTypeData, factionLordType);
-                end
-            else
-                out("Cannot match faction type: " .. factionLordType["faction_type"] .. " for key: " .. factionKey);
+            if canRecruitLordType(factionName, factionKey, factionLordType, agentType) then
+                table.insert(lordTypeData, factionLordType);
             end
         end
     end
@@ -56,9 +94,9 @@ function calculateLordTypeData(factionName)
 end
 
 --v function(currentFaction: string, frame: FRAME) --> vector<TEXT_BUTTON>
-function createLordTypeButtons(currentFaction, frame)
+function createLordTypeButtons(currentFaction, frame, agentType)
     local buttons = {} --: vector<TEXT_BUTTON>
-    for i, factionLordType in ipairs(calculateLordTypeData(currentFaction)) do
+    for i, factionLordType in ipairs(calculateLordTypeData(currentFaction, agentType)) do
         local lordType = factionLordType["lord_type"];
         local button = createLordTypeButton(lordType, factionLordType["lord_type_name"], frame);
         if i == 1 then
@@ -199,7 +237,7 @@ function destroyCustomLordFrame()
 end
 
 --v function(recruitCallback: function(name: string, lordType: string, skillSet: string, attributes: map<string, int>, traits: vector<string>, artId: string), cost: number) --> FRAME
-function createCustomLordFrameUi(recruitCallback, cost)
+function createCustomLordFrameUi(recruitCallback, cost, agentType)
     model = CustomLordsModel.new();
     model:SetBaseCost(cost);
     customLordFrame = Frame.new("customLordFrame");
@@ -221,7 +259,7 @@ function createCustomLordFrameUi(recruitCallback, cost)
     lordTypeText:Resize(lordTypeText:Width(), lordTypeText:Height()/2);
     frameContainer:AddComponent(lordTypeText);
 
-    local lordTypeButtons = createLordTypeButtons(cm:get_local_faction(), customLordFrame);
+    local lordTypeButtons = createLordTypeButtons(cm:get_local_faction(), customLordFrame, agentType);
     local buttonList = ListView.new("LordTypeList", customLordFrame, "HORIZONTAL");
     buttonList:Resize(customLordFrame:Width() - 55, 35);
     for i, button in pairs(lordTypeButtons) do
