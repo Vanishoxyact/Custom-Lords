@@ -61,6 +61,7 @@ faction_lord_types = {
         {"wh2_main_sc_lzd_lizardmen", "SUBCULTURE", "wh2_main_lzd_saurus_old_blood", "Saurus Oldblood"},
         {"wh2_main_sc_lzd_lizardmen", "SUBCULTURE", "wh2_main_lzd_slann_mage_priest", "Slann Mage-Priest"},
         {"wh2_main_sc_lzd_lizardmen", "SUBCULTURE", "wh2_dlc12_lzd_red_crested_skink_chief", "Red Crested Skink Chief"},
+        {"wh2_main_sc_lzd_lizardmen", "SUBCULTURE", "wh2_dlc13_lzd_kroxigor_ancient", "Kroxigor Ancient"},
 
         {"wh2_main_sc_skv_skaven", "SUBCULTURE", "wh2_main_skv_grey_seer_plague", "Grey Seer (Plague)"},
         {"wh2_main_sc_skv_skaven", "SUBCULTURE", "wh2_main_skv_grey_seer_ruin", "Grey Seer (Ruin)"},
@@ -475,6 +476,7 @@ dlc_lords = {
         {"wh2_dlc12_lzd_red_crested_skink_chief", "TW_WH2_DLC12_PROPHET"},
         
         {"wh2_dlc13_emp_cha_huntsmarshal_0", "TW_WH2_DLC13_HUNTER"},
+        {"wh2_dlc13_lzd_kroxigor_ancient", "TW_WH2_DLC13_HUNTER"},
         
         {"wh2_dlc14_def_high_beastmaster", "TW_WH2_DLC14_SHADOW"},
         {"wh2_dlc14_skv_master_assassin", "TW_WH2_DLC14_SHADOW"}
