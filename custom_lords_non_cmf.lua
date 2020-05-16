@@ -294,6 +294,19 @@ function notEnoughPopulation()
    return false;
 end
 
+function checkAgainstCap(capComponent, defaultValue)
+   if not capComponent then
+      return defaultValue;
+   end
+   out("CL: state text: " .. capComponent:GetStateText())
+   local curr, max = string.match(capComponent:GetStateText(), "(%d+)%s*/%s*(%d+)");
+   if curr == nil or max == nil then
+      return defaultValue;
+   end
+   out("CL: max: " .. tostring(max) .. "curr: " .. tostring(curr))
+   return tonumber(max, 10) > tonumber(curr, 10);
+end
+
 --v function() --> boolean
 function canRecuitArmy()
    local currentFaction = cm:get_faction(cm:get_local_faction());
@@ -448,14 +461,7 @@ end
 
 function canRecruitHero()
    local heroCount = find_uicomponent(core:get_ui_root(), "character_panel", "agent_parent", "dy_agent_cap");
-   if not heroCount then
-      return false;
-   end
-   local curr, max = string.match(heroCount:GetStateText(), "(%d+)%s*/%s*(%d+)");
-   if curr == nil or max == nil then
-      return false;
-   end
-   return max > curr;
+   return checkAgainstCap(heroCount, false);
 end
 
 function updateButtonsStateWithCallback()
