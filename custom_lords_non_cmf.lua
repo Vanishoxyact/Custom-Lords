@@ -309,22 +309,18 @@ end
 
 --v function() --> boolean
 function canRecuitArmy()
-   local currentFaction = cm:get_faction(cm:get_local_faction());
-   if isPlayerFactionHorde() and notEnoughPopulation() then
+   local armyCap = find_uicomponent(core:get_ui_root(), "character_panel", "raise_forces_options", "dy_army_cap");
+   if notEnoughPopulation() then
+      out("CL: notEnoughPopulation")
       return false;
    elseif hasArmyAlreadyBeenRecruited() then
+      out("CL: hasArmyAlreadyBeenRecruited")
       return false;
-   elseif currentFaction:culture() == "wh2_dlc09_tmb_tomb_kings" then
-      local armyCap = find_uicomponent(core:get_ui_root(), "character_panel", "raise_forces_options", "dy_army_cap");
-      if armyCap == nil then
-         return false;
-      end
-      local curr, max = string.match(armyCap:GetStateText(), "(%d+)%s*/%s*(%d+)");
-      if curr == nil or max == nil then
-         return false;
-      end
-      return max > curr;
+   elseif not checkAgainstCap(armyCap, true) then
+      out("CL: not enough army pop")
+      return false;
    end
+   out("CL: canRecuitArmy true")
    return true;
 end
 
@@ -387,13 +383,23 @@ function attachButtonToLordRecuitment()
             agentHireButton:MoveTo(raiseForcesButton:Position());
 
             local createArmyButton = find_uicomponent(core:get_ui_root(), "layout", "hud_center_docker", "hud_center", "small_bar", "button_group_settlement", "button_create_army");
+            local createArmyButtonHorde = find_uicomponent(core:get_ui_root(), "layout", "hud_center_docker", "hud_center", "small_bar", "button_group_army_settled", "button_create_army");
             local agentsButton = find_uicomponent(core:get_ui_root(), "layout", "hud_center_docker", "hud_center", "small_bar", "button_group_settlement", "button_agents");
+            local agentsButtonHorde = find_uicomponent(core:get_ui_root(), "layout", "hud_center_docker", "hud_center", "small_bar", "button_group_army_settled", "button_agents");
             Util.registerForClick(
                   createArmyButton, "createArmyButtonListener",
                   function(context)
                      updateButtonsStateWithCallback();
                   end
             );
+            if createArmyButtonHorde then
+               Util.registerForClick(
+                     createArmyButtonHorde, "createArmyButtonListener",
+                     function(context)
+                        updateButtonsStateWithCallback();
+                     end
+               );
+            end
 
             Util.registerForClick(
                   agentsButton, "agentsButtonListener",
@@ -401,6 +407,14 @@ function attachButtonToLordRecuitment()
                      updateButtonsStateWithCallback();
                   end
             );
+            if agentsButtonHorde then
+               Util.registerForClick(
+                     agentsButtonHorde, "agentsButtonListener",
+                     function(context)
+                        updateButtonsStateWithCallback();
+                     end
+               );
+            end
             
             local agentsButtonGroup = find_uicomponent(core:get_ui_root(), "character_panel", "agent_parent", "button_group_agents");
             for i=0, agentsButtonGroup:ChildCount()-1  do
