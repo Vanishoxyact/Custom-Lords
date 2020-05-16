@@ -57,6 +57,10 @@ https://www.paypal.me/twvanish
 
 Updates:
 -----
+Various fixes for recruiting when using a horde faction/lord.
+Fixed recruiting of female heroes.
+Fixed recruiting when agent cap is greater than 10.
+-----
 Fixed issue with lords spawning with a random trait.
 Dlc lords will now only show up if you own the dlc.
 -----
