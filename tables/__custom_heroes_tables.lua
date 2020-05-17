@@ -87,7 +87,6 @@ faction_lord_types = {
         {"wh2_main_sc_def_dark_elves", "SUBCULTURE", "wh2_main_def_sorceress_fire", "Sorceress (Fire)"},
         {"wh2_main_sc_def_dark_elves", "SUBCULTURE", "wh2_main_def_sorceress_shadow", "Sorceress (Shadows)"},
 
-        --wh2_dlc10_hef_shadow_walker
         {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_main_hef_noble", "Noble"},
         {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_dlc10_hef_handmaiden", "Handmaiden"},
         {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_main_hef_loremaster_of_hoeth", "Loremaster of Hoeth"},

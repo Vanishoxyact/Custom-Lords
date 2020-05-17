@@ -471,6 +471,7 @@ dlc_lords = {
         {"wh2_dlc10_def_supreme_sorceress_death", "TW_WH2_DLC10_QUEEN_CRONE"},
         {"wh2_dlc10_def_supreme_sorceress_fire", "TW_WH2_DLC10_QUEEN_CRONE"},
         {"wh2_dlc10_def_supreme_sorceress_shadow", "TW_WH2_DLC10_QUEEN_CRONE"},
+        {"wh2_dlc10_hef_handmaiden", "TW_WH2_DLC10_QUEEN_CRONE"},
         
         {"wh2_dlc12_skv_warlock_master", "TW_WH2_DLC12_PROPHET"},
         {"wh2_dlc12_lzd_red_crested_skink_chief", "TW_WH2_DLC12_PROPHET"},
@@ -479,7 +480,9 @@ dlc_lords = {
         {"wh2_dlc13_lzd_kroxigor_ancient", "TW_WH2_DLC13_HUNTER"},
         
         {"wh2_dlc14_def_high_beastmaster", "TW_WH2_DLC14_SHADOW"},
-        {"wh2_dlc14_skv_master_assassin", "TW_WH2_DLC14_SHADOW"}
+        {"wh2_dlc14_skv_master_assassin", "TW_WH2_DLC14_SHADOW"},
+        {"wh2_dlc14_def_master", "TW_WH2_DLC14_SHADOW"},
+        {"wh2_dlc14_skv_eshin_sorcerer", "TW_WH2_DLC14_SHADOW"}
     }
 }
 
