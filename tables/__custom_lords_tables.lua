@@ -497,6 +497,8 @@ female_lord_types = {
         {"brt_damsel_beasts"},
         {"brt_damsel_life"},
         {"vmp_banshee"},
+        {"vmp_vampire"},
+        {"wh_dlc05_vmp_vampire_shadow"},
         {"wh2_dlc10_hef_handmaiden"},
         {"wh2_dlc11_cst_fleet_captain"},
         {"wh2_dlc11_cst_fleet_captain_death"},
