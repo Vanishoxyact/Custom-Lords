@@ -170,6 +170,7 @@ function spawnHero(lordType, agentType)
 
    if not generalCandidateButton then
       out("Failed to find candidate");
+      core:remove_listener("LordCreatedListener");
       return;
    end
 
