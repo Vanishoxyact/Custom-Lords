@@ -43,7 +43,6 @@ Cataph's Southern Realms
 Cataph's Kraka Drak
 
 Known issues
-* Some factions only have partial compatibility currently, meaning that not all lord types can be recruited (DLC lords) or portrait selection may be missing (Norsca)
 * Slann's cannot currently be recruited
 
 Enjoy!
@@ -56,6 +55,9 @@ Alternatively, if you would like to donate, it would be highly appreciated!
 https://www.paypal.me/twvanish
 
 Updates:
+-----
+Added support for Kroxigot Ancient lord type
+Added model selection for all dlc lords and norsca 
 -----
 Various fixes for recruiting when using a horde faction/lord.
 Fixed recruiting of female heroes.
