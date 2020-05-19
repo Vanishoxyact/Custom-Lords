@@ -1,5 +1,6 @@
 core:load_mod_script("custom_lords_util");
 local maxDiff = 4;
+---@class CustomLordsAttributePanel
 local CustomLordsAttributePanel = {} --# assume CustomLordsAttributePanel: CUSTOM_LORDS_ATTRIBUTE_PANEL
 CustomLordsAttributePanel.__index = CustomLordsAttributePanel;
 CustomLordsAttributePanel.model = nil --: CUSTOM_LORDS_MODEL
@@ -11,10 +12,12 @@ CustomLordsAttributePanel.attributePointIndicators = {} --: map<string, map<int,
 CustomLordsAttributePanel.attributeIncreaseButton = {} --: map<string, BUTTON>
 CustomLordsAttributePanel.attributeDecreaseButton = {} --: map<string, BUTTON>
 CustomLordsAttributePanel.remainingAttributePointsText = nil --: TEXT
+CustomLordsAttributePanel.increaseAttributePointsButton = nil --: BUTTON
+CustomLordsAttributePanel.decreaseAttributePointsButton = nil --: BUTTON
 
 --v function(model: CUSTOM_LORDS_MODEL) --> int
 function calculateRemainingAttributePoints(model)
-    local remainingPoints = 0 --: int
+    local remainingPoints = model.extraAttributePoints --: int
     for attribute, value in pairs(model.attributeValues) do
         remainingPoints = remainingPoints - value;
     end
@@ -84,9 +87,13 @@ function calculateAttributePointOpacity(indicatorValue, value)
     end
 end
 
+--v function(model: CUSTOM_LORDS_MODEL) --> boolean
+function shouldDecreaseAttributePointsButtonBeDisabled(model)
+    return model.extraAttributePoints == 0;
+end
+
 --v function(self: CUSTOM_LORDS_ATTRIBUTE_PANEL, attribute: string, value: int, frame: FRAME, model: CUSTOM_LORDS_MODEL) --> CONTAINER
 function CustomLordsAttributePanel.createAttributeRow(self, attribute, value, frame, model)
-    local remainingPoints = calculateRemainingAttributePoints(model);
     local rowContainer = Container.new(FlowLayout.HORIZONTAL);
     local attributeEffectBundle = calculateEffectBundleForAttributeAndValue(attribute, value);
     local attributeEffect = calculateEffectForEffectBundle(attributeEffectBundle);
@@ -151,6 +158,11 @@ function calculateAttributePointRemainingText(model)
     return "Attribute Points: " .. calculateRemainingAttributePoints(model);
 end
 
+--v function(model: CUSTOM_LORDS_MODEL) --> string
+function calculateRemoveAttributePointButtonText(model)
+    return "Remove Attribute Point (" .. tostring(model.extraAttributePoints) .. ")";
+end
+
 --v function() --> boolean
 function isCurrentFactionDwarf()
     local currentFaction = cm:get_faction(cm:get_local_faction());
@@ -168,7 +180,27 @@ function CustomLordsAttributePanel.constructAttributeContainer(self)
             self.attributesContainer:AddComponent(attributeRow);
         end
     end
+    self.attributesContainer:AddComponent(self:createIncreaseDecreasePointsContainer());
     self.attributesContainer:Reposition();
+end
+
+function CustomLordsAttributePanel.createIncreaseDecreasePointsContainer(self)
+    local buttonContainer = Container.new(FlowLayout.VERTICAL);
+    self.increaseAttributePointsButton = TextButton.new("increaseAttributePointsButton", self.parentFrame, "TEXT", "Add Attribute Point " .. "([[img:icon_treasury]][[/img]]1000)");
+    self.increaseAttributePointsButton:RegisterForClick(
+          function(context)
+              self.model:AddAttributePoint();
+          end
+    );
+    buttonContainer:AddComponent(self.increaseAttributePointsButton);
+    self.decreaseAttributePointsButton = TextButton.new("decreaseAttributePointsButton", self.parentFrame, "TEXT", calculateRemoveAttributePointButtonText(self.model));
+    self.decreaseAttributePointsButton:RegisterForClick(
+          function(context)
+              self.model:RemoveAttributePoint();
+          end
+    );
+    buttonContainer:AddComponent(self.decreaseAttributePointsButton);
+    return buttonContainer;
 end
 
 --v function(self: CUSTOM_LORDS_ATTRIBUTE_PANEL, attribute: string, value: int)
@@ -189,6 +221,8 @@ function CustomLordsAttributePanel.resetAttributeContainer(self)
             self:updateAttributeRow(attribute, value);
         end
     end
+    self.decreaseAttributePointsButton:SetDisabled(shouldDecreaseAttributePointsButtonBeDisabled(self.model));
+    self.decreaseAttributePointsButton:SetButtonText(calculateRemoveAttributePointButtonText(self.model));
 end
 
 --v function(model: CUSTOM_LORDS_MODEL, parentFrame: FRAME) --> CUSTOM_LORDS_ATTRIBUTE_PANEL

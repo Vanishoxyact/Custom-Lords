@@ -27,8 +27,8 @@ function isLord(agentType)
    return agentType == "general" or agentType == "colonel";
 end
 
---v function(selectedSkillSet: string, selectedTraits: vector<string>, attributes: map<string, int>, lordName: string, lordCqi: CA_CQI)
-function lordCreated(selectedSkillSet, selectedTraits, attributes, forename, surname, lordCqi)
+--v function(selectedSkillSet: string, selectedTraits: vector<string>, attributes: map<string, int>, extraAttributePoints: int, lordName: string, lordCqi: CA_CQI)
+function lordCreated(selectedSkillSet, selectedTraits, attributes, extraAttributePoints, forename, surname, lordCqi)
    local selectedCharCqi = cm:get_campaign_ui_manager():get_char_selected_cqi();
    --# assume selectedCharCqi: CA_CQI
    -- Add traits
@@ -75,6 +75,9 @@ function lordCreated(selectedSkillSet, selectedTraits, attributes, forename, sur
    local traitIncidents = calculateTraitIncidents(selectedTraits);
    for i, incident in ipairs(traitIncidents) do
       cm:trigger_incident(cm:get_local_faction(), incident, true);
+   end
+   for i=1,extraAttributePoints do
+      cm:trigger_incident(cm:get_local_faction(), "wh2_main_incident_treasury_down_1", true);
    end
    cm:callback(
          function()
@@ -257,12 +260,13 @@ function createCustomLordFrame()
          lordType, --: string
          skillSet, --: string
          attributes, --: map<string, int>
+         extraAttributePoints, --:int
          traits, --: vector<string>
          selectedArtId --: string
    )
       createLord(lordType, selectedArtId, agentType,
             function(context)
-               lordCreated(skillSet, traits, attributes, forename, surname, context);
+               lordCreated(skillSet, traits, attributes, extraAttributePoints, forename, surname, context);
             end
       );
       --# assume blocker: IMAGE

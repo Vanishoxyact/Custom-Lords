@@ -56,6 +56,8 @@ https://www.paypal.me/twvanish
 
 Updates:
 -----
+Added model selection for all heroes.
+Added option to purchase extra attribute points.
 Added option to generate a random name. Added forename and surname separation.
 Added support for Kroxigot Ancient lord type
 Added model selection for all dlc lords and norsca 

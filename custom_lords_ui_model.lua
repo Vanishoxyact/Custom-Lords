@@ -20,6 +20,7 @@ function CustomLordsModel.new()
     clm.baseCost = 0 --: number
     clm.maxTraits = 6 --: int
     clm.startingTraitPoints = 2 --: int
+    clm.extraAttributePoints = 0; --: int
     clm.callbacks = {} --: map<CUSTOM_LORDS_EVENT, vector<function()>>
     return clm
 end
@@ -100,6 +101,18 @@ end
 --v function(self: CUSTOM_LORDS_MODEL, attribute: string, value: int)
 function CustomLordsModel.SetAttributeValue(self, attribute, value)
     self.attributeValues[attribute] = value;
+    self:NotifyEvent("ATTRIBUTE_VALUE_CHANGE");
+end
+
+--v function(self: CUSTOM_LORDS_MODEL)
+function CustomLordsModel.AddAttributePoint(self)
+    self.extraAttributePoints = self.extraAttributePoints + 1;
+    self:NotifyEvent("ATTRIBUTE_VALUE_CHANGE");
+end
+
+--v function(self: CUSTOM_LORDS_MODEL)
+function CustomLordsModel.RemoveAttributePoint(self)
+    self.extraAttributePoints = self.extraAttributePoints - 1;
     self:NotifyEvent("ATTRIBUTE_VALUE_CHANGE");
 end
 

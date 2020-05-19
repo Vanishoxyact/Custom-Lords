@@ -187,22 +187,27 @@ function calculateRecruitmentCost()
             cost = cost + 10000;
         end
     end
+    cost = cost + (model.extraAttributePoints * 1000);
     return cost;
 end
 
 --v function()
 function updateRecruitButton()
-    local recuitButton = Util.getComponentWithName("recruitButton");
-    if recuitButton then
+    local recruitButton = Util.getComponentWithName("recruitButton");
+    if recruitButton then
         --# assume recuitButton: TEXT_BUTTON
         local recruitCost = calculateRecruitmentCost();
         local recruitText = "Recruit " .. "([[img:icon_treasury]][[/img]]" .. recruitCost .. ")";
-        recuitButton:SetButtonText(recruitText);
+        recruitButton:SetButtonText(recruitText);
         local currentFaction = cm:model():world():faction_by_key(cm:get_local_faction());
-        recuitButton:SetDisabled(currentFaction:treasury() < recruitCost);
+        recruitButton:SetDisabled(currentFaction:treasury() < recruitCost);
         local remainingTraitPoints = calculateRemainingTraitPoints(model);
         if remainingTraitPoints < 0 then
-            recuitButton:SetDisabled(true);
+            recruitButton:SetDisabled(true);
+        end
+        local remainingAttributePoints = calculateRemainingAttributePoints(model);
+        if remainingAttributePoints < 0 then
+            recruitButton:SetDisabled(true);
         end
     end
 end
@@ -309,6 +314,12 @@ function createCustomLordFrameUi(recruitCallback, cost, agentType)
     local traitsAttributesContainer = Container.new(FlowLayout.HORIZONTAL);
     local attributePanel = CustomLordsAttributePanel.new(model, customLordFrame);
     traitsAttributesContainer:AddComponent(attributePanel.attributesContainer);
+    model:RegisterForEvent(
+          "ATTRIBUTE_VALUE_CHANGE",
+          function() 
+              updateRecruitButton();
+          end
+    );
 
     local traitsContainer = Container.new(FlowLayout.VERTICAL);
     local traitsText = Text.new("traitsText", customLordFrame, "HEADER", "Select your Lord's traits");
@@ -379,6 +390,7 @@ function createCustomLordFrameUi(recruitCallback, cost, agentType)
                         model.selectedLordType,
                         model.selectedSkillSet,
                         model.attributeValues,
+                        model.extraAttributePoints,
                         model.selectedTraits,
                         model.selectedArtId
                 );
