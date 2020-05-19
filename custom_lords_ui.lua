@@ -1,10 +1,13 @@
 my_load_mod_script("custom_lords_util");
+my_load_mod_script("custom_lords_random_name_generator");
+---@type CustomLordsModel
 local CustomLordsModel = my_load_mod_script("custom_lords_ui_model");
 local CustomLordsAttributePanel = my_load_mod_script("custom_lords_ui_attribute_panel");
 local CustomLordsTraitFrame = my_load_mod_script("custom_lords_ui_trait_frame");
 local CustomLordsArtPanel = my_load_mod_script("custom_lords_ui_art_panel");
 local CustomLordsOptionsFrame = my_load_mod_script("custom_lords_ui_options_frame");
 
+---@type CustomLordsModel
 local model = nil --: CUSTOM_LORDS_MODEL
 local customLordFrame = nil --: FRAME
 
@@ -251,8 +254,27 @@ function createCustomLordFrameUi(recruitCallback, cost, agentType)
     local lordName = Text.new("lordName", customLordFrame, "HEADER", "Name your Lord");
     lordName:Resize(lordName:Width(), lordName:Height()/2);
     frameContainer:AddComponent(lordName);
-    local lordNameTextBox = TextBox.new("lordNameTextBox", customLordFrame);
-    frameContainer:AddComponent(lordNameTextBox);
+    local nameContainer = Container.new(FlowLayout.HORIZONTAL);
+    frameContainer:AddComponent(nameContainer);
+    local lordForenameTextBox = TextBox.new("lordForenameTextBox", customLordFrame);
+    nameContainer:AddComponent(lordForenameTextBox);
+    lordForenameTextBox.uic:SetStateText("Forename");
+    local lordSurnameTextBox = TextBox.new("lordSurnameTextBox", customLordFrame);
+    lordSurnameTextBox.uic:SetStateText("Surname");
+    nameContainer:AddComponent(lordSurnameTextBox);
+    nameContainer:AddGap(5);
+    local randomNameButton = Button.new("randomLordNameButton", customLordFrame, "SQUARE", "ui/skins/default/icon_auto_resolve.png")
+    randomNameButton:Resize(lordSurnameTextBox:Height(), lordSurnameTextBox:Height());
+    nameContainer:AddComponent(randomNameButton);
+    local randomNameGenerator = RandomNameGenerator();
+    randomNameButton:RegisterForClick(
+          function(context)
+              local randomForename, randomSurname = randomNameGenerator:generateRandomName(model.selectedLordType, cm:get_local_faction());
+              lordForenameTextBox.uic:SetStateText(randomForename);
+              lordSurnameTextBox.uic:SetStateText(randomSurname);
+          end, nil
+    );
+    randomNameButton.uic:SetTooltipText("Generate random name", true);
     frameContainer:AddGap(10);
 
     local lordTypeText = Text.new("lordTypeText", customLordFrame, "HEADER", "Select your Lord's type");
@@ -352,7 +374,8 @@ function createCustomLordFrameUi(recruitCallback, cost, agentType)
     recuitButton:RegisterForClick(
             function(context)
                 recruitCallback(
-                        lordNameTextBox.uic:GetStateText(),
+                        lordForenameTextBox.uic:GetStateText(),
+                        lordSurnameTextBox.uic:GetStateText(),
                         model.selectedLordType,
                         model.selectedSkillSet,
                         model.attributeValues,

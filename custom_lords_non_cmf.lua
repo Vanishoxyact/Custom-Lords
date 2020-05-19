@@ -1,4 +1,5 @@
 CUSTOM_LORDS_CAN_RECRUIT_SLANN = false --: boolean
+my_load_mod_script("LuaObject");
 my_load_mod_script("table_loading");
 my_load_mod_script("custom_lords_ui");
 
@@ -27,7 +28,7 @@ function isLord(agentType)
 end
 
 --v function(selectedSkillSet: string, selectedTraits: vector<string>, attributes: map<string, int>, lordName: string, lordCqi: CA_CQI)
-function lordCreated(selectedSkillSet, selectedTraits, attributes, lordName, lordCqi)
+function lordCreated(selectedSkillSet, selectedTraits, attributes, forename, surname, lordCqi)
    local selectedCharCqi = cm:get_campaign_ui_manager():get_char_selected_cqi();
    --# assume selectedCharCqi: CA_CQI
    -- Add traits
@@ -53,12 +54,17 @@ function lordCreated(selectedSkillSet, selectedTraits, attributes, lordName, lor
    generalButton:SimulateLClick();
    local renameButton = find_uicomponent(core:get_ui_root(), "character_details_panel", "background", "bottom_buttons", "button_rename");
    renameButton:SimulateLClick();
-   local textInput = find_uicomponent(core:get_ui_root(), "popup_text_input", "text_input_list_parent", "text_input");
-   if lordName == "" then
-      lordName = "Custom Lord";
+   local forenameInput = find_uicomponent(core:get_ui_root(), "popup_text_input", "text_input_list_parent", "text_input");
+   if forename == "" then
+      forename = "Custom";
    end
-   for i = 1, string.len(lordName) do
-      textInput:SimulateKey(string.sub(lordName, i, i));
+   for i = 1, string.len(forename) do
+      forenameInput:SimulateKey(string.sub(forename, i, i));
+   end
+   local surnameInput = find_uicomponent(core:get_ui_root(), "popup_text_input", "text_input_list_parent", "text_input1");
+   surnameInput:StealInputFocus(true);
+   for i = 1, string.len(surname) do
+      surnameInput:SimulateKey(string.sub(surname, i, i));
    end
    local popupOkButton = find_uicomponent(core:get_ui_root(), "popup_text_input", "ok_cancel_buttongroup", "button_ok");
    popupOkButton:SimulateLClick();
@@ -245,7 +251,8 @@ function createCustomLordFrame()
 
    local agentType = calculateSelectedAgentType();
    local recruitCallback = function(
-         name, --: string
+         forename, --: string
+         surname, --: string
          lordType, --: string
          skillSet, --: string
          attributes, --: map<string, int>
@@ -254,7 +261,7 @@ function createCustomLordFrame()
    )
       createLord(lordType, selectedArtId, agentType,
             function(context)
-               lordCreated(skillSet, traits, attributes, name, context);
+               lordCreated(skillSet, traits, attributes, forename, surname, context);
             end
       );
       --# assume blocker: IMAGE

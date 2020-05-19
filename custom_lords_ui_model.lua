@@ -1,9 +1,11 @@
 core:load_mod_script("custom_lords_util");
+---@class CustomLordsModel
 local CustomLordsModel = {} --# assume CustomLordsModel: CUSTOM_LORDS_MODEL
 CustomLordsModel.__index = CustomLordsModel;
 
 --v function() --> CUSTOM_LORDS_MODEL
 function CustomLordsModel.new()
+    ---@type CustomLordsModel
     local clm = {};
     setmetatable(clm, CustomLordsModel);
     --# assume clm: CUSTOM_LORDS_MODEL
