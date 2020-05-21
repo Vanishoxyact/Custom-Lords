@@ -76,9 +76,7 @@ function lordCreated(selectedSkillSet, selectedTraits, attributes, extraAttribut
    for i, incident in ipairs(traitIncidents) do
       cm:trigger_incident(cm:get_local_faction(), incident, true);
    end
-   for i=1,extraAttributePoints do
-      cm:trigger_incident(cm:get_local_faction(), "wh2_main_incident_treasury_down_1", true);
-   end
+   cm:treasury_mod(cm:get_local_faction(), extraAttributePoints * -1000);
    cm:callback(
          function()
             cm:disable_event_feed_events(false, "", "wh_event_subcategory_faction_event_dilemma_incident", "");
@@ -106,25 +104,11 @@ end
 function spawnLord()
    find_uicomponent(core:get_ui_root(), "layout", "hud_center_docker", "hud_center", "small_bar", "button_group_settlement", "button_agents"):SimulateLClick();
    find_uicomponent(core:get_ui_root(), "layout", "hud_center_docker", "hud_center", "small_bar", "button_group_settlement", "button_create_army"):SimulateLClick();
-
-   local generalCandidateButton = nil --: CA_UIC
-
-   local generalsList = find_uicomponent(core:get_ui_root(), "character_panel", "general_selection_panel", "character_list_parent", "character_list", "listview", "list_clip", "list_box");
-   for i = 0, generalsList:ChildCount() - 1 do
-      local generalPanel = UIComponent(generalsList:Find(i));
-      local name = find_uicomponent(generalPanel, "dy_name"):GetStateText();
-      if name == "" then
-         generalCandidateButton = generalPanel;
-      end
-   end
-
-   if not generalCandidateButton then
-      out("Failed to find candidate");
+   
+   if not forceSelectSpawnedCandidate() then
       core:remove_listener("LordCreatedListener");
       return;
    end
-
-   generalCandidateButton:SimulateLClick();
    find_uicomponent(core:get_ui_root(), "character_panel", "raise_forces_options", "button_raise"):SimulateLClick();
 end
 
@@ -162,6 +146,14 @@ function spawnHero(lordType, agentType)
       typeButton:SimulateLClick();
    end
 
+   if not forceSelectSpawnedCandidate() then
+      core:remove_listener("LordCreatedListener");
+      return;
+   end
+   find_uicomponent(core:get_ui_root(), "character_panel", "general_selection_panel", "button_confirm"):SimulateLClick();
+end
+
+function forceSelectSpawnedCandidate()
    local generalCandidateButton = nil --: CA_UIC
 
    local generalsList = find_uicomponent(core:get_ui_root(), "character_panel", "general_selection_panel", "character_list_parent", "character_list", "listview", "list_clip", "list_box");
@@ -175,12 +167,15 @@ function spawnHero(lordType, agentType)
 
    if not generalCandidateButton then
       out("Failed to find candidate");
-      core:remove_listener("LordCreatedListener");
-      return;
+      return false;
    end
 
+   generalCandidateButton:SetVisible(true);
+   generalCandidateButton:SetDisabled(false);
+   generalCandidateButton:SetInteractive(true);
+
    generalCandidateButton:SimulateLClick();
-   find_uicomponent(core:get_ui_root(), "character_panel", "general_selection_panel", "button_confirm"):SimulateLClick();
+   return true;
 end
 
 --v function(selectedLordType: string, selectedArtId: string, lordCreatedCallback: function(CA_CQI))
