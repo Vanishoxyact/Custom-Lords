@@ -279,7 +279,7 @@ function createCustomLordFrameUi(recruitCallback, cost, agentType)
               lordSurnameTextBox.uic:SetStateText(randomSurname);
           end, nil
     );
-    randomNameButton.uic:SetTooltipText("Generate random name", true);
+    randomNameButton.uic:SetTooltipText("Generate random name", "", true);
     frameContainer:AddGap(10);
 
     local lordTypeText = Text.new("lordTypeText", customLordFrame, "HEADER", "Select your Lord's type");
