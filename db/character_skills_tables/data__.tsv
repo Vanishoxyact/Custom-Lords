@@ -299,24 +299,24 @@ trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_army_0_disfavoured	Th
 trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_army_0_flat_footed	Don't take this one along if you need to get away quickly… or maybe you should…	Flat-Footed	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_army_0_inhibited	This one doesn't even relax in their own company, so reserved is their nature.	Inhibited	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_army_0_intolerable	Some things should not have to be endured.	Intolerable	0	true	false	false	1.0	0
-trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_army_3_resistant	Action, inaction, change - you name it, this one will work against the prevailing wind.	Resistant	0	true	false	false	1.0	10
+trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_army_3_resistant	Action, inaction, change - you name it, this one will work against the prevailing wind.	Resistant	0	true	false	false	9999.0	10
 trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_army_7_crushing	On occasion, throwing the whole nine leagues at the enemy is just the ticket.	Crushing	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_army_7_honed	Skills refined and improved upon over time can only increase one's edge over the foe.	Honed	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_army_7_incendiary	You don't want to be on the wrong side of this one's ire - it's explosive to say the least!	Incendiary	0	true	false	false	1.0	40
-trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_battle_3_hale_and_hearty	The very picture of good health. Clearly, there's many years still ahead of them.	Hale & Hearty	0	true	false	false	1.0	10
-trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_battle_3_primed	Every fibre of their being is charged and ready for action - wherever, whenever.	Primed	0	true	false	false	1.0	10
-trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_battle_3_spry	Impressively energetic for a thousand years old - even by their own reckoning.	Spry	0	true	false	false	1.0	10
+trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_battle_3_hale_and_hearty	The very picture of good health. Clearly, there's many years still ahead of them.	Hale & Hearty	0	true	false	false	9999.0	10
+trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_battle_3_primed	Every fibre of their being is charged and ready for action - wherever, whenever.	Primed	0	true	false	false	9999.0	10
+trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_battle_3_spry	Impressively energetic for a thousand years old - even by their own reckoning.	Spry	0	true	false	false	9999.0	10
 trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_battle_7_resilient	Armour is just a formality when you're as hard as nails and as tough as old boots.	Resilient	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_battle_7_vigorous	This one is not at all easy to kill, and many have tried, believe me.	Vigorous	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_campaign_0_divisive	Hmmm interesting. I do wonder if there's a third way, however…	Divisive	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_campaign_0_frigid	Stiff, starched, formal. Inflexible.	Frigid	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_campaign_0_incompetent	There's usually a right way and a wrong way to do anything. This one generally gets it wrong.	Incompetent	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_campaign_0_meddler	This one can never leave something alone. They always have to meddle.	Meddler	0	true	false	false	1.0	0
-trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_campaign_3_advocate	Good ideas oft-times need vocal, public support to turn them into reality.	Advocate	0	true	false	false	1.0	10
-trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_campaign_3_attentive	The Daemon is very definitely in the detail…	Attentive	0	true	false	false	1.0	10
-trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_campaign_3_healer	Armies can be mended as surely as people can, up to a point of course.	Healer	0	true	false	false	1.0	10
-trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_campaign_3_prudent	This one acts not for themselves but the for the greater good, in defence of the future.	Prudent	0	true	false	false	1.0	10
-trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_campaign_3_thinker	Fortunately, there are some who really apply themselves to the problems of the world. Just as well, otherwise we'd be… Oh wait...	Thinker	0	true	false	false	1.0	10
+trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_campaign_3_advocate	Good ideas oft-times need vocal, public support to turn them into reality.	Advocate	0	true	false	false	9999.0	10
+trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_campaign_3_attentive	The Daemon is very definitely in the detail…	Attentive	0	true	false	false	9999.0	10
+trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_campaign_3_healer	Armies can be mended as surely as people can, up to a point of course.	Healer	0	true	false	false	9999.0	10
+trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_campaign_3_prudent	This one acts not for themselves but the for the greater good, in defence of the future.	Prudent	0	true	false	false	9999.0	10
+trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_campaign_3_thinker	Fortunately, there are some who really apply themselves to the problems of the world. Just as well, otherwise we'd be… Oh wait...	Thinker	0	true	false	false	9999.0	10
 trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_campaign_7_entrepreneur	There's always a way - always an angle. You just have to find it.	Entrepreneur	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_campaign_7_fecund	Never short of new ideas, or new ways of looking at old problems.	Fecund	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_dlc10_skill_innate_hef_handmaiden_campaign_7_genius	An individual of exceptional skill and worth; the very embodiment of sagacity.	Genius	0	true	false	false	1.0	40
@@ -956,6 +956,158 @@ character_movement.png	wh2_dlc14_skill_skv_snikch_scurry_fast_quick	Eshin Assass
 character_speed.png	wh2_dlc14_skill_skv_stab_in_the_back	The Skaven are renowned for their cheap shots and sucker punches, but the Assassins of Eshin are masters of both!	Stab in the Back	0	false	false	false	0.0	0
 character_health.png	wh2_dlc14_skill_skv_tougher_than_he_seems	Make no mistake – in most cases, a Master Assassin’s training is quite literally a baptism of fire.	Tougher Than He Seems	7	false	false	false	0.0	0
 wh_main_character_abilities_arcane_conduit.png	wh2_dlc14_skilll_all_magic_all_greater_arcane_conduit		Greater Arcane Conduit	0	false	false	false	0.0	0
+battle_attack.png	wh2_dlc15_qb_blacktoofs_conjuration	ph	ph	0	false	false	false	0.0	0
+battle_attack.png	wh2_dlc15_skill_all_dummy_agent_actions_grn_river_troll_hag	 	Actions [HIDDEN]	0	false	false	false	0.0	0
+character_general_ability.png	wh2_dlc15_skill_all_hero_self_crack_some_eads	"Chop 'em up, you gitz!"	Crack Some 'Eads!	0	false	false	false	0.0	0
+wh_main_character_abilities_stand_your_ground.png	wh2_dlc15_skill_all_lord_battle_stand_your_ground_no_replace	 	Stand Your Ground!	0	false	false	false	0.0	0
+wh_main_character_abilities_arcane_conduit.png	wh2_dlc15_skill_all_magic_all_11_arcane_conduit_levelreq	 	Arcane Conduit	0	false	false	false	0.0	0
+wh2_dlc15_skill_grn_da_boss_loons.png	wh2_dlc15_skill_grn_da_boss_loons	 	Da Boss' Loons	0	false	false	false	0.0	0
+wh2_dlc15_skill_grn_dont_even_try_it.png	wh2_dlc15_skill_grn_dont_even_try_it	 	Don't Even Try It	0	false	false	false	0.0	0
+wh2_dlc15_skill_grn_fermented_fungi.png	wh2_dlc15_skill_grn_fermented_fungi	 	Fermented Fungi	0	false	false	false	0.0	0
+wh2_dlc15_skill_grn_fermented_fungi.png	wh2_dlc15_skill_grn_fermented_fungi_skarsnik	 	Fermented Fungi	0	false	false	false	0.0	0
+item_enchanted_item.png	wh2_dlc15_skill_grn_grom_boisterous_shakedown	Grom's appetite cannot be contained merely to the culinary realm…	Boisterous Shakedown	0	false	false	false	0.0	0
+wh2_dlc15_skill_grn_grom_chariot_races.png	wh2_dlc15_skill_grn_grom_chariot_races	"Paint it red! More spikes! Bigga wheelz! STIKK SOME BOMBZ ON THE BACK!"	Chariot Races	0	false	false	false	0.0	0
+character_wound_time.png	wh2_dlc15_skill_grn_grom_comin_back	Like any good Warboss, Grom understands well the art of getting back up after every setback.	Comin' Back!	0	false	false	false	0.0	0
+wh2_dlc15_skill_grn_grom_culinary_curmudgeon.png	wh2_dlc15_skill_grn_grom_culinary_curmudgeon	Every settlement keeps the fires stoked and the meat burning in case Grom decides to show up for an impromptu snack.	Culinary Curmudgeon	0	false	false	false	0.0	0
+character_bonus_vs_infantry.png	wh2_dlc15_skill_grn_grom_down_to_size	Those of great stature often overlook the humble Goblin. Goblins, however, are almost preternaturally aware of nearby shins in need of a good stabbin'!	Down to Size	0	false	false	false	0.0	0
+character_health.png	wh2_dlc15_skill_grn_grom_gargantuan_glutton	Grom's ridiculous girth provides some measure of protection against the weapons of his puny foes.	Gargantuan Glutton	0	false	false	false	0.0	0
+character_morale.png	wh2_dlc15_skill_grn_grom_great_immensity	Grom is titanic – a bloated Goblin of such great immensity that every other gobbo looks up to him, both figuratively and literally!	His Great Immensity	0	false	false	false	0.0	0
+item_weapon.png	wh2_dlc15_skill_grn_grom_quest_axe_of_grom	Like a butcher’s cleaver, Grom uses the fabled ‘Elf-Biter’ to make tasty cuts of meat out of his rivals!	Axe of Grom	4	false	false	false	0.0	0
+item_enchanted_item.png	wh2_dlc15_skill_grn_grom_quest_lucky_banner	Along with his serendipitous standard-bearer, Niblet, who once somehow survived being sat on by him, the Goblin King’s banner brings inexplicable luck. 	Lucky Banner	1	false	false	false	0.0	0
+wh2_dlc15_skill_grn_grom_roll_em_over.png	wh2_dlc15_skill_grn_grom_roll_em_over	"We're gonna dis-kum-bob-url-rate em good!"\n"Izzat even a word?"\n"Dunno."	Roll 'Em Over!	0	false	false	false	0.0	0
+character_armour.png	wh2_dlc15_skill_grn_hero_personal_dead_ard	"'Arder than 'ard! Dead 'ard!"	Dead 'Ard	0	false	false	false	0.0	0
+battle_attack.png	wh2_dlc15_skill_grn_lord_battle_goblintide	Ten Goblins? Inconvenient.\nA hundred? Alarming.\nA thousand? \nUh oh!	Goblintide	0	false	false	false	0.0	0
+character_damage.png	wh2_dlc15_skill_grn_river_troll_hag_bag_batterin	All manner of things may be found inside a net of Dead-things. From horrid rotten morsels to still live enemy combatants, stored for easy snacking.	Bag Batterin'	0	false	false	false	0.0	0
+wh2_dlc15_skill_river_troll_hag_mither.png	wh2_dlc15_skill_grn_river_troll_hag_mither		Mither	0	false	false	false	0.0	0
+character_health.png	wh2_dlc15_skill_grn_river_troll_hag_slimy_shanks	The River Troll Hag is never without her signature coating of thick swamp slime, which can turn sword and axe away with disturbing undulations.	Slimy Shanks	0	false	false	false	0.0	0
+wh2_dlc15_hag_skill_teach_em_right.png	wh2_dlc15_skill_grn_river_troll_hag_teach_em_right	No Greenskin would be so foolish as to act out of turn around a River Troll Hag, lest she decide they require her (often fatal) attentions.	Teach 'Em Right!	0	false	false	false	0.0	0
+guerrilla_deploy.png	wh2_dlc15_skill_grn_spy_unique_goblin_big_boss_ambusher	This Boss is especially sneaky, able to deploy deep in enemy gits' terrain before battle.	Ambusher	6	false	false	false	0.0	0
+wh2_dlc15_skill_grn_they_needs_stabbin.png	wh2_dlc15_skill_grn_they_needs_stabbin	 	They Needs Stabbin'	0	false	false	false	0.0	0
+character_bonus_vs_infantry.png	wh2_dlc15_skill_hef_alastar_ancestral_axes	Each axe bears the scars of generations of use; each strike fells with the strength of all those who struck before.	Ancestral Axes	0	false	false	false	0.0	0
+wh2_dlc15_skill_hef_alastar_clearcutting_maneuvers.png	wh2_dlc15_skill_hef_alastar_clearcutting_maneuvers	No hill, tree or valley is an impediment to these seasoned veterans of the forest.	Clearcutting Manoeuvres	0	false	false	false	0.0	0
+battle_charge.png	wh2_dlc15_skill_hef_alastar_lions_pride	War lions which have remained in service for long enough develop a true bond with their handlers.	Lion's Pride	0	false	false	false	0.0	0
+mount_white_lion_chariot.png	wh2_dlc15_skill_hef_alastar_white_lion_chariot	Those who employ War Lion Chariots benefit considerably from the ferocity of the huge, snarling cats, keeping foes exposed to their cleaving weaponry.	White Lion Chariot	8	false	false	false	0.0	0
+character_cooldown.png	wh2_dlc15_skill_hef_archmage_absolute_control	Mere talent alone is not enough, one must be truly gifted to be chosen to study at the Tower of Hoeth.	Absolute Control	0	false	false	false	0.0	0
+mount_elven_steed.png	wh2_dlc15_skill_hef_archmage_beasts_mount_barded_ithilmar_steed	The best of all horse breeds found anywhere in the world, Elven steeds are noble, intelligent, graceful, and swift.	Elven Steed	10	false	false	false	0.0	0
+mount_great_eagle.png	wh2_dlc15_skill_hef_archmage_beasts_mount_great_eagle	Ulthuan's Great Eagles are the firm allies of the Elves, fighting their causes since the coming of Chaos.	Great Eagle	0	false	false	false	0.0	0
+mount_ithilmar_chariot.png	wh2_dlc15_skill_hef_archmage_beasts_mount_ithilmar_chariot	Excellent Elven chariots, barded with priceless Ithilmar for extra protection on the battlefield but at no cost in speed or agility.	Ithilmar Chariot	13	false	false	false	0.0	0
+mount_moon_dragon.png	wh2_dlc15_skill_hef_archmage_beasts_mount_moon_dragon	Those atop the mighty Moon Drakes are steeled in the knowledge of their mount’s enlightened strength that has seen them face down Daemons.	Moon Dragon	21	false	false	false	0.0	0
+wh_main_spell_heavens_urannons_thunderbolt.png	wh2_dlc15_skill_hef_archmage_crackling_potency		Crackling Potency	0	false	false	false	0.0	0
+mount_elven_steed.png	wh2_dlc15_skill_hef_archmage_death_mount_barded_ithilmar_steed	The best of all horse breeds found anywhere in the world, Elven steeds are noble, intelligent, graceful, and swift.	Elven Steed	10	false	false	false	0.0	0
+mount_great_eagle.png	wh2_dlc15_skill_hef_archmage_death_mount_great_eagle	Ulthuan's Great Eagles are the firm allies of the Elves, fighting their causes since the coming of Chaos.	Great Eagle	0	false	false	false	0.0	0
+mount_ithilmar_chariot.png	wh2_dlc15_skill_hef_archmage_death_mount_ithilmar_chariot	Excellent Elven chariots, barded with priceless Ithilmar for extra protection on the battlefield but at no cost in speed or agility.	Ithilmar Chariot	13	false	false	false	0.0	0
+mount_moon_dragon.png	wh2_dlc15_skill_hef_archmage_death_mount_moon_dragon	Those atop the mighty Moon Drakes are steeled in the knowledge of their mount’s enlightened strength that has seen them face down Daemons.	Moon Dragon	21	false	false	false	0.0	0
+mount_elven_steed.png	wh2_dlc15_skill_hef_archmage_fire_mount_barded_ithilmar_steed	The best of all horse breeds found anywhere in the world, Elven steeds are noble, intelligent, graceful, and swift.	Elven Steed	10	false	false	false	0.0	0
+mount_great_eagle.png	wh2_dlc15_skill_hef_archmage_fire_mount_great_eagle	Ulthuan's Great Eagles are the firm allies of the Elves, fighting their causes since the coming of Chaos.	Great Eagle	0	false	false	false	0.0	0
+mount_ithilmar_chariot.png	wh2_dlc15_skill_hef_archmage_fire_mount_ithilmar_chariot	Excellent Elven chariots, barded with priceless Ithilmar for extra protection on the battlefield but at no cost in speed or agility.	Ithilmar Chariot	13	false	false	false	0.0	0
+mount_moon_dragon.png	wh2_dlc15_skill_hef_archmage_fire_mount_moon_dragon	Those atop the mighty Moon Drakes are steeled in the knowledge of their mount’s enlightened strength that has seen them face down Daemons.	Moon Dragon	21	false	false	false	0.0	0
+character_ward_save.png	wh2_dlc15_skill_hef_archmage_greater_ward	With precise applications of unmaking, any threat may be rendered null and void in turn.	Greater Ward	0	false	false	false	0.0	0
+mount_elven_steed.png	wh2_dlc15_skill_hef_archmage_heavens_mount_barded_ithilmar_steed	The best of all horse breeds found anywhere in the world, Elven steeds are noble, intelligent, graceful, and swift.	Elven Steed	10	false	false	false	0.0	0
+mount_great_eagle.png	wh2_dlc15_skill_hef_archmage_heavens_mount_great_eagle	Ulthuan's Great Eagles are the firm allies of the Elves, fighting their causes since the coming of Chaos.	Great Eagle	0	false	false	false	0.0	0
+mount_ithilmar_chariot.png	wh2_dlc15_skill_hef_archmage_heavens_mount_ithilmar_chariot	Excellent Elven chariots, barded with priceless Ithilmar for extra protection on the battlefield but at no cost in speed or agility.	Ithilmar Chariot	13	false	false	false	0.0	0
+mount_moon_dragon.png	wh2_dlc15_skill_hef_archmage_heavens_mount_moon_dragon	Those atop the mighty Moon Drakes are steeled in the knowledge of their mount’s enlightened strength that has seen them face down Daemons.	Moon Dragon	21	false	false	false	0.0	0
+mount_elven_steed.png	wh2_dlc15_skill_hef_archmage_high_mount_barded_ithilmar_steed	The best of all horse breeds found anywhere in the world, Elven steeds are noble, intelligent, graceful, and swift.	Elven Steed	10	false	false	false	0.0	0
+mount_great_eagle.png	wh2_dlc15_skill_hef_archmage_high_mount_great_eagle	Ulthuan's Great Eagles are the firm allies of the Elves, fighting their causes since the coming of Chaos.	Great Eagle	0	false	false	false	0.0	0
+mount_ithilmar_chariot.png	wh2_dlc15_skill_hef_archmage_high_mount_ithilmar_chariot	Excellent Elven chariots, barded with priceless Ithilmar for extra protection on the battlefield but at no cost in speed or agility.	Ithilmar Chariot	13	false	false	false	0.0	0
+mount_moon_dragon.png	wh2_dlc15_skill_hef_archmage_high_mount_moon_dragon	Those atop the mighty Moon Drakes are steeled in the knowledge of their mount’s enlightened strength that has seen them face down Daemons.	Moon Dragon	21	false	false	false	0.0	0
+wh_main_spell_heavens_urannons_thunderbolt.png	wh2_dlc15_skill_hef_archmage_innate_conduit	This character has arcane conduit innately.	Conduit haver	0	false	false	false	0.0	0
+mount_elven_steed.png	wh2_dlc15_skill_hef_archmage_life_mount_barded_ithilmar_steed	The best of all horse breeds found anywhere in the world, Elven steeds are noble, intelligent, graceful, and swift.	Elven Steed	10	false	false	false	0.0	0
+mount_great_eagle.png	wh2_dlc15_skill_hef_archmage_life_mount_great_eagle	Ulthuan's Great Eagles are the firm allies of the Elves, fighting their causes since the coming of Chaos.	Great Eagle	0	false	false	false	0.0	0
+mount_ithilmar_chariot.png	wh2_dlc15_skill_hef_archmage_life_mount_ithilmar_chariot	Excellent Elven chariots, barded with priceless Ithilmar for extra protection on the battlefield but at no cost in speed or agility.	Ithilmar Chariot	13	false	false	false	0.0	0
+mount_moon_dragon.png	wh2_dlc15_skill_hef_archmage_life_mount_moon_dragon	Those atop the mighty Moon Drakes are steeled in the knowledge of their mount’s enlightened strength that has seen them face down Daemons.	Moon Dragon	21	false	false	false	0.0	0
+mount_elven_steed.png	wh2_dlc15_skill_hef_archmage_light_mount_barded_ithilmar_steed	The best of all horse breeds found anywhere in the world, Elven steeds are noble, intelligent, graceful, and swift.	Elven Steed	10	false	false	false	0.0	0
+mount_great_eagle.png	wh2_dlc15_skill_hef_archmage_light_mount_great_eagle	Ulthuan's Great Eagles are the firm allies of the Elves, fighting their causes since the coming of Chaos.	Great Eagle	0	false	false	false	0.0	0
+mount_ithilmar_chariot.png	wh2_dlc15_skill_hef_archmage_light_mount_ithilmar_chariot	Excellent Elven chariots, barded with priceless Ithilmar for extra protection on the battlefield but at no cost in speed or agility.	Ithilmar Chariot	13	false	false	false	0.0	0
+mount_moon_dragon.png	wh2_dlc15_skill_hef_archmage_light_mount_moon_dragon	Those atop the mighty Moon Drakes are steeled in the knowledge of their mount’s enlightened strength that has seen them face down Daemons.	Moon Dragon	21	false	false	false	0.0	0
+mount_elven_steed.png	wh2_dlc15_skill_hef_archmage_metal_mount_barded_ithilmar_steed	The best of all horse breeds found anywhere in the world, Elven steeds are noble, intelligent, graceful, and swift.	Elven Steed	10	false	false	false	0.0	0
+mount_great_eagle.png	wh2_dlc15_skill_hef_archmage_metal_mount_great_eagle	Ulthuan's Great Eagles are the firm allies of the Elves, fighting their causes since the coming of Chaos.	Great Eagle	0	false	false	false	0.0	0
+mount_ithilmar_chariot.png	wh2_dlc15_skill_hef_archmage_metal_mount_ithilmar_chariot	Excellent Elven chariots, barded with priceless Ithilmar for extra protection on the battlefield but at no cost in speed or agility.	Ithilmar Chariot	13	false	false	false	0.0	0
+mount_moon_dragon.png	wh2_dlc15_skill_hef_archmage_metal_mount_moon_dragon	Those atop the mighty Moon Drakes are steeled in the knowledge of their mount’s enlightened strength that has seen them face down Daemons.	Moon Dragon	21	false	false	false	0.0	0
+character_magic.png	wh2_dlc15_skill_hef_archmage_potential_energy	The Archmage crackles and flows with energies that would unmake any mortal practitioner.	Potential Energy	0	false	false	false	0.0	0
+mount_elven_steed.png	wh2_dlc15_skill_hef_archmage_shadows_mount_barded_ithilmar_steed	The best of all horse breeds found anywhere in the world, Elven steeds are noble, intelligent, graceful, and swift.	Elven Steed	10	false	false	false	0.0	0
+mount_great_eagle.png	wh2_dlc15_skill_hef_archmage_shadows_mount_great_eagle	Ulthuan's Great Eagles are the firm allies of the Elves, fighting their causes since the coming of Chaos.	Great Eagle	0	false	false	false	0.0	0
+mount_ithilmar_chariot.png	wh2_dlc15_skill_hef_archmage_shadows_mount_ithilmar_chariot	Excellent Elven chariots, barded with priceless Ithilmar for extra protection on the battlefield but at no cost in speed or agility.	Ithilmar Chariot	13	false	false	false	0.0	0
+mount_moon_dragon.png	wh2_dlc15_skill_hef_archmage_shadows_mount_moon_dragon	Those atop the mighty Moon Drakes are steeled in the knowledge of their mount’s enlightened strength that has seen them face down Daemons.	Moon Dragon	21	false	false	false	0.0	0
+battle_morale.png	wh2_dlc15_skill_hef_eltharion_a_world_asunder	No being is above suspicion, no motive shall remain hidden. No peace without war.	A World Asunder	0	false	false	false	0.0	0
+wh2_dlc15_skill_hef_eltharion_break_upon_the_walls.png	wh2_dlc15_skill_hef_eltharion_break_upon_the_walls	When no fixture presents itself, one must simply make their own.	Break Upon the Walls	0	false	false	false	0.0	0
+wh2_dlc15_skill_hef_eltharion_dedicated_to_ladrielle.png	wh2_dlc15_skill_hef_eltharion_dedicated_to_ladrielle	The Lady of Mists is a patron of the hidden and the lost. Her presence is felt most strongly within the mists of Yvresse, where she is said to guide wanderers to safety.	Dedicated to Ladrielle	0	false	false	false	0.0	0
+wh2_dlc15_skill_hef_eltharion_grim_discipline.png	wh2_dlc15_skill_hef_eltharion_grim_discipline	The Elves of Tor Yvresse contain a deep hatred, war has scarred their hearts and steeled their souls. Tor Yvresse will not fall again.	Grim Discipline	0	false	false	false	0.0	0
+mount_elven_steed.png	wh2_dlc15_skill_hef_eltharion_mount_barded_warhorse	An extremely light yet resilient material, Ithilmar gives the same protection as heavy steel, but without slowing down its wearer.	Barded Ithilmar Steed	0	false	false	false	0.0	0
+mount_hef_griffon.png	wh2_dlc15_skill_hef_eltharion_mount_stormwing	Together with Stormwing, Eltharion cuts through Ulthuan’s foes like a wind of blades as the mighty Griffon rakes and claws with savagery.	Stormwing	0	false	false	false	0.0	0
+item_weapon.png	wh2_dlc15_skill_hef_eltharion_quest_fangsword_of_eltharion	This rune-encrusted longsword has been passed down through Eltharion’s family for generations, bestowing unto him the zeal of his forefathers.	Fangsword of Eltharion	9	false	false	false	0.0	0
+item_armour.png	wh2_dlc15_skill_hef_eltharion_quest_helm_of_yvresse	The ceremonial crown of he who protects Yvresse’s ancient metropolis is an inspirational symbol of dogged determination.	Helm of Yvresse	6	false	false	false	0.0	0
+item_talisman.png	wh2_dlc15_skill_hef_eltharion_quest_talisman_of_hoeth	reasonable talisman :o	Talisman of Hoeth	4	false	false	false	0.0	0
+campaign_siege_attack.png	wh2_dlc15_skill_hef_eltharion_siegebreaker	Unmake what is theirs to safeguard what is ours.	Siegebreaker	0	false	false	false	0.0	0
+character_damage.png	wh2_dlc15_skill_hef_eltharion_storm_of_blades	Steel that bites deeper than the flesh.	Storm of Blades	0	false	false	false	0.0	0
+campaign_movement.png	wh2_dlc15_skill_hef_eltharion_unyielding_march	No dark corner of the world will serve to hide you from the Mistwalkers.	Unyielding March	0	false	false	false	0.0	0
+campaign_siege_defence.png	wh2_dlc15_skill_hef_eltharion_wallwarden	These walls have stood since ages past, and they will not fall until this world crumbles into nothing!	Wallwarden	0	false	false	false	0.0	0
+character_experience.png	wh2_dlc15_skill_hef_imrik_ancient_pride	Dragon Princes are the only Elves who would never dip their banners for the Phoenix King, holding to an honour said to have been granted by Caledor himself!	Ancient Pride	0	false	false	false	0.0	0
+wh2_dlc15_skill_hef_imrik_ashen_fields.png	wh2_dlc15_skill_hef_imrik_ashen_fields	When it is done there shall remain but mounds of ash as far as the eye can see.	Ashen Fields	0	false	false	false	0.0	0
+character_charge.png	wh2_dlc15_skill_hef_imrik_astride_the_Battlefield	Caledorians are renowned for their arrogance. It is however hard to argue their proficiency as elite cavalry.	Astride the Battlefield	0	false	false	false	0.0	0
+battle_charge.png	wh2_dlc15_skill_hef_imrik_blazing_lance	It is not the Dragon you should fear…	Blazing Lance	0	false	false	false	0.0	0
+campaign_agent.png	wh2_dlc15_skill_hef_imrik_caledor_incumbent	Imrik is prince of the silent realm of Caledor. Despite the decline of the Dragons, Imrik does not waver in his duty.	Caledor Incumbent	0	false	false	false	0.0	0
+wh2_dlc15_skill_hef_imrik_dragonheart.png	wh2_dlc15_skill_hef_imrik_dragonheart	The age of Dragons is long past, but the pride of Caledorians doth never wane. The fires that once raged upon the peaks now rages within every Caledorian Elf.	Dragonheart	0	false	false	false	0.0	0
+wh_main_spell_fire_piercing_bolts_of_burning.png	wh2_dlc15_skill_hef_imrik_dragonpact		Dragonpact	0	false	false	false	0.0	0
+mount_elven_steed.png	wh2_dlc15_skill_hef_imrik_mount_dragon_prince_steed	The Dragon Prince’s unwavering steed is bedecked in plates and scales of ‘sky-silver’ that mimic the appearance of a mighty Drake.	Mautererius	0	false	false	false	0.0	0
+mount_star_dragon.png	wh2_dlc15_skill_hef_imrik_mount_minaithnir	Imrik’s fanatically loyal Drake is a symbol of the Elf Lord’s irrefutable eminence as the last true Dragon Prince.	Minaithnir	13	false	false	false	0.0	0
+item_armour.png	wh2_dlc15_skill_hef_imrik_quest_armour_of_caledor	Donned by the masters of the House of Caledor, this ensorcelled armour has endured over four thousand years of battles.	Armour of Caledor	4	false	false	false	0.0	0
+battle_armour.png	wh2_dlc15_skill_hef_imrik_vauls_armaments	Caledor is home to Vaul's Anvil, the site of a great temple to the God of Smiths. The work of the priests of Vaul binds the Winds into steel, and forges peerless magical arms and armour.	Vaul's Armaments	0	false	false	false	0.0	0
+mount_elven_steed.png	wh2_dlc15_skill_hef_mage_beasts_mount_elven_steed	The best of all horse breeds found anywhere in the world, Elven steeds are noble, intelligent, graceful, and swift.	Elven Steed	6	false	false	false	0.0	0
+mount_ithilmar_chariot.png	wh2_dlc15_skill_hef_mage_beasts_mount_ithilmar_chariot	Excellent Elven chariots, barded with priceless Ithilmar for extra protection on the battlefield but at no cost in speed or agility.	Ithilmar Chariot	13	false	false	false	0.0	0
+mount_elven_steed.png	wh2_dlc15_skill_hef_mage_death_mount_elven_steed	The best of all horse breeds found anywhere in the world, Elven steeds are noble, intelligent, graceful, and swift.	Elven Steed	6	false	false	false	0.0	0
+mount_ithilmar_chariot.png	wh2_dlc15_skill_hef_mage_death_mount_ithilmar_chariot	Excellent Elven chariots, barded with priceless Ithilmar for extra protection on the battlefield but at no cost in speed or agility.	Ithilmar Chariot	13	false	false	false	0.0	0
+mount_elven_steed.png	wh2_dlc15_skill_hef_mage_fire_mount_elven_steed	The best of all horse breeds found anywhere in the world, Elven steeds are noble, intelligent, graceful, and swift.	Elven Steed	6	false	false	false	0.0	0
+mount_ithilmar_chariot.png	wh2_dlc15_skill_hef_mage_fire_mount_ithilmar_chariot	Excellent Elven chariots, barded with priceless Ithilmar for extra protection on the battlefield but at no cost in speed or agility.	Ithilmar Chariot	13	false	false	false	0.0	0
+mount_sun_dragon.png	wh2_dlc15_skill_hef_mage_fire_mount_sun_dragon	The youngest Dragons have a warm hue to their scales and a fiery temper, with scorching breath to match.	Sun Dragon	21	false	false	false	0.0	0
+mount_elven_steed.png	wh2_dlc15_skill_hef_mage_metal_mount_elven_steed	The best of all horse breeds found anywhere in the world, Elven steeds are noble, intelligent, graceful, and swift.	Elven Steed	6	false	false	false	0.0	0
+mount_ithilmar_chariot.png	wh2_dlc15_skill_hef_mage_metal_mount_ithilmar_chariot	Excellent Elven chariots, barded with priceless Ithilmar for extra protection on the battlefield but at no cost in speed or agility.	Ithilmar Chariot	13	false	false	false	0.0	0
+mount_hef_griffon.png	wh2_dlc15_skill_hef_prince_mount_griffon	The wild Griffons of Ulthuan are creatures of noble bearing and keen intelligence, with whom Elves form bonds that only death can shatter.	Griffon	13	false	false	false	0.0	0
+mount_hef_griffon.png	wh2_dlc15_skill_hef_princess_mount_griffon	The wild Griffons of Ulthuan are creatures of noble bearing and keen intelligence, with whom Elves form bonds that only death can shatter.	Griffon	13	false	false	false	0.0	0
+mount_arcane_phoenix.png	wh2_dlc15_skill_hef_teclis_mount_arcane_phoenix	Fighting upon an Arcane Phoenix, Teclis rides the magical tempests, harnessing the power of the howling Winds sweeping through the world of mortals.	Arcane Phoenix	0	false	false	false	0.0	0
+trait_greenskins.png	wh2_dlc15_skill_innate_grn_grom	Maintaining a chariot that can support Grom's immense weight pushes Goblin engineering skills to their limits.	Da Great 'Un	0	true	false	false	5.0	0
+trait_high_elves.png	wh2_dlc15_skill_innate_hef_archmage_army_0_flustered	Cool, calm, and collected. Yeah, right!	Flustered	0	true	false	false	1.0	0
+trait_high_elves.png	wh2_dlc15_skill_innate_hef_archmage_army_0_inhibited	This one doesn't even relax in their own company, so reserved is their nature.	Inhibited	0	true	false	false	1.0	0
+trait_high_elves.png	wh2_dlc15_skill_innate_hef_archmage_army_0_wet	Fortitude? Strength of character? Do me a favour – this yellow-bellied poltroon has none.	Ridiculed	0	true	false	false	1.0	0
+trait_high_elves.png	wh2_dlc15_skill_innate_hef_archmage_army_3_dampener	Definitely not the life and soul of the party; they exude melancholy and depression.	Dampener	0	true	false	false	9999.0	15
+trait_high_elves.png	wh2_dlc15_skill_innate_hef_archmage_army_3_flammable	Tempers, like wicks, can be ignited. Watch the anger burn.	Flammable	0	true	false	false	9999.0	15
+trait_high_elves.png	wh2_dlc15_skill_innate_hef_archmage_army_3_resistant	Action, inaction, change – you name it, this one will work against the prevailing wind.	Resistant	0	true	false	false	9999.0	15
+trait_high_elves.png	wh2_dlc15_skill_innate_hef_archmage_army_7_incendiary	You don't want to be on the wrong side of this one's ire – it's explosive to say the least!	Incendiary	0	true	false	false	1.0	60
+trait_high_elves.png	wh2_dlc15_skill_innate_hef_archmage_army_7_negator	Not every cloud has a silver lining.	Negator	0	true	false	false	1.0	60
+trait_high_elves.png	wh2_dlc15_skill_innate_hef_archmage_army_7_protective	Whatever quality is needed to stand guard over the Asur way of life, this one has it in abundance.	Protective	0	true	false	false	1.0	60
+trait_high_elves.png	wh2_dlc15_skill_innate_hef_archmage_battle_0_enervated	If ever there was a candidate for a relaxing break at an all-inclusive spa, it was this one.	Enervated	0	true	false	false	1.0	0
+trait_high_elves.png	wh2_dlc15_skill_innate_hef_archmage_battle_0_peaky	Looking "not too well" has become a permanent condition. Clearly, they're lacking essential herbs.	Peaky	0	true	false	false	1.0	0
+trait_high_elves.png	wh2_dlc15_skill_innate_hef_archmage_battle_0_uni_ped	They say two are better than one. They are, of course, totally wrong in every respect.	Uniped	0	true	false	false	1.0	0
+trait_high_elves.png	wh2_dlc15_skill_innate_hef_archmage_battle_3_fortuitous	Chance is like magic – it can be harnessed to the individual's will.	Fortuitous	0	true	false	false	9999.0	15
+trait_high_elves.png	wh2_dlc15_skill_innate_hef_archmage_battle_3_primed	Every fibre of their being is charged and ready for action – wherever, whenever.	Primed	0	true	false	false	9999.0	15
+trait_high_elves.png	wh2_dlc15_skill_innate_hef_archmage_battle_3_spry	Impressively energetic for a thousand years old – even by their own reckoning.	Spry	0	true	false	false	9999.0	15
+trait_high_elves.png	wh2_dlc15_skill_innate_hef_archmage_battle_7_conductor	Through their veins a charge is racing. Energy, filling the ominous void within.	Conductor	0	true	false	false	1.0	60
+trait_high_elves.png	wh2_dlc15_skill_innate_hef_archmage_battle_7_limber	"Staying this supple takes effort. You don’t get definition like that by sitting about and drinking."	Limber	0	true	false	false	1.0	60
+trait_high_elves.png	wh2_dlc15_skill_innate_hef_archmage_battle_7_protected	"If you need anything, there are guards outside the doors. Many guards."	Protected	0	true	false	false	1.0	60
+trait_high_elves.png	wh2_dlc15_skill_innate_hef_archmage_campaign_0_incompetent	There's usually a right way and a wrong way to do anything. This one generally gets it wrong.	Incompetent	0	true	false	false	1.0	0
+trait_high_elves.png	wh2_dlc15_skill_innate_hef_archmage_campaign_0_luddite	Machinery – and indeed progress of any kind – is anathema to this one, because there's no substitute for good, honest toil.	Luddite	0	true	false	false	1.0	0
+trait_high_elves.png	wh2_dlc15_skill_innate_hef_archmage_campaign_0_meddler	This one can never leave something alone. They always have to meddle.	Meddler	0	true	false	false	1.0	0
+trait_high_elves.png	wh2_dlc15_skill_innate_hef_archmage_campaign_3_builder	Much of the Ulthuan skyline built over the last thousand years is down to this one’s sterling endeavours.	Builder	0	true	false	false	9999.0	15
+trait_high_elves.png	wh2_dlc15_skill_innate_hef_archmage_campaign_3_dealer	"Too late, too late!" will be the cry, when the one with the bargains passes you by.	Dealer	0	true	false	false	9999.0	15
+trait_high_elves.png	wh2_dlc15_skill_innate_hef_archmage_campaign_3_thinker	Fortunately, there are some who really apply themselves to the problems of the world. Just as well, otherwise we'd be… Oh wait...	Thinker	0	true	false	false	9999.0	15
+trait_high_elves.png	wh2_dlc15_skill_innate_hef_archmage_campaign_7_administrator	If it requires accuracy and organisation, this one is your Elf. Not so much fun at parties, however.	Administrator	0	true	false	false	1.0	60
+trait_high_elves.png	wh2_dlc15_skill_innate_hef_archmage_campaign_7_entrepreneur	"There's always a way – always an angle. You just have to find it."	Entrepreneur	0	true	false	false	0.0	60
+trait_high_elves.png	wh2_dlc15_skill_innate_hef_archmage_campaign_7_genius	An individual of exceptional skill and worth; the very embodiment of sagacity.	Genius	0	false	false	false	1.0	60
+trait_high_elves.png	wh2_dlc15_skill_innate_hef_eltharion	"Pointy-ead'' is legendary among the Greenskins, who both fear and respect his martial prowess.	Warden of Tor Yvresse	0	true	false	false	5.0	0
+trait_high_elves.png	wh2_dlc15_skill_innate_hef_imrik	Imrik is the last of the line of Caledor the Dragontamer, and shares his lineage's martial excellence and affinity for Dragonkind.	Dragonkin	0	true	false	false	5.0	0
+wh_dlc03_spell_beasts_transformation_of_kadon.png	wh2_dlc15_skill_magic_beasts_transformation_of_kadon	Kadon, a master of forms, was able to shift his shape into anything he chose. This mastery is used to summon a Great Eagle, as if Kadon himself fights for you.	Transformation of Kadon	0	false	false	false	0.0	0
+wh_dlc03_spell_beasts_transformation_of_kadon.png	wh2_dlc15_skill_magic_beasts_transformation_of_kadon_lord	Kadon, a master of forms, was able to shift his shape into anything he chose. This mastery is used to summon a Great Eagle, as if Kadon himself fights for you.	Transformation of Kadon	0	false	false	false	0.0	0
+wh2_dlc15_skill_unique_grn_grom_da_great_un_is_here.png	wh2_dlc15_skill_unique_grn_grom_da_great_un_is_here		Da Great 'Un Iz 'Ere!	0	false	false	false	0.0	0
+wh2_dlc15_skill_unique_grn_grom_language_of_da_boyz.png	wh2_dlc15_skill_unique_grn_grom_language_of_da_boyz		Language of Da Boyz	0	false	false	false	0.0	0
+character_ambush.png	wh2_dlc15_skill_unique_grn_skarsnik_backstairs_tactics	Skarsnik has a unique history with working in the dark, and his expertise in the matters of ambush and betrayal are legendary!	Backstairs Tactics	0	false	false	false	0.0	0
+campaign_magic.png	wh2_dlc15_skill_unique_grn_skarsnik_cough_em_up	"Take it, take it all! Every las' bit of it!"	Cough 'em up!	0	false	false	false	0.0	0
+wh2_dlc14_skill_def_malus_unique_lying_in_wait.png	wh2_dlc15_skill_unique_grn_skarsnik_smart_hidin	"It ain't really hidin, jus tac-tik-kel moving is all!"	Smart Hidin'	0	false	false	false	0.0	0
+character_experience.png	wh2_dlc15_skill_unique_grn_skarsnik_underbosses	When push comes to shove, make sure you aren't the one being pushed!	Underbosses	0	false	false	false	0.0	0
+character_ward_save.png	wh2_dlc15_skill_unique_grn_wurrzag_colossal_warpaint	While locating enough paint for the job ain't easy, no one can deny the results!	Colossal Warpaint	0	false	false	false	0.0	0
+wh_main_spell_big_waaagh_foot_of_gork.png	wh2_dlc15_skill_unique_grn_wurrzag_titanic_beat	Wurrzag's feet move to a rhythm only he can hear, but he's more than happy to share!	Titanic Beat!	0	false	false	false	0.0	0
+character_defence.png	wh2_dlc15_skill_unique_grn_wurrzag_wild_feet	Fighting Wurrzag is relatively disconcerting. His feet stamp out the wild of rhythm of the Savage Orcs as he jigs in and out of the fight.	Wild Feet!	0	false	false	false	0.0	0
+wh2_dlc15_skill_unique_hef_eltharion_wardens_stand.png	wh2_dlc15_skill_unique_hef_eltharion_wardens_stand		Warden's Stand	0	false	false	false	0.0	0
+wh2_dlc15_skill_unique_hef_imrik_dragonhorn.png	wh2_dlc15_skill_unique_hef_imrik_dragonhorn		Dragonhorn	0	false	false	false	0.0	0
+wh2_dlc15_skill_unique_hef_imrik_lord_of_dragons.png	wh2_dlc15_skill_unique_hef_imrik_lord_of_dragons		Lord of Dragons	0	false	false	false	0.0	0
 campaign_agent.png	wh2_main_skill_LL_self_defense	This Lord's many deeds - both on and off the battlefield - have brought them renown among their allies and made them feared by their enemies.	Renowned & Feared	0	false	false	false	0.0	0
 battle_attack.png	wh2_main_skill_all_dummy_agent_actions_brt_damsel	 	Actions [HIDDEN]	0	false	false	false	0.0	0
 battle_attack.png	wh2_main_skill_all_dummy_agent_actions_brt_green_knight		Actions [HIDDEN]	0	false	false	false	0.0	0
@@ -1276,7 +1428,7 @@ mount_star_dragon.png	wh2_main_skill_hef_prince_mount_star_dragon	The eldest, mo
 mount_sun_dragon.png	wh2_main_skill_hef_prince_mount_sun_dragon	The youngest Dragons have a warm hue to their scales and a fiery temper, with scorching breath to match.	Sun Dragon	15	false	false	false	0.0	0
 mount_elven_steed.png	wh2_main_skill_hef_princess_mount_elven_steed	The best of all horse breeds found anywhere in the world, Elven steeds are noble, intelligent, graceful, and swift.	Elven Steed	3	false	false	false	0.0	0
 mount_great_eagle.png	wh2_main_skill_hef_princess_mount_great_eagle	Ulthuan's Great Eagles are the firm allies of the Elves, fighting their causes since the coming of Chaos.	Great Eagle	11	false	false	false	0.0	0
-mount_moon_dragon.png	wh2_main_skill_hef_princess_mount_moon_dragon	Those that surpass the Sun Dragons in might and enlightenment are known as Moon Dragons.	Moon Dragon	15	false	false	false	0.0	0
+mount_moon_dragon.png	wh2_main_skill_hef_princess_mount_moon_dragon	Those who ride atop the mighty Moon Drakes are steeled in the knowledge of their mount’s enlightened, Daemon-slaying strength.	Moon Dragon	15	false	false	false	0.0	0
 mount_star_dragon.png	wh2_main_skill_hef_princess_mount_star_dragon	The eldest, most powerful Dragons can destroy entire units with a molten blast of their white-hot breath.	Star Dragon	19	false	false	false	0.0	0
 character_range.png	wh2_main_skill_hef_seeking_arrows	These enchanted arrows have been carefully crafted from the pale-wooded trees that grow near the Grove of Avelorn.	Seeking Arrows	0	false	false	false	0.0	0
 wh2_main_lord_abilities_potion_of_charoi.png	wh2_main_skill_hef_teclis_charoi	 	Potion of Charoi	7	false	false	false	0.0	0
@@ -1338,141 +1490,143 @@ trait_human.png	wh2_main_skill_innate_emp_regal	A regal air? Let's see how long 
 trait_greenskins.png	wh2_main_skill_innate_grn_big_bully	"Someday he's gonna be a Boss. Can you believe someday we'll work for 'im?"	Big Bully	0	true	false	false	1.0	0
 trait_greenskins.png	wh2_main_skill_innate_grn_bragga	When you're clearly betterer than all the uvvers you need to shout the loudest, so everybody else knows you're the betterest.	Bragga	0	true	false	false	1.0	0
 trait_greenskins.png	wh2_main_skill_innate_grn_mushroom_addicted	"Dat a 'shroom in yer pouch? Give it! Give it to me!"	Mushroom-Addicted	0	true	false	false	1.0	0
+trait_greenskins.png	wh2_main_skill_innate_grn_oglok	"I know a guy… he's pretty 'orrible."	The 'Orrible	0	true	false	false	5.0	0
+trait_greenskins.png	wh2_main_skill_innate_grn_raknik	"Shamans are nasty buggers as it iz, but Raknik iz one depraved gobbo!"	Spiderclaw	0	true	false	false	5.0	0
 trait_greenskins.png	wh2_main_skill_innate_grn_serial_danca	You can't keep a good 'danca' down, especially when those drums start bangin'!	Serial Danca	0	true	false	false	1.0	0
 trait_greenskins.png	wh2_main_skill_innate_grn_tortura	When a Warboss needs someone to talk, he calls on this "Boy wiv da extra pointy sticks".	Tortura	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_alastar_the_white_lion	The white lion's pelt worn by Lord Alastar bears inspiring testament to his great heart and dauntless courage.	Lion of Chrace	0	true	false	false	5.0	30
 trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_army_0_disfavoured	This one is something of an eccentric; their erratic behaviour has upset powerful people, which is seldom a good idea.	Disfavoured	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_army_0_flat_footed	Don't take this one along if you need to get away quickly… or maybe you should…	Flat-Footed	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_army_0_shivery	"Look, it's terribly cold. Can we get those things as far away from me as possible? Yes, that's right - on the flank."	Shivery	0	true	false	false	1.0	0
-trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_army_3_fit	The very illustration of Elven perfection. What a git!	Fit	0	true	false	false	1.0	10
-trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_army_3_stimulated	The prospect of battle fills the phoenix with a brisk energy that's somewhat infectious...	Stimulated	0	true	false	false	1.0	10
-trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_army_3_well_known	Through his words and deeds, this one has made a name for himself within noble Elven circles.	Widely Known	0	true	false	false	1.0	10
+trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_army_3_fit	The very illustration of Elven perfection. What a git!	Fit	0	true	false	false	9999.0	10
+trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_army_3_stimulated	The prospect of battle fills the phoenix with a brisk energy that's somewhat infectious...	Stimulated	0	true	false	false	9999.0	10
+trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_army_3_well_known	Through his words and deeds, this one has made a name for himself within noble Elven circles.	Widely Known	0	true	false	false	9999.0	10
 trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_army_7_athletic	Even for a long-limbed, long-lived Elf, this character is a fine specimen.	Athletic	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_army_7_bladelord	"Enlightenment is achieved by mastering not only the body, but the soul. Only then can a warrior truly understand the value of life."	Bladelord	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_army_7_exhilerated	"Battle, you say? Today? Marvellous! Bring me my phoenix - let's get killing!"	Exhilarated	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_battle_0_feeble	It's surprising that this one can even lift a pen, let alone a sword.	Feeble	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_battle_0_mooncalf	"There are people living inside Morrslieb - right inside, yes - and they want to take over the world!"	Mooncalf	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_battle_0_squishy	Some warriors are like rocks - hard and immovable. This one is like jelly…	Squishy	0	true	false	false	1.0	0
-trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_battle_3_elusive	This one moves like lightning, ducking and twisting to avoid their opponent's blows.	Elusive	0	true	false	false	1.0	10
-trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_battle_3_fortuitous	Chance is like magic - it can be harnessed to the individual's will.	Fortuitous	0	true	false	false	1.0	10
-trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_battle_3_primed	Every fibre of their being is charged and ready for action - wherever, whenever.	Primed	0	true	false	false	1.0	10
+trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_battle_3_elusive	This one moves like lightning, ducking and twisting to avoid their opponent's blows.	Elusive	0	true	false	false	9999.0	10
+trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_battle_3_fortuitous	Chance is like magic - it can be harnessed to the individual's will.	Fortuitous	0	true	false	false	9999.0	10
+trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_battle_3_primed	Every fibre of their being is charged and ready for action - wherever, whenever.	Primed	0	true	false	false	9999.0	10
 trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_battle_7_conductor	Through their veins a charge is racing. Energy, filling the ominous void within.	Conductor	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_battle_7_protected	"If you need anything, there are guards outside the doors. Many guards."	Protected	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_battle_7_resilient	Armour is just a formality when you're as hard as nails and as tough as old boots.	Resilient	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_campaign_0_deviant	In society, one must learn to conform. Or not, as the case may be…	Deviant	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_campaign_0_frigid	Stiff, starched, formal. Inflexible.	Frigid	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_campaign_0_rebel	A subversive agitator, and clinically non-conformist to boot.	Rebel	0	true	false	false	1.0	0
-trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_campaign_3_advocate	Good ideas oft-times need vocal, public support to turn them into reality.	Advocate	0	true	false	false	1.0	10
-trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_campaign_3_fruitful	Industrious and productive, this one can turn ideas into gold - sometimes literally.	Fruitful	0	true	false	false	1.0	10
-trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_campaign_3_healer	Armies can be mended as surely as people can, up to a point of course.	Healer	0	true	false	false	1.0	10
+trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_campaign_3_advocate	Good ideas oft-times need vocal, public support to turn them into reality.	Advocate	0	true	false	false	9999.0	10
+trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_campaign_3_fruitful	Industrious and productive, this one can turn ideas into gold - sometimes literally.	Fruitful	0	true	false	false	9999.0	10
+trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_campaign_3_healer	Armies can be mended as surely as people can, up to a point of course.	Healer	0	true	false	false	9999.0	10
 trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_campaign_7_disciple	This one is happy to follow and let other, more energetic types, lead from the front.	Disciple	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_campaign_7_fecund	Never short of new ideas, or new ways of looking at old problems.	Fecund	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_main_skill_innate_hef_loremaster_campaign_7_medic	"I see something wrong and I fix it with my hands."	Medic	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_main_skill_innate_hef_mage_army_0_flustered	Cool, calm, and collected. Yeah, right!	Flustered	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_mage_army_0_inhibited	This one doesn't even relax in their own company, so reserved is their nature.	Inhibited	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_mage_army_0_wet	Fortitude? Strength of character? Do me a favour - this yellow-bellied poltroon has none.	Ridiculed	0	true	false	false	1.0	0
-trait_high_elves.png	wh2_main_skill_innate_hef_mage_army_3_dampener	Definitely not the life and soul of the party; they exude melancholy and depression.	Dampener	0	true	false	false	1.0	10
-trait_high_elves.png	wh2_main_skill_innate_hef_mage_army_3_flammable	Tempers, like wicks, can be ignited. Watch the anger burn.	Flammable	0	true	false	false	1.0	10
-trait_high_elves.png	wh2_main_skill_innate_hef_mage_army_3_resistant	Action, inaction, change - you name it, this one will work against the prevailing wind.	Resistant	0	true	false	false	1.0	10
+trait_high_elves.png	wh2_main_skill_innate_hef_mage_army_3_dampener	Definitely not the life and soul of the party; they exude melancholy and depression.	Dampener	0	true	false	false	9999.0	10
+trait_high_elves.png	wh2_main_skill_innate_hef_mage_army_3_flammable	Tempers, like wicks, can be ignited. Watch the anger burn.	Flammable	0	true	false	false	9999.0	10
+trait_high_elves.png	wh2_main_skill_innate_hef_mage_army_3_resistant	Action, inaction, change - you name it, this one will work against the prevailing wind.	Resistant	0	true	false	false	9999.0	10
 trait_high_elves.png	wh2_main_skill_innate_hef_mage_army_7_incendiary	You don't want to be on the wrong side of this one's ire - it's explosive to say the least!	Incendiary	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_main_skill_innate_hef_mage_army_7_negator	Not every cloud has a silver lining.	Negator	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_main_skill_innate_hef_mage_army_7_protective	Whatever quality is needed to stand guard over the Asur way of life, this one has it in abundance.	Protective	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_main_skill_innate_hef_mage_battle_0_enervated	If ever there was a candidate for a relaxing break at an all-inclusive spa, it was this one.	Enervated	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_mage_battle_0_peaky	Looking "not too well" has become a permanent condition. Clearly, they're lacking essential herbs.	Peaky	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_mage_battle_0_uni_ped	They say two are better than one. They are, of course, totally wrong in every respect.	Uniped	0	true	false	false	1.0	0
-trait_high_elves.png	wh2_main_skill_innate_hef_mage_battle_3_fortuitous	Chance is like magic - it can be harnessed to the individual's will.	Fortuitous	0	true	false	false	1.0	10
-trait_high_elves.png	wh2_main_skill_innate_hef_mage_battle_3_primed	Every fibre of their being is charged and ready for action - wherever, whenever.	Primed	0	true	false	false	1.0	10
-trait_high_elves.png	wh2_main_skill_innate_hef_mage_battle_3_spry	Impressively energetic for a thousand years old - even by their own reckoning.	Spry	0	true	false	false	1.0	10
+trait_high_elves.png	wh2_main_skill_innate_hef_mage_battle_3_fortuitous	Chance is like magic - it can be harnessed to the individual's will.	Fortuitous	0	true	false	false	9999.0	10
+trait_high_elves.png	wh2_main_skill_innate_hef_mage_battle_3_primed	Every fibre of their being is charged and ready for action - wherever, whenever.	Primed	0	true	false	false	9999.0	10
+trait_high_elves.png	wh2_main_skill_innate_hef_mage_battle_3_spry	Impressively energetic for a thousand years old - even by their own reckoning.	Spry	0	true	false	false	9999.0	10
 trait_high_elves.png	wh2_main_skill_innate_hef_mage_battle_7_conductor	Through their veins a charge is racing. Energy, filling the ominous void within.	Conductor	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_main_skill_innate_hef_mage_battle_7_limber	"Staying this supple takes effort. You don’t get definition like that by sitting about and drinking."	Limber	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_main_skill_innate_hef_mage_battle_7_protected	"If you need anything, there are guards outside the doors. Many guards."	Protected	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_main_skill_innate_hef_mage_campaign_0_incompetent	There's usually a right way and a wrong way to do anything. This one generally gets it wrong.	Incompetent	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_mage_campaign_0_luddite	Machinery - and indeed progress of any kind - is anathema to this one, because there's no substitute for good, honest toil.	Luddite	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_mage_campaign_0_meddler	This one can never leave something alone. They always have to meddle.	Meddler	0	true	false	false	1.0	0
-trait_high_elves.png	wh2_main_skill_innate_hef_mage_campaign_3_builder	Much of the Ulthuan skyline built over the last thousand years is down to this one’s sterling endeavours.	Builder	0	true	false	false	1.0	10
-trait_high_elves.png	wh2_main_skill_innate_hef_mage_campaign_3_dealer	"Too late, too late!" will be the cry, when the one with the bargains passes you by.	Dealer	0	true	false	false	1.0	10
-trait_high_elves.png	wh2_main_skill_innate_hef_mage_campaign_3_thinker	Fortunately, there are some who really apply themselves to the problems of the world. Just as well, otherwise we'd be… Oh wait...	Thinker	0	true	false	false	1.0	10
+trait_high_elves.png	wh2_main_skill_innate_hef_mage_campaign_3_builder	Much of the Ulthuan skyline built over the last thousand years is down to this one’s sterling endeavours.	Builder	0	true	false	false	9999.0	10
+trait_high_elves.png	wh2_main_skill_innate_hef_mage_campaign_3_dealer	"Too late, too late!" will be the cry, when the one with the bargains passes you by.	Dealer	0	true	false	false	9999.0	10
+trait_high_elves.png	wh2_main_skill_innate_hef_mage_campaign_3_thinker	Fortunately, there are some who really apply themselves to the problems of the world. Just as well, otherwise we'd be… Oh wait...	Thinker	0	true	false	false	9999.0	10
 trait_high_elves.png	wh2_main_skill_innate_hef_mage_campaign_7_administrator	If it requires accuracy and organisation, this one is your Elf. Not so much fun at parties, however.	Administrator	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_main_skill_innate_hef_mage_campaign_7_entrepreneur	"There's always a way - always an angle. You just have to find it."	Entrepreneur	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_main_skill_innate_hef_mage_campaign_7_genius	An individual of exceptional skill and worth; the very embodiment of sagacity.	Genius	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_main_skill_innate_hef_noble_army_0_amateurish	If there's a right way to do something, this one doesn't have the wherewithal to know what it is.	Amateurish	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_noble_army_0_intolerable	Some things should not have to be endured.	Intolerable	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_noble_army_0_petrified	This one doesn't have the stomach for intrigue, let alone war and its privations.	Petrified	0	true	false	false	1.0	0
-trait_high_elves.png	wh2_main_skill_innate_hef_noble_army_3_motivator	Self-starting is a useful ability; starting others - and keeping them that way - more useful still.	Motivator	0	true	false	false	1.0	10
-trait_high_elves.png	wh2_main_skill_innate_hef_noble_army_3_percussive	There's nothing quite so impressive - and painful - as a well-timed, well-ordered charge.	Percussive	0	true	false	false	1.0	10
-trait_high_elves.png	wh2_main_skill_innate_hef_noble_army_3_practiced	Practice really does make perfect, or at least makes it much harder to kill.	Practiced	0	true	false	false	1.0	10
+trait_high_elves.png	wh2_main_skill_innate_hef_noble_army_3_motivator	Self-starting is a useful ability; starting others - and keeping them that way - more useful still.	Motivator	0	true	false	false	9999.0	10
+trait_high_elves.png	wh2_main_skill_innate_hef_noble_army_3_percussive	There's nothing quite so impressive - and painful - as a well-timed, well-ordered charge.	Percussive	0	true	false	false	9999.0	10
+trait_high_elves.png	wh2_main_skill_innate_hef_noble_army_3_practiced	Practice really does make perfect, or at least makes it much harder to kill.	Practiced	0	true	false	false	9999.0	10
 trait_high_elves.png	wh2_main_skill_innate_hef_noble_army_7_crushing	On occasion, throwing the whole nine leagues at the enemy is just the ticket.	Crushing	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_main_skill_innate_hef_noble_army_7_dynamo	This one is a driving force; potential is taken and transformed into decisive action by their hand.	Dynamo	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_main_skill_innate_hef_noble_army_7_honed	Skills refined and improved upon over time can only increase one's edge over the foe.	Honed	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_main_skill_innate_hef_noble_battle_0_pale_and_wan	It's as much effort as this one can make to lift a blade, let alone swing it at an opponent with force.	Pale & Wan	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_noble_battle_0_pigeon_chested	Bones are not supposed to be on the outside.	Pigeon-Chested	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_noble_battle_0_squishy	Some warriors are like rocks - hard and immovable. This one is like jelly…	Squishy	0	true	false	false	1.0	0
-trait_high_elves.png	wh2_main_skill_innate_hef_noble_battle_3_elusive	This one moves like lightning, ducking and twisting to avoid their opponent's blows.	Elusive	0	true	false	false	1.0	10
-trait_high_elves.png	wh2_main_skill_innate_hef_noble_battle_3_hale_and_hearty	The very picture of good health. Clearly, there's many years still ahead of them.	Hale & Hearty	0	true	false	false	1.0	10
-trait_high_elves.png	wh2_main_skill_innate_hef_noble_battle_3_trained	Every action is executed seemingly without effort.	Trained	0	true	false	false	1.0	10
+trait_high_elves.png	wh2_main_skill_innate_hef_noble_battle_3_elusive	This one moves like lightning, ducking and twisting to avoid their opponent's blows.	Elusive	0	true	false	false	9999.0	10
+trait_high_elves.png	wh2_main_skill_innate_hef_noble_battle_3_hale_and_hearty	The very picture of good health. Clearly, there's many years still ahead of them.	Hale & Hearty	0	true	false	false	9999.0	10
+trait_high_elves.png	wh2_main_skill_innate_hef_noble_battle_3_trained	Every action is executed seemingly without effort.	Trained	0	true	false	false	9999.0	10
 trait_high_elves.png	wh2_main_skill_innate_hef_noble_battle_7_dangerous	You really don't want to be on the receiving end of an attack made by this one. You really don’t.	Dangerous	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_main_skill_innate_hef_noble_battle_7_resilient	Armour is just a formality when you're as hard as nails and as tough as old boots.	Resilient	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_main_skill_innate_hef_noble_battle_7_vigorous	This one is not at all easy to kill, and many have tried, believe me.	Vigorous	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_main_skill_innate_hef_noble_campaign_0_divisive	"Hmmm interesting. I do wonder if there's a third way, however…"	Divisive	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_noble_campaign_0_inattentive	"I'm sorry, what? I was looking at that cloud - looks just like Aenarion in a certain light."	Inattentive	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_noble_campaign_0_profligate	Extravagant and dissolute, this one could almost be an honorary Druchii, such is their inclination for excess.	Profligate	0	true	false	false	1.0	0
-trait_high_elves.png	wh2_main_skill_innate_hef_noble_campaign_3_attentive	The Daemon is very definitely in the detail…	Attentive	0	true	false	false	1.0	10
-trait_high_elves.png	wh2_main_skill_innate_hef_noble_campaign_3_conciliatory	"Come now, let this conflict cease. We're all Asur, remember?"	Conciliatory	0	true	false	false	1.0	10
-trait_high_elves.png	wh2_main_skill_innate_hef_noble_campaign_3_prudent	This one acts not for themselves but the for the greater good, in defence of the future.	Prudent	0	true	false	false	1.0	10
+trait_high_elves.png	wh2_main_skill_innate_hef_noble_campaign_3_attentive	The Daemon is very definitely in the detail…	Attentive	0	true	false	false	9999.0	10
+trait_high_elves.png	wh2_main_skill_innate_hef_noble_campaign_3_conciliatory	"Come now, let this conflict cease. We're all Asur, remember?"	Conciliatory	0	true	false	false	9999.0	10
+trait_high_elves.png	wh2_main_skill_innate_hef_noble_campaign_3_prudent	This one acts not for themselves but the for the greater good, in defence of the future.	Prudent	0	true	false	false	9999.0	10
 trait_high_elves.png	wh2_main_skill_innate_hef_noble_campaign_7_conscientious	Whatever the task, this one always wishes to do it to the best of their ability - and better on every occasion thereafter.	Conscientious	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_main_skill_innate_hef_noble_campaign_7_emollient	This one smooths the way, so differing opinions do not so easily lead to frayed tempers and drawn blades.	Emollient	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_main_skill_innate_hef_noble_campaign_7_frugal	The best way to hang on to your gold is never to spend any of it.	Frugal	0	true	false	false	1.0	40
 trait_high_elves.png	wh2_main_skill_innate_hef_prince_army_0_fay	There's something of the other world about this one; this cruel plane has failed to engage them.	Fay	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_prince_army_0_ill_prepared	This one would forget their head if it wasn't, er, attached.	Ill-Prepared	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_prince_army_0_scornful	"Strategy? Tactics? Piffle, more like. Charrrrgggge!!!"	Scornful	0	true	false	false	1.0	0
-trait_high_elves.png	wh2_main_skill_innate_hef_prince_army_3_competent	This one understands tactics, and how to vary them, well enough to generally defeat the foe.	Competent	0	true	false	false	1.0	15
-trait_high_elves.png	wh2_main_skill_innate_hef_prince_army_3_respectful	"Our forefathers followed the way and overcame great adversity. We should not ignore their lessons."	Respectful	0	true	false	false	1.0	15
-trait_high_elves.png	wh2_main_skill_innate_hef_prince_army_3_strong_willed	Some minds are more susceptible to magical influence than others, but this one is strong indeed.	Strong-Willed	0	true	false	false	1.0	15
+trait_high_elves.png	wh2_main_skill_innate_hef_prince_army_3_competent	This one understands tactics, and how to vary them, well enough to generally defeat the foe.	Competent	0	true	false	false	9999.0	15
+trait_high_elves.png	wh2_main_skill_innate_hef_prince_army_3_respectful	"Our forefathers followed the way and overcame great adversity. We should not ignore their lessons."	Respectful	0	true	false	false	9999.0	15
+trait_high_elves.png	wh2_main_skill_innate_hef_prince_army_3_strong_willed	Some minds are more susceptible to magical influence than others, but this one is strong indeed.	Strong-Willed	0	true	false	false	9999.0	15
 trait_high_elves.png	wh2_main_skill_innate_hef_prince_army_7_doctrinal	"Right, are you listening? Good. There's only one way to do things and that's by the book."	Doctrinal	0	true	false	false	1.0	60
 trait_high_elves.png	wh2_main_skill_innate_hef_prince_army_7_dragon_willed	Immovable and resolute in their will, this one is as determined as the World Dragon himself!	Dragon-Willed	0	true	false	false	1.0	60
 trait_high_elves.png	wh2_main_skill_innate_hef_prince_army_7_resistant	Action, inaction, change - you name it, this one will work against the prevailing wind.	Resistant	0	true	false	false	1.0	60
 trait_high_elves.png	wh2_main_skill_innate_hef_prince_battle_0_pale_and_wan	It's as much effort as this one can make to lift a blade, let alone swing it at an opponent with force.	Pale & Wan	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_prince_battle_0_pigeon_chested	Bones are not supposed to be on the outside.	Pigeon-Chested	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_prince_battle_0_squishy	Some warriors are like rocks - hard and immovable. This one is like jelly…	Squishy	0	true	false	false	1.0	0
-trait_high_elves.png	wh2_main_skill_innate_hef_prince_battle_3_elusive	This one moves like lightning, ducking and twisting to avoid their opponent's blows.	Elusive	0	true	false	false	1.0	15
-trait_high_elves.png	wh2_main_skill_innate_hef_prince_battle_3_hale_and_hearty	The very picture of good health. Clearly, there's many years still ahead of them.	Hale & Hearty	0	true	false	false	1.0	15
-trait_high_elves.png	wh2_main_skill_innate_hef_prince_battle_3_trained	Every action is executed seemingly without effort.	Trained	0	true	false	false	1.0	15
+trait_high_elves.png	wh2_main_skill_innate_hef_prince_battle_3_elusive	This one moves like lightning, ducking and twisting to avoid their opponent's blows.	Elusive	0	true	false	false	9999.0	15
+trait_high_elves.png	wh2_main_skill_innate_hef_prince_battle_3_hale_and_hearty	The very picture of good health. Clearly, there's many years still ahead of them.	Hale & Hearty	0	true	false	false	9999.0	15
+trait_high_elves.png	wh2_main_skill_innate_hef_prince_battle_3_trained	Every action is executed seemingly without effort.	Trained	0	true	false	false	9999.0	15
 trait_high_elves.png	wh2_main_skill_innate_hef_prince_battle_7_dangerous	You really don't want to be on the receiving end of an attack made by this one. You really don’t.	Dangerous	0	true	false	false	1.0	60
 trait_high_elves.png	wh2_main_skill_innate_hef_prince_battle_7_resilient	Armour is just a formality when you're as hard as nails and as tough as old boots.	Resilient	0	true	false	false	1.0	60
 trait_high_elves.png	wh2_main_skill_innate_hef_prince_battle_7_vigorous	This one is not at all easy to kill, and many have tried, believe me.	Vigorous	0	true	false	false	1.0	60
 trait_high_elves.png	wh2_main_skill_innate_hef_prince_campaign_0_birdbrained	How this… absolute, card-carrying moron has survived this far is anyone's guess, and a mystery to all!	Bird-Brained	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_prince_campaign_0_disorganised	If you want something done, shoot this one first - it'll make your life a lot easier.	Disorganised	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_prince_campaign_0_wasteful	"Yes, we will hit our own troops, but we'll hit theirs as well. We have reserves. Attack!"	Wasteful	0	true	false	false	1.0	0
-trait_high_elves.png	wh2_main_skill_innate_hef_prince_campaign_3_observant	If you wish to live, it's best to keep your eyes open and your head down.	Observant	0	true	false	false	1.0	15
-trait_high_elves.png	wh2_main_skill_innate_hef_prince_campaign_3_organised	"You need a plan. Never let anyone tell you otherwise. Devise a plan, then execute it - and preferably the enemy - haha!"	Organised	0	true	false	false	1.0	15
-trait_high_elves.png	wh2_main_skill_innate_hef_prince_campaign_3_unsentimental	Sentiments - and indeed feelings of any kind - are not for public display, in their estimation.	Unsentimental	0	true	false	false	1.0	15
+trait_high_elves.png	wh2_main_skill_innate_hef_prince_campaign_3_observant	If you wish to live, it's best to keep your eyes open and your head down.	Observant	0	true	false	false	9999.0	15
+trait_high_elves.png	wh2_main_skill_innate_hef_prince_campaign_3_organised	"You need a plan. Never let anyone tell you otherwise. Devise a plan, then execute it - and preferably the enemy - haha!"	Organised	0	true	false	false	9999.0	15
+trait_high_elves.png	wh2_main_skill_innate_hef_prince_campaign_3_unsentimental	Sentiments - and indeed feelings of any kind - are not for public display, in their estimation.	Unsentimental	0	true	false	false	9999.0	15
 trait_high_elves.png	wh2_main_skill_innate_hef_prince_campaign_7_adept	More than skilled, this one shows great proficiency in matters of war.	Adept	0	true	false	false	1.0	60
 trait_high_elves.png	wh2_main_skill_innate_hef_prince_campaign_7_avaricious	Their love of shiny things is so great this one could be an honorary Greenskin!	Avaricious	0	true	false	false	1.0	60
 trait_high_elves.png	wh2_main_skill_innate_hef_prince_campaign_7_efficient	Form, fire, charge, flank, repeat. This one shows that it really can be that simple.	Efficient	0	true	false	false	1.0	60
 trait_high_elves.png	wh2_main_skill_innate_hef_princess_army_0_indolent	Someone less suited to bodily activity it would be hard to find.	Indolent	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_princess_army_0_poltroon	When their army charges towards the foe, this one can clearly be seen legging it in the opposite direction!	Poltroon	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_princess_army_0_soft_hearted	Kindness and consideration are virtues. No, really, they are!	Soft-Hearted	0	true	false	false	1.0	0
-trait_high_elves.png	wh2_main_skill_innate_hef_princess_army_3_brisk	Why walk when you can run? Why run when you can fly?	Brisk	0	true	false	false	1.0	15
-trait_high_elves.png	wh2_main_skill_innate_hef_princess_army_3_resolute	Unswerving and determined, this one is an immovable force on the battlefield.	Resolute	0	true	false	false	1.0	15
-trait_high_elves.png	wh2_main_skill_innate_hef_princess_army_3_retaliatory	Revenge is not a dish best served cold; it is always perfectly sweet, no matter the temperature.	Retaliatory	0	true	false	false	1.0	15
+trait_high_elves.png	wh2_main_skill_innate_hef_princess_army_3_brisk	Why walk when you can run? Why run when you can fly?	Brisk	0	true	false	false	9999.0	15
+trait_high_elves.png	wh2_main_skill_innate_hef_princess_army_3_resolute	Unswerving and determined, this one is an immovable force on the battlefield.	Resolute	0	true	false	false	9999.0	15
+trait_high_elves.png	wh2_main_skill_innate_hef_princess_army_3_retaliatory	Revenge is not a dish best served cold; it is always perfectly sweet, no matter the temperature.	Retaliatory	0	true	false	false	9999.0	15
 trait_high_elves.png	wh2_main_skill_innate_hef_princess_army_7_dashing	You can almost see the hearts fluttering when this one passes by, on their way to derring-do and adventure.	Dashing	0	true	false	false	1.0	60
 trait_high_elves.png	wh2_main_skill_innate_hef_princess_army_7_energetic	Always animated, this one has an infectious vitality about them.	Energetic	0	true	false	false	1.0	60
 trait_high_elves.png	wh2_main_skill_innate_hef_princess_army_7_punitive	It's always someone's fault. They can always be made to pay.	Punitive	0	true	false	false	1.0	60
 trait_high_elves.png	wh2_main_skill_innate_hef_princess_battle_0_feeble	It's surprising that this one can even lift a pen, let alone a sword.	Feeble	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_princess_battle_0_inaccurate	This one couldn't hit an Ogre at ten yards, let alone a ravening pack of Skaven!	Inaccurate	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_princess_battle_0_unfortunate	Locking themselves out of rooms; that bad batch of oysters; the one stray arrow - this one is more than simply unlucky!	Unfortunate	0	true	false	false	1.0	0
-trait_high_elves.png	wh2_main_skill_innate_hef_princess_battle_3_accurate	This one can hit an Ogre at one hundred yards, and a ravening pack of Skaven at fifty!	Accurate	0	true	false	false	1.0	15
-trait_high_elves.png	wh2_main_skill_innate_hef_princess_battle_3_fortuitous	Chance is like magic - it can be harnessed to the individual's will.	Fortuitous	0	true	false	false	1.0	15
-trait_high_elves.png	wh2_main_skill_innate_hef_princess_battle_3_well_founded	Always considered, never rushing to judge, all conclusions based on empirical evidence, no conjecture.	Well-Founded	0	true	false	false	1.0	15
+trait_high_elves.png	wh2_main_skill_innate_hef_princess_battle_3_accurate	This one can hit an Ogre at one hundred yards, and a ravening pack of Skaven at fifty!	Accurate	0	true	false	false	9999.0	15
+trait_high_elves.png	wh2_main_skill_innate_hef_princess_battle_3_fortuitous	Chance is like magic - it can be harnessed to the individual's will.	Fortuitous	0	true	false	false	9999.0	15
+trait_high_elves.png	wh2_main_skill_innate_hef_princess_battle_3_well_founded	Always considered, never rushing to judge, all conclusions based on empirical evidence, no conjecture.	Well-Founded	0	true	false	false	9999.0	15
 trait_high_elves.png	wh2_main_skill_innate_hef_princess_battle_7_charmed	There must be runes about their person - no one could be this lucky otherwise!	Charmed	0	true	false	false	1.0	60
 trait_high_elves.png	wh2_main_skill_innate_hef_princess_battle_7_hawk_eyed	You have to get up very early if you want to beat this one; nothing escapes their keen eye and lightning reflexes.	Hawk-Eyed	0	true	false	false	1.0	60
 trait_high_elves.png	wh2_main_skill_innate_hef_princess_battle_7_strong	The strength at the base of the pillar.	Strong	0	true	false	false	1.0	60
 trait_high_elves.png	wh2_main_skill_innate_hef_princess_campaign_0_dullard	There's dull, boring, and inattentive... and there's this live wire.	Dullard	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_princess_campaign_0_slovenly	Everything is such an effort - they'd much rather feast than fight.	Slovenly	0	true	false	false	1.0	0
 trait_high_elves.png	wh2_main_skill_innate_hef_princess_campaign_0_tardy	This one would be late for their own funeral pyre if it were possible!	Tardy	0	true	false	false	1.0	0
-trait_high_elves.png	wh2_main_skill_innate_hef_princess_campaign_3_careful	When this one plans an ambush, every possible option is considered. Nothing is left to chance.	Careful	0	true	false	false	1.0	15
-trait_high_elves.png	wh2_main_skill_innate_hef_princess_campaign_3_example	In battle, this one is a shining example for others to follow - and the foe to run away from!	Example	0	true	false	false	1.0	15
-trait_high_elves.png	wh2_main_skill_innate_hef_princess_campaign_3_keen	Sitting around waiting for something to happen is not their style.	Keen	0	true	false	false	1.0	15
+trait_high_elves.png	wh2_main_skill_innate_hef_princess_campaign_3_careful	When this one plans an ambush, every possible option is considered. Nothing is left to chance.	Careful	0	true	false	false	9999.0	15
+trait_high_elves.png	wh2_main_skill_innate_hef_princess_campaign_3_example	In battle, this one is a shining example for others to follow - and the foe to run away from!	Example	0	true	false	false	9999.0	15
+trait_high_elves.png	wh2_main_skill_innate_hef_princess_campaign_3_keen	Sitting around waiting for something to happen is not their style.	Keen	0	true	false	false	9999.0	15
 trait_high_elves.png	wh2_main_skill_innate_hef_princess_campaign_7_ardent	More than keen, this one is positively champing at the bit to get up and at the enemy.	Ardent	0	true	false	false	1.0	60
 trait_high_elves.png	wh2_main_skill_innate_hef_princess_campaign_7_exemplar	A paragon of martial excellence, with few peers among their own kind, let alone the enemy.	Exemplar	0	true	false	false	1.0	60
 trait_high_elves.png	wh2_main_skill_innate_hef_princess_campaign_7_vigilant	Ever watchful, this one bides their time until precisely the right moment to attack.	Vigilant	0	true	false	false	1.0	60
@@ -1678,6 +1832,7 @@ mount_barded_warhorse.png	wh2_pro07_skill_emp_wizard_unique_amethyst_wizard_bard
 mount_imperial_pegasus.png	wh2_pro07_skill_emp_wizard_unique_amethyst_wizard_imperial_pegasus	An Imperial pegasus is a noble, winged steed, intelligent and loyal.	Imperial Pegasus	15	false	false	false	0.0	0
 mount_warhorse.png	wh2_pro07_skill_emp_wizard_unique_amethyst_wizard_warhorse	While Wizards can rarely benefit from amour, a warhorse does offer some degree of protection and manoeuvrability.	Warhorse	6	false	false	false	0.0	0
 battle_attack.png	wh2_pro08_skill_all_dummy_agent_actions_neu_felix		Actions [HIDDEN]	0	false	false	false	0.0	0
+mount_arachnarok_spider.png	wh2_twa01_skill_grn_lord_unique_goblin_great_shaman_spider_shrine	This enormous, revolting Arachnarok Spider shrine upon which the Shaman is borne forces even the branches of nearby trees to twist in revulsion at its diabolical passing.	Arachnarok Spider (Catchweb Spidershrine)	15	false	false	false	0.0	0
 mount_barded_chaos_steed.png	wh_dlc01_skill_chs_wizard_unique_chaos_sorcerer_shadow_barded_chaos_steed	The already-fierce Chaos Steeds are often covered in heavy armour, making them even deadlier.	Barded Chaos Steed	10	false	false	false	0.0	0
 mount_warhorse.png	wh_dlc01_skill_chs_wizard_unique_chaos_sorcerer_shadow_chaos_steed	To ride a steed touched by Chaos is the right of any Sorcerer dedicated to spreading corruption.	Chaos Steed	6	false	false	false	0.0	0
 mount_manticore.png	wh_dlc01_skill_chs_wizard_unique_chaos_sorcerer_shadow_manticore	Manticores are highly prized by Sorcerers, for they are creatures bathed in magic and as cruel as their riders.	Manticore	17	false	false	false	0.0	0
@@ -1987,7 +2142,7 @@ campaign_agent.png	wh_dlc07_skill_brt_fay_battle_gifted_beginnings	It falls to t
 battle_defence.png	wh_dlc07_skill_brt_fay_battle_guardians_of_the_lady	Those who serve the Lady purely are rewarded with a portion of her strength when battle is joined.	Guardians of the Lady	0	false	false	false	0.0	0
 battle_ward_save.png	wh_dlc07_skill_brt_fay_battle_secrets_of_the_grail	"What is the secret of the Grail? Whom does it serve?"	Secrets of the Grail	0	false	false	false	0.0	0
 battle_damage.png	wh_dlc07_skill_brt_fay_battle_worshippers_of_the_grail	"Drink from the chalice. You will be reborn."	Worshippers of the Grail	0	false	false	false	0.0	0
-item_enchanted_item.png	wh_dlc07_skill_brt_fay_enchantress_unique_chalice_of_potions	The pellet with the poison is in the vessel with the pestle; the chalice from the palace has the brew that is true…	Chalice of Potions	8	false	false	false	0.0	0
+item_arcane_item.png	wh_dlc07_skill_brt_fay_enchantress_unique_chalice_of_potions	The pellet with the poison is in the vessel with the pestle; the chalice from the palace has the brew that is true…	Chalice of Potions	8	false	false	false	0.0	0
 character_ward_save.png	wh_dlc07_skill_brt_fay_enchantress_unique_girdle_of_gold	By which the person of the Fay Enchantress may remain unmolested in the face of sustained attack.	Girdle of Gold	14	false	false	false	0.0	0
 character_magic.png	wh_dlc07_skill_brt_fay_enchantress_unique_power_familiar	Whether a former Wizard who displeased the Enchantress or merely a toad, this magic-imbued amphibian strengthens her spells whilst weakening those of her opponents.	Power Familiar	11	false	false	false	0.0	0
 mount_unicorn.png	wh_dlc07_skill_brt_fay_enchantress_unique_silvaron	This proud and noble Unicorn elevates the Enchantress above her host, so all may see and be strengthened by her blessed presence.	Silvaron	4	false	false	false	0.0	0
@@ -2077,7 +2232,7 @@ character_experience.png	wh_dlc08_skill_grn_azhag_unique_2	Azhag's mysterious cr
 character_subterranean.png	wh_dlc08_skill_grn_azhag_unique_3	There are some who whisper that the Slaughterer's wild schemes are not sufficiently Orcy. Needless to say, the crown normally lets him know so he can weed out the dissenters.	Not Orcy Enuff!	0	false	false	false	0.0	0
 character_charge.png	wh_dlc08_skill_grn_azhag_unique_4	Enchanted armour and weapons, and the influence of the crown, allows Azhag to 'let go' somewhat on the battlefield!	Wild Abandon	0	false	false	false	0.0	0
 wh_main_unit_passive_regeneration.png	wh_dlc08_skill_grn_azhag_unique_5	When the crown takes control Azhag falls into a trance, his eyes cloud over and he mutters and even argues with himself…	Darkest Nimbus	0	false	false	false	0.0	0
-character_army.png	wh_dlc08_skill_grn_lord_unique_grimgor_0	“We’re simply da best! Betta than orl da rest!”	Nevva Second Best!	11	false	false	false	0.0	0
+wh2_dlc15_skill_grn_best_of_da_best.png	wh_dlc08_skill_grn_lord_unique_grimgor_0	Grimgor fears no injury, but despite his war-ravaged appearance has an unmatched knack for avoiding it.	Best of Da Best	11	false	false	false	0.0	0
 character_charge.png	wh_dlc08_skill_grn_lord_unique_grimgor_1	When a Black Orc’s not-inconsiderable dander is up, you definitely *don’t* want to get in his way!	Black Orc Wrecking Ball	0	false	false	false	0.0	0
 character_morale.png	wh_dlc08_skill_grn_lord_unique_grimgor_2	"Grimgor is bigger 'n' 'arder 'n' betta than orl yoo uvver gits!!!"	Bigger 'n' 'Arder	0	false	false	false	0.0	0
 causes_terror.png	wh_dlc08_skill_grn_lord_unique_grimgor_3	Black Orcs are the biggest, strongest, meanest, and most brutal of all Greenskins. Even by those standards, Grimgor is big, strong, mean, and brutal!	Imposing Presence	0	false	false	false	0.0	0
@@ -2182,6 +2337,7 @@ wh_pro03_lord_abilities_lord_of_undeath.png	wh_dlc08_skill_vmp_heinrich_krell_4	
 character_morale.png	wh_dlc08_skill_vmp_lord_unique_necromancer_leading_dead	"And I'll lead you all in the dance," said he - the relentless dance of the tireless Undead hordes.	Lord of the Scourge	0	false	false	false	0.0	0
 character_raise_dead.png	wh_dlc08_skill_vmp_lord_unique_necromancer_raising_dead	"Come to my side, my Undead servants. Now, you are bound, irrevocably, to my will forever!"	Thrall Master	0	false	false	false	0.0	0
 causes_terror.png	wh_dlc11_skill_cst_lord_self_supernatural_horror	To look upon this Undead Lord is to witness true and absolute horror!	Supernatural Horror	4	false	false	false	0.0	0
+character_health.png	wh_dlc15_skill_all_all_self_horrid_mass	Truly despicable to behold, this creature deflects blows with its turgid body.	Horrid Mass	0	false	false	false	0.0	0
 battle_attack.png	wh_main_qb_skill_scripted_all_rising_champion	 	Rising Champion	0	false	false	false	0.0	0
 character_attack.png	wh_main_skill_all_all_self_blade_master	This warrior is one with their blade; it is an extension of their will, making them a worthy foe in combat.	Blade Master	0	false	false	false	0.0	0
 character_attack.png	wh_main_skill_all_all_self_blade_master_2	This warrior is one with their blade; it is an extension of their will, making them a worthy foe in combat.	Blade Master	0	false	false	false	0.0	0
@@ -2516,7 +2672,7 @@ battle_morale.png	wh_main_skill_grn_lord_battle_intimidating_presence	Such is th
 battle_charge.png	wh_main_skill_grn_lord_battle_riderz	Greenskin cavalry can be devastating if the myriad mounts can behave. Getting a big stick and maybe a "carrot" in the form of an orange-painted gobbo is the answer!	Riderz	0	false	false	false	0.0	0
 battle_damage.png	wh_main_skill_grn_lord_battle_savages	Bigga choppas are more hurty - that’s a well-known Orc-fact and one this Boss eulogises. So his lads are all about hefty choppas.	Savages	0	false	false	false	0.0	0
 battle_ammo.png	wh_main_skill_grn_lord_battle_shootas	While most bosses are all about the choppas, this git recognises the potential in "shooty stuff" and so works his arrer-armed mobs to be "betta".	Shootas	0	false	false	false	0.0	0
-wh_main_character_abilities_stand_your_ground.png	wh_main_skill_grn_lord_battle_stand_your_ground	 	Stand Your Ground!	0	false	false	false	0.0	0
+wh2_dlc15_skill_grn_smash_em_faster.png	wh_main_skill_grn_lord_battle_stand_your_ground	 	Smash 'Em Faster	0	false	false	false	0.0	0
 battle_morale.png	wh_main_skill_grn_lord_battle_tunnel_boss	Tunnel bosses are Greenskins who are good at shoutin’ and hollerin’ at mobs when underground, where space and sight is an issue.	Tunnel Boss	0	false	false	false	0.0	0
 campaign_subterranean.png	wh_main_skill_grn_lord_campaign_deff_from_below	A wise Boss knows how to lure the enemy into places where they can be ambushed or trapped with mobs that skulk in the tunnels below.	Deff From Below	0	false	false	false	0.0	0
 campaign_wound_time.png	wh_main_skill_grn_lord_campaign_iron-hard	These iron-hard gits are particularly tough and gnarly Greenskins, who - even if wounded - will be up and ready to fight before too long.	Iron-Hard	0	false	false	false	0.0	0
@@ -2539,6 +2695,7 @@ mount_giant_wolf.png	wh_main_skill_grn_lord_unique_goblin_great_shaman_giant_wol
 item_armour.png	wh_main_skill_grn_lord_unique_grimgor_blood-forged_armour	 	Blood-Forged Armour	12	false	false	false	0.0	0
 item_weapon.png	wh_main_skill_grn_lord_unique_grimgor_gitsnik	 	Gitsnik	7	false	false	false	0.0	0
 character_damage.png	wh_main_skill_grn_lord_unique_grimgor_hatred	"I 'ate everyfing - gobbos, da pointy ears, da humies, da spiky gits, and da stunties - I 'ate dem da mostest!"	Hatred	5	false	false	false	0.0	0
+character_morale.png	wh_main_skill_grn_lord_unique_grimgor_unbreakable	"Say my name! SAY MY NAME!"	Unbreakable	0	false	false	false	0.0	0
 mount_war_boar.png	wh_main_skill_grn_lord_unique_orc_warboss_war_boar	This stinky hog is as grumpy and fierce as its brutal rider.	War Boar	3	false	false	false	0.0	0
 mount_wyvern.png	wh_main_skill_grn_lord_unique_orc_warboss_wyvern	Wyverns are highly-prized mounts for the most powerful of Orc Warlords.	Wyvern	17	false	false	false	0.0	0
 wh_main_spell_big_waaagh_gaze_of_mork.png	wh_main_skill_grn_magic_big_waaagh_01_gaze_of_mork	 	Gaze of Mork	0	false	false	false	0.0	0
@@ -2557,7 +2714,7 @@ wh_main_spell_lil_waaagh_gorkll_fix_it.png	wh_main_skill_grn_magic_little_waaagh
 wh_main_spell_lil_waaagh_night_shroud.png	wh_main_skill_grn_magic_little_waaagh_09_night_shroud	 	Night Shroud	0	false	false	false	0.0	0
 wh_main_spell_lil_waaagh_curse_of_da_bad_moon.png	wh_main_skill_grn_magic_little_waaagh_10_curse_of_da_bad_moon	 	Curse of da Bad Moon	0	false	false	false	0.0	0
 battle_attack.png	wh_main_skill_grn_magic_little_waaagh_dummy_sneaky_stabbin	 	Sneaky Stabbin' [HIDDEN]	0	false	false	false	0.0	0
-guerrilla_deploy.png	wh_main_skill_grn_spy_unique_goblin_big_boss_ambusher	This Boss is especially sneaky, able to deploy deep in enemy gits' terrain before battle.	Ambusher	6	false	false	false	0.0	0
+character_ambush.png	wh_main_skill_grn_spy_unique_goblin_big_boss_ambusher	This Boss is especially sneaky, able to deploy deep in enemy gits' terrain before battle.	Ambusher	6	false	false	false	0.0	0
 mount_giant_spider.png	wh_main_skill_grn_spy_unique_goblin_big_boss_giant_spider	A quick Snotling sacrifice to da Spider-god gets the boss a fearsome mount.	Giant Spider	7	false	false	false	0.0	0
 mount_giant_wolf.png	wh_main_skill_grn_spy_unique_goblin_big_boss_giant_wolf	"Da Big Boss getz da biggest barka', nuff sed."	Giant Wolf	3	false	false	false	0.0	0
 character_damage.png	wh_main_skill_grn_spy_unique_goblin_big_boss_nasty_skulker	Like all nasty skulkers, dis Boss is "a bad piece o' work" – when he stabs he really means it.	Da Nasty Skulker	13	false	false	false	0.0	0
