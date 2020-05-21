@@ -57,6 +57,15 @@ faction_lord_types = {
 
         {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_main_hef_prince", "Prince"},
         {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_main_hef_princess", "Princess"},
+        {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_dlc15_hef_archmage_beasts", "Archmage (Beasts)"},
+        {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_dlc15_hef_archmage_death", "Archmage (Death)"},
+        {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_dlc15_hef_archmage_fire", "Archmage (Fire)"},
+        {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_dlc15_hef_archmage_heavens", "Archmage (Heavens)"},
+        {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_dlc15_hef_archmage_high", "Archmage (High)"},
+        {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_dlc15_hef_archmage_life", "Archmage (Life)"},
+        {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_dlc15_hef_archmage_light", "Archmage (Light)"},
+        {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_dlc15_hef_archmage_metal", "Archmage (Metal)"},
+        {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_dlc15_hef_archmage_shadows", "Archmage (Shadows)"},
 
         {"wh2_main_sc_lzd_lizardmen", "SUBCULTURE", "wh2_main_lzd_saurus_old_blood", "Saurus Oldblood"},
         {"wh2_main_sc_lzd_lizardmen", "SUBCULTURE", "wh2_main_lzd_slann_mage_priest", "Slann Mage-Priest"},
@@ -482,7 +491,18 @@ dlc_lords = {
         {"wh2_dlc14_def_high_beastmaster", "TW_WH2_DLC14_SHADOW"},
         {"wh2_dlc14_skv_master_assassin", "TW_WH2_DLC14_SHADOW"},
         {"wh2_dlc14_def_master", "TW_WH2_DLC14_SHADOW"},
-        {"wh2_dlc14_skv_eshin_sorcerer", "TW_WH2_DLC14_SHADOW"}
+        {"wh2_dlc14_skv_eshin_sorcerer", "TW_WH2_DLC14_SHADOW"},
+
+        {"wh2_dlc15_grn_river_troll_hag", "TW_WH2_DLC15_WARDEN"},
+        {"wh2_dlc15_hef_archmage_beasts", "TW_WH2_DLC15_WARDEN"},
+        {"wh2_dlc15_hef_archmage_death", "TW_WH2_DLC15_WARDEN"},
+        {"wh2_dlc15_hef_archmage_fire", "TW_WH2_DLC15_WARDEN"},
+        {"wh2_dlc15_hef_archmage_heavens", "TW_WH2_DLC15_WARDEN"},
+        {"wh2_dlc15_hef_archmage_high", "TW_WH2_DLC15_WARDEN"},
+        {"wh2_dlc15_hef_archmage_life", "TW_WH2_DLC15_WARDEN"},
+        {"wh2_dlc15_hef_archmage_light", "TW_WH2_DLC15_WARDEN"},
+        {"wh2_dlc15_hef_archmage_metal", "TW_WH2_DLC15_WARDEN"},
+        {"wh2_dlc15_hef_archmage_shadows", "TW_WH2_DLC15_WARDEN"}
     }
 }
 

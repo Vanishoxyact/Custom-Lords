@@ -32,6 +32,7 @@ faction_lord_types = {
         {"wh_main_sc_grn_greenskins", "SUBCULTURE", "grn_goblin_big_boss", "Goblin Big Boss"},
         {"wh_main_sc_grn_greenskins", "SUBCULTURE", "grn_night_goblin_shaman", "Night Goblin Shaman"},
         {"wh_main_sc_grn_greenskins", "SUBCULTURE", "grn_orc_shaman", "Orc Shaman"},
+        {"wh_main_sc_grn_greenskins", "SUBCULTURE", "wh2_dlc15_grn_river_troll_hag", "Giant River Troll Hag"},
 
         {"wh_main_sc_grn_savage_orcs", "SUBCULTURE", "grn_goblin_big_boss", "Goblin Big Boss"},
         {"wh_main_sc_grn_savage_orcs", "SUBCULTURE", "grn_night_goblin_shaman", "Night Goblin Shaman"},
@@ -95,6 +96,10 @@ faction_lord_types = {
         {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_main_hef_mage_high", "Mage (High)"},
         {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_main_hef_mage_life", "Mage (Life)"},
         {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_main_hef_mage_light", "Mage (Light)"},
+        {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_dlc15_hef_mage_beasts", "Mage (Beasts)"},
+        {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_dlc15_hef_mage_death", "Mage (Death)"},
+        {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_dlc15_hef_mage_fire", "Mage (Fire)"},
+        {"wh2_main_sc_hef_high_elves", "SUBCULTURE", "wh2_dlc15_hef_mage_metal", "Mage (Metal)"},
 
         {"wh2_main_sc_lzd_lizardmen", "SUBCULTURE", "wh2_main_lzd_saurus_scar_veteran", "Saurus Scar-Veteran"},
         {"wh2_main_sc_lzd_lizardmen", "SUBCULTURE", "wh2_main_lzd_skink_chief", "Skink Chief"},
