@@ -533,6 +533,11 @@ female_lord_types = {
         {"wh2_dlc10_hef_mage_shadows"},
         {"wh2_main_hef_mage_high"},
         {"wh2_main_hef_mage_life"},
-        {"wh2_main_hef_mage_light"}
+        {"wh2_main_hef_mage_light"},
+        {"wh2_dlc15_hef_mage_beasts"},
+        {"wh2_dlc15_hef_mage_death"},
+        {"wh2_dlc15_hef_mage_fire"},
+        {"wh2_dlc15_hef_mage_metal"},
+        {"wh2_dlc15_grn_river_troll_hag"}
     }
 }
